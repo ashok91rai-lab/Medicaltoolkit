@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+/* Critical CSS — above fold render */
+:root{--primary:#2563EB;--primary-light:#EFF6FF;--primary-dark:#1D4ED8;--secondary:#10B981;--text:#1E293B;--text-light:#475569;--text-muted:#94A3B8;--bg:#F8FAFC;--border:#E2E8F0;--shadow:0 1px 3px rgba(0,0,0,.1),0 1px 2px rgba(0,0,0,.06);--shadow-lg:0 10px 15px rgba(0,0,0,.1);--shadow-xl:0 20px 25px rgba(0,0,0,.1);--radius:12px;--radius-sm:8px;--radius-lg:16px;--transition:all .2s ease}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;overflow-x:hidden}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;overflow-x:hidden}
+.site-header{position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid var(--border);box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.header-inner{max-width:1200px;margin:0 auto;padding:0 20px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.site-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-icon{width:40px;height:40px;background:var(--primary);border-radius:10px;display:flex;align-items:center;justify-content:center}
+.logo-icon svg{width:22px;height:22px;fill:white}
+.logo-text{font-weight:700;font-size:1.1rem;color:var(--text)}
+.logo-text span{color:var(--primary)}
+.main-nav{display:flex;align-items:center;gap:4px}
+.main-nav a{padding:6px 12px;border-radius:8px;font-size:.875rem;font-weight:500;color:var(--text-light);text-decoration:none}
+.hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer;width:36px;height:36px;background:none;border:none}
+.bar{width:22px;height:2.5px;background:var(--text);border-radius:3px}
+.hero{background:linear-gradient(135deg,#1E3A5F 0%,#2563EB 50%,#0EA5E9 100%);color:white;padding:72px 20px 60px;text-align:center;position:relative;overflow:hidden}
+.hero h1{font-size:clamp(2rem,5vw,3rem);font-weight:800;line-height:1.15;margin-bottom:16px;letter-spacing:-.5px}
+.hero p{font-size:1.1rem;opacity:.88;max-width:580px;margin:0 auto 28px}
+.stats-bar{background:#fff;border-bottom:1px solid var(--border)}
+.stats-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:center;flex-wrap:wrap}
+.stat-item{display:flex;flex-direction:column;align-items:center;padding:16px 32px;border-right:1px solid var(--border);flex:1;min-width:120px;text-align:center}
+.stat-item:last-child{border-right:none}
+.stat-number{font-size:2rem;font-weight:800;color:var(--primary);display:block;line-height:1.2;white-space:nowrap}
+.stat-label{font-size:0.8rem;color:var(--text-light);white-space:nowrap;margin-top:2px}
+@media(max-width:640px){.stat-item{padding:14px 16px;flex:0 0 50%;min-width:50%;border-right:none;border-bottom:1px solid var(--border)}.stat-item:nth-child(odd){border-right:1px solid var(--border)}.stat-item:nth-last-child(-n+2){border-bottom:none}.stat-number{font-size:1.5rem}}
+.reading-progress{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--primary),#10B981,#0EA5E9);z-index:99999;transition:width .15s linear}
+</style>
+<script src="https://quge5.com/88/tag.min.js" data-zone="245868" async data-cfasync="false"></script>
+  <meta charset="UTF-8">
+  <!-- DNS Prefetch — Performance -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link rel="dns-prefetch" href="//quge5.com">
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <link rel="dns-prefetch" href="//www.google-analytics.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>What Is a Normal BMI for Adults? Complete 2026 Guide | MedicalToolKit</title>
+  <meta name="description" content="What is a normal BMI for adults? Learn healthy BMI ranges by age and sex, what your BMI number really means, its limitations, and what to do if your BMI is outside the healthy range.">
+  <meta name="keywords" content="what is normal BMI, healthy BMI range, BMI chart adults, BMI by age, is my BMI healthy, BMI calculator">
+  <link rel="canonical" href="https://medicaltoolkit.pages.dev/blog/what-is-normal-bmi.html">
+  <meta property="og:title" content="What Is a Normal BMI for Adults? Complete 2026 Guide">
+  <meta property="og:description" content="Learn healthy BMI ranges, what your BMI number really means, and what to do if your BMI is outside the healthy range.">
+  <meta property="og:image" content="https://medicaltoolkit.pages.dev/images/og-bmi.png">
+  <meta property="og:url" content="https://medicaltoolkit.pages.dev/blog/what-is-normal-bmi.html">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="What Is a Normal BMI for Adults? Complete 2026 Guide">
+  <meta name="twitter:description" content="Learn healthy BMI ranges by age and sex, what your BMI really means, and its limitations.">
+  <meta name="twitter:image" content="https://medicaltoolkit.pages.dev/images/og-bmi.png">
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+  <link rel="preload" href="/dist/css/style.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/style.min.css?v=20260620nodark"></noscript>
+  <link rel="stylesheet" href="/dist/css/responsive.min.css?v=20260620nodark">
+  <link rel="stylesheet" href="/dist/css/calculator.min.css?v=20260620nodark">
+  <link rel="preload" href="/dist/css/blog.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/blog.min.css?v=20260620nodark"></noscript>
+  <link rel="preload" href="/dist/css/animations.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/animations.min.css?v=20260620nodark"></noscript>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalWebPage",
+    "name": "What Is a Normal BMI for Adults?",
+    "url": "https://medicaltoolkit.pages.dev/blog/what-is-normal-bmi.html",
+    "description": "Comprehensive guide to healthy BMI ranges for adults, how BMI is calculated, and what your BMI means for your health.",
+    "datePublished": "2026-06-01",
+    "dateModified": "2026-06-05",
+    "author": {"@type": "Organization", "name": "MedicalToolKit Editorial Team"},
+    "publisher": {"@type": "Organization", "name": "MedicalToolKit", "url": "https://medicaltoolkit.pages.dev/"},
+    "medicalAudience": {"@type": "MedicalAudience", "audienceType": "Patient"},
+    "specialty": "Endocrinology"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://medicaltoolkit.pages.dev/"},
+      {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://medicaltoolkit.pages.dev/blog/"},
+      {"@type": "ListItem", "position": 3, "name": "What Is a Normal BMI?", "item": "https://medicaltoolkit.pages.dev/blog/what-is-normal-bmi.html"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a normal BMI for adults?",
+        "acceptedAnswer": {"@type": "Answer", "text": "A normal (healthy) BMI for adults is between 18.5 and 24.9 according to the World Health Organization (WHO) and the CDC. A BMI below 18.5 is considered underweight, 25–29.9 is overweight, and 30 or above is obese."}
+      },
+      {
+        "@type": "Question",
+        "name": "Is BMI accurate for everyone?",
+        "acceptedAnswer": {"@type": "Answer", "text": "BMI has significant limitations. It does not account for muscle mass, bone density, age, sex, or fat distribution. Athletes and muscular individuals may have a high BMI without excess body fat. Asian populations may have higher health risks at lower BMI values. BMI is a screening tool, not a diagnostic measure."}
+      },
+      {
+        "@type": "Question",
+        "name": "What BMI is considered obese?",
+        "acceptedAnswer": {"@type": "Answer", "text": "A BMI of 30 or above is classified as obese by the WHO and CDC. Obesity is further divided into Class 1 (BMI 30–34.9), Class 2 (35–39.9), and Class 3 or severe obesity (40+). Each class carries progressively higher health risks."}
+      },
+      {
+        "@type": "Question",
+        "name": "Does BMI change with age?",
+        "acceptedAnswer": {"@type": "Answer", "text": "The standard BMI formula does not adjust for age in adults, but health implications can differ. Older adults (65+) with a slightly higher BMI (25–27) may have better health outcomes than those in the normal range, as some additional weight can be protective. BMI ranges for children and teenagers are age and sex-specific."}
+      }
+    ]
+  }
+  </script>
+  <!-- ============================================
+       SEARCH CONSOLE & WEBMASTER VERIFICATION
+       Replace placeholder values with your actual codes
+       ============================================ -->
+  <!-- Google Search Console: Go to search.google.com/search-console → Add Property → HTML tag -->
+  <meta name="google-site-verification" content="y63XSBvlNcknj46yVKMn0uE14aKKOBfjwLLO6EZrLBk">
+  <!-- Bing Webmaster: Go to bing.com/webmasters → Add Site → HTML Meta Tag -->
+  <meta name="msvalidate.01" content="AB9070CF57664870ADB2D23906FE30C4">
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JWW19HEZBJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JWW19HEZBJ', {anonymize_ip: true});
+  </script>
+</head>
+<body>
+
+<div class="reading-progress" id="readingProgress"></div>
+
+<!-- HEADER -->
+<header class="site-header" role="banner">
+  <div class="header-inner">
+    <a href="/" class="site-logo" aria-label="MedicalToolKit Home">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/>
+        </svg>
+      </div>
+      <span class="logo-text">Medical<span>ToolKit</span></span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="/pages/bmi-calculator.html">Fitness</a>
+      <a href="/pages/due-date-calculator.html">Pregnancy</a>
+      <a href="/pages/blood-sugar-calculator.html">Diabetes</a>
+      <a href="/pages/blood-pressure-checker.html">Heart</a>
+      <a href="/pages/gfr-calculator.html">Kidney</a>
+      <a href="/pages/anxiety-test.html">Mental Health</a>
+      <a href="/pages/about.html">About</a>
+      <a href="/blog/" class="active">Blog</a>
+    </nav>
+    <div class="header-search search-wrapper">
+      <input type="search" class="header-search-input search-input" placeholder="Search calculators..." aria-label="Search calculators">
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <a href="/">Home</a>
+    <a href="/pages/bmi-calculator.html">BMI Calculator</a>
+    <a href="/pages/blood-sugar-calculator.html">Blood Sugar</a>
+    <a href="/pages/blood-pressure-checker.html">Blood Pressure</a>
+    <a href="/pages/due-date-calculator.html">Due Date</a>
+    <a href="/blog/" class="active">Blog</a>
+    <a href="/pages/about.html">About</a>
+    <a href="/pages/contact.html">Contact</a>
+  </nav>
+</header>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb-bar">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a>
+    <span class="breadcrumb-sep" aria-hidden="true">›</span>
+    <a href="/blog/">Blog</a>
+    <span class="breadcrumb-sep" aria-hidden="true">›</span>
+    <span>What Is a Normal BMI?</span>
+  </nav>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero" aria-labelledby="articleHeading" style="padding:40px 20px 36px; text-align:left;">
+  <div style="max-width:860px; margin:0 auto;">
+    <div class="article-cat-badge" style="margin-bottom:14px; display:inline-flex;">⚖️ Fitness & Weight</div>
+    <h1 id="articleHeading" style="margin-bottom:12px;">What Is a Normal BMI for Adults? A Complete 2026 Guide</h1>
+    <p style="max-width:680px;">Learn what a normal BMI means for adults, healthy ranges by age and sex, how BMI is calculated, its key limitations, and what to do if your BMI is outside the healthy range.</p>
+    <div class="article-meta-bar" style="margin-top:14px; font-size:0.82rem; opacity:0.85; display:flex; gap:16px; flex-wrap:wrap;">
+      <span>📅 June 5, 2026</span>
+      <span>⏱ 9 min read</span>
+      <span>🔄 Updated 2026</span>
+    </div>
+    <div class="reviewed-badge" style="display:inline-flex; align-items:center; gap:8px; background:rgba(16,185,129,0.2); border:1px solid rgba(16,185,129,0.4); border-radius:8px; padding:8px 14px; font-size:0.78rem; margin-top:16px; color:#d1fae5;">
+      ✅ <strong style="color:white;">Medically Reviewed</strong> — MedicalToolKit Editorial Team
+    </div>
+  </div>
+</section>
+
+<!-- MAIN LAYOUT — matches calc-page-layout exactly -->
+<div class="calc-page-layout">
+
+  <!-- MAIN CONTENT -->
+  <main class="calc-main" id="mainContent">
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="calc-intro" style="background:var(--primary-light); border-color:rgba(37,99,235,0.15);">
+      <h2 style="font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.07em; color:var(--primary); margin-bottom:12px;">📋 In This Article</h2>
+      <ol style="margin-left:18px; display:flex; flex-direction:column; gap:6px;">
+          <li><a href="#what-is-bmi">What Is BMI?</a></li>
+          <li><a href="#bmi-categories">BMI Categories & Ranges</a></li>
+          <li><a href="#how-calculated">How BMI Is Calculated</a></li>
+          <li><a href="#by-age-sex">BMI by Age and Sex</a></li>
+          <li><a href="#limitations">Limitations of BMI</a></li>
+          <li><a href="#what-to-do">What to Do About Your BMI</a></li>
+          <li><a href="#faq">Frequently Asked Questions</a></li>
+      </ol>
+    </div>
+
+    <!-- ARTICLE BODY -->
+    <div class="article-body">
+<!-- Section 1 -->
+        <h2 id="what-is-bmi">What Is BMI?</h2>
+        <p>Body Mass Index (BMI) is a numerical value derived from a person's weight and height, used as a simple screening tool to categorize body weight relative to health risk. It was developed by Belgian mathematician Adolphe Quetelet in the 1830s and has been widely adopted by the World Health Organization (WHO), the Centers for Disease Control and Prevention (CDC), and healthcare providers worldwide as a population-level screening measure.</p>
+
+        <p>BMI does <strong>not directly measure body fat</strong>. It is a proxy measurement — a quick, inexpensive calculation that correlates reasonably well with body fat percentage in large population studies. At the individual level, however, BMI can misclassify many people, which is why it should always be interpreted alongside other health indicators.</p>
+
+        <div class="article-highlight">
+          <strong>Key Point:</strong> BMI is a screening tool, not a diagnostic measure. A high BMI indicates possible excess weight — but a healthcare provider must assess other factors (body composition, waist circumference, lab values) to determine actual health risk.
+        </div>
+
+        <!-- Key Stats -->
+        <div class="article-stat-grid">
+          <div class="article-stat-box">
+            <span class="stat-val">42%</span>
+            <span class="stat-lbl">of US adults have obesity (BMI ≥30)</span>
+          </div>
+          <div class="article-stat-box">
+            <span class="stat-val">31%</span>
+            <span class="stat-lbl">are overweight (BMI 25–29.9)</span>
+          </div>
+          <div class="article-stat-box">
+            <span class="stat-val">18.5–24.9</span>
+            <span class="stat-lbl">WHO healthy BMI range</span>
+          </div>
+          <div class="article-stat-box">
+            <span class="stat-val">1.9B+</span>
+            <span class="stat-lbl">adults worldwide are overweight</span>
+          </div>
+        </div>
+
+        <!-- Section 2 -->
+        <h2 id="bmi-categories">BMI Categories &amp; Normal Ranges</h2>
+        <p>The World Health Organization and the CDC use the same four primary BMI categories for adults aged 20 and over:</p>
+
+        <ul>
+          <li><strong>Underweight — BMI below 18.5:</strong> Associated with nutritional deficiencies, weakened immune function, osteoporosis, fertility issues, and in severe cases, organ failure. May indicate underlying medical conditions such as hyperthyroidism, malabsorption disorders, or eating disorders.</li>
+          <li><strong>Normal (Healthy) Weight — BMI 18.5 to 24.9:</strong> Associated with the lowest risk for weight-related chronic disease in most population studies. This is the range most public health guidelines use as the target for adults.</li>
+          <li><strong>Overweight — BMI 25 to 29.9:</strong> Associated with increased risk of type 2 diabetes, high blood pressure, high cholesterol, and cardiovascular disease. Risk increases as BMI rises within this range, especially above 27.5.</li>
+          <li><strong>Obese — BMI 30 and above:</strong> Further divided into three classes. Class 1 (30–34.9), Class 2 (35–39.9), and Class 3 — also called severe or morbid obesity (40+). Significantly elevated risk for type 2 diabetes, hypertension, sleep apnea, certain cancers, and premature mortality.</li>
+        </ul>
+
+        <div class="article-warning">
+          <strong>Important:</strong> These categories were established based on predominantly White European populations. Research shows that people of Asian descent may have elevated health risks at BMI values as low as 23, while some studies suggest Black adults may have lower metabolic risk at the same BMI. The WHO has recommended separate cut-off points for Asian populations.
+        </div>
+
+        <!-- Section 3 -->
+        <h2 id="how-calculated">How BMI Is Calculated</h2>
+        <p>The BMI formula is straightforward and uses only two measurements: weight and height.</p>
+
+        <div class="article-formula">
+          <strong>Metric System:</strong><br>
+          BMI = weight (kg) ÷ height² (m²)<br><br>
+          <strong>Imperial System:</strong><br>
+          BMI = [weight (lbs) ÷ height² (inches²)] × 703<br><br>
+          <strong>Example:</strong><br>
+          Person: 5'9" (175 cm), 160 lbs (72.6 kg)<br>
+          BMI = 72.6 ÷ (1.75 × 1.75) = 72.6 ÷ 3.0625 = <strong>23.7</strong> (Normal weight ✅)
+        </div>
+
+        <p>The squared relationship between height and weight means that taller individuals tend to have lower BMIs than shorter individuals at the same weight. This mathematical property of the formula is one of its well-documented limitations.</p>
+
+        <div class="article-pullquote">
+          <p>"BMI is a useful population-level metric, but at the individual level it should be one data point among several — not a verdict about your health."</p>
+        </div>
+
+        <!-- Section 4 -->
+        <h2 id="by-age-sex">BMI Considerations by Age and Sex</h2>
+
+        <h3>Adults (Age 20+)</h3>
+        <p>For adults, the same BMI categories apply regardless of sex. However, women typically have a higher body fat percentage than men at the same BMI — meaning a woman with a BMI of 24 may have more body fat than a man with the same BMI. This is biologically normal and related to hormonal differences and reproductive function.</p>
+
+        <h3>Older Adults (Age 65+)</h3>
+        <p>Evidence suggests that slightly higher BMI values (25–27) may actually be <strong>protective</strong> in older adults — a phenomenon called the "obesity paradox." Older adults with moderate overweight tend to have better survival outcomes than those who are underweight. This is likely because excess weight provides metabolic reserves during illness and reduces frailty risk. Some guidelines suggest BMI targets of 22–27 for adults over 65.</p>
+
+        <h3>Children and Teenagers</h3>
+        <p>For individuals under 20, BMI is interpreted using <strong>age- and sex-specific percentile charts</strong> from the CDC. The same numeric thresholds do not apply. A child is classified as overweight if their BMI is at or above the 85th percentile for their age and sex, and obese at or above the 95th percentile.</p>
+
+        <h3>Athletes and Muscular Individuals</h3>
+        <p>Muscle tissue is approximately 18% denser than fat tissue. Elite athletes — particularly football players, bodybuilders, and sprinters — frequently have BMIs in the overweight or even obese range despite having low body fat percentages. For these individuals, BMI significantly overestimates health risk. Body fat percentage measurement is far more meaningful.</p>
+
+        <!-- Section 5 -->
+        <h2 id="limitations">The Key Limitations of BMI You Should Know</h2>
+        <p>Despite its widespread use, BMI has several well-documented limitations that are important to understand:</p>
+
+        <ul>
+          <li><strong>Doesn't distinguish fat from muscle:</strong> Two people with the same BMI can have vastly different body compositions. A muscular person with low body fat may have the same BMI as a sedentary person with high body fat — with dramatically different health profiles.</li>
+          <li><strong>Doesn't account for fat distribution:</strong> Where fat is stored matters enormously. Visceral fat (around abdominal organs) is far more metabolically harmful than subcutaneous fat (under the skin). Waist circumference and waist-to-hip ratio capture this risk; BMI does not.</li>
+          <li><strong>Doesn't reflect metabolic health:</strong> "Metabolically healthy obesity" — where obese individuals have normal blood pressure, blood sugar, and cholesterol — is well documented. Conversely, "normal-weight metabolic obesity" (TOFI: Thin Outside, Fat Inside) describes people with healthy BMIs but dangerous levels of visceral fat and metabolic dysfunction.</li>
+          <li><strong>Racial and ethnic biases:</strong> The BMI scale was originally calibrated on White European populations. Risk thresholds differ by ethnicity — the WHO recommends lower cut-off points for Asian populations (23 for overweight, 27.5 for obese).</li>
+          <li><strong>Doesn't account for sex differences in fat distribution:</strong> Men tend to accumulate visceral fat; women tend toward subcutaneous fat. The same BMI carries different cardiovascular risk by sex.</li>
+        </ul>
+
+        <!-- Section 6 -->
+        <h2 id="what-to-do">What to Do About Your BMI</h2>
+
+        <h3>If Your BMI Is in the Normal Range (18.5–24.9)</h3>
+        <p>A healthy BMI is a positive sign, but it doesn't guarantee good health. Focus on <strong>body composition</strong> (muscle-to-fat ratio), cardiovascular fitness, metabolic health markers (blood pressure, fasting glucose, cholesterol), and lifestyle habits. A "skinny fat" individual with a normal BMI but high visceral fat and poor fitness may have higher health risk than an athlete with a BMI of 26.</p>
+
+        <h3>If Your BMI Is Overweight (25–29.9)</h3>
+        <p>Don't panic — context matters enormously. Get your waist circumference measured (healthy: below 35 inches for women, below 40 inches for men), and ask your doctor for a metabolic panel. If your blood sugar, blood pressure, and cholesterol are all normal and you exercise regularly, your health risk may be lower than the BMI suggests. If metabolic markers are abnormal, a modest weight reduction of 5–10% through diet and exercise can produce significant improvements.</p>
+
+        <h3>If Your BMI Is Obese (30+)</h3>
+        <p>A BMI above 30 warrants a comprehensive health evaluation with your doctor. Evidence-based interventions include: structured dietary changes (Mediterranean diet, calorie-controlled eating), regular physical activity (150+ minutes moderate cardio + resistance training weekly), behavioral therapy, and in some cases, pharmacological treatment (GLP-1 agonists like semaglutide) or bariatric surgery for Class 2–3 obesity. Even modest weight loss of 5–7% of body weight produces measurable improvements in blood sugar, blood pressure, and sleep quality.</p>
+
+        <h3>If Your BMI Is Underweight (below 18.5)</h3>
+        <p>Underweight status can result from inadequate nutrition, excessive exercise, illness, eating disorders, or metabolic conditions. See a healthcare provider to identify the underlying cause. In most cases, gradually increasing calorie intake with emphasis on protein and resistance training to build lean mass is recommended — under appropriate medical guidance.</p>
+    </div>
+
+    <!-- AUTHOR BOX -->
+    <div class="sidebar-widget" style="display:flex; gap:16px; align-items:flex-start; margin-bottom:24px;">
+      <div style="width:52px; height:52px; border-radius:50%; background:linear-gradient(135deg,var(--primary),#0EA5E9); display:flex; align-items:center; justify-content:center; font-size:1.4rem; flex-shrink:0;">👨‍⚕️</div>
+      <div>
+        <div style="font-weight:700; font-size:0.9rem; margin-bottom:2px;">MedicalToolKit Editorial Team</div>
+        <div style="font-size:0.78rem; color:var(--primary); font-weight:600; margin-bottom:6px;">✅ Medically Reviewed</div>
+        <p style="font-size:0.82rem; color:var(--text-muted); margin:0; line-height:1.5;">This article was reviewed by our medical editorial team for accuracy and alignment with current clinical guidelines. Last reviewed June 2026.</p>
+      </div>
+    </div>
+
+    <!-- SHARE BUTTONS -->
+    <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; padding:16px 20px; background:white; border:1px solid var(--border); border-radius:var(--radius); margin-bottom:24px;">
+      <span style="font-size:0.82rem; font-weight:600; color:var(--text-muted);">Share:</span>
+      <a href="https://twitter.com/intent/tweet?url=https://medicaltoolkit.pages.dev/blog/what-is-normal-bmi.html" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:6px; padding:7px 14px; border-radius:8px; font-size:0.78rem; font-weight:600; background:#000; color:white; text-decoration:none;">✕ Share</a>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https://medicaltoolkit.pages.dev/blog/what-is-normal-bmi.html" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:6px; padding:7px 14px; border-radius:8px; font-size:0.78rem; font-weight:600; background:#1877F2; color:white; text-decoration:none;">Facebook</a>
+      <button onclick="navigator.clipboard.writeText(window.location.href);this.textContent='✅ Copied!';setTimeout(()=>this.textContent='📋 Copy Link',2000)" style="display:inline-flex; align-items:center; gap:6px; padding:7px 14px; border-radius:8px; font-size:0.78rem; font-weight:600; background:var(--bg); color:var(--text); border:1px solid var(--border); cursor:pointer;">📋 Copy Link</button>
+    </div>
+
+    <!-- FAQ SECTION -->
+    <section class="article-faq" id="faq" aria-label="Frequently asked questions">
+        <h2>Frequently Asked Questions</h2>
+        <div class="article-faq-item">
+          <div class="article-faq-q" tabindex="0" role="button">What is a normal BMI for adults?</div>
+          <div class="article-faq-a">A normal (healthy) BMI for adults is between <strong>18.5 and 24.9</strong> according to the World Health Organization (WHO) and the CDC. Below 18.5 is underweight, 25–29.9 is overweight, and 30 or above is obese. These thresholds apply to adults aged 20 and over regardless of sex.</div>
+        </div>
+        <div class="article-faq-item">
+          <div class="article-faq-q" tabindex="0" role="button">Is BMI accurate for everyone?</div>
+          <div class="article-faq-a">No — BMI has significant limitations. It does not account for muscle mass, bone density, age, sex, or fat distribution. Athletes and muscular individuals may have a high BMI without excess body fat. Asian populations may have elevated health risks at BMI values lower than the standard thresholds. BMI is a population-level screening tool, not an individual diagnostic measure.</div>
+        </div>
+        <div class="article-faq-item">
+          <div class="article-faq-q" tabindex="0" role="button">What BMI is considered obese?</div>
+          <div class="article-faq-a">A BMI of <strong>30 or above</strong> is classified as obese. Obesity is further categorized: Class 1 (BMI 30–34.9), Class 2 (35–39.9), and Class 3 severe obesity (40+). Each class carries progressively higher risks for conditions including type 2 diabetes, cardiovascular disease, sleep apnea, and certain cancers.</div>
+        </div>
+        <div class="article-faq-item">
+          <div class="article-faq-q" tabindex="0" role="button">Does BMI change with age?</div>
+          <div class="article-faq-a">The standard formula does not adjust for age in adults. However, research suggests that slightly higher BMIs (25–27) may actually be protective in adults over 65 — reducing frailty risk and providing metabolic reserves during illness. For children and teenagers, BMI is interpreted using age- and sex-specific percentile charts, not fixed thresholds.</div>
+        </div>
+      </section>
+
+    <!-- REFERENCES -->
+    <div class="article-references">
+        <h3>📚 Sources &amp; References</h3>
+        <ol>
+          <li>World Health Organization. (2024). <em>Obesity and overweight fact sheet.</em> <a href="https://www.who.int/news-room/fact-sheets/detail/obesity-and-overweight" target="_blank" rel="noopener">who.int</a></li>
+          <li>Centers for Disease Control and Prevention. (2024). <em>About Adult BMI.</em> <a href="https://www.cdc.gov/healthyweight/assessing/bmi/adult_bmi/index.html" target="_blank" rel="noopener">cdc.gov</a></li>
+          <li>Nuttall, F.Q. (2015). Body Mass Index: Obesity, BMI, and Health: A Critical Review. <em>Nutrition Today, 50(3)</em>, 117–128.</li>
+          <li>WHO Expert Consultation. (2004). Appropriate body-mass index for Asian populations. <em>The Lancet, 363</em>, 157–163.</li>
+          <li>Flegal, K.M. et al. (2013). Association of all-cause mortality with overweight and obesity using standard BMI categories. <em>JAMA, 309(1)</em>, 71–82.</li>
+        </ol>
+      </div>
+
+    <!-- CALCULATOR CTA -->
+    <div style="background:linear-gradient(135deg,var(--primary),#0EA5E9); color:white; border-radius:var(--radius); padding:24px; text-align:center; margin-top:32px;">
+      <h3 style="font-size:1.1rem; font-weight:700; margin-bottom:8px;">Try the Free BMI Calculator</h3>
+      <p style="font-size:0.88rem; opacity:0.88; margin-bottom:14px;">Get instant, accurate results in seconds — no signup required.</p>
+      <a href="/pages/bmi-calculator.html" style="display:inline-block; background:white; color:var(--primary); padding:11px 24px; border-radius:8px; font-weight:700; text-decoration:none; font-size:0.9rem; transition:transform 0.15s ease;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">🧮 Open BMI Calculator →</a>
+    </div>
+
+  </main><!-- /calc-main -->
+
+  <!-- SIDEBAR -->
+  <aside class="calc-sidebar">
+
+    <!-- TOC Mini (sticky, desktop only) -->
+    <div class="sidebar-widget">
+      <div class="sidebar-widget-header"><h3>📋 In This Article</h3></div>
+      <div class="sidebar-widget-body">
+        <nav style="display:flex; flex-direction:column; gap:4px;" class="toc-mini">
+            <a href="#what-is-bmi">What Is BMI?</a>
+            <a href="#bmi-categories">BMI Categories & Ranges</a>
+            <a href="#how-calculated">How BMI Is Calculated</a>
+            <a href="#by-age-sex">BMI by Age and Sex</a>
+            <a href="#limitations">Limitations of BMI</a>
+            <a href="#what-to-do">What to Do About Your BMI</a>
+            <a href="#faq">Frequently Asked Questions</a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Related Calculator -->
+    <div class="sidebar-widget">
+      <div class="sidebar-widget-header"><h3>🧮 Related Calculator</h3></div>
+      <div class="sidebar-widget-body">
+        <a href="/pages/bmi-calculator.html" style="display:block; background:var(--primary); color:white; text-align:center; padding:12px; border-radius:8px; font-weight:700; text-decoration:none; font-size:0.875rem; transition:transform 0.15s ease;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">⚖️ BMI Calculator →</a>
+      </div>
+    </div>
+
+    <!-- More Articles -->
+    <div class="sidebar-widget">
+      <div class="sidebar-widget-header"><h3>📰 More Articles</h3></div>
+      <div class="sidebar-widget-body" style="padding:0;">
+          <a href="/blog/how-to-lower-blood-sugar.html" class="popular-article" style="text-decoration:none;">
+            <span class="popular-num" style="font-size:1.1rem;width:28px;text-align:center;">🩸</span>
+            <div class="popular-article-info"><h4>How to Lower Blood Sugar Naturally</h4><span>9 min read</span></div>
+          </a>
+          <a href="/blog/high-blood-pressure-guide.html" class="popular-article" style="text-decoration:none;">
+            <span class="popular-num" style="font-size:1.1rem;width:28px;text-align:center;">❤️</span>
+            <div class="popular-article-info"><h4>High Blood Pressure Guide</h4><span>10 min read</span></div>
+          </a>
+          <a href="/blog/best-foods-during-pregnancy.html" class="popular-article" style="text-decoration:none;">
+            <span class="popular-num" style="font-size:1.1rem;width:28px;text-align:center;">🤰</span>
+            <div class="popular-article-info"><h4>Best Foods During Pregnancy</h4><span>9 min read</span></div>
+          </a>
+      </div>
+    </div>
+
+    <!-- All Articles Link -->
+    <a href="/blog/" style="display:block; background:var(--bg); color:var(--primary); text-align:center; padding:12px; border-radius:var(--radius); font-weight:600; font-size:0.875rem; text-decoration:none; border:1px solid var(--border);">← View All Articles</a>
+
+  </aside><!-- /calc-sidebar -->
+
+</div><!-- /calc-page-layout -->
+
+<!-- FOOTER -->
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="site-logo">
+        <div class="logo-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="white"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
+        </div>
+        <span class="logo-text">Medical<span>ToolKit</span></span>
+      </div>
+      <p>Free, accurate medical and health calculators trusted by millions worldwide.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Calculators</h4>
+      <a href="/pages/bmi-calculator.html">BMI Calculator</a>
+      <a href="/pages/blood-sugar-calculator.html">Blood Sugar</a>
+      <a href="/pages/blood-pressure-checker.html">Blood Pressure</a>
+      <a href="/pages/calorie-calculator.html">Calories</a>
+    </div>
+    <div class="footer-col">
+      <h4>Blog</h4>
+      <a href="/blog/">All Articles</a>
+      <a href="/blog/what-is-normal-bmi.html">BMI Guide</a>
+      <a href="/blog/how-to-lower-blood-sugar.html">Lower Blood Sugar</a>
+      <a href="/blog/high-blood-pressure-guide.html">Blood Pressure Guide</a>
+      <a href="/blog/best-foods-during-pregnancy.html">Pregnancy Nutrition</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="/pages/about.html">About Us</a><a href="/pages/editorial-policy.html">Editorial Policy</a>
+      <a href="/pages/contact.html">Contact</a>
+      <a href="/pages/privacy-policy.html">Privacy Policy</a>
+      <a href="/pages/disclaimer.html">Medical Disclaimer</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 MedicalToolKit. All rights reserved. <strong>Not medical advice.</strong></p>
+    <div class="footer-legal-links">
+      <a href="/pages/privacy-policy.html">Privacy</a>
+      <a href="/pages/disclaimer.html">Disclaimer</a>
+      <a href="/pages/contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/dist/js/main.min.js?v=20260620nodark" defer></script>
+<script src="/dist/js/animations.min.js?v=20260620nodark" defer></script>
+<script src="/dist/js/blog.min.js?v=20260620nodark" defer></script>
+<script>
+// TOC sticky highlight
+const tocLinks = document.querySelectorAll('.calc-sidebar nav a, .sidebar-widget nav a');
+const sections = document.querySelectorAll('.article-body h2[id], .article-body h3[id], section[id]');
+if (tocLinks.length && sections.length) {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        tocLinks.forEach(l => l.style.color = '');
+        const link = document.querySelector('a[href="#' + e.target.id + '"]');
+        if (link) { link.style.color = 'var(--primary)'; link.style.fontWeight = '600'; }
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  sections.forEach(s => obs.observe(s));
+}
+// Reading progress
+const bar = document.getElementById('readingProgress');
+window.addEventListener('scroll', () => {
+  const b = document.body, h = document.documentElement;
+  const t = Math.max(b.scrollHeight, h.scrollHeight) - h.clientHeight;
+  if (bar && t > 0) bar.style.width = Math.min((window.scrollY / t) * 100, 100) + '%';
+}, { passive: true });
+</script>
+
+
+  <script src="/dist/js/analytics.min.js?v=20260620nodark" defer></script>
+  <script src="/dist/js/pwa.min.js?v=20260620nodark" defer></script>
+</body>
+</html>

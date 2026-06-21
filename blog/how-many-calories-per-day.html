@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+:root{--primary:#2563EB;--primary-light:#EFF6FF;--primary-dark:#1D4ED8;--secondary:#10B981;--text:#1E293B;--text-light:#475569;--text-muted:#94A3B8;--bg:#F8FAFC;--border:#E2E8F0;--shadow:0 1px 3px rgba(0,0,0,.1),0 1px 2px rgba(0,0,0,.06);--shadow-lg:0 10px 15px rgba(0,0,0,.1);--shadow-xl:0 20px 25px rgba(0,0,0,.1);--radius:12px;--radius-sm:8px;--transition:all .2s ease}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;overflow-x:hidden}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;overflow-x:hidden}
+.site-header{position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid var(--border);box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.header-inner{max-width:1200px;margin:0 auto;padding:0 20px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.site-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-icon{width:40px;height:40px;background:var(--primary);border-radius:10px;display:flex;align-items:center;justify-content:center}
+.logo-icon svg{width:22px;height:22px;fill:white}
+.logo-text{font-weight:700;font-size:1.1rem;color:var(--text)}.logo-text span{color:var(--primary)}
+.main-nav{display:flex;align-items:center;gap:4px}.main-nav a{padding:6px 12px;border-radius:8px;font-size:.875rem;font-weight:500;color:var(--text-light);text-decoration:none}
+.hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer;width:36px;height:36px;background:none;border:none}
+.bar{width:22px;height:2.5px;background:var(--text);border-radius:3px}
+.reading-progress{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--primary),#10B981,#0EA5E9);z-index:99999;transition:width .15s linear}
+.breadcrumb-bar{background:#fff;border-bottom:1px solid var(--border);padding:0 20px}
+.breadcrumb{max-width:1200px;margin:0 auto;padding:10px 0;display:flex;align-items:center;gap:6px;font-size:.8rem;color:var(--text-muted)}
+.breadcrumb a{color:var(--text-muted);text-decoration:none}
+.page-hero{background:linear-gradient(135deg,#1E3A5F 0%,#2563EB 100%);color:white;padding:40px 20px;text-align:left}
+.page-hero h1{font-size:clamp(1.5rem,3vw,2.25rem);font-weight:700;letter-spacing:-.3px;margin-bottom:8px}
+.page-hero p{font-size:1rem;color:rgba(255,255,255,.85);max-width:600px}
+</style>
+  <script src="https://quge5.com/88/tag.min.js" data-zone="245868" async data-cfasync="false"></script>
+  <meta charset="UTF-8">
+  <link rel="dns-prefetch" href="//fonts.googleapis.com"><link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link rel="dns-prefetch" href="//quge5.com"><link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>How Many Calories Should I Eat Per Day? By Age, Sex & Goal | MedicalToolKit</title>
+  <meta name="description" content="How many calories should you eat per day? Find your daily calorie needs by age, sex, weight, and activity level. Includes calorie targets for weight loss, maintenance, and gain.">
+  <meta name="keywords" content="how many calories per day, daily calorie intake, calories for weight loss, how many calories should I eat, calorie calculator, daily calorie needs">
+  <link rel="canonical" href="https://medicaltoolkit.pages.dev/blog/how-many-calories-per-day.html">
+  <meta property="og:title" content="How Many Calories Should I Eat Per Day? By Age, Sex & Goal">
+  <meta property="og:description" content="How many calories should you eat per day? Find your daily calorie needs by age, sex, weight, and activity level. Includes calorie targets for weight loss, maintenance, and gain.">
+  <meta property="og:image" content="https://medicaltoolkit.pages.dev/images/og-calorie.png">
+  <meta property="og:url" content="https://medicaltoolkit.pages.dev/blog/how-many-calories-per-day.html"><meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How Many Calories Should I Eat Per Day? By Age, Sex & Goal">
+  <meta name="twitter:description" content="How many calories should you eat per day? Find your daily calorie needs by age, sex, weight, and activity level. Includes calorie targets for weight loss, maintenance, and gain.">
+  <meta name="twitter:image" content="https://medicaltoolkit.pages.dev/images/og-calorie.png">
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+  <link rel="preload" href="/dist/css/style.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/style.min.css?v=20260620nodark"></noscript>
+  <link rel="stylesheet" href="/dist/css/responsive.min.css?v=20260620nodark">
+  <link rel="stylesheet" href="/dist/css/calculator.min.css?v=20260620nodark">
+  <link rel="preload" href="/dist/css/blog.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/blog.min.css?v=20260620nodark"></noscript>
+  <link rel="preload" href="/dist/css/animations.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/animations.min.css?v=20260620nodark"></noscript>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap&subset=latin" rel="stylesheet">
+  <meta name="google-site-verification" content="y63XSBvlNcknj46yVKMn0uE14aKKOBfjwLLO6EZrLBk">
+  <meta name="msvalidate.01" content="AB9070CF57664870ADB2D23906FE30C4">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JWW19HEZBJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-JWW19HEZBJ',{anonymize_ip:true});</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"MedicalWebPage","name":"How Many Calories Should I Eat Per Day? By Age, Sex & Goal","url":"https://medicaltoolkit.pages.dev/blog/how-many-calories-per-day.html","description":"How many calories should you eat per day? Find your daily calorie needs by age, sex, weight, and activity level. Includes calorie targets for weight loss, maintenance, and gain.","datePublished":"2026-06-07","dateModified":"2026-06-07","author":{"@type":"Organization","name":"MedicalToolKit Editorial Team"},"publisher":{"@type":"Organization","name":"MedicalToolKit","url":"https://medicaltoolkit.pages.dev/"},"medicalAudience":{"@type":"MedicalAudience","audienceType":"Patient"},"specialty":"Nutrition"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://medicaltoolkit.pages.dev/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://medicaltoolkit.pages.dev/blog/"},{"@type":"ListItem","position":3,"name":"How Many Calories Per Day","item":"https://medicaltoolkit.pages.dev/blog/how-many-calories-per-day.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many calories should I eat to lose weight?","acceptedAnswer":{"@type":"Answer","text":"To lose approximately 1 pound per week, eat 500 calories below your Total Daily Energy Expenditure (TDEE). To find your TDEE, use our Calorie Calculator. Avoid eating below 1,200 calories/day (women) or 1,500 calories/day (men) without medical supervision, as very low intake causes muscle loss, nutrient deficiencies, and metabolic slowdown."}},
+      {"@type":"Question","name":"Is 1200 calories a day enough?","acceptedAnswer":{"@type":"Answer","text":"1,200 calories per day is the minimum recommended intake for women and is generally too low for most people. At this level, it is very difficult to meet protein, vitamin, and mineral requirements. Most women need 1,500–1,800 calories to lose weight sustainably while preserving muscle. Very low calorie diets (VLCDs) should only be used under medical supervision."}},
+      {"@type":"Question","name":"How many calories do I burn per day without exercise?","acceptedAnswer":{"@type":"Answer","text":"Without any intentional exercise, you burn your BMR (basal metabolic rate) plus light daily activity. For an average sedentary adult, this is approximately 1,600–1,800 calories/day for women and 1,900–2,200 calories/day for men. Use our Calorie Calculator for a personalized estimate based on your age, height, weight, and sex."}},
+      {"@type":"Question","name":"Do calories matter more than carbs for weight loss?","acceptedAnswer":{"@type":"Answer","text":"Ultimately, total calorie balance (calories in vs. calories out) determines whether you lose, gain, or maintain weight — regardless of macronutrient composition. However, the macronutrient distribution of those calories significantly affects satiety, muscle retention, and hormonal response. High protein, moderate fat, and lower refined carbohydrate intake tends to make calorie deficits easier to sustain."}}]}</script>
+</head>
+<body>
+<div class="reading-progress" id="readingProgress"></div>
+<header class="site-header" role="banner">
+  <div class="header-inner">
+    <a href="/" class="site-logo" aria-label="MedicalToolKit Home">
+      <div class="logo-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg></div>
+      <span class="logo-text">Medical<span>ToolKit</span></span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="/pages/bmi-calculator.html">Fitness</a>
+      <a href="/pages/due-date-calculator.html">Pregnancy</a>
+      <a href="/pages/blood-sugar-calculator.html">Diabetes</a>
+      <a href="/pages/blood-pressure-checker.html">Heart</a>
+      <a href="/pages/gfr-calculator.html">Kidney</a>
+      <a href="/pages/anxiety-test.html">Mental Health</a>
+      <a href="/pages/about.html">About</a>
+      <a href="/blog/" class="active">Blog</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <a href="/">Home</a><a href="/pages/bmi-calculator.html">BMI Calculator</a>
+    <a href="/pages/blood-sugar-calculator.html">Blood Sugar</a>
+    <a href="/blog/">Blog</a><a href="/pages/about.html">About</a>
+  </nav>
+</header>
+<div class="breadcrumb-bar"><nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="/">Home</a><span class="breadcrumb-sep">›</span><a href="/blog/">Blog</a><span class="breadcrumb-sep">›</span><span>How Many Calories Per Day</span>
+</nav></div>
+<section class="page-hero" aria-labelledby="articleHeading" style="text-align:left;">
+  <div style="max-width:860px;margin:0 auto;">
+    <div class="article-cat-badge" style="display:inline-flex;margin-bottom:12px;">🔥 Nutrition</div>
+    <h1 id="articleHeading">How Many Calories Should I Eat Per Day? By Age, Sex & Goal</h1>
+    <p style="max-width:680px;margin-top:10px;">How many calories should you eat per day? Find your daily calorie needs by age, sex, weight, and activity level. Includes calorie targets for weight loss, maintenance, and gain.</p>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:14px;font-size:.82rem;opacity:.85;color:white;">
+      <span>📅 June 7, 2026</span><span>⏱ 9 min read</span><span>🔄 Updated 2026</span>
+    </div>
+    <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(16,185,129,.2);border:1px solid rgba(16,185,129,.4);border-radius:8px;padding:8px 14px;font-size:.78rem;margin-top:14px;color:#d1fae5;">✅ <strong style="color:white;">Medically Reviewed</strong> — MedicalToolKit Editorial Team</div>
+  </div>
+</section>
+<div class="calc-page-layout">
+  <main class="calc-main" id="mainContent">
+    <div class="calc-intro" style="background:var(--primary-light);border-color:rgba(37,99,235,.15);">
+      <h2 style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--primary);margin-bottom:12px;">📋 In This Article</h2>
+      <ol style="margin-left:18px;display:flex;flex-direction:column;gap:6px;">          <li><a href="#what-is-tdee">What Is TDEE?</a></li>
+          <li><a href="#by-age">Calories by Age & Sex</a></li>
+          <li><a href="#activity">Activity Level Impact</a></li>
+          <li><a href="#weight-loss">Calories for Weight Loss</a></li>
+          <li><a href="#weight-gain">Calories for Weight Gain</a></li>
+          <li><a href="#quality">Calorie Quality Matters</a></li>
+          <li><a href="#track">How to Track Calories</a></li>
+          <li><a href="#faq">FAQ</a></li></ol>
+    </div>
+    <div class="article-body">
+
+        <h2 id="what-is-tdee">What Is TDEE — Your Personal Calorie Target</h2>
+        <p>Your <strong>Total Daily Energy Expenditure (TDEE)</strong> is the total number of calories your body burns in a day — from keeping you alive at rest (BMR) plus all physical activity. Eating at your TDEE maintains your weight. Eating below it causes fat loss. Eating above it causes weight gain. Everything in nutrition flows from this single number.</p>
+        <p>TDEE has four components: Basal Metabolic Rate (BMR) — 60–70% of total; Thermic Effect of Food (TEF) — 8–10%; Non-Exercise Activity Thermogenesis (NEAT) — 15–30%; and Exercise Activity Thermogenesis (EAT) — 0–15% for most people. The Mifflin-St Jeor equation (1990) is the most accurate BMR formula for non-athlete adults and is the basis of our Calorie Calculator.</p>
+
+        <div class="article-formula">
+Mifflin-St Jeor BMR:
+Men:   BMR = (10 × kg) + (6.25 × cm) − (5 × age) + 5
+Women: BMR = (10 × kg) + (6.25 × cm) − (5 × age) − 161
+
+TDEE = BMR × Activity Multiplier
+Sedentary:         × 1.200
+Lightly Active:    × 1.375
+Moderately Active: × 1.550
+Very Active:       × 1.725
+Extremely Active:  × 1.900
+        </div>
+
+        <h2 id="by-age">Estimated Daily Calorie Needs by Age and Sex</h2>
+        <p>The following ranges are based on the USDA Dietary Guidelines for Americans (2020–2025) for adults of average height and weight at different activity levels:</p>
+        <div class="article-formula">
+                    SEDENTARY    MODERATE     ACTIVE
+Women 19–30:       1,800–2,000  2,000–2,200  2,400
+Women 31–50:       1,800        2,000        2,200
+Women 51+:         1,600        1,800        2,000–2,200
+Men 19–30:         2,400–2,600  2,600–2,800  3,000
+Men 31–50:         2,200–2,400  2,400–2,600  2,800–3,000
+Men 51+:           2,000–2,200  2,200–2,400  2,400–2,800
+
+Pregnant women add ~340 calories/day (2nd trimester)
+                   add ~450 calories/day (3rd trimester)
+Breastfeeding:     add ~330–400 calories/day
+        </div>
+
+        <div class="article-stat-grid">
+          <div class="article-stat-box"><span class="stat-val">2,000</span><span class="stat-lbl">Average daily calories (women)</span></div>
+          <div class="article-stat-box"><span class="stat-val">2,500</span><span class="stat-lbl">Average daily calories (men)</span></div>
+          <div class="article-stat-box"><span class="stat-val">500</span><span class="stat-lbl">Calorie deficit for 1 lb/week loss</span></div>
+          <div class="article-stat-box"><span class="stat-val">±10%</span><span class="stat-lbl">Formula accuracy for most people</span></div>
+        </div>
+
+        <h2 id="activity">How Activity Level Changes Your Calorie Needs</h2>
+        <p>Activity level is the biggest variable in calorie needs — it can account for a difference of 600–1,200 calories per day between sedentary and very active individuals at the same weight. Choosing the right activity multiplier is critical for an accurate TDEE calculation:</p>
+        <ul>
+          <li><strong>Sedentary (×1.2):</strong> Desk job, driving, minimal walking, no intentional exercise. Most office workers fall here even if they feel "busy."</li>
+          <li><strong>Lightly Active (×1.375):</strong> 1–3 days of light exercise (30 min walks, yoga, light gym) per week alongside a mostly sedentary lifestyle.</li>
+          <li><strong>Moderately Active (×1.55):</strong> 3–5 days of moderate exercise per week. This is the most commonly overestimated category — be honest about your actual exercise frequency and intensity.</li>
+          <li><strong>Very Active (×1.725):</strong> Hard exercise or sports 6–7 days per week, OR a moderately physical job plus regular exercise.</li>
+          <li><strong>Extremely Active (×1.9):</strong> Physically demanding job (construction, farming, athletics training) plus daily intense exercise. Very few people qualify for this category.</li>
+        </ul>
+        <p><strong>Pro tip:</strong> Most people overestimate their activity level by 1 category. If unsure, choose one level lower than you think and adjust based on actual weight changes over 2–3 weeks.</p>
+
+        <h2 id="weight-loss">Calorie Targets for Weight Loss</h2>
+        <p>The evidence-based approach to caloric weight loss is a modest deficit of 300–500 calories per day below TDEE:</p>
+        <ul>
+          <li><strong>500 cal/day deficit → ~1 lb (0.45 kg) fat loss per week:</strong> The most commonly recommended rate. Sustainable, preserves muscle mass when combined with adequate protein and resistance training.</li>
+          <li><strong>750 cal/day deficit → ~1.5 lbs per week:</strong> Acceptable for people with significant excess weight (BMI 30+). Higher deficits increase muscle loss risk.</li>
+          <li><strong>1,000 cal/day deficit → ~2 lbs per week:</strong> Maximum recommended deficit. Should include high protein intake (0.8–1g/lb bodyweight) and resistance training. Not suitable for extended periods.</li>
+        </ul>
+        <div class="article-warning">
+          <strong>Minimum calorie floors — never go below:</strong> 1,200 calories/day for women; 1,500 calories/day for men — without medical supervision. Very low calorie diets trigger adaptive thermogenesis (metabolic slowdown), muscle catabolism, nutrient deficiencies, and hormonal disruption. The short-term scale results are rarely worth the long-term metabolic damage.
+        </div>
+
+        <h2 id="weight-gain">Calorie Targets for Lean Muscle Gain</h2>
+        <p>Building muscle requires a caloric surplus above TDEE. The key is keeping the surplus small to minimize fat gain:</p>
+        <ul>
+          <li><strong>Lean bulk (+200–300 cal/day):</strong> Slow, quality muscle gain with minimal fat accumulation. Best for intermediates and advanced trainees. Weight gain: 0.5–1 lb per month.</li>
+          <li><strong>Standard bulk (+300–500 cal/day):</strong> Faster muscle gain at the cost of some fat gain. Works well for beginners who gain muscle more efficiently. Weight gain: 1–2 lbs per month.</li>
+          <li><strong>Protein requirement:</strong> 0.7–1.0g per pound of body weight is essential for muscle protein synthesis regardless of caloric surplus.</li>
+        </ul>
+
+        <h2 id="quality">Why Calorie Quality Matters</h2>
+        <p>Two diets with identical calorie counts can produce very different results based on food quality. 2,000 calories of whole foods behaves metabolically very differently from 2,000 calories of ultra-processed food:</p>
+        <ul>
+          <li><strong>Protein satiety:</strong> High-protein meals reduce appetite hormones (ghrelin) and increase satiety hormones (PYY, GLP-1) for 3–5 hours longer than equivalent-calorie carbohydrate meals.</li>
+          <li><strong>Fiber effect:</strong> Fiber slows gastric emptying, reduces glucose absorption rate, feeds beneficial gut bacteria, and physically displaces calories. High-fiber diets naturally reduce total caloric intake by 10–15%.</li>
+          <li><strong>Ultra-processed food overconsumption:</strong> A landmark NIH study found that when given ad libitum access to ultra-processed vs. unprocessed food diets, participants eating ultra-processed food consumed 508 more calories per day and gained 0.9 kg over 2 weeks — without consciously intending to eat more.</li>
+        </ul>
+
+        <h2 id="track">How to Track Calories Accurately</h2>
+        <p>Research shows most people underestimate their caloric intake by 20–40%. The most effective strategies:</p>
+        <ul>
+          <li><strong>Use a food scale:</strong> Volume measurements (cups, tablespoons) are notoriously inaccurate for calorie counting. Weighing food in grams/ounces is 3–4x more accurate.</li>
+          <li><strong>Log everything, including liquids:</strong> Drinks (juice, milk, alcohol, flavored coffee) are the most commonly forgotten calorie source — a single Starbucks latte can add 250–500 calories.</li>
+          <li><strong>Track for 2–4 weeks:</strong> You don't need to track forever. Short-term tracking builds calorie awareness that persists long-term even after you stop.</li>
+          <li><strong>Recommended apps:</strong> MyFitnessPal, Cronometer (most accurate nutrient database), Lose It.</li>
+        </ul>
+
+    </div>
+    <div class="sidebar-widget" style="display:flex;gap:16px;align-items:flex-start;margin-bottom:24px;">
+      <div style="width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--primary),#0EA5E9);display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;">👨‍⚕️</div>
+      <div><div style="font-weight:700;font-size:.9rem;margin-bottom:2px;">MedicalToolKit Editorial Team</div><div style="font-size:.78rem;color:var(--primary);font-weight:600;margin-bottom:6px;">✅ Medically Reviewed</div><p style="font-size:.82rem;color:var(--text-muted);margin:0;line-height:1.5;">Reviewed for accuracy per current clinical guidelines. Last reviewed June 2026.</p></div>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:14px 18px;background:white;border:1px solid var(--border);border-radius:var(--radius);margin-bottom:24px;">
+      <span style="font-size:.82rem;font-weight:600;color:var(--text-muted);">Share:</span>
+      <a href="https://twitter.com/intent/tweet?url=https://medicaltoolkit.pages.dev/blog/how-many-calories-per-day.html" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;padding:6px 12px;border-radius:8px;font-size:.78rem;font-weight:600;background:#000;color:white;text-decoration:none;">✕ Share</a>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https://medicaltoolkit.pages.dev/blog/how-many-calories-per-day.html" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;padding:6px 12px;border-radius:8px;font-size:.78rem;font-weight:600;background:#1877F2;color:white;text-decoration:none;">Facebook</a>
+      <button onclick="navigator.clipboard.writeText(window.location.href);this.textContent='✅ Copied!';setTimeout(()=>this.textContent='📋 Copy Link',2000)" style="padding:6px 12px;border-radius:8px;font-size:.78rem;font-weight:600;background:var(--bg);color:var(--text);border:1px solid var(--border);cursor:pointer;">📋 Copy Link</button>
+    </div>
+    <section class="article-faq" id="faq" aria-label="FAQ"><h2>Frequently Asked Questions</h2>        <div class="article-faq-item">
+          <div class="article-faq-q" tabindex="0" role="button">How many calories should I eat to lose weight?</div>
+          <div class="article-faq-a">To lose approximately 1 pound per week, eat 500 calories below your Total Daily Energy Expenditure (TDEE). To find your TDEE, use our Calorie Calculator. Avoid eating below 1,200 calories/day (women) or 1,500 calories/day (men) without medical supervision, as very low intake causes muscle loss, nutrient deficiencies, and metabolic slowdown.</div>
+        </div>
+        <div class="article-faq-item">
+          <div class="article-faq-q" tabindex="0" role="button">Is 1200 calories a day enough?</div>
+          <div class="article-faq-a">1,200 calories per day is the minimum recommended intake for women and is generally too low for most people. At this level, it is very difficult to meet protein, vitamin, and mineral requirements. Most women need 1,500–1,800 calories to lose weight sustainably while preserving muscle. Very low calorie diets (VLCDs) should only be used under medical supervision.</div>
+        </div>
+        <div class="article-faq-item">
+          <div class="article-faq-q" tabindex="0" role="button">How many calories do I burn per day without exercise?</div>
+          <div class="article-faq-a">Without any intentional exercise, you burn your BMR (basal metabolic rate) plus light daily activity. For an average sedentary adult, this is approximately 1,600–1,800 calories/day for women and 1,900–2,200 calories/day for men. Use our Calorie Calculator for a personalized estimate based on your age, height, weight, and sex.</div>
+        </div>
+        <div class="article-faq-item">
+          <div class="article-faq-q" tabindex="0" role="button">Do calories matter more than carbs for weight loss?</div>
+          <div class="article-faq-a">Ultimately, total calorie balance (calories in vs. calories out) determines whether you lose, gain, or maintain weight — regardless of macronutrient composition. However, the macronutrient distribution of those calories significantly affects satiety, muscle retention, and hormonal response. High protein, moderate fat, and lower refined carbohydrate intake tends to make calorie deficits easier to sustain.</div>
+        </div></section>
+    <div class="article-references"><h3>📚 Sources &amp; References</h3><ol>          <li>Mifflin, M.D. et al. (1990). A new predictive equation for resting energy expenditure in healthy individuals. <em>American Journal of Clinical Nutrition, 51(2)</em>, 241–247.</li>
+          <li>USDA. (2020). Dietary Guidelines for Americans, 2020–2025. dietaryguidelines.gov</li>
+          <li>Hall, K.D. et al. (2019). Ultra-Processed Diets Cause Excess Calorie Intake and Weight Gain. <em>Cell Metabolism, 30(1)</em>, 67–77.</li>
+          <li>Thomas, D.M. et al. (2014). Can a weight loss of one pound a week be achieved with a 3500-kcal deficit? <em>International Journal of Obesity, 38(12)</em>.</li></ol></div>
+    <div style="background:linear-gradient(135deg,var(--primary),#0EA5E9);color:white;border-radius:var(--radius);padding:24px;text-align:center;margin-top:32px;">
+      <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:8px;">Try the Free Calorie Calculator</h3>
+      <p style="font-size:.88rem;opacity:.88;margin-bottom:14px;">Instant, accurate results — no signup required.</p>
+      <a href="/pages/calorie-calculator.html" style="display:inline-block;background:white;color:var(--primary);padding:11px 24px;border-radius:8px;font-weight:700;text-decoration:none;font-size:.9rem;">🔥 Open Calorie Calculator →</a>
+    </div>
+  </main>
+  <aside class="calc-sidebar">
+    <div class="sidebar-widget"><div class="sidebar-widget-header"><h3>📋 In This Article</h3></div><div class="sidebar-widget-body"><nav class="toc-mini">            <a href="#what-is-tdee">What Is TDEE?</a>
+            <a href="#by-age">Calories by Age & Sex</a>
+            <a href="#activity">Activity Level Impact</a>
+            <a href="#weight-loss">Calories for Weight Loss</a>
+            <a href="#weight-gain">Calories for Weight Gain</a>
+            <a href="#quality">Calorie Quality Matters</a>
+            <a href="#track">How to Track Calories</a>
+            <a href="#faq">FAQ</a></nav></div></div>
+    <div class="sidebar-widget"><div class="sidebar-widget-header"><h3>🧮 Related Calculator</h3></div><div class="sidebar-widget-body"><a href="/pages/calorie-calculator.html" style="display:block;background:var(--primary);color:white;text-align:center;padding:11px;border-radius:8px;font-weight:700;text-decoration:none;font-size:.875rem;">🔥 Calorie Calculator →</a></div></div>
+    <div class="sidebar-widget"><div class="sidebar-widget-header"><h3>📰 More Articles</h3></div><div class="sidebar-widget-body" style="padding:0;">          <a href="/blog/healthy-weight-for-height-chart.html" class="popular-article" style="text-decoration:none;">
+            <span class="popular-num" style="font-size:1.1rem;width:28px;text-align:center;">⚖️</span>
+            <div class="popular-article-info"><h4>Healthy Weight Chart</h4><span>8 min</span></div>
+          </a>
+          <a href="/blog/what-is-normal-bmi.html" class="popular-article" style="text-decoration:none;">
+            <span class="popular-num" style="font-size:1.1rem;width:28px;text-align:center;">⚖️</span>
+            <div class="popular-article-info"><h4>What Is a Normal BMI?</h4><span>8 min</span></div>
+          </a>
+          <a href="/blog/how-to-lower-blood-sugar.html" class="popular-article" style="text-decoration:none;">
+            <span class="popular-num" style="font-size:1.1rem;width:28px;text-align:center;">🩸</span>
+            <div class="popular-article-info"><h4>Lower Blood Sugar Naturally</h4><span>9 min</span></div>
+          </a></div></div>
+    <a href="/blog/" style="display:block;background:var(--bg);color:var(--primary);text-align:center;padding:11px;border-radius:var(--radius);font-weight:600;font-size:.875rem;text-decoration:none;border:1px solid var(--border);">← All Articles</a>
+  </aside>
+</div>
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="site-logo"><div class="logo-icon"><svg viewBox="0 0 24 24" fill="white"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg></div><span class="logo-text">Medical<span>ToolKit</span></span></div>
+      <p>Free, accurate medical calculators trusted by millions worldwide.</p>
+    </div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/pages/bmi-calculator.html">BMI Calculator</a><a href="/pages/blood-sugar-calculator.html">Blood Sugar</a><a href="/pages/blood-pressure-checker.html">Blood Pressure</a><a href="/pages/calorie-calculator.html">Calories</a></div>
+    <div class="footer-col"><h4>Blog</h4><a href="/blog/">All Articles</a><a href="/blog/what-is-normal-bmi.html">BMI Guide</a><a href="/blog/how-to-lower-blood-sugar.html">Lower Blood Sugar</a><a href="/blog/high-blood-pressure-guide.html">Blood Pressure Guide</a></div>
+    <div class="footer-col"><h4>Company</h4><a href="/pages/about.html">About Us</a><a href="/pages/editorial-policy.html">Editorial Policy</a><a href="/pages/contact.html">Contact</a><a href="/pages/privacy-policy.html">Privacy Policy</a><a href="/pages/disclaimer.html">Medical Disclaimer</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 MedicalToolKit. All rights reserved. <strong>Not medical advice.</strong></p></div>
+</footer>
+<script src="/dist/js/main.min.js?v=20260620nodark" defer></script>
+<script src="/dist/js/animations.min.js?v=20260620nodark" defer></script>
+<script src="/dist/js/blog.min.js?v=20260620nodark" defer></script>
+<script src="/dist/js/analytics.min.js?v=20260620nodark" defer></script>
+<script>
+const bar=document.getElementById('readingProgress');
+window.addEventListener('scroll',()=>{const b=document.body,h=document.documentElement,t=Math.max(b.scrollHeight,h.scrollHeight)-h.clientHeight;if(bar&&t>0)bar.style.width=Math.min((window.scrollY/t)*100,100)+'%';},{passive:true});
+document.querySelectorAll('.article-faq-q').forEach(q=>{q.addEventListener('click',()=>{const isOpen=q.classList.contains('open');document.querySelectorAll('.article-faq-q').forEach(o=>{o.classList.remove('open');o.parentElement.querySelector('.article-faq-a').classList.remove('open');});if(!isOpen){q.classList.add('open');q.parentElement.querySelector('.article-faq-a').classList.add('open');}});q.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();q.click();}});});
+</script>
+  <script src="/dist/js/pwa.min.js?v=20260620nodark" defer></script>
+</body>
+</html>

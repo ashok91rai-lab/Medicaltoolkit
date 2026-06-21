@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+:root{--primary:#2563EB;--primary-light:#EFF6FF;--primary-dark:#1D4ED8;--secondary:#10B981;--text:#1E293B;--text-light:#475569;--text-muted:#94A3B8;--bg:#F8FAFC;--border:#E2E8F0;--shadow:0 1px 3px rgba(0,0,0,.1),0 1px 2px rgba(0,0,0,.06);--shadow-lg:0 10px 15px rgba(0,0,0,.1);--shadow-xl:0 20px 25px rgba(0,0,0,.1);--radius:12px;--radius-sm:8px;--radius-lg:16px;--transition:all .2s ease}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;overflow-x:hidden}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;overflow-x:hidden}
+.site-header{position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid var(--border);box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.header-inner{max-width:1200px;margin:0 auto;padding:0 20px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.site-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-icon{width:40px;height:40px;background:var(--primary);border-radius:10px;display:flex;align-items:center;justify-content:center}
+.logo-icon svg{width:22px;height:22px;fill:white}
+.logo-text{font-weight:700;font-size:1.1rem;color:var(--text)}.logo-text span{color:var(--primary)}
+.main-nav{display:flex;align-items:center;gap:4px}
+.main-nav a{padding:6px 12px;border-radius:8px;font-size:.875rem;font-weight:500;color:var(--text-light);text-decoration:none}
+.hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer;width:36px;height:36px;background:none;border:none}
+.bar{width:22px;height:2.5px;background:var(--text);border-radius:3px}
+.reading-progress{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--primary),#10B981,#0EA5E9);z-index:99999;transition:width .15s linear}
+.breadcrumb-bar{background:#fff;border-bottom:1px solid var(--border);padding:0 20px}
+.breadcrumb{max-width:1200px;margin:0 auto;padding:10px 0;display:flex;align-items:center;gap:6px;font-size:.8rem;color:var(--text-muted)}
+.breadcrumb a{color:var(--text-muted);text-decoration:none}
+.page-hero{background:linear-gradient(135deg,#1E3A5F 0%,#2563EB 100%);color:white;padding:40px 20px;text-align:left}
+.page-hero h1{font-size:clamp(1.5rem,3vw,2.25rem);font-weight:700;letter-spacing:-.3px;margin-bottom:8px}
+.page-hero p{font-size:1rem;color:rgba(255,255,255,.85);max-width:600px}
+</style>
+  <script src="https://quge5.com/88/tag.min.js" data-zone="245868" async data-cfasync="false"></script>
+  <meta charset="UTF-8">
+  <!-- DNS Prefetch -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link rel="dns-prefetch" href="//quge5.com">
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>Normal Blood Pressure by Age: Complete Chart for Adults & Children | MedicalToolKit</title>
+  <meta name="description" content="What is normal blood pressure by age? Complete blood pressure charts for adults, seniors, and children. Learn what your numbers mean and when to be concerned.">
+  <meta name="keywords" content="normal blood pressure by age, blood pressure chart by age, healthy blood pressure adults, blood pressure range seniors, blood pressure numbers">
+  <link rel="canonical" href="https://medicaltoolkit.pages.dev/blog/normal-blood-pressure-by-age.html">
+  <meta property="og:title" content="Normal Blood Pressure by Age: Complete Chart for Adults & Children">
+  <meta property="og:description" content="What is normal blood pressure by age? Complete blood pressure charts for adults, seniors, and children. Learn what your numbers mean and when to be concerned.">
+  <meta property="og:image" content="https://medicaltoolkit.pages.dev/images/og-blood-pressure.png">
+  <meta property="og:url" content="https://medicaltoolkit.pages.dev/blog/normal-blood-pressure-by-age.html">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Normal Blood Pressure by Age: Complete Chart for Adults & Children">
+  <meta name="twitter:description" content="What is normal blood pressure by age? Complete blood pressure charts for adults, seniors, and children. Learn what your numbers mean and when to be concerned.">
+  <meta name="twitter:image" content="https://medicaltoolkit.pages.dev/images/og-blood-pressure.png">
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+  <link rel="preload" href="/dist/css/style.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/style.min.css?v=20260620nodark"></noscript>
+  <link rel="stylesheet" href="/dist/css/responsive.min.css?v=20260620nodark">
+  <link rel="stylesheet" href="/dist/css/calculator.min.css?v=20260620nodark">
+  <link rel="preload" href="/dist/css/blog.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/blog.min.css?v=20260620nodark"></noscript>
+  <link rel="preload" href="/dist/css/animations.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/animations.min.css?v=20260620nodark"></noscript>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap&subset=latin" rel="stylesheet">
+  <meta name="google-site-verification" content="y63XSBvlNcknj46yVKMn0uE14aKKOBfjwLLO6EZrLBk">
+  <meta name="msvalidate.01" content="AB9070CF57664870ADB2D23906FE30C4">
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JWW19HEZBJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-JWW19HEZBJ',{anonymize_ip:true});</script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org","@type":"MedicalWebPage",
+    "name":"Normal Blood Pressure by Age: Complete Chart for Adults & Children","url":"https://medicaltoolkit.pages.dev/blog/normal-blood-pressure-by-age.html","description":"What is normal blood pressure by age? Complete blood pressure charts for adults, seniors, and children. Learn what your numbers mean and when to be concerned.",
+    "datePublished":"2026-06-05","dateModified":"2026-06-07",
+    "author":{"@type":"Organization","name":"MedicalToolKit Editorial Team"},
+    "publisher":{"@type":"Organization","name":"MedicalToolKit","url":"https://medicaltoolkit.pages.dev/"},
+    "medicalAudience":{"@type":"MedicalAudience","audienceType":"Patient"},
+    "specialty":"Cardiology"
+  }
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://medicaltoolkit.pages.dev/"},
+    {"@type":"ListItem","position":2,"name":"Blog","item":"https://medicaltoolkit.pages.dev/blog/"},
+    {"@type":"ListItem","position":3,"name":"Normal Blood Pressure by Age","item":"https://medicaltoolkit.pages.dev/blog/normal-blood-pressure-by-age.html"}
+  ]}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"What is a normal blood pressure for a 60-year-old?","acceptedAnswer":{"@type":"Answer","text":"For adults aged 60 and over, the AHA recommends a target blood pressure below 130/80 mmHg. Average readings in this age group are around 134/87 mmHg, but the goal remains below 130/80 to minimize stroke and heart disease risk. Your doctor may set slightly different targets based on your individual health profile."}},
+      {"@type":"Question","name":"Is 140/90 high blood pressure?","acceptedAnswer":{"@type":"Answer","text":"Yes. A reading of 140/90 mmHg or above is classified as Stage 2 Hypertension under the 2017 AHA guidelines. This level typically requires both lifestyle modifications and antihypertensive medication. However, a single reading does not confirm hypertension — it should be confirmed with multiple readings on different days."}},
+      {"@type":"Question","name":"What blood pressure is too low?","acceptedAnswer":{"@type":"Answer","text":"Blood pressure below 90/60 mmHg is generally considered low (hypotension). If it causes symptoms such as dizziness, fainting, weakness, or blurred vision, it requires medical evaluation. Many people have chronically low blood pressure without symptoms and do not require treatment. Sudden drops in blood pressure — especially when standing up — should always be investigated."}},
+      {"@type":"Question","name":"Does blood pressure increase with age?","acceptedAnswer":{"@type":"Answer","text":"Yes, blood pressure tends to rise with age, particularly systolic pressure. This is primarily due to age-related arterial stiffening. However, an increase in blood pressure with age is not inevitable — those who maintain a healthy diet, exercise regularly, keep a healthy weight, and avoid smoking often maintain normal blood pressure well into older age."}}
+  ]}
+  </script>
+</head>
+<body>
+<div class="reading-progress" id="readingProgress"></div>
+<header class="site-header" role="banner">
+  <div class="header-inner">
+    <a href="/" class="site-logo" aria-label="MedicalToolKit Home">
+      <div class="logo-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg></div>
+      <span class="logo-text">Medical<span>ToolKit</span></span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="/pages/bmi-calculator.html">Fitness</a>
+      <a href="/pages/due-date-calculator.html">Pregnancy</a>
+      <a href="/pages/blood-sugar-calculator.html">Diabetes</a>
+      <a href="/pages/blood-pressure-checker.html">Heart</a>
+      <a href="/pages/gfr-calculator.html">Kidney</a>
+      <a href="/pages/anxiety-test.html">Mental Health</a>
+      <a href="/pages/about.html">About</a>
+      <a href="/blog/" class="active">Blog</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <a href="/">Home</a><a href="/pages/bmi-calculator.html">BMI Calculator</a>
+    <a href="/pages/blood-sugar-calculator.html">Blood Sugar</a>
+    <a href="/blog/">Blog</a><a href="/pages/about.html">About</a>
+  </nav>
+</header>
+
+<div class="breadcrumb-bar">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a><span class="breadcrumb-sep">›</span>
+    <a href="/blog/">Blog</a><span class="breadcrumb-sep">›</span>
+    <span>Normal Blood Pressure by Age</span>
+  </nav>
+</div>
+
+<section class="page-hero" aria-labelledby="articleHeading" style="text-align:left;">
+  <div style="max-width:860px;margin:0 auto;">
+    <div class="article-cat-badge" style="display:inline-flex;margin-bottom:12px;">❤️ Heart Health</div>
+    <h1 id="articleHeading">Normal Blood Pressure by Age: Complete Chart for Adults & Children</h1>
+    <p style="max-width:680px;margin-top:10px;">What is normal blood pressure by age? Complete blood pressure charts for adults, seniors, and children. Learn what your numbers mean and when to be concerned.</p>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:14px;font-size:.82rem;opacity:.85;color:white;">
+      <span>📅 June 7, 2026</span><span>⏱ 9 min read</span><span>🔄 Updated 2026</span>
+    </div>
+    <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(16,185,129,.2);border:1px solid rgba(16,185,129,.4);border-radius:8px;padding:8px 14px;font-size:.78rem;margin-top:14px;color:#d1fae5;">
+      ✅ <strong style="color:white;">Medically Reviewed</strong> — MedicalToolKit Editorial Team
+    </div>
+  </div>
+</section>
+
+<div class="calc-page-layout">
+  <main class="calc-main" id="mainContent">
+
+    <div class="calc-intro" style="background:var(--primary-light);border-color:rgba(37,99,235,.15);">
+      <h2 style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--primary);margin-bottom:12px;">📋 In This Article</h2>
+      <ol style="margin-left:18px;display:flex;flex-direction:column;gap:6px;">
+          <li><a href="#what-is">What Is Blood Pressure?</a></li>
+          <li><a href="#normal-adults">Normal Ranges: Adults</a></li>
+          <li><a href="#by-age-chart">Blood Pressure Chart by Age</a></li>
+          <li><a href="#seniors">Seniors 65+</a></li>
+          <li><a href="#children">Children & Teenagers</a></li>
+          <li><a href="#high-vs-low">High vs Low BP</a></li>
+          <li><a href="#when-worried">When to Be Concerned</a></li>
+          <li><a href="#faq">FAQ</a></li>
+      </ol>
+    </div>
+
+    <div class="article-body">
+
+        <h2 id="what-is">What Is Blood Pressure?</h2>
+        <p>Blood pressure measures the force of blood pushing against the walls of your arteries. It is recorded as two numbers: <strong>systolic</strong> (pressure when the heart beats) over <strong>diastolic</strong> (pressure when the heart rests). It is measured in millimeters of mercury (mmHg). Understanding your blood pressure numbers — and how they change with age — is one of the most important things you can do for your long-term cardiovascular health.</p>
+
+        <div class="article-highlight">
+          <strong>Key Numbers:</strong> Normal blood pressure is below 120/80 mmHg for adults. However, what is considered optimal can vary slightly by age, activity level, and individual health profile.
+        </div>
+
+        <h2 id="normal-adults">Normal Blood Pressure Ranges: Adults</h2>
+        <p>The American Heart Association (AHA) 2017 guidelines define the following blood pressure categories for adults aged 18 and above:</p>
+        <div class="article-formula">
+Normal:              &lt;120/&lt;80 mmHg
+Elevated:            120–129/&lt;80 mmHg
+Stage 1 Hypertension: 130–139/80–89 mmHg
+Stage 2 Hypertension: ≥140/≥90 mmHg
+Hypertensive Crisis:  &gt;180/&gt;120 mmHg (Emergency)
+Hypotension (Low BP): &lt;90/&lt;60 mmHg
+        </div>
+
+        <h2 id="by-age-chart">Blood Pressure Chart by Age Group</h2>
+        <p>Blood pressure naturally rises with age as arteries gradually stiffen. The following ranges represent typical (average) blood pressure readings by age group — not necessarily the ideal targets:</p>
+        <div class="article-formula">
+Age 18–29:  Normal: 119/70 | Elevated concern: 130+/80+
+Age 30–39:  Normal: 122/71 | Elevated concern: 130+/80+
+Age 40–49:  Normal: 125/83 | Elevated concern: 135+/85+
+Age 50–59:  Normal: 129/85 | Elevated concern: 140+/90+
+Age 60–69:  Normal: 134/87 | Elevated concern: 145+/90+
+Age 70+:    Normal: 135/88 | Elevated concern: 150+/90+
+        </div>
+        <p>Important: These are population averages, not clinical targets. The AHA recommends maintaining blood pressure below 130/80 mmHg for all adults regardless of age to minimize cardiovascular risk. Slightly higher readings in older adults may be acceptable depending on individual circumstances — always discuss targets with your doctor.</p>
+
+        <div class="article-stat-grid">
+          <div class="article-stat-box"><span class="stat-val">46%</span><span class="stat-lbl">US adults have hypertension</span></div>
+          <div class="article-stat-box"><span class="stat-val">75%</span><span class="stat-lbl">of adults 65+ have hypertension</span></div>
+          <div class="article-stat-box"><span class="stat-val">&lt;120/80</span><span class="stat-lbl">Optimal BP for all adults</span></div>
+          <div class="article-stat-box"><span class="stat-val">1 in 3</span><span class="stat-lbl">adults unaware of their BP</span></div>
+        </div>
+
+        <h2 id="seniors">Blood Pressure in Seniors (Age 65+)</h2>
+        <p>Managing blood pressure in older adults is more complex than in younger individuals. While the AHA target of below 130/80 mmHg applies generally, several unique factors affect seniors:</p>
+        <ul>
+          <li><strong>Isolated Systolic Hypertension (ISH):</strong> Common in adults over 60. The systolic number rises (due to arterial stiffening) while diastolic remains normal or even falls. A systolic above 140 with normal diastolic still requires treatment.</li>
+          <li><strong>Orthostatic Hypotension:</strong> Blood pressure drops suddenly when standing up, causing dizziness or fainting. Affects up to 30% of seniors. Can increase fall risk significantly.</li>
+          <li><strong>Frailty consideration:</strong> For very elderly or frail patients, less aggressive BP targets (below 150/90 mmHg) may be appropriate to avoid falls and adverse medication effects.</li>
+          <li><strong>The J-curve phenomenon:</strong> Some research suggests that in older adults with coronary artery disease, very low diastolic pressures (below 65 mmHg) may increase cardiac risk — making the target range somewhat higher than in younger adults.</li>
+        </ul>
+
+        <h2 id="children">Normal Blood Pressure for Children and Teenagers</h2>
+        <p>Children's blood pressure is assessed differently — it must be compared to age, sex, and height percentiles. A child's BP is considered elevated if it falls at or above the 90th percentile for their demographic group. Rough normal ranges:</p>
+        <div class="article-formula">
+Newborn (0–1 month):  60–90/30–60 mmHg
+Infant (1–12 months): 70–100/50–65 mmHg
+Toddler (1–5 years):  80–110/50–80 mmHg
+Child (6–12 years):   85–120/55–80 mmHg
+Teenager (13–18):     95–140/60–90 mmHg
+        </div>
+        <p>Childhood hypertension is increasingly common due to rising obesity rates. It is defined as blood pressure at or above the 95th percentile for age, sex, and height on three separate occasions. Early detection is important as childhood hypertension significantly increases lifetime cardiovascular risk.</p>
+
+        <h2 id="high-vs-low">High Blood Pressure vs Low Blood Pressure</h2>
+        <h3>High Blood Pressure (Hypertension)</h3>
+        <p>Hypertension is the leading modifiable risk factor for heart attack, stroke, and kidney disease. It rarely causes symptoms — earning the name "silent killer." Risk factors include age, family history, obesity, high sodium diet, physical inactivity, smoking, excessive alcohol, chronic stress, and conditions like diabetes and sleep apnea.</p>
+
+        <h3>Low Blood Pressure (Hypotension)</h3>
+        <p>Blood pressure below 90/60 mmHg is considered low. It can cause dizziness, fainting, blurred vision, weakness, and confusion. Common causes include dehydration, blood loss, heart conditions, endocrine disorders, severe infection (sepsis), and medications (particularly antihypertensives, diuretics, antidepressants). Chronically low blood pressure without symptoms often requires no treatment.</p>
+
+        <h2 id="when-worried">When to Be Concerned About Your Blood Pressure</h2>
+        <div class="article-warning">
+          <strong>Seek immediate emergency care if:</strong> Your reading exceeds 180/120 mmHg, especially with symptoms like severe headache, chest pain, shortness of breath, vision changes, back pain, numbness, or difficulty speaking. This is a hypertensive crisis — call 911 immediately.
+        </div>
+        <p>See your doctor promptly if you have two or more readings above 130/80 mmHg taken on separate days. Home monitoring over several days gives a more accurate picture than a single clinic reading. The AHA recommends all adults know their blood pressure numbers and have it checked at least once per year, more frequently if risk factors are present.</p>
+
+    </div>
+
+    <div class="sidebar-widget" style="display:flex;gap:16px;align-items:flex-start;margin-bottom:24px;">
+      <div style="width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--primary),#0EA5E9);display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;">👨‍⚕️</div>
+      <div>
+        <div style="font-weight:700;font-size:.9rem;margin-bottom:2px;">MedicalToolKit Editorial Team</div>
+        <div style="font-size:.78rem;color:var(--primary);font-weight:600;margin-bottom:6px;">✅ Medically Reviewed</div>
+        <p style="font-size:.82rem;color:var(--text-muted);margin:0;line-height:1.5;">Reviewed for accuracy and alignment with current clinical guidelines. Last reviewed June 2026.</p>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:14px 18px;background:white;border:1px solid var(--border);border-radius:var(--radius);margin-bottom:24px;">
+      <span style="font-size:.82rem;font-weight:600;color:var(--text-muted);">Share:</span>
+      <a href="https://twitter.com/intent/tweet?url=https://medicaltoolkit.pages.dev/blog/normal-blood-pressure-by-age.html" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;padding:6px 12px;border-radius:8px;font-size:.78rem;font-weight:600;background:#000;color:white;text-decoration:none;">✕ Share</a>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https://medicaltoolkit.pages.dev/blog/normal-blood-pressure-by-age.html" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;padding:6px 12px;border-radius:8px;font-size:.78rem;font-weight:600;background:#1877F2;color:white;text-decoration:none;">Facebook</a>
+      <button onclick="navigator.clipboard.writeText(window.location.href);this.textContent='✅ Copied!';setTimeout(()=>this.textContent='📋 Copy Link',2000)" style="padding:6px 12px;border-radius:8px;font-size:.78rem;font-weight:600;background:var(--bg);color:var(--text);border:1px solid var(--border);cursor:pointer;">📋 Copy Link</button>
+    </div>
+
+    <section class="article-faq" id="faq" aria-label="FAQ">
+      <h2>Frequently Asked Questions</h2>
+        <div class="article-faq-item">
+          <div class="article-faq-q" tabindex="0" role="button">What is a normal blood pressure for a 60-year-old?</div>
+          <div class="article-faq-a">For adults aged 60 and over, the AHA recommends a target blood pressure below 130/80 mmHg. Average readings in this age group are around 134/87 mmHg, but the goal remains below 130/80 to minimize stroke and heart disease risk. Your doctor may set slightly different targets based on your individual health profile.</div>
+        </div>
+        <div class="article-faq-item">
+          <div class="article-faq-q" tabindex="0" role="button">Is 140/90 high blood pressure?</div>
+          <div class="article-faq-a">Yes. A reading of 140/90 mmHg or above is classified as Stage 2 Hypertension under the 2017 AHA guidelines. This level typically requires both lifestyle modifications and antihypertensive medication. However, a single reading does not confirm hypertension — it should be confirmed with multiple readings on different days.</div>
+        </div>
+        <div class="article-faq-item">
+          <div class="article-faq-q" tabindex="0" role="button">What blood pressure is too low?</div>
+          <div class="article-faq-a">Blood pressure below 90/60 mmHg is generally considered low (hypotension). If it causes symptoms such as dizziness, fainting, weakness, or blurred vision, it requires medical evaluation. Many people have chronically low blood pressure without symptoms and do not require treatment. Sudden drops in blood pressure — especially when standing up — should always be investigated.</div>
+        </div>
+        <div class="article-faq-item">
+          <div class="article-faq-q" tabindex="0" role="button">Does blood pressure increase with age?</div>
+          <div class="article-faq-a">Yes, blood pressure tends to rise with age, particularly systolic pressure. This is primarily due to age-related arterial stiffening. However, an increase in blood pressure with age is not inevitable — those who maintain a healthy diet, exercise regularly, keep a healthy weight, and avoid smoking often maintain normal blood pressure well into older age.</div>
+        </div>
+    </section>
+
+    <div class="article-references">
+      <h3>📚 Sources &amp; References</h3>
+      <ol>
+          <li>Whelton, P.K. et al. (2018). 2017 ACC/AHA High Blood Pressure Guideline. <em>Hypertension, 71(6).</em></li>
+          <li>American Heart Association. (2024). Understanding Blood Pressure Readings. heart.org</li>
+          <li>Flynn, J.T. et al. (2017). Clinical Practice Guideline for Screening and Management of High Blood Pressure in Children. <em>Pediatrics, 140(3).</em></li>
+          <li>SPRINT Research Group. (2015). A Randomized Trial of Intensive versus Standard Blood-Pressure Control. <em>NEJM, 373</em>, 2103–2116.</li>
+      </ol>
+    </div>
+
+    <div style="background:linear-gradient(135deg,var(--primary),#0EA5E9);color:white;border-radius:var(--radius);padding:24px;text-align:center;margin-top:32px;">
+      <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:8px;">Try the Free Blood Pressure Checker</h3>
+      <p style="font-size:.88rem;opacity:.88;margin-bottom:14px;">Get instant, accurate results — no signup required.</p>
+      <a href="/pages/blood-pressure-checker.html" style="display:inline-block;background:white;color:var(--primary);padding:11px 24px;border-radius:8px;font-weight:700;text-decoration:none;font-size:.9rem;">❤️ Open Blood Pressure Checker →</a>
+    </div>
+
+  </main>
+
+  <aside class="calc-sidebar">
+    <div class="sidebar-widget">
+      <div class="sidebar-widget-header"><h3>📋 In This Article</h3></div>
+      <div class="sidebar-widget-body">
+        <nav class="toc-mini">
+            <a href="#what-is">What Is Blood Pressure?</a>
+            <a href="#normal-adults">Normal Ranges: Adults</a>
+            <a href="#by-age-chart">Blood Pressure Chart by Age</a>
+            <a href="#seniors">Seniors 65+</a>
+            <a href="#children">Children & Teenagers</a>
+            <a href="#high-vs-low">High vs Low BP</a>
+            <a href="#when-worried">When to Be Concerned</a>
+            <a href="#faq">FAQ</a>
+        </nav>
+      </div>
+    </div>
+    <div class="sidebar-widget">
+      <div class="sidebar-widget-header"><h3>🧮 Related Calculator</h3></div>
+      <div class="sidebar-widget-body">
+        <a href="/pages/blood-pressure-checker.html" style="display:block;background:var(--primary);color:white;text-align:center;padding:11px;border-radius:8px;font-weight:700;text-decoration:none;font-size:.875rem;">❤️ Blood Pressure Checker →</a>
+      </div>
+    </div>
+    <div class="sidebar-widget">
+      <div class="sidebar-widget-header"><h3>📰 More Articles</h3></div>
+      <div class="sidebar-widget-body" style="padding:0;">
+          <a href="/blog/high-blood-pressure-guide.html" class="popular-article" style="text-decoration:none;">
+            <span class="popular-num" style="font-size:1.1rem;width:28px;text-align:center;">❤️</span>
+            <div class="popular-article-info"><h4>High Blood Pressure Guide</h4><span>10 min read</span></div>
+          </a>
+          <a href="/blog/how-to-lower-blood-sugar.html" class="popular-article" style="text-decoration:none;">
+            <span class="popular-num" style="font-size:1.1rem;width:28px;text-align:center;">🩸</span>
+            <div class="popular-article-info"><h4>Lower Blood Sugar Naturally</h4><span>9 min read</span></div>
+          </a>
+          <a href="/blog/what-is-normal-bmi.html" class="popular-article" style="text-decoration:none;">
+            <span class="popular-num" style="font-size:1.1rem;width:28px;text-align:center;">⚖️</span>
+            <div class="popular-article-info"><h4>What Is a Normal BMI?</h4><span>8 min read</span></div>
+          </a>
+      </div>
+    </div>
+    <a href="/blog/" style="display:block;background:var(--bg);color:var(--primary);text-align:center;padding:11px;border-radius:var(--radius);font-weight:600;font-size:.875rem;text-decoration:none;border:1px solid var(--border);">← All Articles</a>
+  </aside>
+</div>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="site-logo"><div class="logo-icon"><svg viewBox="0 0 24 24" fill="white"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg></div><span class="logo-text">Medical<span>ToolKit</span></span></div>
+      <p>Free, accurate medical calculators trusted by millions worldwide.</p>
+    </div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/pages/bmi-calculator.html">BMI Calculator</a><a href="/pages/blood-sugar-calculator.html">Blood Sugar</a><a href="/pages/blood-pressure-checker.html">Blood Pressure</a><a href="/pages/calorie-calculator.html">Calories</a></div>
+    <div class="footer-col"><h4>Blog</h4><a href="/blog/">All Articles</a><a href="/blog/what-is-normal-bmi.html">BMI Guide</a><a href="/blog/how-to-lower-blood-sugar.html">Lower Blood Sugar</a><a href="/blog/high-blood-pressure-guide.html">Blood Pressure Guide</a></div>
+    <div class="footer-col"><h4>Company</h4><a href="/pages/about.html">About Us</a><a href="/pages/editorial-policy.html">Editorial Policy</a><a href="/pages/contact.html">Contact</a><a href="/pages/privacy-policy.html">Privacy Policy</a><a href="/pages/disclaimer.html">Medical Disclaimer</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 MedicalToolKit. All rights reserved. <strong>Not medical advice.</strong></p><div class="footer-legal-links"><a href="/pages/privacy-policy.html">Privacy</a><a href="/pages/disclaimer.html">Disclaimer</a><a href="/pages/contact.html">Contact</a></div></div>
+</footer>
+<script src="/dist/js/main.min.js?v=20260620nodark" defer></script>
+<script src="/dist/js/animations.min.js?v=20260620nodark" defer></script>
+<script src="/dist/js/blog.min.js?v=20260620nodark" defer></script>
+<script src="/dist/js/analytics.min.js?v=20260620nodark" defer></script>
+<script>
+const bar=document.getElementById('readingProgress');
+window.addEventListener('scroll',()=>{const b=document.body,h=document.documentElement,t=Math.max(b.scrollHeight,h.scrollHeight)-h.clientHeight;if(bar&&t>0)bar.style.width=Math.min((window.scrollY/t)*100,100)+'%';},{passive:true});
+document.querySelectorAll('.article-faq-q').forEach(q=>{q.addEventListener('click',()=>{const isOpen=q.classList.contains('open');document.querySelectorAll('.article-faq-q').forEach(o=>{o.classList.remove('open');o.parentElement.querySelector('.article-faq-a').classList.remove('open');});if(!isOpen){q.classList.add('open');q.parentElement.querySelector('.article-faq-a').classList.add('open');}});q.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();q.click();}});});
+</script>
+  <script src="/dist/js/pwa.min.js?v=20260620nodark" defer></script>
+</body>
+</html>

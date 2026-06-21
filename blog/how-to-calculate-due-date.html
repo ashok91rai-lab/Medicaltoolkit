@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+:root{--primary:#2563EB;--primary-light:#EFF6FF;--primary-dark:#1D4ED8;--secondary:#10B981;--text:#1E293B;--text-light:#475569;--text-muted:#94A3B8;--bg:#F8FAFC;--border:#E2E8F0;--shadow:0 1px 3px rgba(0,0,0,.1),0 1px 2px rgba(0,0,0,.06);--shadow-lg:0 10px 15px rgba(0,0,0,.1);--shadow-xl:0 20px 25px rgba(0,0,0,.1);--radius:12px;--radius-sm:8px;--transition:all .2s ease}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;overflow-x:hidden}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;overflow-x:hidden}
+.site-header{position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid var(--border);box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.header-inner{max-width:1200px;margin:0 auto;padding:0 20px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.site-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-icon{width:40px;height:40px;background:var(--primary);border-radius:10px;display:flex;align-items:center;justify-content:center}
+.logo-icon svg{width:22px;height:22px;fill:white}
+.logo-text{font-weight:700;font-size:1.1rem;color:var(--text)}.logo-text span{color:var(--primary)}
+.main-nav{display:flex;align-items:center;gap:4px}.main-nav a{padding:6px 12px;border-radius:8px;font-size:.875rem;font-weight:500;color:var(--text-light);text-decoration:none}
+.hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer;width:36px;height:36px;background:none;border:none}
+.bar{width:22px;height:2.5px;background:var(--text);border-radius:3px}
+.reading-progress{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--primary),#10B981,#0EA5E9);z-index:99999;transition:width .15s linear}
+.breadcrumb-bar{background:#fff;border-bottom:1px solid var(--border);padding:0 20px}
+.breadcrumb{max-width:1200px;margin:0 auto;padding:10px 0;display:flex;align-items:center;gap:6px;font-size:.8rem;color:var(--text-muted)}
+.breadcrumb a{color:var(--text-muted);text-decoration:none}
+.page-hero{background:linear-gradient(135deg,#1E3A5F 0%,#2563EB 100%);color:white;padding:40px 20px;text-align:left}
+.page-hero h1{font-size:clamp(1.5rem,3vw,2.25rem);font-weight:700;letter-spacing:-.3px;margin-bottom:8px}
+.page-hero p{font-size:1rem;color:rgba(255,255,255,.85);max-width:600px}
+</style>
+  <script src="https://quge5.com/88/tag.min.js" data-zone="245868" async data-cfasync="false"></script>
+  <meta charset="UTF-8">
+  <link rel="dns-prefetch" href="//fonts.googleapis.com"><link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link rel="dns-prefetch" href="//quge5.com"><link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>How to Calculate Your Due Date: 4 Methods Explained | MedicalToolKit</title>
+  <meta name="description" content="Learn how to calculate your pregnancy due date using last menstrual period, conception date, IVF transfer date, and ultrasound. Step-by-step guide with examples.">
+  <meta name="keywords" content="how to calculate due date, pregnancy due date calculator, due date from LMP, how to calculate pregnancy due date, estimated due date">
+  <link rel="canonical" href="https://medicaltoolkit.pages.dev/blog/how-to-calculate-due-date.html">
+  <meta property="og:title" content="How to Calculate Your Due Date: 4 Methods Explained">
+  <meta property="og:description" content="Learn how to calculate your pregnancy due date using last menstrual period, conception date, IVF transfer date, and ultrasound. Step-by-step guide with examples.">
+  <meta property="og:image" content="https://medicaltoolkit.pages.dev/images/og-due-date.png">
+  <meta property="og:url" content="https://medicaltoolkit.pages.dev/blog/how-to-calculate-due-date.html"><meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Calculate Your Due Date: 4 Methods Explained">
+  <meta name="twitter:description" content="Learn how to calculate your pregnancy due date using last menstrual period, conception date, IVF transfer date, and ultrasound. Step-by-step guide with examples.">
+  <meta name="twitter:image" content="https://medicaltoolkit.pages.dev/images/og-due-date.png">
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+  <link rel="preload" href="/dist/css/style.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/style.min.css?v=20260620nodark"></noscript>
+  <link rel="stylesheet" href="/dist/css/responsive.min.css?v=20260620nodark">
+  <link rel="stylesheet" href="/dist/css/calculator.min.css?v=20260620nodark">
+  <link rel="preload" href="/dist/css/blog.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/blog.min.css?v=20260620nodark"></noscript>
+  <link rel="preload" href="/dist/css/animations.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/animations.min.css?v=20260620nodark"></noscript>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap&subset=latin" rel="stylesheet">
+  <meta name="google-site-verification" content="y63XSBvlNcknj46yVKMn0uE14aKKOBfjwLLO6EZrLBk">
+  <meta name="msvalidate.01" content="AB9070CF57664870ADB2D23906FE30C4">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JWW19HEZBJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-JWW19HEZBJ',{anonymize_ip:true});</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"MedicalWebPage","name":"How to Calculate Your Due Date: 4 Methods Explained","url":"https://medicaltoolkit.pages.dev/blog/how-to-calculate-due-date.html","description":"Learn how to calculate your pregnancy due date using last menstrual period, conception date, IVF transfer date, and ultrasound. Step-by-step guide with examples.","datePublished":"2026-06-07","dateModified":"2026-06-07","author":{"@type":"Organization","name":"MedicalToolKit Editorial Team"},"publisher":{"@type":"Organization","name":"MedicalToolKit","url":"https://medicaltoolkit.pages.dev/"},"medicalAudience":{"@type":"MedicalAudience","audienceType":"Patient"},"specialty":"Obstetrics"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://medicaltoolkit.pages.dev/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://medicaltoolkit.pages.dev/blog/"},{"@type":"ListItem","position":3,"name":"How to Calculate Due Date","item":"https://medicaltoolkit.pages.dev/blog/how-to-calculate-due-date.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I calculate my due date from my last period?","acceptedAnswer":{"@type":"Answer","text":"Add 280 days (40 weeks) to the first day of your last menstrual period. Alternatively, use Naegele's Rule: take your LMP date, add 1 year, subtract 3 months, and add 7 days. For example, if your LMP was January 1, your due date would be approximately October 8. Our free Due Date Calculator does this instantly."}},
+      {"@type":"Question","name":"How accurate is a due date calculated from LMP?","acceptedAnswer":{"@type":"Answer","text":"LMP-based due dates are accurate within about ±2 weeks for women with regular 28-day cycles. For women with irregular cycles, PCOS, or unknown LMP, accuracy is lower. An early ultrasound (7–13 weeks) is more accurate and can refine the due date to within ±5–7 days. Most providers use LMP for initial dating and confirm with early ultrasound."}},
+      {"@type":"Question","name":"What if my due date changes after an ultrasound?","acceptedAnswer":{"@type":"Answer","text":"It is very common for due dates to be adjusted after an early ultrasound. If the ultrasound measurement differs from the LMP-based date by more than 5–7 days in the first trimester, your provider will typically revise the due date. The revised date based on early ultrasound is usually more accurate. This does not indicate anything is wrong with your pregnancy."}},
+      {"@type":"Question","name":"Can I go into labor before my due date?","acceptedAnswer":{"@type":"Answer","text":"Yes. Any birth between 37 weeks 0 days and 41 weeks 6 days is considered normal timing. Births at 37–38 weeks are called early term, 39–40 weeks are full term, 41 weeks are late term, and 42+ weeks are post-term. About 11% of births in the US occur before 37 weeks (preterm). Signs of labor include regular contractions, water breaking, and bloody show."}}]}</script>
+</head>
+<body>
+<div class="reading-progress" id="readingProgress"></div>
+<header class="site-header" role="banner">
+  <div class="header-inner">
+    <a href="/" class="site-logo" aria-label="MedicalToolKit Home">
+      <div class="logo-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg></div>
+      <span class="logo-text">Medical<span>ToolKit</span></span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="/pages/bmi-calculator.html">Fitness</a>
+      <a href="/pages/due-date-calculator.html">Pregnancy</a>
+      <a href="/pages/blood-sugar-calculator.html">Diabetes</a>
+      <a href="/pages/blood-pressure-checker.html">Heart</a>
+      <a href="/pages/gfr-calculator.html">Kidney</a>
+      <a href="/pages/anxiety-test.html">Mental Health</a>
+      <a href="/pages/about.html">About</a>
+      <a href="/blog/" class="active">Blog</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <a href="/">Home</a><a href="/pages/bmi-calculator.html">BMI Calculator</a>
+    <a href="/pages/blood-sugar-calculator.html">Blood Sugar</a>
+    <a href="/blog/">Blog</a><a href="/pages/about.html">About</a>
+  </nav>
+</header>
+<div class="breadcrumb-bar"><nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="/">Home</a><span class="breadcrumb-sep">›</span><a href="/blog/">Blog</a><span class="breadcrumb-sep">›</span><span>How to Calculate Due Date</span>
+</nav></div>
+<section class="page-hero" aria-labelledby="articleHeading" style="text-align:left;">
+  <div style="max-width:860px;margin:0 auto;">
+    <div class="article-cat-badge" style="display:inline-flex;margin-bottom:12px;">🤰 Pregnancy</div>
+    <h1 id="articleHeading">How to Calculate Your Due Date: 4 Methods Explained</h1>
+    <p style="max-width:680px;margin-top:10px;">Learn how to calculate your pregnancy due date using last menstrual period, conception date, IVF transfer date, and ultrasound. Step-by-step guide with examples.</p>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:14px;font-size:.82rem;opacity:.85;color:white;">
+      <span>📅 June 7, 2026</span><span>⏱ 9 min read</span><span>🔄 Updated 2026</span>
+    </div>
+    <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(16,185,129,.2);border:1px solid rgba(16,185,129,.4);border-radius:8px;padding:8px 14px;font-size:.78rem;margin-top:14px;color:#d1fae5;">✅ <strong style="color:white;">Medically Reviewed</strong> — MedicalToolKit Editorial Team</div>
+  </div>
+</section>
+<div class="calc-page-layout">
+  <main class="calc-main" id="mainContent">
+    <div class="calc-intro" style="background:var(--primary-light);border-color:rgba(37,99,235,.15);">
+      <h2 style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--primary);margin-bottom:12px;">📋 In This Article</h2>
+      <ol style="margin-left:18px;display:flex;flex-direction:column;gap:6px;">          <li><a href="#lmp-method">Method 1: Last Menstrual Period</a></li>
+          <li><a href="#naegele">Naegele's Rule Formula</a></li>
+          <li><a href="#conception">Method 2: Conception Date</a></li>
+          <li><a href="#ultrasound">Method 3: Ultrasound Dating</a></li>
+          <li><a href="#ivf">Method 4: IVF Transfer Date</a></li>
+          <li><a href="#accuracy">How Accurate Is Your Due Date?</a></li>
+          <li><a href="#milestones">Key Pregnancy Milestones</a></li>
+          <li><a href="#faq">FAQ</a></li></ol>
+    </div>
+    <div class="article-body">
+
+        <h2 id="lmp-method">Method 1: Last Menstrual Period (LMP) — Most Common</h2>
+        <p>The most widely used method for calculating a due date is based on the first day of your <strong>Last Menstrual Period (LMP)</strong>. This method is used by virtually all healthcare providers as the starting point for pregnancy dating. It assumes a standard 28-day menstrual cycle with ovulation on day 14.</p>
+        <p>Why LMP and not conception date? Because the exact date of ovulation and fertilization is rarely known, while the LMP date is usually remembered or recorded. Pregnancy is conventionally counted from the LMP, making it approximately 2 weeks longer than actual fetal age (from conception).</p>
+
+        <div class="article-highlight">
+          <strong>Step-by-step:</strong> Write down the first day of your last period → Add 280 days (40 weeks) → That is your estimated due date (EDD).
+        </div>
+
+        <h2 id="naegele">Naegele's Rule — The Classic Formula</h2>
+        <p>Naegele's Rule is the mathematical formula behind LMP-based due date calculation, developed by German obstetrician Franz Karl Naegele in 1812 and still in universal use today:</p>
+        <div class="article-formula">
+Naegele's Rule:
+EDD = LMP + 1 year - 3 months + 7 days
+
+Example: LMP = January 15, 2026
+Step 1: Add 1 year  → January 15, 2027
+Step 2: Minus 3 months → October 15, 2026
+Step 3: Add 7 days → October 22, 2026
+
+Due Date = October 22, 2026
+        </div>
+        <p>This formula is mathematically equivalent to adding 280 days (40 weeks) to your LMP date. Our Due Date Calculator does this instantly — just enter your LMP date and get your EDD, current gestational week, and trimester.</p>
+
+        <div class="article-stat-grid">
+          <div class="article-stat-box"><span class="stat-val">280</span><span class="stat-lbl">Days from LMP to due date</span></div>
+          <div class="article-stat-box"><span class="stat-val">40</span><span class="stat-lbl">Weeks full-term pregnancy</span></div>
+          <div class="article-stat-box"><span class="stat-val">4%</span><span class="stat-lbl">Babies born on exact due date</span></div>
+          <div class="article-stat-box"><span class="stat-val">37–42</span><span class="stat-lbl">Weeks considered full term</span></div>
+        </div>
+
+        <h2 id="conception">Method 2: Known Conception Date</h2>
+        <p>If you know the exact date of conception (e.g., from ovulation tracking, OPK strips, or fertility monitoring), you can calculate your due date more directly:</p>
+        <div class="article-formula">
+EDD = Conception Date + 266 days (38 weeks)
+
+Example: Conception date = February 1, 2026
+EDD = February 1 + 266 days = October 25, 2026
+
+Note: 266 days from conception = 280 days from LMP
+(assumes ovulation on day 14 of a 28-day cycle)
+        </div>
+        <p>If your cycle is longer or shorter than 28 days, conception likely occurred on a different day relative to your LMP. For example, if your cycle is 35 days, ovulation likely occurred around day 21 — one week later than standard. Adjust accordingly by adding (cycle length - 28) days to your calculated EDD.</p>
+
+        <h2 id="ultrasound">Method 3: Ultrasound Dating — Most Accurate</h2>
+        <p>An early ultrasound (ideally performed between 7–13 weeks) provides the most accurate gestational age determination. The sonographer measures the Crown-Rump Length (CRL) — the distance from the top of the baby's head to its bottom — and compares it to established growth charts to calculate gestational age within ±5–7 days.</p>
+        <p>When should ultrasound dating override LMP dating? The ACOG (American College of Obstetricians and Gynecologists) recommends adjusting the EDD based on ultrasound if the discrepancy is:</p>
+        <ul>
+          <li><strong>Before 9 weeks:</strong> More than 5 days difference</li>
+          <li><strong>9–15 weeks 6 days:</strong> More than 7 days difference</li>
+          <li><strong>16–21 weeks 6 days:</strong> More than 10 days difference</li>
+          <li><strong>22 weeks or later:</strong> More than 14 days difference</li>
+        </ul>
+        <p>Women with irregular menstrual cycles, unknown LMP, or PCOS often have more accurate dating from early ultrasound than from LMP calculation.</p>
+
+        <h2 id="ivf">Method 4: IVF Transfer Date</h2>
+        <p>For pregnancies achieved through In Vitro Fertilization (IVF), due date calculation is more precise because the exact date of fertilization and embryo age is known:</p>
+        <div class="article-formula">
+For Day 3 Embryo Transfer:
+EDD = Transfer Date + 263 days
+
+For Day 5 Embryo Transfer (Blastocyst):
+EDD = Transfer Date + 261 days
+
+Example: Day 5 blastocyst transferred on March 1, 2026
+EDD = March 1 + 261 days = November 17, 2026
+        </div>
+
+        <h2 id="accuracy">How Accurate Is Your Due Date?</h2>
+        <p>Despite the precision of calculation, birth rarely happens on the estimated due date. Research consistently shows:</p>
+        <ul>
+          <li>Only about <strong>4% of babies</strong> are born on their exact due date</li>
+          <li>About <strong>70% of births</strong> occur within 10 days of the EDD</li>
+          <li>About <strong>90% of births</strong> occur within 2 weeks of the EDD</li>
+          <li>A <strong>"normal" delivery window</strong> is 37 weeks 0 days through 42 weeks 0 days</li>
+        </ul>
+        <p>The due date is best understood as the center of a 5-week window (weeks 37–42) during which delivery is expected, not a precise deadline. Post-term pregnancies (beyond 42 weeks) are monitored carefully and often induced due to increasing placental insufficiency risk.</p>
+
+        <h2 id="milestones">Key Pregnancy Milestones by Week</h2>
+        <div class="article-formula">
+Week 4:   Missed period — first positive pregnancy test
+Week 6:   Heartbeat detectable on transvaginal ultrasound
+Week 8:   All major organs forming; embryo becomes fetus
+Week 12:  End of first trimester; miscarriage risk drops significantly
+Week 16:  Gender may be visible on ultrasound
+Week 18:  Baby begins hearing sounds
+Week 20:  Anatomy scan ultrasound (checks for abnormalities)
+Week 24:  Viability threshold — survival possible with NICU support
+Week 28:  Third trimester begins; rapid brain development
+Week 32:  Baby practices breathing movements
+Week 36:  Baby considered "early term" — most systems mature
+Week 39:  Full term — optimal time for delivery
+Week 40:  Due date
+Week 42:  Post-term — induction typically discussed
+        </div>
+
+    </div>
+    <div class="sidebar-widget" style="display:flex;gap:16px;align-items:flex-start;margin-bottom:24px;">
+      <div style="width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--primary),#0EA5E9);display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;">👨‍⚕️</div>
+      <div><div style="font-weight:700;font-size:.9rem;margin-bottom:2px;">MedicalToolKit Editorial Team</div><div style="font-size:.78rem;color:var(--primary);font-weight:600;margin-bottom:6px;">✅ Medically Reviewed</div><p style="font-size:.82rem;color:var(--text-muted);margin:0;line-height:1.5;">Reviewed for accuracy per current clinical guidelines. Last reviewed June 2026.</p></div>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:14px 18px;background:white;border:1px solid var(--border);border-radius:var(--radius);margin-bottom:24px;">
+      <span style="font-size:.82rem;font-weight:600;color:var(--text-muted);">Share:</span>
+      <a href="https://twitter.com/intent/tweet?url=https://medicaltoolkit.pages.dev/blog/how-to-calculate-due-date.html" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;padding:6px 12px;border-radius:8px;font-size:.78rem;font-weight:600;background:#000;color:white;text-decoration:none;">✕ Share</a>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https://medicaltoolkit.pages.dev/blog/how-to-calculate-due-date.html" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;padding:6px 12px;border-radius:8px;font-size:.78rem;font-weight:600;background:#1877F2;color:white;text-decoration:none;">Facebook</a>
+      <button onclick="navigator.clipboard.writeText(window.location.href);this.textContent='✅ Copied!';setTimeout(()=>this.textContent='📋 Copy Link',2000)" style="padding:6px 12px;border-radius:8px;font-size:.78rem;font-weight:600;background:var(--bg);color:var(--text);border:1px solid var(--border);cursor:pointer;">📋 Copy Link</button>
+    </div>
+    <section class="article-faq" id="faq" aria-label="FAQ"><h2>Frequently Asked Questions</h2>        <div class="article-faq-item">
+          <div class="article-faq-q" tabindex="0" role="button">How do I calculate my due date from my last period?</div>
+          <div class="article-faq-a">Add 280 days (40 weeks) to the first day of your last menstrual period. Alternatively, use Naegele's Rule: take your LMP date, add 1 year, subtract 3 months, and add 7 days. For example, if your LMP was January 1, your due date would be approximately October 8. Our free Due Date Calculator does this instantly.</div>
+        </div>
+        <div class="article-faq-item">
+          <div class="article-faq-q" tabindex="0" role="button">How accurate is a due date calculated from LMP?</div>
+          <div class="article-faq-a">LMP-based due dates are accurate within about ±2 weeks for women with regular 28-day cycles. For women with irregular cycles, PCOS, or unknown LMP, accuracy is lower. An early ultrasound (7–13 weeks) is more accurate and can refine the due date to within ±5–7 days. Most providers use LMP for initial dating and confirm with early ultrasound.</div>
+        </div>
+        <div class="article-faq-item">
+          <div class="article-faq-q" tabindex="0" role="button">What if my due date changes after an ultrasound?</div>
+          <div class="article-faq-a">It is very common for due dates to be adjusted after an early ultrasound. If the ultrasound measurement differs from the LMP-based date by more than 5–7 days in the first trimester, your provider will typically revise the due date. The revised date based on early ultrasound is usually more accurate. This does not indicate anything is wrong with your pregnancy.</div>
+        </div>
+        <div class="article-faq-item">
+          <div class="article-faq-q" tabindex="0" role="button">Can I go into labor before my due date?</div>
+          <div class="article-faq-a">Yes. Any birth between 37 weeks 0 days and 41 weeks 6 days is considered normal timing. Births at 37–38 weeks are called early term, 39–40 weeks are full term, 41 weeks are late term, and 42+ weeks are post-term. About 11% of births in the US occur before 37 weeks (preterm). Signs of labor include regular contractions, water breaking, and bloody show.</div>
+        </div></section>
+    <div class="article-references"><h3>📚 Sources &amp; References</h3><ol>          <li>ACOG. (2017). Methods for Estimating the Due Date. <em>ACOG Committee Opinion 700.</em> acog.org</li>
+          <li>Chervenak, F.A. et al. (2013). How accurate is fetal biometry in the assessment of fetal age? <em>American Journal of Obstetrics & Gynecology.</em></li>
+          <li>Naegele, F.K. (1812). Erfahrungen und Abhandlungen aus dem Gebiete der Krankheiten des weiblichen Geschlechts.</li>
+          <li>Jukic, A.M. et al. (2013). Length of human pregnancy and contributors to its natural variation. <em>Human Reproduction, 28(10)</em>, 2848–2855.</li></ol></div>
+    <div style="background:linear-gradient(135deg,var(--primary),#0EA5E9);color:white;border-radius:var(--radius);padding:24px;text-align:center;margin-top:32px;">
+      <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:8px;">Try the Free Due Date Calculator</h3>
+      <p style="font-size:.88rem;opacity:.88;margin-bottom:14px;">Instant, accurate results — no signup required.</p>
+      <a href="/pages/due-date-calculator.html" style="display:inline-block;background:white;color:var(--primary);padding:11px 24px;border-radius:8px;font-weight:700;text-decoration:none;font-size:.9rem;">🤰 Open Due Date Calculator →</a>
+    </div>
+  </main>
+  <aside class="calc-sidebar">
+    <div class="sidebar-widget"><div class="sidebar-widget-header"><h3>📋 In This Article</h3></div><div class="sidebar-widget-body"><nav class="toc-mini">            <a href="#lmp-method">Method 1: Last Menstrual Period</a>
+            <a href="#naegele">Naegele's Rule Formula</a>
+            <a href="#conception">Method 2: Conception Date</a>
+            <a href="#ultrasound">Method 3: Ultrasound Dating</a>
+            <a href="#ivf">Method 4: IVF Transfer Date</a>
+            <a href="#accuracy">How Accurate Is Your Due Date?</a>
+            <a href="#milestones">Key Pregnancy Milestones</a>
+            <a href="#faq">FAQ</a></nav></div></div>
+    <div class="sidebar-widget"><div class="sidebar-widget-header"><h3>🧮 Related Calculator</h3></div><div class="sidebar-widget-body"><a href="/pages/due-date-calculator.html" style="display:block;background:var(--primary);color:white;text-align:center;padding:11px;border-radius:8px;font-weight:700;text-decoration:none;font-size:.875rem;">🤰 Due Date Calculator →</a></div></div>
+    <div class="sidebar-widget"><div class="sidebar-widget-header"><h3>📰 More Articles</h3></div><div class="sidebar-widget-body" style="padding:0;">          <a href="/blog/best-foods-during-pregnancy.html" class="popular-article" style="text-decoration:none;">
+            <span class="popular-num" style="font-size:1.1rem;width:28px;text-align:center;">🤰</span>
+            <div class="popular-article-info"><h4>Best Foods During Pregnancy</h4><span>9 min</span></div>
+          </a>
+          <a href="/blog/what-is-normal-bmi.html" class="popular-article" style="text-decoration:none;">
+            <span class="popular-num" style="font-size:1.1rem;width:28px;text-align:center;">⚖️</span>
+            <div class="popular-article-info"><h4>What Is a Normal BMI?</h4><span>8 min</span></div>
+          </a>
+          <a href="/blog/healthy-weight-for-height-chart.html" class="popular-article" style="text-decoration:none;">
+            <span class="popular-num" style="font-size:1.1rem;width:28px;text-align:center;">⚖️</span>
+            <div class="popular-article-info"><h4>Healthy Weight Chart</h4><span>8 min</span></div>
+          </a></div></div>
+    <a href="/blog/" style="display:block;background:var(--bg);color:var(--primary);text-align:center;padding:11px;border-radius:var(--radius);font-weight:600;font-size:.875rem;text-decoration:none;border:1px solid var(--border);">← All Articles</a>
+  </aside>
+</div>
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="site-logo"><div class="logo-icon"><svg viewBox="0 0 24 24" fill="white"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg></div><span class="logo-text">Medical<span>ToolKit</span></span></div>
+      <p>Free, accurate medical calculators trusted by millions worldwide.</p>
+    </div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/pages/bmi-calculator.html">BMI Calculator</a><a href="/pages/blood-sugar-calculator.html">Blood Sugar</a><a href="/pages/blood-pressure-checker.html">Blood Pressure</a><a href="/pages/calorie-calculator.html">Calories</a></div>
+    <div class="footer-col"><h4>Blog</h4><a href="/blog/">All Articles</a><a href="/blog/what-is-normal-bmi.html">BMI Guide</a><a href="/blog/how-to-lower-blood-sugar.html">Lower Blood Sugar</a><a href="/blog/high-blood-pressure-guide.html">Blood Pressure Guide</a></div>
+    <div class="footer-col"><h4>Company</h4><a href="/pages/about.html">About Us</a><a href="/pages/editorial-policy.html">Editorial Policy</a><a href="/pages/contact.html">Contact</a><a href="/pages/privacy-policy.html">Privacy Policy</a><a href="/pages/disclaimer.html">Medical Disclaimer</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 MedicalToolKit. All rights reserved. <strong>Not medical advice.</strong></p></div>
+</footer>
+<script src="/dist/js/main.min.js?v=20260620nodark" defer></script>
+<script src="/dist/js/animations.min.js?v=20260620nodark" defer></script>
+<script src="/dist/js/blog.min.js?v=20260620nodark" defer></script>
+<script src="/dist/js/analytics.min.js?v=20260620nodark" defer></script>
+<script>
+const bar=document.getElementById('readingProgress');
+window.addEventListener('scroll',()=>{const b=document.body,h=document.documentElement,t=Math.max(b.scrollHeight,h.scrollHeight)-h.clientHeight;if(bar&&t>0)bar.style.width=Math.min((window.scrollY/t)*100,100)+'%';},{passive:true});
+document.querySelectorAll('.article-faq-q').forEach(q=>{q.addEventListener('click',()=>{const isOpen=q.classList.contains('open');document.querySelectorAll('.article-faq-q').forEach(o=>{o.classList.remove('open');o.parentElement.querySelector('.article-faq-a').classList.remove('open');});if(!isOpen){q.classList.add('open');q.parentElement.querySelector('.article-faq-a').classList.add('open');}});q.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();q.click();}});});
+</script>
+  <script src="/dist/js/pwa.min.js?v=20260620nodark" defer></script>
+</body>
+</html>

@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+/* Critical CSS — above fold render */
+:root{--primary:#2563EB;--primary-light:#EFF6FF;--primary-dark:#1D4ED8;--secondary:#10B981;--text:#1E293B;--text-light:#475569;--text-muted:#94A3B8;--bg:#F8FAFC;--border:#E2E8F0;--shadow:0 1px 3px rgba(0,0,0,.1),0 1px 2px rgba(0,0,0,.06);--shadow-lg:0 10px 15px rgba(0,0,0,.1);--shadow-xl:0 20px 25px rgba(0,0,0,.1);--radius:12px;--radius-sm:8px;--radius-lg:16px;--transition:all .2s ease}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;overflow-x:hidden}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;overflow-x:hidden}
+.site-header{position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid var(--border);box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.header-inner{max-width:1200px;margin:0 auto;padding:0 20px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.site-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-icon{width:40px;height:40px;background:var(--primary);border-radius:10px;display:flex;align-items:center;justify-content:center}
+.logo-icon svg{width:22px;height:22px;fill:white}
+.logo-text{font-weight:700;font-size:1.1rem;color:var(--text)}
+.logo-text span{color:var(--primary)}
+.main-nav{display:flex;align-items:center;gap:4px}
+.main-nav a{padding:6px 12px;border-radius:8px;font-size:.875rem;font-weight:500;color:var(--text-light);text-decoration:none}
+.hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer;width:36px;height:36px;background:none;border:none}
+.bar{width:22px;height:2.5px;background:var(--text);border-radius:3px}
+.hero{background:linear-gradient(135deg,#1E3A5F 0%,#2563EB 50%,#0EA5E9 100%);color:white;padding:72px 20px 60px;text-align:center;position:relative;overflow:hidden}
+.hero h1{font-size:clamp(2rem,5vw,3rem);font-weight:800;line-height:1.15;margin-bottom:16px;letter-spacing:-.5px}
+.hero p{font-size:1.1rem;opacity:.88;max-width:580px;margin:0 auto 28px}
+.stats-bar{background:#fff;border-bottom:1px solid var(--border)}
+.stats-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:center;flex-wrap:wrap}
+.stat-item{display:flex;flex-direction:column;align-items:center;padding:16px 32px;border-right:1px solid var(--border);flex:1;min-width:120px;text-align:center}
+.stat-item:last-child{border-right:none}
+.stat-number{font-size:2rem;font-weight:800;color:var(--primary);display:block;line-height:1.2;white-space:nowrap}
+.stat-label{font-size:0.8rem;color:var(--text-light);white-space:nowrap;margin-top:2px}
+@media(max-width:640px){.stat-item{padding:14px 16px;flex:0 0 50%;min-width:50%;border-right:none;border-bottom:1px solid var(--border)}.stat-item:nth-child(odd){border-right:1px solid var(--border)}.stat-item:nth-last-child(-n+2){border-bottom:none}.stat-number{font-size:1.5rem}}
+.reading-progress{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--primary),#10B981,#0EA5E9);z-index:99999;transition:width .15s linear}
+</style>
+<script src="https://quge5.com/88/tag.min.js" data-zone="245868" async data-cfasync="false"></script>
+  <meta charset="UTF-8">
+  <!-- DNS Prefetch — Performance -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link rel="dns-prefetch" href="//quge5.com">
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <link rel="dns-prefetch" href="//www.google-analytics.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>High Blood Pressure: Symptoms, Causes & Treatment in 2026 | MedicalToolKit</title>
+  <meta name="description" content="Complete guide to high blood pressure (hypertension) — symptoms, causes, risk factors, AHA 2017 guidelines, medications, and evidence-based lifestyle treatment strategies.">
+  <meta name="keywords" content="high blood pressure symptoms, hypertension treatment, blood pressure causes, lower blood pressure naturally, hypertension medications, blood pressure ranges">
+  <link rel="canonical" href="https://medicaltoolkit.pages.dev/blog/high-blood-pressure-guide.html">
+  <meta property="og:title" content="High Blood Pressure: Symptoms, Causes & Treatment in 2026">
+  <meta property="og:description" content="Complete guide to high blood pressure (hypertension) — symptoms, causes, risk factors, AHA 2017 guidelines, medications, and evidence-based lifestyle treatment strategies.">
+  <meta property="og:image" content="https://medicaltoolkit.pages.dev/images/og-blood-pressure.png">
+  <meta property="og:url" content="https://medicaltoolkit.pages.dev/blog/high-blood-pressure-guide.html">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="High Blood Pressure: Symptoms, Causes & Treatment in 2026">
+  <meta name="twitter:description" content="Complete guide to high blood pressure (hypertension) — symptoms, causes, risk factors, AHA 2017 guidelines, medications, and evidence-based lifestyle treatment strategies.">
+  <meta name="twitter:image" content="https://medicaltoolkit.pages.dev/images/og-blood-pressure.png">
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+  <link rel="preload" href="/dist/css/style.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/style.min.css?v=20260620nodark"></noscript>
+  <link rel="stylesheet" href="/dist/css/responsive.min.css?v=20260620nodark">
+  <link rel="stylesheet" href="/dist/css/calculator.min.css?v=20260620nodark">
+  <link rel="preload" href="/dist/css/blog.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/blog.min.css?v=20260620nodark"></noscript>
+  <link rel="preload" href="/dist/css/animations.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/animations.min.css?v=20260620nodark"></noscript>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalWebPage",
+    "name": "High Blood Pressure: Symptoms, Causes & Treatment in 2026",
+    "url": "https://medicaltoolkit.pages.dev/blog/high-blood-pressure-guide.html",
+    "description": "Complete guide to high blood pressure (hypertension) — symptoms, causes, risk factors, AHA 2017 guidelines, medications, and evidence-based lifestyle treatment strategies.",
+    "datePublished": "2026-06-03",
+    "dateModified": "2026-06-05",
+    "author": {"@type": "Organization", "name": "MedicalToolKit Editorial Team"},
+    "publisher": {"@type": "Organization", "name": "MedicalToolKit", "url": "https://medicaltoolkit.pages.dev/"},
+    "medicalAudience": {"@type": "MedicalAudience", "audienceType": "Patient"},
+    "specialty": "Cardiology"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://medicaltoolkit.pages.dev/"},
+      {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://medicaltoolkit.pages.dev/blog/"},
+      {"@type": "ListItem", "position": 3, "name": "High Blood Pressure Guide", "item": "https://medicaltoolkit.pages.dev/blog/high-blood-pressure-guide.html"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type":"Question","name":"What is the most common symptom of high blood pressure?","acceptedAnswer":{"@type":"Answer","text":"High blood pressure typically causes no symptoms — earning it the name 'silent killer.' Most people feel completely normal even with severely elevated readings. Symptoms like headaches, nosebleeds, and dizziness are associated with very high levels (hypertensive crisis above 180/120 mmHg) but are not reliable indicators for routine monitoring. Regular blood pressure checks are the only reliable way to detect hypertension."}},
+      {"@type":"Question","name":"Can high blood pressure be cured?","acceptedAnswer":{"@type":"Answer","text":"Primary hypertension cannot be 'cured' in most cases but can be effectively controlled through lifestyle changes and medication. Some secondary hypertension cases — caused by treatable conditions like primary aldosteronism or renal artery stenosis — can be resolved with appropriate treatment. Many people with Stage 1 hypertension achieve normal blood pressure through lifestyle modification alone without needing medication."}},
+      {"@type":"Question","name":"What is dangerously high blood pressure?","acceptedAnswer":{"@type":"Answer","text":"A blood pressure reading above 180/120 mmHg is classified as hypertensive crisis and requires immediate medical attention. If accompanied by symptoms such as chest pain, shortness of breath, severe headache, vision changes, back pain, numbness, or weakness — call 911 immediately as this may indicate hypertensive emergency with organ damage."}},
+      {"@type":"Question","name":"How quickly can lifestyle changes lower blood pressure?","acceptedAnswer":{"@type":"Answer","text":"Dietary changes (particularly sodium reduction and DASH diet) can produce measurable reductions within 2 weeks. Exercise benefits begin within 1–3 months. Weight loss produces approximately 1 mmHg reduction per kg lost. Most clinical trials measuring lifestyle intervention effects show significant results at 3–6 months. Quitting smoking reduces cardiovascular risk almost immediately, though BP effects are more gradual."}}
+    ]
+  }
+  </script>
+  <!-- ============================================
+       SEARCH CONSOLE & WEBMASTER VERIFICATION
+       Replace placeholder values with your actual codes
+       ============================================ -->
+  <!-- Google Search Console: Go to search.google.com/search-console → Add Property → HTML tag -->
+  <meta name="google-site-verification" content="y63XSBvlNcknj46yVKMn0uE14aKKOBfjwLLO6EZrLBk">
+  <!-- Bing Webmaster: Go to bing.com/webmasters → Add Site → HTML Meta Tag -->
+  <meta name="msvalidate.01" content="AB9070CF57664870ADB2D23906FE30C4">
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JWW19HEZBJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JWW19HEZBJ', {anonymize_ip: true});
+  </script>
+</head>
+<body>
+
+<div class="reading-progress" id="readingProgress"></div>
+
+<!-- HEADER -->
+<header class="site-header" role="banner">
+  <div class="header-inner">
+    <a href="/" class="site-logo" aria-label="MedicalToolKit Home">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/>
+        </svg>
+      </div>
+      <span class="logo-text">Medical<span>ToolKit</span></span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="/pages/bmi-calculator.html">Fitness</a>
+      <a href="/pages/due-date-calculator.html">Pregnancy</a>
+      <a href="/pages/blood-sugar-calculator.html">Diabetes</a>
+      <a href="/pages/blood-pressure-checker.html">Heart</a>
+      <a href="/pages/gfr-calculator.html">Kidney</a>
+      <a href="/pages/anxiety-test.html">Mental Health</a>
+      <a href="/pages/about.html">About</a>
+      <a href="/blog/" class="active">Blog</a>
+    </nav>
+    <div class="header-search search-wrapper">
+      <input type="search" class="header-search-input search-input" placeholder="Search calculators..." aria-label="Search calculators">
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <a href="/">Home</a>
+    <a href="/pages/bmi-calculator.html">BMI Calculator</a>
+    <a href="/pages/blood-sugar-calculator.html">Blood Sugar</a>
+    <a href="/pages/blood-pressure-checker.html">Blood Pressure</a>
+    <a href="/pages/due-date-calculator.html">Due Date</a>
+    <a href="/blog/" class="active">Blog</a>
+    <a href="/pages/about.html">About</a>
+    <a href="/pages/contact.html">Contact</a>
+  </nav>
+</header>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb-bar">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a>
+    <span class="breadcrumb-sep" aria-hidden="true">›</span>
+    <a href="/blog/">Blog</a>
+    <span class="breadcrumb-sep" aria-hidden="true">›</span>
+    <span>High Blood Pressure Guide</span>
+  </nav>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero" aria-labelledby="articleHeading" style="padding:40px 20px 36px; text-align:left;">
+  <div style="max-width:860px; margin:0 auto;">
+    <div class="article-cat-badge" style="margin-bottom:14px; display:inline-flex;">❤️ Heart Health</div>
+    <h1 id="articleHeading" style="margin-bottom:12px;">High Blood Pressure: Symptoms, Causes & Treatment in 2026</h1>
+    <p style="max-width:680px;">Complete guide to high blood pressure — symptoms, causes, AHA 2017 categories, evidence-based lifestyle treatments, and medication overview.</p>
+    <div class="article-meta-bar" style="margin-top:14px; font-size:0.82rem; opacity:0.85; display:flex; gap:16px; flex-wrap:wrap;">
+      <span>📅 June 5, 2026</span>
+      <span>⏱ 9 min read</span>
+      <span>🔄 Updated 2026</span>
+    </div>
+    <div class="reviewed-badge" style="display:inline-flex; align-items:center; gap:8px; background:rgba(16,185,129,0.2); border:1px solid rgba(16,185,129,0.4); border-radius:8px; padding:8px 14px; font-size:0.78rem; margin-top:16px; color:#d1fae5;">
+      ✅ <strong style="color:white;">Medically Reviewed</strong> — MedicalToolKit Editorial Team
+    </div>
+  </div>
+</section>
+
+<!-- MAIN LAYOUT — matches calc-page-layout exactly -->
+<div class="calc-page-layout">
+
+  <!-- MAIN CONTENT -->
+  <main class="calc-main" id="mainContent">
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="calc-intro" style="background:var(--primary-light); border-color:rgba(37,99,235,0.15);">
+      <h2 style="font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.07em; color:var(--primary); margin-bottom:12px;">📋 In This Article</h2>
+      <ol style="margin-left:18px; display:flex; flex-direction:column; gap:6px;">
+          <li><a href="#what-is">What Is High Blood Pressure?</a></li>
+          <li><a href="#symptoms">Symptoms — The Silent Killer</a></li>
+          <li><a href="#causes">Causes and Risk Factors</a></li>
+          <li><a href="#categories">Blood Pressure Categories</a></li>
+          <li><a href="#treatment">Evidence-Based Treatments</a></li>
+          <li><a href="#medications">Medications Overview</a></li>
+          <li><a href="#complications">Complications If Untreated</a></li>
+          <li><a href="#faq">Frequently Asked Questions</a></li>
+      </ol>
+    </div>
+
+    <!-- ARTICLE BODY -->
+    <div class="article-body">
+<h2 id="what-is">What Is High Blood Pressure (Hypertension)?</h2>
+        <p>Blood pressure measures the force that blood exerts against the walls of your arteries as the heart pumps it through the body. It is expressed as two numbers: <strong>systolic</strong> (the pressure when the heart beats and pumps blood) over <strong>diastolic</strong> (the pressure when the heart rests between beats). Hypertension — commonly called high blood pressure — is defined by the American Heart Association (AHA) as a consistent blood pressure reading of 130/80 mmHg or above.</p>
+        <p>This threshold was lowered from the previous standard of 140/90 mmHg in the landmark 2017 AHA/ACC guidelines, based on mounting evidence that cardiovascular risk rises significantly above 130/80. Under these guidelines, approximately 46% of US adults now have hypertension — up from 32% under older criteria — making it the single most common modifiable cardiovascular risk factor.</p>
+
+        <div class="article-highlight">
+          <strong>Why It Matters:</strong> High blood pressure is the leading risk factor for heart attack, stroke, heart failure, and kidney disease worldwide. It is directly responsible for approximately 500,000 deaths per year in the United States alone.
+        </div>
+
+        <div class="article-stat-grid">
+          <div class="article-stat-box"><span class="stat-val">116M</span><span class="stat-lbl">US adults have hypertension</span></div>
+          <div class="article-stat-box"><span class="stat-val">46%</span><span class="stat-lbl">of US adults affected</span></div>
+          <div class="article-stat-box"><span class="stat-val">1 in 5</span><span class="stat-lbl">don't know they have it</span></div>
+          <div class="article-stat-box"><span class="stat-val">500K</span><span class="stat-lbl">annual US deaths linked to HBP</span></div>
+        </div>
+
+        <h2 id="symptoms">Symptoms — Why Hypertension Is Called the Silent Killer</h2>
+        <p>High blood pressure is often called the "silent killer" because it typically causes <strong>no symptoms</strong> for years or even decades. Most people with hypertension feel completely normal — which is precisely why it is so dangerous and why regular blood pressure monitoring is essential for everyone over 18.</p>
+        <p>When symptoms do occur, they are often at very high levels (hypertensive crisis, above 180/120 mmHg) and may include:</p>
+        <ul>
+          <li>Severe headaches, particularly at the back of the head upon waking</li>
+          <li>Nosebleeds (epistaxis) that are difficult to stop</li>
+          <li>Shortness of breath or chest tightness</li>
+          <li>Dizziness or lightheadedness</li>
+          <li>Visual disturbances — blurred vision or seeing spots</li>
+          <li>Facial flushing</li>
+          <li>Blood in urine</li>
+          <li>Pounding sensation in the chest, neck, or ears</li>
+        </ul>
+        <div class="article-warning">
+          <strong>Hypertensive Crisis (&gt;180/120 mmHg):</strong> If your reading exceeds 180/120 and you have symptoms such as chest pain, shortness of breath, severe headache, back pain, numbness, weakness, or vision changes — call 911 immediately. This is a medical emergency.
+        </div>
+
+        <h2 id="causes">Causes and Risk Factors</h2>
+        <p>Approximately 90–95% of hypertension cases are classified as <strong>primary (essential) hypertension</strong> — meaning no single identifiable cause exists. It develops gradually over years from a combination of genetic predisposition and lifestyle factors. The remaining 5–10% is <strong>secondary hypertension</strong>, caused by an identifiable underlying condition.</p>
+
+        <h3>Primary Hypertension Risk Factors</h3>
+        <ul>
+          <li><strong>Age:</strong> Blood pressure tends to rise with age as arterial walls stiffen. Over 65% of adults over 60 have hypertension.</li>
+          <li><strong>Family history:</strong> Having a parent or sibling with hypertension significantly increases your risk — suggesting strong genetic components.</li>
+          <li><strong>Obesity and overweight:</strong> Excess body weight requires the heart to pump more blood to supply oxygen to tissues, increasing pressure on artery walls. Even a 5 kg weight loss can reduce systolic BP by 4–5 mmHg.</li>
+          <li><strong>High sodium intake:</strong> Sodium causes water retention, increasing blood volume and therefore pressure. The average American consumes 3,400 mg/day — more than double the AHA's recommended maximum of 1,500 mg/day for people with hypertension.</li>
+          <li><strong>Physical inactivity:</strong> Sedentary individuals have 30–50% higher hypertension risk than active individuals.</li>
+          <li><strong>Excessive alcohol consumption:</strong> More than 1 drink/day (women) or 2 drinks/day (men) is associated with elevated BP.</li>
+          <li><strong>Chronic stress:</strong> Persistent stress activates the sympathetic nervous system, chronically elevating blood pressure.</li>
+          <li><strong>Race and ethnicity:</strong> Black Americans develop hypertension more frequently, at younger ages, and with greater severity than White Americans — likely due to a combination of genetic susceptibility, environmental factors, and social determinants of health.</li>
+        </ul>
+
+        <h3>Secondary Hypertension Causes</h3>
+        <ul>
+          <li>Chronic kidney disease (most common secondary cause)</li>
+          <li>Primary aldosteronism (adrenal gland overproducing aldosterone)</li>
+          <li>Obstructive sleep apnea</li>
+          <li>Thyroid disorders (both hypo- and hyperthyroidism)</li>
+          <li>Medications: NSAIDs, oral contraceptives, decongestants, stimulants</li>
+          <li>Renal artery stenosis</li>
+          <li>Coarctation of the aorta (narrowing of the main artery)</li>
+        </ul>
+
+        <h2 id="categories">Blood Pressure Categories (AHA 2017)</h2>
+        <div class="article-formula">
+          <strong>Normal:</strong>         Systolic &lt;120 AND Diastolic &lt;80 mmHg<br>
+          <strong>Elevated:</strong>        Systolic 120–129 AND Diastolic &lt;80 mmHg<br>
+          <strong>Stage 1 HTN:</strong>     Systolic 130–139 OR Diastolic 80–89 mmHg<br>
+          <strong>Stage 2 HTN:</strong>     Systolic ≥140 OR Diastolic ≥90 mmHg<br>
+          <strong>Hypertensive Crisis:</strong> Systolic &gt;180 AND/OR Diastolic &gt;120 mmHg
+        </div>
+        <p>Blood pressure should always be measured at rest after sitting quietly for 5 minutes. Take 2–3 readings 1 minute apart and use the average. The AHA recommends home monitoring with a validated upper-arm cuff device as a complement to office measurements, particularly to identify white-coat hypertension (elevated only in clinical settings) or masked hypertension (normal in clinic but elevated at home).</p>
+
+        <h2 id="treatment">Evidence-Based Lifestyle Treatments</h2>
+        <p>Lifestyle modification is the first-line treatment for elevated blood pressure and Stage 1 hypertension, and an essential complement to medication for all stages. The most effective interventions:</p>
+        <ul>
+          <li><strong>DASH Diet:</strong> The Dietary Approaches to Stop Hypertension diet has the strongest evidence of any dietary intervention, reducing systolic BP by 8–14 mmHg. It emphasizes fruits, vegetables, whole grains, low-fat dairy, and lean proteins while limiting sodium, saturated fat, and added sugars.</li>
+          <li><strong>Sodium reduction:</strong> Reducing sodium from 3,400 to 1,500 mg/day reduces systolic BP by 5–6 mmHg. Read labels carefully — bread, canned soups, deli meats, cheese, and restaurant food are the leading sodium sources in the US diet.</li>
+          <li><strong>Aerobic exercise:</strong> 150 minutes of moderate-intensity aerobic exercise per week (brisk walking, cycling, swimming) reduces systolic BP by 4–9 mmHg. Even 30 minutes of daily walking produces clinically significant reductions.</li>
+          <li><strong>Weight reduction:</strong> Losing 10 kg (22 lbs) reduces systolic BP by approximately 5–20 mmHg. Even 5% body weight reduction produces meaningful improvement.</li>
+          <li><strong>Limit alcohol:</strong> Reducing to moderate intake (≤1 drink/day women, ≤2 drinks/day men) reduces systolic BP by 2–4 mmHg.</li>
+          <li><strong>Quit smoking:</strong> Each cigarette produces a temporary BP spike. Quitting smoking is the single most impactful action for overall cardiovascular risk reduction.</li>
+          <li><strong>Stress management:</strong> Mindfulness-based stress reduction (MBSR), slow breathing exercises (6 breaths per minute), and yoga have each demonstrated 3–5 mmHg systolic reductions in clinical trials.</li>
+          <li><strong>Potassium intake:</strong> Adequate potassium (4,700 mg/day) counteracts sodium. Banana (422mg), sweet potato (542mg), white potato (926mg), and spinach (839mg) are excellent sources.</li>
+        </ul>
+
+        <h2 id="medications">Medications for Hypertension</h2>
+        <p>When lifestyle modifications are insufficient — or for Stage 2 hypertension — antihypertensive medications are required. The four primary classes used as first-line therapy:</p>
+        <ul>
+          <li><strong>ACE Inhibitors</strong> (e.g., lisinopril, ramipril): Block the production of angiotensin II, causing vasodilation. Also protective for kidneys in diabetes and heart failure. Side effect: dry cough (10–15% of patients).</li>
+          <li><strong>ARBs</strong> (e.g., losartan, valsartan): Block angiotensin II receptors. Similar efficacy to ACE inhibitors without the cough. Preferred alternative.</li>
+          <li><strong>Calcium Channel Blockers</strong> (e.g., amlodipine, diltiazem): Prevent calcium from entering heart and blood vessel muscle cells, reducing contraction force and BP. Particularly effective in older adults and Black patients.</li>
+          <li><strong>Thiazide Diuretics</strong> (e.g., hydrochlorothiazide, chlorthalidone): Reduce blood volume by increasing sodium and water excretion. Among the most cost-effective antihypertensives. Chlorthalidone is preferred over HCTZ based on cardiovascular outcome data.</li>
+        </ul>
+
+        <h2 id="complications">Complications of Untreated Hypertension</h2>
+        <p>Sustained hypertension silently damages the cardiovascular system over years. Major complications include stroke (hypertension accounts for 54% of all strokes worldwide), heart attack (each 20/10 mmHg above normal doubles cardiovascular risk), heart failure, chronic kidney disease and kidney failure, vision loss from hypertensive retinopathy, peripheral artery disease, vascular dementia, and aortic aneurysm.</p>
+        <div class="article-pullquote">
+          <p>"Treating hypertension is among the most cost-effective interventions in all of preventive medicine — yet half of those with hypertension remain uncontrolled."</p>
+        </div>
+
+      </div>
+      <div class="article-author-box">
+        <div class="author-avatar">👨‍⚕️</div>
+        <div class="author-info">
+          <h4>MedicalToolKit Editorial Team</h4>
+          <div class="author-role">✅ Medically Reviewed</div>
+          <p>This article was reviewed by our medical editorial team for accuracy and alignment with current clinical guidelines. Last reviewed June 2026.</p>
+        </div>
+      </div>
+      <div class="article-share">
+        <span class="article-share-label">Share:</span>
+        <a href="https://twitter.com/intent/tweet?url=https://medicaltoolkit.pages.dev/blog/high-blood-pressure-guide.html" target="_blank" rel="noopener" class="share-btn share-twitter">✕ Share</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://medicaltoolkit.pages.dev/blog/high-blood-pressure-guide.html" target="_blank" rel="noopener" class="share-btn share-facebook">Facebook</a>
+        <button class="share-btn share-copy" onclick="navigator.clipboard.writeText(window.location.href);this.textContent='✅ Copied!'">📋 Copy Link</button>
+      </div>
+      <section class="article-faq" id="faq">
+        <h2>Frequently Asked Questions</h2>
+        <div class="article-faq-item">
+          <div class="article-faq-q" tabindex="0" role="button">What is the most common symptom of high blood pressure?</div>
+          <div class="article-faq-a">High blood pressure typically causes no symptoms — earning it the name 'silent killer.' Most people feel completely normal even with severely elevated readings. Symptoms like headaches, nosebleeds, and dizziness are associated with very high levels (hypertensive crisis above 180/120 mmHg) but are not reliable indicators for routine monitoring. Regular blood pressure checks are the only reliable way to detect hypertension.</div>
+        </div>
+        <div class="article-faq-item">
+          <div class="article-faq-q" tabindex="0" role="button">Can high blood pressure be cured?</div>
+          <div class="article-faq-a">Primary hypertension cannot be 'cured' in most cases but can be effectively controlled through lifestyle changes and medication. Some secondary hypertension cases — caused by treatable conditions like primary aldosteronism or renal artery stenosis — can be resolved with appropriate treatment. Many people with Stage 1 hypertension achieve normal blood pressure through lifestyle modification alone without needing medication.</div>
+        </div>
+        <div class="article-faq-item">
+          <div class="article-faq-q" tabindex="0" role="button">What is dangerously high blood pressure?</div>
+          <div class="article-faq-a">A blood pressure reading above 180/120 mmHg is classified as hypertensive crisis and requires immediate medical attention. If accompanied by symptoms such as chest pain, shortness of breath, severe headache, vision changes, back pain, numbness, or weakness — call 911 immediately as this may indicate hypertensive emergency with organ damage.</div>
+        </div>
+        <div class="article-faq-item">
+          <div class="article-faq-q" tabindex="0" role="button">How quickly can lifestyle changes lower blood pressure?</div>
+          <div class="article-faq-a">Dietary changes (particularly sodium reduction and DASH diet) can produce measurable reductions within 2 weeks. Exercise benefits begin within 1–3 months. Weight loss produces approximately 1 mmHg reduction per kg lost. Most clinical trials measuring lifestyle intervention effects show significant results at 3–6 months. Quitting smoking reduces cardiovascular risk almost immediately, though BP effects are more gradual.</div>
+        </div>
+      </section>
+      <div class="article-references">
+        <h3>📚 Sources &amp; References</h3>
+        <ol>
+          <li>Whelton, P.K. et al. (2018). 2017 ACC/AHA/AAPA/ABC/ACPM/AGS/APhA/ASH/ASPC/NMA/PCNA Guideline for the Prevention, Detection, Evaluation, and Management of High Blood Pressure in Adults. <em>Hypertension, 71(6).</em></li>
+          <li>American Heart Association. (2024). <em>Understanding Blood Pressure Readings.</em> heart.org</li>
+          <li>Appel, L.J. et al. (1997). A clinical trial of the effects of dietary patterns on blood pressure (DASH). <em>NEJM, 336</em>, 1117–1124.</li>
+          <li>GBD 2019 Risk Factors Collaborators. (2020). Global burden of 87 risk factors in 204 countries. <em>The Lancet, 396</em>, 1223–1249.</li>
+          <li>Cornelissen, V.A. & Smart, N.A. (2013). Exercise training for blood pressure: a systematic review and meta-analysis. <em>JAHA, 2(1).</em></li>
+        </ol>
+      </div>
+      <div class="calculator-cta-card" style="margin-top:32px;padding:28px;text-align:center;">
+        <h3 style="font-size:1.2rem;font-weight:700;margin-bottom:8px;">Try the Free Blood Pressure Checker</h3>
+        <p style="font-size:0.9rem;opacity:0.88;margin-bottom:16px;">Get instant, accurate results in seconds.</p>
+        <a href="/pages/blood-pressure-checker.html" style="display:inline-block;background:white;color:var(--primary);padding:12px 28px;border-radius:10px;font-weight:700;text-decoration:none;">🧮 Open Calculator →</a>
+      </div>
+    </div>
+
+    <!-- AUTHOR BOX -->
+    <div class="sidebar-widget" style="display:flex; gap:16px; align-items:flex-start; margin-bottom:24px;">
+      <div style="width:52px; height:52px; border-radius:50%; background:linear-gradient(135deg,var(--primary),#0EA5E9); display:flex; align-items:center; justify-content:center; font-size:1.4rem; flex-shrink:0;">👨‍⚕️</div>
+      <div>
+        <div style="font-weight:700; font-size:0.9rem; margin-bottom:2px;">MedicalToolKit Editorial Team</div>
+        <div style="font-size:0.78rem; color:var(--primary); font-weight:600; margin-bottom:6px;">✅ Medically Reviewed</div>
+        <p style="font-size:0.82rem; color:var(--text-muted); margin:0; line-height:1.5;">This article was reviewed by our medical editorial team for accuracy and alignment with current clinical guidelines. Last reviewed June 2026.</p>
+      </div>
+    </div>
+
+    <!-- SHARE BUTTONS -->
+    <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; padding:16px 20px; background:white; border:1px solid var(--border); border-radius:var(--radius); margin-bottom:24px;">
+      <span style="font-size:0.82rem; font-weight:600; color:var(--text-muted);">Share:</span>
+      <a href="https://twitter.com/intent/tweet?url=https://medicaltoolkit.pages.dev/blog/high-blood-pressure-guide.html" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:6px; padding:7px 14px; border-radius:8px; font-size:0.78rem; font-weight:600; background:#000; color:white; text-decoration:none;">✕ Share</a>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https://medicaltoolkit.pages.dev/blog/high-blood-pressure-guide.html" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:6px; padding:7px 14px; border-radius:8px; font-size:0.78rem; font-weight:600; background:#1877F2; color:white; text-decoration:none;">Facebook</a>
+      <button onclick="navigator.clipboard.writeText(window.location.href);this.textContent='✅ Copied!';setTimeout(()=>this.textContent='📋 Copy Link',2000)" style="display:inline-flex; align-items:center; gap:6px; padding:7px 14px; border-radius:8px; font-size:0.78rem; font-weight:600; background:var(--bg); color:var(--text); border:1px solid var(--border); cursor:pointer;">📋 Copy Link</button>
+    </div>
+
+    <!-- FAQ SECTION -->
+    <section class="article-faq" id="faq">
+        <h2>Frequently Asked Questions</h2>
+        <div class="article-faq-item">
+          <div class="article-faq-q" tabindex="0" role="button">What is the most common symptom of high blood pressure?</div>
+          <div class="article-faq-a">High blood pressure typically causes no symptoms — earning it the name 'silent killer.' Most people feel completely normal even with severely elevated readings. Symptoms like headaches, nosebleeds, and dizziness are associated with very high levels (hypertensive crisis above 180/120 mmHg) but are not reliable indicators for routine monitoring. Regular blood pressure checks are the only reliable way to detect hypertension.</div>
+        </div>
+        <div class="article-faq-item">
+          <div class="article-faq-q" tabindex="0" role="button">Can high blood pressure be cured?</div>
+          <div class="article-faq-a">Primary hypertension cannot be 'cured' in most cases but can be effectively controlled through lifestyle changes and medication. Some secondary hypertension cases — caused by treatable conditions like primary aldosteronism or renal artery stenosis — can be resolved with appropriate treatment. Many people with Stage 1 hypertension achieve normal blood pressure through lifestyle modification alone without needing medication.</div>
+        </div>
+        <div class="article-faq-item">
+          <div class="article-faq-q" tabindex="0" role="button">What is dangerously high blood pressure?</div>
+          <div class="article-faq-a">A blood pressure reading above 180/120 mmHg is classified as hypertensive crisis and requires immediate medical attention. If accompanied by symptoms such as chest pain, shortness of breath, severe headache, vision changes, back pain, numbness, or weakness — call 911 immediately as this may indicate hypertensive emergency with organ damage.</div>
+        </div>
+        <div class="article-faq-item">
+          <div class="article-faq-q" tabindex="0" role="button">How quickly can lifestyle changes lower blood pressure?</div>
+          <div class="article-faq-a">Dietary changes (particularly sodium reduction and DASH diet) can produce measurable reductions within 2 weeks. Exercise benefits begin within 1–3 months. Weight loss produces approximately 1 mmHg reduction per kg lost. Most clinical trials measuring lifestyle intervention effects show significant results at 3–6 months. Quitting smoking reduces cardiovascular risk almost immediately, though BP effects are more gradual.</div>
+        </div>
+      </section>
+
+    <!-- REFERENCES -->
+    <div class="article-references">
+        <h3>📚 Sources &amp; References</h3>
+        <ol>
+          <li>Whelton, P.K. et al. (2018). 2017 ACC/AHA/AAPA/ABC/ACPM/AGS/APhA/ASH/ASPC/NMA/PCNA Guideline for the Prevention, Detection, Evaluation, and Management of High Blood Pressure in Adults. <em>Hypertension, 71(6).</em></li>
+          <li>American Heart Association. (2024). <em>Understanding Blood Pressure Readings.</em> heart.org</li>
+          <li>Appel, L.J. et al. (1997). A clinical trial of the effects of dietary patterns on blood pressure (DASH). <em>NEJM, 336</em>, 1117–1124.</li>
+          <li>GBD 2019 Risk Factors Collaborators. (2020). Global burden of 87 risk factors in 204 countries. <em>The Lancet, 396</em>, 1223–1249.</li>
+          <li>Cornelissen, V.A. & Smart, N.A. (2013). Exercise training for blood pressure: a systematic review and meta-analysis. <em>JAHA, 2(1).</em></li>
+        </ol>
+      </div>
+
+    <!-- CALCULATOR CTA -->
+    <div style="background:linear-gradient(135deg,var(--primary),#0EA5E9); color:white; border-radius:var(--radius); padding:24px; text-align:center; margin-top:32px;">
+      <h3 style="font-size:1.1rem; font-weight:700; margin-bottom:8px;">Try the Free Blood Pressure Checker</h3>
+      <p style="font-size:0.88rem; opacity:0.88; margin-bottom:14px;">Get instant, accurate results in seconds — no signup required.</p>
+      <a href="/pages/blood-pressure-checker.html" style="display:inline-block; background:white; color:var(--primary); padding:11px 24px; border-radius:8px; font-weight:700; text-decoration:none; font-size:0.9rem; transition:transform 0.15s ease;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">🧮 Open Blood Pressure Checker →</a>
+    </div>
+
+  </main><!-- /calc-main -->
+
+  <!-- SIDEBAR -->
+  <aside class="calc-sidebar">
+
+    <!-- TOC Mini (sticky, desktop only) -->
+    <div class="sidebar-widget">
+      <div class="sidebar-widget-header"><h3>📋 In This Article</h3></div>
+      <div class="sidebar-widget-body">
+        <nav style="display:flex; flex-direction:column; gap:4px;" class="toc-mini">
+            <a href="#what-is">What Is High Blood Pressure?</a>
+            <a href="#symptoms">Symptoms — The Silent Killer</a>
+            <a href="#causes">Causes and Risk Factors</a>
+            <a href="#categories">Blood Pressure Categories</a>
+            <a href="#treatment">Evidence-Based Treatments</a>
+            <a href="#medications">Medications Overview</a>
+            <a href="#complications">Complications If Untreated</a>
+            <a href="#faq">Frequently Asked Questions</a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Related Calculator -->
+    <div class="sidebar-widget">
+      <div class="sidebar-widget-header"><h3>🧮 Related Calculator</h3></div>
+      <div class="sidebar-widget-body">
+        <a href="/pages/blood-pressure-checker.html" style="display:block; background:var(--primary); color:white; text-align:center; padding:12px; border-radius:8px; font-weight:700; text-decoration:none; font-size:0.875rem; transition:transform 0.15s ease;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">❤️ Blood Pressure Checker →</a>
+      </div>
+    </div>
+
+    <!-- More Articles -->
+    <div class="sidebar-widget">
+      <div class="sidebar-widget-header"><h3>📰 More Articles</h3></div>
+      <div class="sidebar-widget-body" style="padding:0;">
+          <a href="/blog/what-is-normal-bmi.html" class="popular-article" style="text-decoration:none;">
+            <span class="popular-num" style="font-size:1.1rem;width:28px;text-align:center;">⚖️</span>
+            <div class="popular-article-info"><h4>What Is a Normal BMI?</h4><span>8 min read</span></div>
+          </a>
+          <a href="/blog/how-to-lower-blood-sugar.html" class="popular-article" style="text-decoration:none;">
+            <span class="popular-num" style="font-size:1.1rem;width:28px;text-align:center;">🩸</span>
+            <div class="popular-article-info"><h4>Lower Blood Sugar Naturally</h4><span>9 min read</span></div>
+          </a>
+          <a href="/blog/best-foods-during-pregnancy.html" class="popular-article" style="text-decoration:none;">
+            <span class="popular-num" style="font-size:1.1rem;width:28px;text-align:center;">🤰</span>
+            <div class="popular-article-info"><h4>Best Foods During Pregnancy</h4><span>9 min read</span></div>
+          </a>
+      </div>
+    </div>
+
+    <!-- All Articles Link -->
+    <a href="/blog/" style="display:block; background:var(--bg); color:var(--primary); text-align:center; padding:12px; border-radius:var(--radius); font-weight:600; font-size:0.875rem; text-decoration:none; border:1px solid var(--border);">← View All Articles</a>
+
+  </aside><!-- /calc-sidebar -->
+
+</div><!-- /calc-page-layout -->
+
+<!-- FOOTER -->
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="site-logo">
+        <div class="logo-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="white"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
+        </div>
+        <span class="logo-text">Medical<span>ToolKit</span></span>
+      </div>
+      <p>Free, accurate medical and health calculators trusted by millions worldwide.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Calculators</h4>
+      <a href="/pages/bmi-calculator.html">BMI Calculator</a>
+      <a href="/pages/blood-sugar-calculator.html">Blood Sugar</a>
+      <a href="/pages/blood-pressure-checker.html">Blood Pressure</a>
+      <a href="/pages/calorie-calculator.html">Calories</a>
+    </div>
+    <div class="footer-col">
+      <h4>Blog</h4>
+      <a href="/blog/">All Articles</a>
+      <a href="/blog/what-is-normal-bmi.html">BMI Guide</a>
+      <a href="/blog/how-to-lower-blood-sugar.html">Lower Blood Sugar</a>
+      <a href="/blog/high-blood-pressure-guide.html">Blood Pressure Guide</a>
+      <a href="/blog/best-foods-during-pregnancy.html">Pregnancy Nutrition</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="/pages/about.html">About Us</a><a href="/pages/editorial-policy.html">Editorial Policy</a>
+      <a href="/pages/contact.html">Contact</a>
+      <a href="/pages/privacy-policy.html">Privacy Policy</a>
+      <a href="/pages/disclaimer.html">Medical Disclaimer</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 MedicalToolKit. All rights reserved. <strong>Not medical advice.</strong></p>
+    <div class="footer-legal-links">
+      <a href="/pages/privacy-policy.html">Privacy</a>
+      <a href="/pages/disclaimer.html">Disclaimer</a>
+      <a href="/pages/contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/dist/js/main.min.js?v=20260620nodark" defer></script>
+<script src="/dist/js/animations.min.js?v=20260620nodark" defer></script>
+<script src="/dist/js/blog.min.js?v=20260620nodark" defer></script>
+<script>
+// TOC sticky highlight
+const tocLinks = document.querySelectorAll('.calc-sidebar nav a, .sidebar-widget nav a');
+const sections = document.querySelectorAll('.article-body h2[id], .article-body h3[id], section[id]');
+if (tocLinks.length && sections.length) {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        tocLinks.forEach(l => l.style.color = '');
+        const link = document.querySelector('a[href="#' + e.target.id + '"]');
+        if (link) { link.style.color = 'var(--primary)'; link.style.fontWeight = '600'; }
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  sections.forEach(s => obs.observe(s));
+}
+// Reading progress
+const bar = document.getElementById('readingProgress');
+window.addEventListener('scroll', () => {
+  const b = document.body, h = document.documentElement;
+  const t = Math.max(b.scrollHeight, h.scrollHeight) - h.clientHeight;
+  if (bar && t > 0) bar.style.width = Math.min((window.scrollY / t) * 100, 100) + '%';
+}, { passive: true });
+</script>
+
+
+  <script src="/dist/js/analytics.min.js?v=20260620nodark" defer></script>
+  <script src="/dist/js/pwa.min.js?v=20260620nodark" defer></script>
+</body>
+</html>
