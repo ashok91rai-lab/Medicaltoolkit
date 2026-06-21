@@ -1,0 +1,166 @@
+/* ============================================
+   MedicalToolKit — PWA Manager
+   Install Prompt + Dark Mode Toggle
+   ============================================ */
+'use strict';
+
+// ─────────────────────────────────────────
+// 1. SERVICE WORKER REGISTRATION
+// ─────────────────────────────────────────
+function registerServiceWorker() {
+  if (!('serviceWorker' in navigator)) return;
+
+  window.addEventListener('load', async () => {
+    try {
+      const reg = await navigator.serviceWorker.register('/sw.js', { scope: '/' });
+
+      reg.addEventListener('updatefound', () => {
+        const newWorker = reg.installing;
+        newWorker.addEventListener('statechange', () => {
+          if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+            showUpdateBanner();
+          }
+        });
+      });
+
+    } catch (err) {
+      console.warn('[PWA] SW registration failed:', err);
+    }
+  });
+}
+
+// Update available banner
+function showUpdateBanner() {
+  const banner = document.createElement('div');
+  banner.id = 'updateBanner';
+  banner.style.cssText = `
+    position:fixed;bottom:80px;left:50%;transform:translateX(-50%);
+    background:#1E293B;color:white;padding:12px 20px;border-radius:12px;
+    display:flex;align-items:center;gap:12px;z-index:9999;
+    box-shadow:0 8px 32px rgba(0,0,0,0.3);font-size:.875rem;
+    animation:slideUp .3s ease;white-space:nowrap;
+  `;
+  banner.innerHTML = `
+    <span>🔄 Update available</span>
+    <button onclick="window.location.reload()" style="background:#2563EB;color:white;border:none;padding:6px 14px;border-radius:8px;cursor:pointer;font-weight:600;font-size:.8rem;">Refresh</button>
+    <button onclick="this.parentElement.remove()" style="background:none;border:none;color:#94A3B8;cursor:pointer;font-size:1.1rem;padding:0 4px;">✕</button>
+  `;
+  document.body.appendChild(banner);
+}
+
+// ─────────────────────────────────────────
+// 2. INSTALL PROMPT (Add to Home Screen)
+// ─────────────────────────────────────────
+let deferredPrompt = null;
+
+function initInstallPrompt() {
+  // Store the install event
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    // Show our custom install button after 30 seconds (don't be pushy)
+    setTimeout(showInstallBanner, 30000);
+  });
+
+  // Listen for successful install
+  window.addEventListener('appinstalled', () => {
+    deferredPrompt = null;
+    hideInstallBanner();
+    // Track install event
+    if (window.gtag) {
+      gtag('event', 'pwa_install', { event_category: 'engagement' });
+    }
+    showToast('✅ MedicalToolKit added to your home screen!');
+  });
+}
+
+function showInstallBanner() {
+  if (!deferredPrompt) return;
+  if (isStandalone()) return;
+  if (localStorage.getItem('pwa_dismissed')) return;
+
+  const banner = document.createElement('div');
+  banner.id = 'installBanner';
+  banner.setAttribute('role', 'dialog');
+  banner.setAttribute('aria-label', 'Install MedicalToolKit app');
+  banner.style.cssText = `
+    position:fixed;bottom:0;left:0;right:0;z-index:10000;
+    background:white;border-top:2px solid #E2E8F0;
+    padding:16px 20px;
+    display:flex;align-items:center;gap:14px;
+    box-shadow:0 -8px 32px rgba(0,0,0,0.12);
+    animation:slideUp .35s cubic-bezier(0.34,1.56,0.64,1);
+  `;
+  banner.innerHTML = `
+    <div style="width:46px;height:46px;background:#2563EB;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.3rem;color:white;font-weight:800;">MT</div>
+    <div style="flex:1;min-width:0;">
+      <div style="font-weight:700;font-size:.9rem;color:#1E293B;">Add to Home Screen</div>
+      <div style="font-size:.78rem;color:#64748B;margin-top:1px;">Free health calculators — works offline</div>
+    </div>
+    <button id="installBtn" style="background:#2563EB;color:white;border:none;padding:10px 18px;border-radius:10px;cursor:pointer;font-weight:700;font-size:.82rem;white-space:nowrap;flex-shrink:0;">Install</button>
+    <button id="dismissBtn" style="background:none;border:none;color:#94A3B8;cursor:pointer;font-size:1.2rem;padding:4px;flex-shrink:0;">✕</button>
+  `;
+
+  document.body.appendChild(banner);
+  // Add slide-up animation
+  if (!document.getElementById('pwaStyle')) {
+    const style = document.createElement('style');
+    style.id = 'pwaStyle';
+    style.textContent = '@keyframes slideUp{from{transform:translateY(100%);opacity:0}to{transform:translateY(0);opacity:1}}';
+    document.head.appendChild(style);
+  }
+
+  document.getElementById('installBtn').addEventListener('click', triggerInstall);
+  document.getElementById('dismissBtn').addEventListener('click', () => {
+    hideInstallBanner();
+    localStorage.setItem('pwa_dismissed', '1');
+  });
+}
+
+async function triggerInstall() {
+  if (!deferredPrompt) return;
+  deferredPrompt.prompt();
+  const { outcome } = await deferredPrompt.userChoice;
+  deferredPrompt = null;
+  hideInstallBanner();
+  if (window.gtag) {
+    gtag('event', 'pwa_prompt', { event_category: 'engagement', event_label: outcome });
+  }
+}
+
+function hideInstallBanner() {
+  const banner = document.getElementById('installBanner');
+  if (banner) banner.remove();
+}
+
+function isStandalone() {
+  return window.matchMedia('(display-mode: standalone)').matches ||
+         window.navigator.standalone === true;
+}
+
+// ─────────────────────────────────────────
+// 4. TOAST NOTIFICATION
+// ─────────────────────────────────────────
+function showToast(message, duration = 3000) {
+  const existing = document.getElementById('pwaToast');
+  if (existing) existing.remove();
+
+  const toast = document.createElement('div');
+  toast.id = 'pwaToast';
+  toast.style.cssText = `
+    position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
+    background:#1E293B;color:white;padding:12px 20px;border-radius:10px;
+    font-size:.875rem;font-weight:500;z-index:99999;
+    box-shadow:0 8px 24px rgba(0,0,0,0.2);
+    animation:slideUp .3s ease;white-space:nowrap;
+  `;
+  toast.textContent = message;
+  document.body.appendChild(toast);
+  setTimeout(() => toast?.remove(), duration);
+}
+
+// ─────────────────────────────────────────
+// INIT
+// ─────────────────────────────────────────
+registerServiceWorker();
+initInstallPrompt();
