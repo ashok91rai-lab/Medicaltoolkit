@@ -1,0 +1,57 @@
+# ============================================
+# MedicalToolKit — Cloudflare Pages Headers
+# Performance + Security Optimized
+# ============================================
+
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  X-DNS-Prefetch-Control: on
+
+/*.html
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+  Content-Security-Policy: default-src 'self' 'unsafe-inline' 'unsafe-eval' https://fonts.googleapis.com https://fonts.gstatic.com https://*.monetag.com https://quge5.com https://*.quge5.com https://5gvci.com https://*.5gvci.com https://formspree.io https://www.googletagmanager.com https://www.google-analytics.com
+  Vary: Accept-Encoding
+
+/dist/css/*
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Type: text/css; charset=utf-8
+
+/dist/js/*
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Type: application/javascript; charset=utf-8
+
+/css/*
+  Cache-Control: public, max-age=86400
+  Content-Type: text/css; charset=utf-8
+
+/js/*
+  Cache-Control: public, max-age=86400
+  Content-Type: application/javascript; charset=utf-8
+
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+  Vary: Accept
+
+/images/*.svg
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Type: image/svg+xml
+
+/manifest.json
+  Cache-Control: public, max-age=86400
+  Content-Type: application/manifest+json
+
+/sitemap.xml
+  Cache-Control: public, max-age=86400
+  Content-Type: application/xml
+
+/robots.txt
+  Cache-Control: public, max-age=86400
+  Content-Type: text/plain
+
+/sw.js
+  Cache-Control: public, max-age=0, must-revalidate
+  Service-Worker-Allowed: /

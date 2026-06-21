@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+/* Critical CSS — above fold render */
+:root{--primary:#2563EB;--primary-light:#EFF6FF;--primary-dark:#1D4ED8;--secondary:#10B981;--text:#1E293B;--text-light:#475569;--text-muted:#94A3B8;--bg:#F8FAFC;--border:#E2E8F0;--shadow:0 1px 3px rgba(0,0,0,.1),0 1px 2px rgba(0,0,0,.06);--shadow-lg:0 10px 15px rgba(0,0,0,.1);--shadow-xl:0 20px 25px rgba(0,0,0,.1);--radius:12px;--radius-sm:8px;--radius-lg:16px;--transition:all .2s ease}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;overflow-x:hidden}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;overflow-x:hidden}
+.site-header{position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid var(--border);box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.header-inner{max-width:1200px;margin:0 auto;padding:0 20px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.site-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-icon{width:40px;height:40px;background:var(--primary);border-radius:10px;display:flex;align-items:center;justify-content:center}
+.logo-icon svg{width:22px;height:22px;fill:white}
+.logo-text{font-weight:700;font-size:1.1rem;color:var(--text)}
+.logo-text span{color:var(--primary)}
+.main-nav{display:flex;align-items:center;gap:4px}
+.main-nav a{padding:6px 12px;border-radius:8px;font-size:.875rem;font-weight:500;color:var(--text-light);text-decoration:none}
+.hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer;width:36px;height:36px;background:none;border:none}
+.bar{width:22px;height:2.5px;background:var(--text);border-radius:3px}
+.hero{background:linear-gradient(135deg,#1E3A5F 0%,#2563EB 50%,#0EA5E9 100%);color:white;padding:72px 20px 60px;text-align:center;position:relative;overflow:hidden}
+.hero h1{font-size:clamp(2rem,5vw,3rem);font-weight:800;line-height:1.15;margin-bottom:16px;letter-spacing:-.5px}
+.hero p{font-size:1.1rem;opacity:.88;max-width:580px;margin:0 auto 28px}
+.stats-bar{background:#fff;border-bottom:1px solid var(--border)}
+.stats-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:center;flex-wrap:wrap}
+.stat-item{display:flex;flex-direction:column;align-items:center;padding:16px 32px;border-right:1px solid var(--border);flex:1;min-width:120px;text-align:center}
+.stat-item:last-child{border-right:none}
+.stat-number{font-size:2rem;font-weight:800;color:var(--primary);display:block;line-height:1.2;white-space:nowrap}
+.stat-label{font-size:0.8rem;color:var(--text-light);white-space:nowrap;margin-top:2px}
+@media(max-width:640px){.stat-item{padding:14px 16px;flex:0 0 50%;min-width:50%;border-right:none;border-bottom:1px solid var(--border)}.stat-item:nth-child(odd){border-right:1px solid var(--border)}.stat-item:nth-last-child(-n+2){border-bottom:none}.stat-number{font-size:1.5rem}}
+.reading-progress{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--primary),#10B981,#0EA5E9);z-index:99999;transition:width .15s linear}
+</style>
+  <script src="https://quge5.com/88/tag.min.js" data-zone="245868" async data-cfasync="false"></script>
+  <meta charset="UTF-8">
+  <!-- DNS Prefetch — Performance -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link rel="dns-prefetch" href="//quge5.com">
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <link rel="dns-prefetch" href="//www.google-analytics.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>Free Medical &amp; Health Calculators | MedicalToolKit</title>
+  <meta name="description" content="Free medical & health calculators — BMI, due date, blood sugar, A1C, calorie, blood pressure, GFR, sleep, and 10+ more tools. Instant results, no signup.">
+  <meta name="keywords" content="medical calculator, health calculator, BMI calculator, due date calculator, blood sugar calculator, calorie calculator, blood pressure checker, free health tools">
+  <meta name="author" content="MedicalToolKit">
+  <link rel="canonical" href="https://medicaltoolkit.pages.dev/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Free Medical &amp; Health Calculators | MedicalToolKit">
+  <meta property="og:description" content="15+ free medical calculators including BMI, due date, blood sugar, calorie, blood pressure, and more. Instant results trusted by millions.">
+  <meta property="og:url" content="https://medicaltoolkit.pages.dev/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="MedicalToolKit">
+  <meta property="og:image" content="https://medicaltoolkit.pages.dev/images/og-home.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free Medical &amp; Health Calculators | MedicalToolKit">
+  <meta name="twitter:description" content="15+ free medical calculators. Instant, accurate results. No signup required.">
+  <meta name="twitter:image" content="https://medicaltoolkit.pages.dev/images/og-home.png">
+
+  <!-- PWA -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#2563EB">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap&subset=latin" rel="stylesheet">
+
+  <!-- CSS -->
+    <link rel="preload" href="/dist/css/style.min.css?v=20260620nodark" as="style">
+  <link rel="preload" href="/js/main.js" as="script">
+  <link rel="stylesheet" href="/dist/css/style.min.css?v=20260620nodark">
+  <link rel="preload" href="/dist/css/responsive.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/responsive.min.css?v=20260620nodark"></noscript>
+
+  <!-- Monetag Push Notification -->
+  <script>
+  (function(d,z,s){
+    s=d.createElement('script');
+    s.async=true;
+    d.head.appendChild(s);
+  })(document);
+  </script>
+
+  <!-- JSON-LD: WebSite Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "MedicalToolKit",
+    "url": "https://medicaltoolkit.pages.dev/",
+    "description": "Free online medical and health calculators. BMI, due date, blood sugar, calorie, blood pressure, GFR, sleep, and more.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://medicaltoolkit.pages.dev/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JWW19HEZBJ');
+  </script>
+  <link rel="preload" href="/dist/css/animations.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/animations.min.css?v=20260620nodark"></noscript>
+  <link rel="preload" href="/dist/css/blog.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/blog.min.css?v=20260620nodark"></noscript>
+  <!-- ============================================
+       SEARCH CONSOLE & WEBMASTER VERIFICATION
+       Replace placeholder values with your actual codes
+       ============================================ -->
+  <!-- Google Search Console: Go to search.google.com/search-console → Add Property → HTML tag -->
+  <meta name="google-site-verification" content="y63XSBvlNcknj46yVKMn0uE14aKKOBfjwLLO6EZrLBk">
+  <!-- Bing Webmaster: Go to bing.com/webmasters → Add Site → HTML Meta Tag -->
+  <meta name="msvalidate.01" content="AB9070CF57664870ADB2D23906FE30C4">
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JWW19HEZBJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JWW19HEZBJ', {anonymize_ip: true});
+  </script>
+</head>
+<body>
+
+<!-- Monetag Popunder -->
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" role="banner">
+  <div class="header-inner">
+    <a href="/" class="site-logo" aria-label="MedicalToolKit Home">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/>
+        </svg>
+      </div>
+      <span class="logo-text">Medical<span>ToolKit</span></span>
+    </a>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="/pages/bmi-calculator.html">Fitness</a>
+      <a href="/pages/due-date-calculator.html">Pregnancy</a>
+      <a href="/pages/blood-sugar-calculator.html">Diabetes</a>
+      <a href="/pages/blood-pressure-checker.html">Heart</a>
+      <a href="/pages/gfr-calculator.html">Kidney</a>
+      <a href="/pages/anxiety-test.html">Mental Health</a>
+      <a href="/pages/about.html">About</a>
+    </nav>
+
+    <div class="header-search search-wrapper">
+      <input type="search" class="header-search-input search-input" placeholder="Search calculators..." aria-label="Search calculators">
+    </div>
+
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+  </div>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <div class="mobile-search">
+      <input type="search" class="search-input" placeholder="Search calculators...">
+    </div>
+    <a href="/">Home</a>
+    <a href="/pages/bmi-calculator.html">BMI Calculator</a>
+    <a href="/pages/due-date-calculator.html">Due Date Calculator</a>
+    <a href="/pages/blood-sugar-calculator.html">Blood Sugar</a>
+    <a href="/pages/calorie-calculator.html">Calorie Calculator</a>
+    <a href="/pages/blood-pressure-checker.html">Blood Pressure</a>
+    <a href="/pages/sleep-calculator.html">Sleep Calculator</a>
+    <a href="/pages/heart-rate-calculator.html">Heart Rate</a>
+    <a href="/pages/gfr-calculator.html">GFR Calculator</a>
+    <a href="/pages/anxiety-test.html">Anxiety Test</a>
+    <a href="/pages/about.html">About</a>
+    <a href="/pages/contact.html">Contact</a>
+  </nav>
+</header>
+
+<!-- Top Banner Ad -->
+
+
+<!-- ============ HERO ============ -->
+<section class="hero" aria-labelledby="heroHeading">
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+      100% Free &mdash; No Signup Required
+    </div>
+
+    <h1 id="heroHeading">Free Medical &amp; Health Calculators</h1>
+    <p>Accurate, instant results for BMI, due dates, blood sugar, calories, blood pressure, and 10+ more tools &mdash; trusted by millions worldwide.</p>
+
+    <div class="hero-search-wrapper">
+      <div class="hero-search search-wrapper">
+        <input type="search" id="heroSearch" class="search-input" placeholder="Search calculators (e.g. BMI, calories, sleep...)" aria-label="Search health calculators">
+        <button type="button" aria-label="Search">Search</button>
+      </div>
+    </div>
+
+    <div class="hero-features">
+      <div class="hero-feature">
+        <svg width="14" height="14" fill="white" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+        Medical-grade formulas
+      </div>
+      <div class="hero-feature">
+        <svg width="14" height="14" fill="white" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+        Instant results
+      </div>
+      <div class="hero-feature">
+        <svg width="14" height="14" fill="white" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+        Mobile friendly
+      </div>
+      <div class="hero-feature">
+        <svg width="14" height="14" fill="white" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+        100% free forever
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS BAR ============ -->
+<div class="stats-bar" aria-label="Site statistics">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <span class="stat-number" data-target="15" data-suffix="+" aria-label="15 plus free tools">15+</span>
+      <span class="stat-label">Free Tools</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number" data-target="100" data-suffix="%" aria-label="100 percent medical grade">100%</span>
+      <span class="stat-label">Medical-Grade</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number" data-target="2000000" data-suffix="+" data-format="true" aria-label="2 million plus calculations done">2M+</span>
+      <span class="stat-label">Calculations Done</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number" data-typewriter="Free" aria-label="Free forever">Free</span>
+      <span class="stat-label">Forever</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ CATEGORIES ============ -->
+<section class="categories-section" aria-labelledby="categoriesHeading">
+  <div style="max-width:1200px;margin:0 auto 28px;text-align:center;">
+    <h2 id="categoriesHeading" style="font-size:clamp(1.5rem,3vw,2rem);font-weight:700;color:var(--text);margin-bottom:8px;">Browse by Category</h2>
+    <p style="color:var(--text-light);">Find the right calculator for your health needs</p>
+  </div>
+  <div class="categories-grid">
+    <a href="/pages/due-date-calculator.html" class="category-card">
+      <div class="category-icon blue" aria-hidden="true">🤰</div>
+      <h3>Pregnancy</h3>
+      <p>3 tools</p>
+    </a>
+    <a href="/pages/blood-sugar-calculator.html" class="category-card">
+      <div class="category-icon yellow" aria-hidden="true">💉</div>
+      <h3>Diabetes</h3>
+      <p>2 tools</p>
+    </a>
+    <a href="/pages/blood-pressure-checker.html" class="category-card">
+      <div class="category-icon red" aria-hidden="true">🫀</div>
+      <h3>Heart &amp; Blood</h3>
+      <p>2 tools</p>
+    </a>
+    <a href="/pages/bmi-calculator.html" class="category-card">
+      <div class="category-icon green" aria-hidden="true">🏋️</div>
+      <h3>Fitness</h3>
+      <p>4 tools</p>
+    </a>
+    <a href="/pages/calorie-calculator.html" class="category-card">
+      <div class="category-icon orange" aria-hidden="true">🥗</div>
+      <h3>Nutrition</h3>
+      <p>2 tools</p>
+    </a>
+    <a href="/pages/anxiety-test.html" class="category-card">
+      <div class="category-icon pink" aria-hidden="true">🧠</div>
+      <h3>Mental Health</h3>
+      <p>1 tool</p>
+    </a>
+    <a href="/pages/gfr-calculator.html" class="category-card">
+      <div class="category-icon teal" aria-hidden="true">🫁</div>
+      <h3>Kidney</h3>
+      <p>1 tool</p>
+    </a>
+  </div>
+</section>
+
+<!-- ============ POPULAR TOOLS ============ -->
+<section class="section" aria-labelledby="toolsHeading">
+  <div class="section-header">
+    <h2 id="toolsHeading">Popular Health Calculators</h2>
+    <p>Our most-used medical tools &mdash; accurate, fast, and completely free</p>
+  </div>
+  <div class="tools-grid">
+
+    <article class="tool-card" data-name="bmi calculator" data-category="fitness">
+      <div class="tool-card-header">
+        <div class="tool-card-icon" aria-hidden="true">⚖️</div>
+        <div class="tool-card-info">
+          <h3>BMI Calculator</h3>
+          <p>Body Mass Index</p>
+        </div>
+      </div>
+      <p class="tool-card-desc">Calculate your Body Mass Index using height and weight. Shows BMI category with color-coded results and healthy weight range.</p>
+      <a href="/pages/bmi-calculator.html" class="btn-use-tool">Use Tool &rarr;</a>
+    </article>
+
+    <article class="tool-card" data-name="due date calculator" data-category="pregnancy">
+      <div class="tool-card-header">
+        <div class="tool-card-icon" aria-hidden="true">🤰</div>
+        <div class="tool-card-info">
+          <h3>Due Date Calculator</h3>
+          <p>Pregnancy Due Date</p>
+        </div>
+      </div>
+      <p class="tool-card-desc">Estimate your baby's due date using last menstrual period or conception date. Shows trimester, weeks along, and key milestones.</p>
+      <a href="/pages/due-date-calculator.html" class="btn-use-tool">Use Tool &rarr;</a>
+    </article>
+
+    <article class="tool-card" data-name="blood sugar calculator" data-category="diabetes">
+      <div class="tool-card-header">
+        <div class="tool-card-icon" aria-hidden="true">💉</div>
+        <div class="tool-card-info">
+          <h3>Blood Sugar Calculator</h3>
+          <p>Glucose Levels</p>
+        </div>
+      </div>
+      <p class="tool-card-desc">Check your blood glucose level against ADA guidelines. Converts between mg/dL and mmol/L with color-coded diabetes risk ranges.</p>
+      <a href="/pages/blood-sugar-calculator.html" class="btn-use-tool">Use Tool &rarr;</a>
+    </article>
+
+    <article class="tool-card" data-name="calorie calculator" data-category="nutrition">
+      <div class="tool-card-header">
+        <div class="tool-card-icon" aria-hidden="true">🥗</div>
+        <div class="tool-card-info">
+          <h3>Calorie Calculator</h3>
+          <p>Daily Calorie Needs</p>
+        </div>
+      </div>
+      <p class="tool-card-desc">Calculate your daily calorie needs using the Mifflin-St Jeor formula. Shows BMR, TDEE, and weight loss/gain targets with macro breakdown.</p>
+      <a href="/pages/calorie-calculator.html" class="btn-use-tool">Use Tool &rarr;</a>
+    </article>
+
+    <article class="tool-card" data-name="blood pressure checker" data-category="heart">
+      <div class="tool-card-header">
+        <div class="tool-card-icon" aria-hidden="true">🫀</div>
+        <div class="tool-card-info">
+          <h3>Blood Pressure Checker</h3>
+          <p>BP Category</p>
+        </div>
+      </div>
+      <p class="tool-card-desc">Check your blood pressure category per AHA guidelines. Instantly shows if readings are Normal, Elevated, High Stage 1/2, or Crisis.</p>
+      <a href="/pages/blood-pressure-checker.html" class="btn-use-tool">Use Tool &rarr;</a>
+    </article>
+
+    <article class="tool-card" data-name="sleep calculator" data-category="wellness">
+      <div class="tool-card-header">
+        <div class="tool-card-icon" aria-hidden="true">😴</div>
+        <div class="tool-card-info">
+          <h3>Sleep Calculator</h3>
+          <p>Optimal Sleep Times</p>
+        </div>
+      </div>
+      <p class="tool-card-desc">Find the best times to wake up or go to sleep based on 90-minute sleep cycles. Wake up refreshed, not groggy.</p>
+      <a href="/pages/sleep-calculator.html" class="btn-use-tool">Use Tool &rarr;</a>
+    </article>
+
+    <article class="tool-card" data-name="heart rate calculator" data-category="heart">
+      <div class="tool-card-header">
+        <div class="tool-card-icon" aria-hidden="true">❤️</div>
+        <div class="tool-card-info">
+          <h3>Heart Rate Calculator</h3>
+          <p>Training Zones</p>
+        </div>
+      </div>
+      <p class="tool-card-desc">Calculate your max heart rate and all 5 training zones. Perfect for cardio, fat burn, and high-intensity workouts.</p>
+      <a href="/pages/heart-rate-calculator.html" class="btn-use-tool">Use Tool &rarr;</a>
+    </article>
+
+    <article class="tool-card" data-name="anxiety test gad-7" data-category="mental health">
+      <div class="tool-card-header">
+        <div class="tool-card-icon" aria-hidden="true">🧠</div>
+        <div class="tool-card-info">
+          <h3>Anxiety Test (GAD-7)</h3>
+          <p>Mental Health Screening</p>
+        </div>
+      </div>
+      <p class="tool-card-desc">Take the clinically validated GAD-7 anxiety screening questionnaire. Results are color-coded from minimal to severe anxiety.</p>
+      <a href="/pages/anxiety-test.html" class="btn-use-tool">Use Tool &rarr;</a>
+    </article>
+
+  </div>
+
+  <!-- View All -->
+  <div style="text-align:center;margin-top:32px;">
+    <p style="color:var(--text-light);margin-bottom:16px;">Looking for more? We have 15 free health calculators.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;">
+      <a href="/pages/a1c-converter.html" class="btn btn-outline" style="font-size:0.875rem;padding:8px 16px;">A1C Converter</a>
+      <a href="/pages/gfr-calculator.html" class="btn btn-outline" style="font-size:0.875rem;padding:8px 16px;">GFR Calculator</a>
+      <a href="/pages/body-fat-calculator.html" class="btn btn-outline" style="font-size:0.875rem;padding:8px 16px;">Body Fat %</a>
+      <a href="/pages/ideal-weight-calculator.html" class="btn btn-outline" style="font-size:0.875rem;padding:8px 16px;">Ideal Weight</a>
+      <a href="/pages/tdee-calculator.html" class="btn btn-outline" style="font-size:0.875rem;padding:8px 16px;">TDEE Calculator</a>
+      <a href="/pages/pregnancy-week-calculator.html" class="btn btn-outline" style="font-size:0.875rem;padding:8px 16px;">Pregnancy Week</a>
+      <a href="/pages/ovulation-calculator.html" class="btn btn-outline" style="font-size:0.875rem;padding:8px 16px;">Ovulation Calculator</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="how-it-works" aria-labelledby="howHeading">
+  <div class="section-header">
+    <h2 id="howHeading">How It Works</h2>
+    <p>Get your health results in three simple steps</p>
+  </div>
+  <div class="steps-grid">
+    <div class="step-item">
+      <div class="step-number" aria-hidden="true">1</div>
+      <h3>Choose Your Calculator</h3>
+      <p>Browse our 15 free medical calculators or search by name or health topic.</p>
+    </div>
+    <div class="step-item">
+      <div class="step-number" aria-hidden="true">2</div>
+      <h3>Enter Your Values</h3>
+      <p>Input your measurements. All tools support both metric and imperial units.</p>
+    </div>
+    <div class="step-item">
+      <div class="step-number" aria-hidden="true">3</div>
+      <h3>Get Instant Results</h3>
+      <p>Receive color-coded results with explanations. Share or print in one click.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUST ============ -->
+<section class="trust-section" aria-labelledby="trustHeading">
+  <div class="section-header" style="margin-bottom:28px;">
+    <h2 id="trustHeading" style="color:white;">Why Trust MedicalToolKit?</h2>
+  </div>
+  <div class="trust-grid">
+    <div class="trust-item"><div class="trust-check" aria-hidden="true">&#10003;</div>Medical-grade formulas</div>
+    <div class="trust-item"><div class="trust-check" aria-hidden="true">&#10003;</div>No registration required</div>
+    <div class="trust-item"><div class="trust-check" aria-hidden="true">&#10003;</div>100% free forever</div>
+    <div class="trust-item"><div class="trust-check" aria-hidden="true">&#10003;</div>Mobile friendly</div>
+    <div class="trust-item"><div class="trust-check" aria-hidden="true">&#10003;</div>Results in seconds</div>
+    <div class="trust-item"><div class="trust-check" aria-hidden="true">&#10003;</div>Doctor-reviewed content</div>
+  </div>
+</section>
+
+<!-- ============ DISCLAIMER BANNER ============ -->
+<div class="disclaimer-section">
+  <div class="disclaimer-banner" role="note">
+    <div class="disclaimer-icon" aria-hidden="true">&#9888;&#65039;</div>
+    <div class="disclaimer-content">
+      <h3>Medical Disclaimer</h3>
+      <p>All calculators on MedicalToolKit are for <strong>informational purposes only</strong> and are not a substitute for professional medical advice, diagnosis, or treatment. Always consult a licensed healthcare provider before making any health decisions. <a href="/pages/disclaimer.html">Read full disclaimer &rarr;</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- Direct Link -->
+<div style="text-align:center;padding:24px 20px;background:var(--bg);">
+  <a href="DIRECT_LINK_PLACEHOLDER_URL" class="direct-link-btn" target="_blank" rel="noopener sponsored">
+    Get More Health Information &rarr;
+  </a>
+</div>
+
+<!-- ============ FOOTER ============ -->
+
+  <!-- ============================================
+       HOMEPAGE BLOG SECTION
+       ============================================ -->
+  <section class="homepage-blog" aria-label="Latest health articles">
+    <div class="homepage-blog-inner">
+      <div class="section-header">
+        <div>
+          <h2>📰 Latest Health Articles</h2>
+          <p>Evidence-based guides written by our medical team</p>
+        </div>
+        <a href="/blog/" class="view-all-link">View All Articles →</a>
+      </div>
+      <div class="homepage-blog-grid reveal-stagger">
+
+        <a href="/blog/what-is-normal-bmi.html" class="article-card">
+          <div class="article-card-img cat-fitness">⚖️</div>
+          <div class="article-card-body">
+            <span class="article-card-tag">💪 Fitness</span>
+            <h3>What Is a Normal BMI for Adults?</h3>
+            <p>Healthy BMI ranges, what your number means, and its key limitations explained.</p>
+            <div class="article-card-meta"><span>⏱ 8 min</span><span>✅ Reviewed</span></div>
+          </div>
+        </a>
+
+        <a href="/blog/blood-sugar-levels-chart.html" class="article-card">
+          <div class="article-card-img cat-diabetes">🩸</div>
+          <div class="article-card-body">
+            <span class="article-card-tag tag-diabetes">🩸 Diabetes</span>
+            <h3>Blood Sugar Levels Chart: Normal, Prediabetes & Diabetic</h3>
+            <p>Complete reference chart for fasting glucose, post-meal levels, and A1C ranges.</p>
+            <div class="article-card-meta"><span>⏱ 8 min</span><span>✅ Reviewed</span></div>
+          </div>
+        </a>
+
+        <a href="/blog/normal-blood-pressure-by-age.html" class="article-card">
+          <div class="article-card-img cat-heart">❤️</div>
+          <div class="article-card-body">
+            <span class="article-card-tag tag-heart">❤️ Heart Health</span>
+            <h3>Normal Blood Pressure by Age: Complete Chart</h3>
+            <p>Blood pressure ranges for adults, seniors, and children with guidance on readings.</p>
+            <div class="article-card-meta"><span>⏱ 8 min</span><span>✅ Reviewed</span></div>
+          </div>
+        </a>
+
+        <a href="/blog/how-many-calories-per-day.html" class="article-card">
+          <div class="article-card-img cat-nutrition">🔥</div>
+          <div class="article-card-body">
+            <span class="article-card-tag tag-nutrition">🥗 Nutrition</span>
+            <h3>How Many Calories Should I Eat Per Day?</h3>
+            <p>Daily calorie needs by age, sex, and activity level with weight loss targets.</p>
+            <div class="article-card-meta"><span>⏱ 9 min</span><span>✅ Reviewed</span></div>
+          </div>
+        </a>
+
+        <a href="/blog/signs-of-high-blood-sugar.html" class="article-card">
+          <div class="article-card-img cat-diabetes">🩸</div>
+          <div class="article-card-body">
+            <span class="article-card-tag tag-diabetes">🩸 Diabetes</span>
+            <h3>14 Signs of High Blood Sugar You Shouldn't Ignore</h3>
+            <p>Warning signs of hyperglycemia and when to seek emergency medical care.</p>
+            <div class="article-card-meta"><span>⏱ 9 min</span><span>✅ Reviewed</span></div>
+          </div>
+        </a>
+
+        <a href="/blog/how-much-sleep-do-you-need.html" class="article-card">
+          <div class="article-card-img cat-mental">😴</div>
+          <div class="article-card-body">
+            <span class="article-card-tag tag-mental">🧠 Wellness</span>
+            <h3>How Much Sleep Do You Need by Age?</h3>
+            <p>Sleep requirements by age, sleep stages explained, and tips to improve quality.</p>
+            <div class="article-card-meta"><span>⏱ 9 min</span><span>✅ Reviewed</span></div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="site-logo">
+        <div class="logo-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
+        </div>
+        <span class="logo-text">Medical<span>ToolKit</span></span>
+      </div>
+      <p>Free, accurate medical and health calculators trusted by millions worldwide. Built with medical-grade formulas for your wellness journey.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Calculators</h4>
+      <a href="/pages/bmi-calculator.html">BMI Calculator</a>
+      <a href="/pages/due-date-calculator.html">Due Date</a>
+      <a href="/pages/blood-sugar-calculator.html">Blood Sugar</a>
+      <a href="/pages/calorie-calculator.html">Calories</a>
+      <a href="/pages/blood-pressure-checker.html">Blood Pressure</a>
+      <a href="/pages/sleep-calculator.html">Sleep Calculator</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>More Tools</h4>
+      <a href="/pages/a1c-converter.html">A1C Converter</a>
+      <a href="/pages/gfr-calculator.html">GFR Calculator</a>
+      <a href="/pages/body-fat-calculator.html">Body Fat %</a>
+      <a href="/pages/ideal-weight-calculator.html">Ideal Weight</a>
+      <a href="/pages/heart-rate-calculator.html">Heart Rate</a>
+      <a href="/pages/tdee-calculator.html">TDEE Calculator</a>
+      <a href="/pages/anxiety-test.html">Anxiety Test</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="/pages/about.html">About Us</a><a href="/pages/editorial-policy.html">Editorial Policy</a>
+      <a href="/pages/contact.html">Contact</a>
+      <a href="/pages/privacy-policy.html">Privacy Policy</a>
+      <a href="/pages/disclaimer.html">Medical Disclaimer</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 MedicalToolKit. All rights reserved. <strong>Not medical advice.</strong></p>
+    <div class="footer-legal-links">
+      <a href="/pages/privacy-policy.html">Privacy</a>
+      <a href="/pages/disclaimer.html">Disclaimer</a>
+      <a href="/pages/contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to Top -->
+<button class="back-to-top" aria-label="Back to top">&#8593;</button>
+
+<!-- Cookie Consent -->
+<div class="cookie-consent" id="cookieBanner" role="dialog" aria-label="Cookie consent">
+  <p>We use cookies to improve your experience and to show personalized ads. By clicking "Accept", you agree to our <a href="/pages/privacy-policy.html">Privacy Policy</a> and cookie use.</p>
+  <div class="cookie-btns">
+    <button class="btn-accept-cookies" id="acceptCookies">Accept</button>
+    <button class="btn-reject-cookies" id="rejectCookies">Decline</button>
+  </div>
+</div>
+
+
+<script src="/dist/js/main.min.js?v=20260620nodark" defer></script>
+  <script src="/dist/js/animations.min.js?v=20260620nodark" defer></script>
+
+  <script src="/dist/js/analytics.min.js?v=20260620nodark" defer></script>
+  <script src="/dist/js/pwa.min.js?v=20260620nodark" defer></script>
+</body>
+</html>

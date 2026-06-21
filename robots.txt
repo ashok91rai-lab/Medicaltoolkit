@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+Allow: /pages/
+Allow: /blog/
+Allow: /css/
+Allow: /js/
+Allow: /dist/
+Allow: /images/
+Disallow: /private/
+Disallow: /*.json$
+
+# Sitemaps
+Sitemap: https://medicaltoolkit.pages.dev/sitemap.xml
+
+# Crawl rate (optional - be nice to crawlers)
+Crawl-delay: 1
