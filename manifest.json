@@ -1,28 +1,36 @@
 {
-  "name": "MedicalToolKit — Free Health Calculators",
+  "name": "MedicalToolKit \u2014 Free Health Calculators",
   "short_name": "MedicalToolKit",
-  "description": "Free medical & health calculators — BMI, blood sugar, due date, calories, blood pressure, and 10+ more tools. Instant results, no signup.",
+  "description": "Free medical & health calculators \u2014 BMI, blood sugar, due date, calories, blood pressure, and 10+ more tools. Instant results, no signup.",
   "start_url": "/?source=pwa",
   "scope": "/",
   "display": "standalone",
-  "display_override": ["standalone", "minimal-ui", "browser"],
+  "display_override": [
+    "standalone",
+    "minimal-ui",
+    "browser"
+  ],
   "background_color": "#FFFFFF",
   "theme_color": "#2563EB",
   "orientation": "portrait-primary",
   "lang": "en-US",
-  "categories": ["health", "medical", "utilities"],
+  "categories": [
+    "health",
+    "medical",
+    "utilities"
+  ],
   "iarc_rating_id": "e84b072d-71b3-4d3e-86ae-31a8ce4e53b7",
   "icons": [
     {
-      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%232563EB' width='192' height='192' rx='24'/><text x='96' y='110' font-size='72' font-weight='800' fill='%23fff' text-anchor='middle' dominant-baseline='middle' font-family='system-ui'>MT</text></svg>",
+      "src": "/images/icon-192.png",
       "sizes": "192x192",
-      "type": "image/svg+xml",
+      "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect fill='%232563EB' width='512' height='512' rx='64'/><text x='256' y='290' font-size='192' font-weight='800' fill='%23fff' text-anchor='middle' dominant-baseline='middle' font-family='system-ui'>MT</text></svg>",
+      "src": "/images/icon-512.png",
       "sizes": "512x512",
-      "type": "image/svg+xml",
+      "type": "image/png",
       "purpose": "any maskable"
     }
   ],
@@ -32,28 +40,48 @@
       "short_name": "BMI",
       "description": "Calculate your Body Mass Index",
       "url": "/pages/bmi-calculator.html?source=shortcut",
-      "icons": [{"src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'><rect fill='%232563EB' width='96' height='96' rx='12'/><text x='48' y='64' font-size='48' fill='%23fff' text-anchor='middle'>⚖️</text></svg>", "sizes": "96x96"}]
+      "icons": [
+        {
+          "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'><rect fill='%232563EB' width='96' height='96' rx='12'/><text x='48' y='64' font-size='48' fill='%23fff' text-anchor='middle'>\u2696\ufe0f</text></svg>",
+          "sizes": "96x96"
+        }
+      ]
     },
     {
       "name": "Blood Sugar Calculator",
       "short_name": "Blood Sugar",
       "description": "Check blood glucose levels",
       "url": "/pages/blood-sugar-calculator.html?source=shortcut",
-      "icons": [{"src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'><rect fill='%23DC2626' width='96' height='96' rx='12'/><text x='48' y='64' font-size='48' fill='%23fff' text-anchor='middle'>🩸</text></svg>", "sizes": "96x96"}]
+      "icons": [
+        {
+          "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'><rect fill='%23DC2626' width='96' height='96' rx='12'/><text x='48' y='64' font-size='48' fill='%23fff' text-anchor='middle'>\ud83e\ude78</text></svg>",
+          "sizes": "96x96"
+        }
+      ]
     },
     {
       "name": "Due Date Calculator",
       "short_name": "Due Date",
       "description": "Calculate pregnancy due date",
       "url": "/pages/due-date-calculator.html?source=shortcut",
-      "icons": [{"src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'><rect fill='%237C3AED' width='96' height='96' rx='12'/><text x='48' y='64' font-size='48' fill='%23fff' text-anchor='middle'>🤰</text></svg>", "sizes": "96x96"}]
+      "icons": [
+        {
+          "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'><rect fill='%237C3AED' width='96' height='96' rx='12'/><text x='48' y='64' font-size='48' fill='%23fff' text-anchor='middle'>\ud83e\udd30</text></svg>",
+          "sizes": "96x96"
+        }
+      ]
     },
     {
       "name": "Blood Pressure",
       "short_name": "BP Check",
       "description": "Check your blood pressure",
       "url": "/pages/blood-pressure-checker.html?source=shortcut",
-      "icons": [{"src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'><rect fill='%23059669' width='96' height='96' rx='12'/><text x='48' y='64' font-size='48' fill='%23fff' text-anchor='middle'>❤️</text></svg>", "sizes": "96x96"}]
+      "icons": [
+        {
+          "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'><rect fill='%23059669' width='96' height='96' rx='12'/><text x='48' y='64' font-size='48' fill='%23fff' text-anchor='middle'>\u2764\ufe0f</text></svg>",
+          "sizes": "96x96"
+        }
+      ]
     }
   ],
   "screenshots": [
