@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect fill="#2563EB" width="1200" height="630"/>
+  <rect fill="#1d4ed8" x="0" y="0" width="1200" height="630" opacity="0.3"/>
+  <text x="600" y="260" font-size="72" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="Arial, sans-serif">MedicalToolKit</text>
+  <text x="600" y="350" font-size="36" fill="#bfdbfe" text-anchor="middle" font-family="Arial, sans-serif">Free Medical &amp; Health Calculators</text>
+  <text x="600" y="420" font-size="28" fill="#93c5fd" text-anchor="middle" font-family="Arial, sans-serif">BMI • Blood Sugar • Due Date • Calories • 11+ More</text>
+</svg>

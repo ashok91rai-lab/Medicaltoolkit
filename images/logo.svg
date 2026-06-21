@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50">
+  <rect width="40" height="40" x="5" y="5" rx="8" fill="#2563EB"/>
+  <path d="M26 11H14c-.55 0-1 .45-1 1v5h-2c-.55 0-1 .45-1 1v3c0 .55.45 1 1 1h2v5c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-5h2c.55 0 1-.45 1-1v-3c0-.55-.45-1-1-1h-2v-5c0-.55-.45-1-1-1z" fill="white"/>
+  <text x="55" y="32" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#1E293B">Medical<tspan fill="#2563EB">ToolKit</tspan></text>
+</svg>
