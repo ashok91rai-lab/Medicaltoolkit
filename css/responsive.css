@@ -1,0 +1,409 @@
+/* ============================================
+   MedicalToolKit - Responsive Styles
+   Mobile-first approach
+   ============================================ */
+
+/* ============================================
+   SMALL PHONES: 320px
+   ============================================ */
+@media (max-width: 374px) {
+  .hero {
+    padding: 48px 16px 40px;
+  }
+
+  .hero h1 {
+    font-size: 1.625rem;
+  }
+
+  .hero-search input {
+    padding: 12px 14px;
+    font-size: 0.875rem;
+  }
+
+  .hero-search button {
+    padding: 12px 14px;
+    font-size: 0.8125rem;
+  }
+
+  .stat-item {
+    padding: 4px 16px;
+  }
+
+  .stat-number {
+    font-size: 1.125rem;
+  }
+
+  .category-card {
+    padding: 16px 10px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .steps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .steps-grid::before {
+    display: none;
+  }
+
+  .trust-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .related-tools {
+    grid-template-columns: 1fr;
+  }
+
+  .calc-grid-2,
+  .calc-grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   IPHONE SE: 375px
+   ============================================ */
+@media (max-width: 480px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .main-nav {
+    display: none;
+  }
+
+  .header-search {
+    display: none;
+  }
+
+  .hero-features {
+    gap: 10px;
+  }
+
+  .hero-feature {
+    font-size: 0.75rem;
+  }
+
+  .stats-inner {
+    gap: 0;
+  }
+
+  .stat-item {
+    padding: 4px 16px;
+    flex: 1;
+    min-width: 50%;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border);
+  }
+
+  .stat-item:nth-last-child(-n+2) {
+    border-bottom: none;
+  }
+
+  .categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tools-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .steps-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .steps-grid::before {
+    display: none;
+  }
+
+  .trust-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .related-tools {
+    grid-template-columns: 1fr;
+  }
+
+  .share-result-btns {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .calc-grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .result-grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  body {
+    padding-bottom: 64px;
+  }
+
+  .back-to-top {
+    bottom: 80px;
+  }
+}
+
+/* ============================================
+   IPHONE 14: 390px - 767px
+   ============================================ */
+@media (min-width: 481px) and (max-width: 767px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .main-nav {
+    display: none;
+  }
+
+  .header-search {
+    display: none;
+  }
+
+  .categories-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .tools-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .steps-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .steps-grid::before {
+    display: none;
+  }
+
+  .trust-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+
+  .related-tools {
+    grid-template-columns: 1fr;
+  }
+
+  body {
+    padding-bottom: 64px;
+  }
+
+  .back-to-top {
+    bottom: 80px;
+  }
+}
+
+/* ============================================
+   TABLETS: 768px
+   ============================================ */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .main-nav {
+    display: none;
+  }
+
+  .header-search {
+    max-width: 200px;
+  }
+
+  .categories-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .tools-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .steps-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .trust-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .related-tools {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ============================================
+   SMALL DESKTOP: 1024px
+   ============================================ */
+@media (min-width: 1024px) {
+  .hamburger {
+    display: none;
+  }
+
+  .main-nav {
+    display: flex;
+  }
+
+  .header-search {
+    display: flex;
+    max-width: 220px;
+  }
+
+  .categories-grid {
+    grid-template-columns: repeat(7, 1fr);
+  }
+
+  .tools-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .trust-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .related-tools {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ============================================
+   DESKTOP: 1280px
+   ============================================ */
+@media (min-width: 1280px) {
+  .tools-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ============================================
+   LARGE DESKTOP: 1440px
+   ============================================ */
+@media (min-width: 1440px) {
+  .header-inner {
+    padding: 0 40px;
+  }
+
+  .hero {
+    padding: 88px 40px 72px;
+  }
+}
+
+/* ============================================
+   TOUCH TARGETS - min 44px
+   ============================================ */
+@media (hover: none) and (pointer: coarse) {
+  .btn,
+  .btn-use-tool,
+  .category-card,
+  .hamburger,
+  .main-nav a,
+  .back-to-top,
+  .share-btn {
+    min-height: 44px;
+  }
+
+  .calc-btn {
+    min-height: 52px;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="date"],
+  select {
+    min-height: 48px;
+  }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+@media print {
+  .site-header,
+  .site-footer,
+  .ad-banner-top,
+  .cookie-consent,
+  .back-to-top,
+  .share-result-btns,
+  .monetag-banner,
+  .monetag-inpage,
+  .monetag-native,
+  .monetag-sticky {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+    color: black;
+    font-size: 12pt;
+  }
+
+  .calc-result-box {
+    border: 2px solid #000;
+    page-break-inside: avoid;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #666;
+  }
+}
+
+/* ============================================
+   PREFERS REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ============================================
+   HIGH CONTRAST
+   ============================================ */
+@media (prefers-contrast: high) {
+  :root {
+    --border: #000;
+    --text-light: #333;
+  }
+
+  .tool-card,
+  .category-card {
+    border-width: 2px;
+  }
+}
