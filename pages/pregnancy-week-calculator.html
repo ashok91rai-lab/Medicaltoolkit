@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+/* Critical CSS — above fold render */
+:root{--primary:#2563EB;--primary-light:#EFF6FF;--primary-dark:#1D4ED8;--secondary:#10B981;--text:#1E293B;--text-light:#475569;--text-muted:#94A3B8;--bg:#F8FAFC;--border:#E2E8F0;--shadow:0 1px 3px rgba(0,0,0,.1),0 1px 2px rgba(0,0,0,.06);--shadow-lg:0 10px 15px rgba(0,0,0,.1);--shadow-xl:0 20px 25px rgba(0,0,0,.1);--radius:12px;--radius-sm:8px;--radius-lg:16px;--transition:all .2s ease}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;overflow-x:hidden}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;overflow-x:hidden}
+.site-header{position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid var(--border);box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.header-inner{max-width:1200px;margin:0 auto;padding:0 20px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.site-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-icon{width:40px;height:40px;background:var(--primary);border-radius:10px;display:flex;align-items:center;justify-content:center}
+.logo-icon svg{width:22px;height:22px;fill:white}
+.logo-text{font-weight:700;font-size:1.1rem;color:var(--text)}
+.logo-text span{color:var(--primary)}
+.main-nav{display:flex;align-items:center;gap:4px}
+.main-nav a{padding:6px 12px;border-radius:8px;font-size:.875rem;font-weight:500;color:var(--text-light);text-decoration:none}
+.hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer;width:36px;height:36px;background:none;border:none}
+.bar{width:22px;height:2.5px;background:var(--text);border-radius:3px}
+.hero{background:linear-gradient(135deg,#1E3A5F 0%,#2563EB 50%,#0EA5E9 100%);color:white;padding:72px 20px 60px;text-align:center;position:relative;overflow:hidden}
+.hero h1{font-size:clamp(2rem,5vw,3rem);font-weight:800;line-height:1.15;margin-bottom:16px;letter-spacing:-.5px}
+.hero p{font-size:1.1rem;opacity:.88;max-width:580px;margin:0 auto 28px}
+.stats-bar{background:#fff;border-bottom:1px solid var(--border)}
+.stats-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:center;flex-wrap:wrap}
+.stat-item{display:flex;flex-direction:column;align-items:center;padding:16px 32px;border-right:1px solid var(--border);flex:1;min-width:120px;text-align:center}
+.stat-item:last-child{border-right:none}
+.stat-number{font-size:2rem;font-weight:800;color:var(--primary);display:block;line-height:1.2;white-space:nowrap}
+.stat-label{font-size:0.8rem;color:var(--text-light);white-space:nowrap;margin-top:2px}
+@media(max-width:640px){.stat-item{padding:14px 16px;flex:0 0 50%;min-width:50%;border-right:none;border-bottom:1px solid var(--border)}.stat-item:nth-child(odd){border-right:1px solid var(--border)}.stat-item:nth-last-child(-n+2){border-bottom:none}.stat-number{font-size:1.5rem}}
+.reading-progress{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--primary),#10B981,#0EA5E9);z-index:99999;transition:width .15s linear}
+</style>
+  <script src="https://quge5.com/88/tag.min.js" data-zone="245868" async data-cfasync="false"></script>
+  <meta charset="UTF-8">
+  <!-- DNS Prefetch — Performance -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link rel="dns-prefetch" href="//quge5.com">
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <link rel="dns-prefetch" href="//www.google-analytics.com"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>Pregnancy Week Calculator | MedicalToolKit</title>
+  <meta name="description" content="Find out exactly how many weeks pregnant you are. See your current trimester, due date, baby size comparison, and week-by-week milestones.">
+  <link rel="canonical" href="https://medicaltoolkit.pages.dev/pages/pregnancy-week-calculator.html">
+  <meta property="og:title" content="Pregnancy Week Calculator — Current Week & Baby Size | MedicalToolKit"><meta property="og:url" content="https://medicaltoolkit.pages.dev/pages/pregnancy-week-calculator.html"><meta property="og:type" content="website"><meta property="og:site_name" content="MedicalToolKit">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#2563EB">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap&subset=latin" rel="stylesheet">
+  <link rel="preload" href="/dist/css/style.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/style.min.css?v=20260620nodark"></noscript><link rel="preload" href="/dist/css/responsive.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/responsive.min.css?v=20260620nodark"></noscript><link rel="stylesheet" href="/dist/css/calculator.min.css?v=20260620nodark">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Pregnancy Week Calculator","url":"https://medicaltoolkit.pages.dev/pages/pregnancy-week-calculator.html","applicationCategory":"HealthApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JWW19HEZBJ');
+  </script>
+  <meta property="og:image" content="https://medicaltoolkit.pages.dev/images/og-pregnancy-week.png">
+  <meta name="twitter:image" content="https://medicaltoolkit.pages.dev/images/og-pregnancy-week.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How are pregnancy weeks calculated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pregnancy weeks are calculated from the first day of your last menstrual period (LMP), not from conception. This is because ovulation (and conception) typically occurs about 2 weeks after the LMP, but the exact date of conception is often unknown. A full-term pregnancy is 40 weeks from LMP, which equals approximately 38 weeks from conception."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the three trimesters of pregnancy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The first trimester runs from week 1 to week 13 (months 1\u20133), covering major organ development and the highest risk of miscarriage. The second trimester spans weeks 14\u201326 (months 4\u20136), generally the most comfortable period. The third trimester covers weeks 27\u201340 (months 7\u20139), during which the baby gains most of its weight."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it normal for pregnancy weeks to differ from my ultrasound?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, it is common for the gestational age calculated from your LMP to differ slightly from ultrasound measurements, especially if your cycle is irregular. Doctors typically use the LMP date until an early ultrasound (ideally at 8\u201312 weeks) confirms or adjusts the gestational age and due date."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://medicaltoolkit.pages.dev/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Pregnancy Week Calculator",
+      "item": "https://medicaltoolkit.pages.dev/pages/pregnancy-week-calculator.html"
+    }
+  ]
+}
+</script>
+  <link rel="stylesheet" href="/dist/css/calc-history.min.css?v=20260620nodark">
+  <link rel="preload" href="/dist/css/animations.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/animations.min.css?v=20260620nodark"></noscript>
+  <link rel="preload" href="/dist/css/blog.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/blog.min.css?v=20260620nodark"></noscript>
+  <!-- ============================================
+       SEARCH CONSOLE & WEBMASTER VERIFICATION
+       Replace placeholder values with your actual codes
+       ============================================ -->
+  <!-- Google Search Console: Go to search.google.com/search-console → Add Property → HTML tag -->
+  <meta name="google-site-verification" content="y63XSBvlNcknj46yVKMn0uE14aKKOBfjwLLO6EZrLBk">
+  <!-- Bing Webmaster: Go to bing.com/webmasters → Add Site → HTML Meta Tag -->
+  <meta name="msvalidate.01" content="AB9070CF57664870ADB2D23906FE30C4">
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JWW19HEZBJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JWW19HEZBJ', {anonymize_ip: true});
+  </script>
+</head>
+<body>
+<header class="site-header" role="banner">
+  <div class="header-inner">
+    <a href="/" class="site-logo" aria-label="MedicalToolKit Home">
+      <div class="logo-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg></div>
+      <span class="logo-text">Medical<span>ToolKit</span></span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="/pages/bmi-calculator.html">Fitness</a><a href="/pages/due-date-calculator.html">Pregnancy</a>
+      <a href="/pages/blood-sugar-calculator.html">Diabetes</a><a href="/pages/blood-pressure-checker.html">Heart</a>
+      <a href="/pages/gfr-calculator.html">Kidney</a><a href="/pages/anxiety-test.html">Mental Health</a><a href="/pages/about.html">About</a>
+      <a href="/blog/">Blog</a>
+    </nav>
+    <div class="header-search search-wrapper"><input type="search" class="header-search-input search-input" placeholder="Search calculators..." aria-label="Search calculators"></div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav">
+    <div class="mobile-search"><input type="search" class="search-input" placeholder="Search calculators..."></div>
+    <a href="/">Home</a><a href="/pages/bmi-calculator.html">BMI Calculator</a><a href="/pages/calorie-calculator.html">Calorie Calculator</a>
+    <a href="/pages/blood-pressure-checker.html">Blood Pressure</a><a href="/pages/blood-sugar-calculator.html">Blood Sugar</a>
+    <a href="/pages/gfr-calculator.html">GFR Calculator</a><a href="/pages/anxiety-test.html">Anxiety Test</a><a href="/pages/about.html">About</a>
+  </nav>
+</header>
+<div class="breadcrumb-bar"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="breadcrumb-sep">›</span><span>Pregnancy Week Calculator</span></nav></div>
+<section class="page-hero" aria-labelledby="pageHeroHeading">
+  <div style="max-width:700px;margin:0 auto;">
+    <h1 id="pageHeroHeading">Pregnancy Week Calculator — How Far Along Are You?</h1>
+    <p>Enter your last menstrual period or conception date to instantly calculate how many weeks pregnant you are, your trimester, estimated due date, baby size comparison, and key pregnancy milestones.</p>
+  </div>
+</section>
+<div class="calc-page-layout">
+  <main class="calc-main" id="mainContent">
+    <div class="calc-intro"><h2>Understanding Gestational Age and Pregnancy Weeks</h2><p>Pregnancy duration is measured in gestational weeks, counted from the first day of your last menstrual period (LMP), even though conception typically occurs about 14 days later. A full-term pregnancy is 40 weeks (280 days) from LMP. The first trimester spans weeks 1–12, the second trimester weeks 13–26, and the third trimester weeks 27–40. Knowing your gestational age is important for prenatal care scheduling, interpreting ultrasound measurements, and understanding your baby's developmental milestones. This calculator uses the standard obstetric method based on LMP, or allows you to calculate from a known conception date.</p></div>
+<div class="calc-widget"><div class="calc-widget-header"><span class="calc-widget-icon">🤰</span><h2>Pregnancy Week Calculator</h2></div><div class="calc-widget-body">
+    <div class="unit-toggle" role="group"><button class="unit-btn active" id="methodLmp" aria-pressed="true">Last Period (LMP)</button><button class="unit-btn" id="methodConception" aria-pressed="false">Conception Date</button></div>
+    <div class="calc-form">
+      <div id="lmpGroup"><div class="form-group"><label class="form-label" for="lmpDate">First day of last menstrual period</label><input type="date" id="lmpDate" class="calc-input"></div></div>
+      <div id="conceptionGroup" style="display:none"><div class="form-group"><label class="form-label" for="conceptionDate">Conception date</label><input type="date" id="conceptionDate" class="calc-input"></div></div>
+      <p class="input-error-msg" id="pwError" role="alert"></p>
+      <button class="calc-btn" id="calcPregWeek" type="button">Calculate Pregnancy Week</button>
+      <button class="calc-btn-secondary" id="resetPregWeek" type="button">Reset</button>
+    </div></div></div>
+<div class="calc-result-box" id="pwResult" role="region" aria-live="polite">
+    <div class="result-header"><div class="result-icon">🤰</div><div><div class="result-title">You Are Currently</div><div class="result-value" id="pwWeek">—</div><span class="result-category green" id="pwTrimester"></span></div></div>
+    <div class="result-grid-2">
+      <div class="result-mini-card"><div class="label">Day of Week</div><div class="value" id="pwDay">—</div></div>
+      <div class="result-mini-card"><div class="label">Estimated Due Date</div><div class="value" id="pwDueDate">—</div></div>
+      <div class="result-mini-card"><div class="label">Countdown</div><div class="value" id="pwCountdown">—</div></div>
+      <div class="result-mini-card"><div class="label">Baby Size</div><div class="value" id="pwBabySize">—</div></div>
+    </div>
+    <div class="result-description" id="pwMilestone"></div><div class="share-result-section"><div class="share-result-label">Share your result:</div><div class="share-result-btns"><button class="share-btn share-whatsapp" id="shareWhatsapp" type="button">WhatsApp</button><button class="share-btn share-twitter" id="shareTwitter" type="button">Twitter</button><button class="share-btn copy-result" id="copyResult" type="button">Copy</button></div></div></div>
+
+    <!-- What Is -->
+    <div class="content-section">
+      <h2>What Is Gestational Age and How Is It Measured?</h2>
+      <p>Gestational age refers to how far along a pregnancy is, measured in weeks and days from the first day of the mother's Last Menstrual Period (LMP) — not from the date of conception. This standardized dating method is used by all healthcare providers and medical guidelines worldwide. Because ovulation and fertilization typically occur around day 14 of a 28-day cycle, gestational age is approximately 2 weeks ahead of actual fetal age (from fertilization). A full-term pregnancy is defined as 39–40 weeks gestational age. Babies born at 37–38 weeks are considered early term, 39–40 weeks are full term, 41 weeks are late term, and 42+ weeks are post-term. This calculator tells you your current gestational week and trimester based on your LMP date.</p>
+    </div>
+
+    <!-- How to Use -->
+    <div class="content-section">
+      <h2>How to Use This Pregnancy Week Calculator</h2>
+      <ul>
+        <li><strong>Step 1 — Enter your Last Menstrual Period (LMP) date:</strong> This is the first day of your most recent period before becoming pregnant. If you don't know the exact date, use the closest estimate.</li>
+        <li><strong>Step 2 — Click Calculate</strong> to instantly see your current gestational week, trimester, estimated due date, and key developmental milestones for your baby.</li>
+      </ul>
+      <p>If your ultrasound gestational age differs from your LMP-based calculation by more than 1–2 weeks, your healthcare provider will typically adjust your due date to match the ultrasound measurement (especially when done before 13 weeks). Early ultrasound dating is more accurate than LMP-based dating in many women.</p>
+    </div>
+
+    <!-- The Three Trimesters -->
+    <div class="content-section">
+      <h2>Your Pregnancy Week by Week — The Three Trimesters</h2>
+      <p>Pregnancy is divided into three trimesters, each with distinct developmental and physical milestones:</p>
+      <ul>
+        <li><strong>First Trimester (Weeks 1–13):</strong> The most critical period for fetal organ formation (organogenesis). The heart, brain, spinal cord, and limbs develop. Most miscarriages (80%) occur in this trimester. Morning sickness, fatigue, and breast tenderness are common. Prenatal vitamins with folic acid are essential for neural tube development.</li>
+        <li><strong>Second Trimester (Weeks 14–26):</strong> Generally the most comfortable trimester. Morning sickness typically improves. The baby's movements (quickening) are felt from weeks 16–20. Anatomy ultrasound (18–22 weeks) checks for structural abnormalities. Gender can usually be determined. Baby develops hearing and can respond to sounds.</li>
+        <li><strong>Third Trimester (Weeks 27–40):</strong> Rapid weight gain for both mother and baby. Baby's lungs mature and brain develops rapidly. Braxton Hicks contractions may begin. Baby typically moves into a head-down position by week 36. Birth preparedness classes, hospital tours, and birth plan discussions should occur in this trimester.</li>
+      </ul>
+    </div>
+
+    <!-- Health Tips -->
+    <div class="content-section">
+      <h2>Essential Prenatal Health Checklist</h2>
+      <ul>
+        <li><strong>Folic Acid:</strong> 400–800 mcg daily before conception and through the first trimester reduces neural tube defects (like spina bifida) by up to 70%.</li>
+        <li><strong>Prenatal Vitamins:</strong> Include iron (27 mg), calcium (1,000 mg), vitamin D (600 IU), and DHA (200 mg) for fetal brain and eye development.</li>
+        <li><strong>Avoid:</strong> Alcohol (no safe amount during pregnancy), smoking (increases risk of miscarriage, preterm birth, low birthweight), raw or undercooked meat, unpasteurized cheese, high-mercury fish, and deli meats.</li>
+        <li><strong>Exercise:</strong> 150 minutes of moderate activity per week is safe and beneficial. Walking, prenatal yoga, and swimming are excellent. Avoid contact sports and exercises with fall risk after the first trimester.</li>
+        <li><strong>Prenatal Appointments:</strong> Monthly visits from conception to 28 weeks; every 2 weeks from 28–36 weeks; weekly from 36 weeks to delivery. Do not skip glucose screening (24–28 weeks) for gestational diabetes.</li>
+      </ul>
+    </div>
+
+    <div class="content-section"><h2>Frequently Asked Questions</h2>
+    <div class="faq-item"><h3>Why is pregnancy counted from the last period?</h3><p>Gestational age is counted from the LMP because the exact date of conception is usually unknown, but the LMP is reliably recalled. This means you are technically "pregnant" for 2 weeks before conception actually occurs. Ultrasound measurements in early pregnancy may adjust the due date if they differ from LMP calculations.</p></div>
+    <div class="faq-item"><h3>How accurate is my due date?</h3><p>Only about 5% of babies are born on their exact due date. Most arrive within a 2-week window on either side. A due date is an estimate; births from 37–42 weeks are considered normal. Your healthcare provider will monitor progress and advise on induction if pregnancy extends significantly past the due date.</p></div>
+    <div class="faq-item"><h3>When should I have my first prenatal appointment?</h3><p>Most guidelines recommend the first prenatal visit between 8–10 weeks. It typically includes a confirmation of pregnancy, blood tests, blood pressure check, urine test, and discussion of prenatal vitamins. If you have risk factors, your provider may want to see you earlier.</p></div></div>
+
+    <div class="content-section"><h2>Related Calculators</h2>
+      <div class="related-tools-grid"><a href="/pages/due-date-calculator.html" class="related-tool-card">📅 Due Date Calculator</a><a href="/pages/ovulation-calculator.html" class="related-tool-card">🌸 Ovulation Calculator</a><a href="/pages/bmi-calculator.html" class="related-tool-card">📊 BMI Calculator</a><a href="/pages/calorie-calculator.html" class="related-tool-card">🔥 Calorie Calculator</a></div>
+    </div>
+  </main>
+  <aside class="calc-sidebar">
+    <div class="sidebar-widget"><h3>Quick Links</h3><a href="/pages/due-date-calculator.html" class="sidebar-link">Due Date Calculator</a><a href="/pages/ovulation-calculator.html" class="sidebar-link">Ovulation Calculator</a><a href="/pages/bmi-calculator.html" class="sidebar-link">BMI Calculator</a></div>
+  
+    <div class="sidebar-widget">
+      <div class="sidebar-widget-header"><h3>🤰 Pregnancy Quick Facts</h3></div>
+      <div class="sidebar-widget-body">
+        <div class="sidebar-tip"><strong>Due dates are estimates</strong> Only 4% of babies are born on their exact due date. Most births occur within 2 weeks before or after. A normal delivery window is 37–42 weeks.</div>
+        <div class="sidebar-tip"><strong>Start prenatal care early</strong> The first prenatal visit should ideally occur at 6–10 weeks. Early care detects risks and starts essential monitoring.</div>
+        <div class="sidebar-tip"><strong>Track fetal movement</strong> From week 28, count fetal kicks. You should feel at least 10 movements within 2 hours. Decreased movement warrants immediate medical contact.</div>
+      </div>
+    </div>
+
+  
+    <div class="sidebar-widget">
+      <div class="sidebar-widget-header"><h3>🤰 Pregnancy Quick Facts</h3></div>
+      <div class="sidebar-widget-body">
+        <div class="sidebar-tip"><strong>Due dates are estimates</strong> Only 4% of babies are born on their exact due date. Most births occur within 2 weeks before or after. A normal delivery window is 37–42 weeks.</div>
+        <div class="sidebar-tip"><strong>Start prenatal care early</strong> The first prenatal visit should ideally occur at 6–10 weeks. Early care detects risks and starts essential monitoring.</div>
+        <div class="sidebar-tip"><strong>Track fetal movement</strong> From week 28, count fetal kicks. You should feel at least 10 movements within 2 hours. Decreased movement warrants immediate medical contact.</div>
+      </div>
+    </div>
+
+  </aside>
+</div>
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-grid">
+    <div class="footer-brand"><div class="site-logo"><div class="logo-icon"><svg viewBox="0 0 24 24" fill="white"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg></div><span class="logo-text">Medical<span>ToolKit</span></span></div><p>Free, accurate medical and health calculators trusted by millions worldwide.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/pages/bmi-calculator.html">BMI Calculator</a><a href="/pages/due-date-calculator.html">Due Date</a><a href="/pages/blood-sugar-calculator.html">Blood Sugar</a><a href="/pages/calorie-calculator.html">Calories</a><a href="/pages/blood-pressure-checker.html">Blood Pressure</a><a href="/pages/sleep-calculator.html">Sleep Calculator</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/pages/a1c-converter.html">A1C Converter</a><a href="/pages/gfr-calculator.html">GFR Calculator</a><a href="/pages/body-fat-calculator.html">Body Fat %</a><a href="/pages/ideal-weight-calculator.html">Ideal Weight</a><a href="/pages/heart-rate-calculator.html">Heart Rate</a><a href="/pages/tdee-calculator.html">TDEE Calculator</a><a href="/pages/anxiety-test.html">Anxiety Test</a></div>
+    <div class="footer-col"><h4>Company</h4><a href="/pages/about.html">About Us</a><a href="/pages/editorial-policy.html">Editorial Policy</a><a href="/pages/contact.html">Contact</a><a href="/pages/privacy-policy.html">Privacy Policy</a><a href="/pages/disclaimer.html">Medical Disclaimer</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 MedicalToolKit. All rights reserved. <strong>Not medical advice.</strong></p><div class="footer-legal-links"><a href="/pages/privacy-policy.html">Privacy</a><a href="/pages/disclaimer.html">Disclaimer</a><a href="/pages/contact.html">Contact</a></div></div>
+</footer>
+<button class="back-to-top" aria-label="Back to top">&#8593;</button>
+<div class="cookie-consent" id="cookieBanner" role="dialog"><p>We use cookies. <a href="/pages/privacy-policy.html">Privacy Policy</a></p><div class="cookie-btns"><button class="btn-accept-cookies" id="acceptCookies">Accept</button><button class="btn-reject-cookies" id="rejectCookies">Decline</button></div></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="/dist/js/main.min.js?v=20260620nodark" defer></script>
+<script src="/js/calculators/pregnancy-week.js" defer></script>
+  <script src="/dist/js/animations.min.js?v=20260620nodark" defer></script>
+
+  <script src="/dist/js/analytics.min.js?v=20260620nodark" defer></script>
+  <script src="/dist/js/pwa.min.js?v=20260620nodark" defer></script>
+  <script src="/dist/js/calc-history.min.js?v=20260620nodark" defer></script>
+</body></html>

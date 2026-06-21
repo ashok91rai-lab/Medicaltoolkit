@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+/* Critical CSS — above fold render */
+:root{--primary:#2563EB;--primary-light:#EFF6FF;--primary-dark:#1D4ED8;--secondary:#10B981;--text:#1E293B;--text-light:#475569;--text-muted:#94A3B8;--bg:#F8FAFC;--border:#E2E8F0;--shadow:0 1px 3px rgba(0,0,0,.1),0 1px 2px rgba(0,0,0,.06);--shadow-lg:0 10px 15px rgba(0,0,0,.1);--shadow-xl:0 20px 25px rgba(0,0,0,.1);--radius:12px;--radius-sm:8px;--radius-lg:16px;--transition:all .2s ease}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;overflow-x:hidden}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;overflow-x:hidden}
+.site-header{position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid var(--border);box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.header-inner{max-width:1200px;margin:0 auto;padding:0 20px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.site-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-icon{width:40px;height:40px;background:var(--primary);border-radius:10px;display:flex;align-items:center;justify-content:center}
+.logo-icon svg{width:22px;height:22px;fill:white}
+.logo-text{font-weight:700;font-size:1.1rem;color:var(--text)}
+.logo-text span{color:var(--primary)}
+.main-nav{display:flex;align-items:center;gap:4px}
+.main-nav a{padding:6px 12px;border-radius:8px;font-size:.875rem;font-weight:500;color:var(--text-light);text-decoration:none}
+.hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer;width:36px;height:36px;background:none;border:none}
+.bar{width:22px;height:2.5px;background:var(--text);border-radius:3px}
+.hero{background:linear-gradient(135deg,#1E3A5F 0%,#2563EB 50%,#0EA5E9 100%);color:white;padding:72px 20px 60px;text-align:center;position:relative;overflow:hidden}
+.hero h1{font-size:clamp(2rem,5vw,3rem);font-weight:800;line-height:1.15;margin-bottom:16px;letter-spacing:-.5px}
+.hero p{font-size:1.1rem;opacity:.88;max-width:580px;margin:0 auto 28px}
+.stats-bar{background:#fff;border-bottom:1px solid var(--border)}
+.stats-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:center;flex-wrap:wrap}
+.stat-item{display:flex;flex-direction:column;align-items:center;padding:16px 32px;border-right:1px solid var(--border);flex:1;min-width:120px;text-align:center}
+.stat-item:last-child{border-right:none}
+.stat-number{font-size:2rem;font-weight:800;color:var(--primary);display:block;line-height:1.2;white-space:nowrap}
+.stat-label{font-size:0.8rem;color:var(--text-light);white-space:nowrap;margin-top:2px}
+@media(max-width:640px){.stat-item{padding:14px 16px;flex:0 0 50%;min-width:50%;border-right:none;border-bottom:1px solid var(--border)}.stat-item:nth-child(odd){border-right:1px solid var(--border)}.stat-item:nth-last-child(-n+2){border-bottom:none}.stat-number{font-size:1.5rem}}
+.reading-progress{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--primary),#10B981,#0EA5E9);z-index:99999;transition:width .15s linear}
+</style>
+  <script src="https://quge5.com/88/tag.min.js" data-zone="245868" async data-cfasync="false"></script>
+  <meta charset="UTF-8">
+  <!-- DNS Prefetch — Performance -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link rel="dns-prefetch" href="//quge5.com">
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <link rel="dns-prefetch" href="//www.google-analytics.com"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>Blood Pressure Checker — AHA Categories | MedicalToolKit</title>
+  <meta name="description" content="Check your blood pressure reading against AHA 2017 guidelines. Instantly categorises Normal, Elevated, Stage 1 & 2 Hypertension, or Hypertensive Crisis.">
+  <meta name="keywords" content="blood pressure checker, blood pressure calculator, hypertension stages, normal blood pressure, systolic diastolic">
+  <link rel="canonical" href="https://medicaltoolkit.pages.dev/pages/blood-pressure-checker.html">
+  <meta property="og:title" content="Blood Pressure Checker — AHA Categories | MedicalToolKit">
+  <meta property="og:url" content="https://medicaltoolkit.pages.dev/pages/blood-pressure-checker.html">
+  <meta property="og:type" content="website"><meta property="og:site_name" content="MedicalToolKit">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#2563EB">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap&subset=latin" rel="stylesheet">
+  <link rel="preload" href="/dist/css/style.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/style.min.css?v=20260620nodark"></noscript><link rel="preload" href="/dist/css/responsive.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/responsive.min.css?v=20260620nodark"></noscript><link rel="stylesheet" href="/dist/css/calculator.min.css?v=20260620nodark">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Blood Pressure Checker","url":"https://medicaltoolkit.pages.dev/pages/blood-pressure-checker.html","applicationCategory":"HealthApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://medicaltoolkit.pages.dev/"},{"@type":"ListItem","position":2,"name":"Blood Pressure Checker","item":"https://medicaltoolkit.pages.dev/pages/blood-pressure-checker.html"}]}</script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JWW19HEZBJ');
+  </script>
+  <meta property="og:image" content="https://medicaltoolkit.pages.dev/images/og-blood-pressure.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is normal blood pressure?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Normal blood pressure is below 120/80 mmHg. Elevated is 120\u2013129 systolic with less than 80 diastolic. Stage 1 hypertension is 130\u2013139/80\u201389 mmHg. Stage 2 hypertension is 140+/90+ mmHg. A reading above 180/120 mmHg is a hypertensive crisis requiring immediate medical attention."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What do the two blood pressure numbers mean?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The top number (systolic) measures the pressure in your arteries when your heart beats. The bottom number (diastolic) measures the pressure when your heart rests between beats. Both numbers are important. High systolic pressure is a major risk factor for heart disease and stroke, especially in people over 50."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I lower my blood pressure naturally?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Blood pressure can be reduced naturally through the DASH diet (rich in fruits, vegetables, whole grains, low-fat dairy), reducing sodium intake to below 2,300mg/day, regular aerobic exercise (150 minutes/week), limiting alcohol, quitting smoking, managing stress through meditation or yoga, maintaining a healthy weight, and getting adequate sleep."
+      }
+    }
+  ]
+}
+</script>
+  <link rel="stylesheet" href="/dist/css/calc-history.min.css?v=20260620nodark">
+  <link rel="preload" href="/dist/css/animations.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/animations.min.css?v=20260620nodark"></noscript>
+  <link rel="preload" href="/dist/css/blog.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/blog.min.css?v=20260620nodark"></noscript>
+  <!-- ============================================
+       SEARCH CONSOLE & WEBMASTER VERIFICATION
+       Replace placeholder values with your actual codes
+       ============================================ -->
+  <!-- Google Search Console: Go to search.google.com/search-console → Add Property → HTML tag -->
+  <meta name="google-site-verification" content="y63XSBvlNcknj46yVKMn0uE14aKKOBfjwLLO6EZrLBk">
+  <!-- Bing Webmaster: Go to bing.com/webmasters → Add Site → HTML Meta Tag -->
+  <meta name="msvalidate.01" content="AB9070CF57664870ADB2D23906FE30C4">
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JWW19HEZBJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JWW19HEZBJ', {anonymize_ip: true});
+  </script>
+</head>
+<body>
+<header class="site-header" role="banner">
+  <div class="header-inner">
+    <a href="/" class="site-logo" aria-label="MedicalToolKit Home">
+      <div class="logo-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg></div>
+      <span class="logo-text">Medical<span>ToolKit</span></span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="/pages/bmi-calculator.html">Fitness</a><a href="/pages/due-date-calculator.html">Pregnancy</a>
+      <a href="/pages/blood-sugar-calculator.html">Diabetes</a><a href="/pages/blood-pressure-checker.html" class="active">Heart</a>
+      <a href="/pages/gfr-calculator.html">Kidney</a><a href="/pages/anxiety-test.html">Mental Health</a><a href="/pages/about.html">About</a>
+      <a href="/blog/">Blog</a>
+    </nav>
+    <div class="header-search search-wrapper"><input type="search" class="header-search-input search-input" placeholder="Search calculators..." aria-label="Search calculators"></div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav">
+    <div class="mobile-search"><input type="search" class="search-input" placeholder="Search calculators..."></div>
+    <a href="/">Home</a><a href="/pages/bmi-calculator.html">BMI Calculator</a><a href="/pages/blood-pressure-checker.html">Blood Pressure</a>
+    <a href="/pages/blood-sugar-calculator.html">Blood Sugar</a><a href="/pages/heart-rate-calculator.html">Heart Rate</a><a href="/pages/gfr-calculator.html">GFR Calculator</a><a href="/pages/anxiety-test.html">Anxiety Test</a><a href="/pages/about.html">About</a>
+  </nav>
+</header>
+
+<div class="breadcrumb-bar"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="breadcrumb-sep">›</span><span>Blood Pressure Checker</span></nav></div>
+
+<section class="page-hero" aria-labelledby="pageHeroHeading">
+  <div style="max-width:700px;margin:0 auto;">
+    <h1 id="pageHeroHeading">Blood Pressure Checker — Free Online Tool</h1>
+    <p>Enter your systolic and diastolic blood pressure readings and get an instant assessment against AHA 2017 guidelines. Color-coded categories from Normal to Hypertensive Crisis.</p>
+  </div>
+</section>
+
+<div class="calc-page-layout">
+  <main class="calc-main" id="mainContent">
+    <div class="calc-intro">
+      <h2>Understanding Blood Pressure Readings</h2>
+      <p>Blood pressure is recorded as two numbers: systolic pressure (the higher number) measures the force in your arteries when your heart beats, and diastolic pressure (the lower number) measures the force when your heart rests between beats. A reading of 120/80 mmHg means a systolic of 120 and diastolic of 80. The American Heart Association 2017 guidelines redefined hypertension, lowering the threshold from 140/90 to 130/80 mmHg to enable earlier intervention. High blood pressure is sometimes called the "silent killer" because it often has no symptoms yet dramatically increases risk of heart attack, stroke, and kidney disease. Regular monitoring is one of the most important things you can do for your cardiovascular health.</p>
+    </div>
+
+    <div class="calc-widget">
+      <div class="calc-widget-header"><span class="calc-widget-icon">❤️</span><h2>Blood Pressure Checker</h2></div>
+      <div class="calc-widget-body">
+        <div class="calc-form">
+          <div class="form-group">
+            <label class="form-label" for="systolicValue">Systolic Pressure (top number)</label>
+            <div class="input-group"><input type="number" id="systolicValue" class="calc-input" placeholder="e.g. 120" min="60" max="300"><span class="input-suffix">mmHg</span></div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="diastolicValue">Diastolic Pressure (bottom number)</label>
+            <div class="input-group"><input type="number" id="diastolicValue" class="calc-input" placeholder="e.g. 80" min="30" max="200"><span class="input-suffix">mmHg</span></div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="pulseValue">Pulse (optional)</label>
+            <div class="input-group"><input type="number" id="pulseValue" class="calc-input" placeholder="e.g. 72" min="30" max="220"><span class="input-suffix">bpm</span></div>
+          </div>
+          <p class="input-error-msg" id="bpError" role="alert"></p>
+          <button class="calc-btn" id="calcBP" type="button">Check Blood Pressure</button>
+          <button class="calc-btn-secondary" id="resetBP" type="button">Reset</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="calc-result-box" id="bpResult" role="region" aria-live="polite">
+      <div class="result-header">
+        <div class="result-icon" id="bpResultIcon">❤️</div>
+        <div>
+          <div class="result-title">Blood Pressure Reading</div>
+          <div class="result-value" id="bpSystolic">—</div>
+          <span class="result-category" id="bpCategory"></span>
+        </div>
+      </div>
+      <div class="result-grid-2">
+        <div class="result-mini-card"><div class="label">Systolic</div><div class="value" id="bpSystolic">—</div></div>
+        <div class="result-mini-card"><div class="label">Diastolic</div><div class="value" id="bpDiastolic">—</div></div>
+        <div class="result-mini-card"><div class="label">Pulse Pressure</div><div class="value" id="bpPulsePressure">—</div></div>
+      </div>
+      <div class="result-description" id="bpDescription"></div>
+      <div id="bpRangeRows" style="margin-top:16px;"></div>
+      <div class="share-result-section">
+        <div class="share-result-label">Share your result:</div>
+        <div class="share-result-btns">
+          <button class="share-btn share-whatsapp" id="shareWhatsapp" type="button">WhatsApp</button>
+          <button class="share-btn share-twitter" id="shareTwitter" type="button">Twitter</button>
+          <button class="share-btn copy-result" id="copyResult" type="button">Copy</button>
+        </div>
+      </div>
+    </div>
+
+    
+    <!-- How to Use -->
+    <div class="content-section">
+      <h2>How to Use This Blood Pressure Checker</h2>
+      <p>Getting an accurate reading from this tool takes under 30 seconds. Follow these steps for the best results:</p>
+      <ul>
+        <li><strong>Step 1 — Sit quietly for 5 minutes</strong> before measuring. Avoid caffeine, exercise, and smoking for at least 30 minutes prior.</li>
+        <li><strong>Step 2 — Enter your systolic number</strong> (the top, higher number on your monitor) in the first field.</li>
+        <li><strong>Step 3 — Enter your diastolic number</strong> (the bottom, lower number) in the second field.</li>
+        <li><strong>Step 4 — Optionally enter your pulse rate</strong> in beats per minute (bpm) for a more complete picture.</li>
+        <li><strong>Step 5 — Click "Check Blood Pressure"</strong> to instantly see your AHA 2017 category with a color-coded result and health guidance.</li>
+      </ul>
+      <p>For the most reliable monitoring, take readings at the same time each day — ideally in the morning before medications — and record the average of 2–3 consecutive measurements taken 1 minute apart.</p>
+    </div>
+
+    <!-- The Formula / AHA Guidelines -->
+    <div class="content-section">
+      <h2>Blood Pressure Categories — AHA 2017 Guidelines</h2>
+      <p>This checker uses the American Heart Association (AHA) 2017 revised guidelines, which lowered the definition of hypertension from 140/90 to 130/80 mmHg to enable earlier treatment and prevention of cardiovascular events:</p>
+      <div class="formula-box">
+        <strong>Normal:</strong> Systolic &lt;120 AND Diastolic &lt;80 mmHg<br><br>
+        <strong>Elevated:</strong> Systolic 120–129 AND Diastolic &lt;80 mmHg<br><br>
+        <strong>Stage 1 Hypertension:</strong> Systolic 130–139 OR Diastolic 80–89 mmHg<br><br>
+        <strong>Stage 2 Hypertension:</strong> Systolic ≥140 OR Diastolic ≥90 mmHg<br><br>
+        <strong>Hypertensive Crisis:</strong> Systolic &gt;180 AND/OR Diastolic &gt;120 mmHg — Seek emergency care
+      </div>
+      <p>Pulse pressure (systolic minus diastolic) is also calculated. A normal pulse pressure is 40–60 mmHg. A wide pulse pressure above 60 mmHg may indicate arterial stiffness and increased cardiovascular risk, especially in older adults.</p>
+    </div>
+
+    <!-- Understanding Results -->
+    <div class="content-section">
+      <h2>Understanding Your Blood Pressure Results</h2>
+      <p><strong>Normal (&lt;120/80 mmHg):</strong> Your blood pressure is in the healthy range. Continue healthy lifestyle habits — regular exercise, balanced nutrition, and stress management — to maintain this level.</p>
+      <p><strong>Elevated (120–129/&lt;80 mmHg):</strong> Your blood pressure is above normal but not yet hypertension. Lifestyle changes now can prevent progression. Reduce sodium intake, increase physical activity, and schedule a follow-up with your doctor.</p>
+      <p><strong>Stage 1 Hypertension (130–139/80–89 mmHg):</strong> Your doctor will likely recommend lifestyle changes and may consider medication, especially if you have other cardiovascular risk factors like diabetes or high cholesterol. Do not ignore this range.</p>
+      <p><strong>Stage 2 Hypertension (≥140/≥90 mmHg):</strong> This range requires prompt medical attention. A combination of lifestyle modification and blood pressure medication is typically recommended. Uncontrolled Stage 2 hypertension significantly raises the risk of heart attack, stroke, and kidney failure.</p>
+      <p><strong>Hypertensive Crisis (&gt;180/&gt;120 mmHg):</strong> This is a medical emergency. Call 911 or go to the nearest emergency room immediately, especially if you are experiencing chest pain, shortness of breath, back pain, numbness, changes in vision, or difficulty speaking.</p>
+    </div>
+
+    <!-- Health Tips Sidebar-style content -->
+    <div class="content-section">
+      <h2>Evidence-Based Ways to Lower Blood Pressure</h2>
+      <p>Clinical research has identified several lifestyle interventions that can meaningfully reduce blood pressure without medication — or enhance medication effectiveness when used together:</p>
+      <ul>
+        <li><strong>DASH Diet:</strong> The Dietary Approaches to Stop Hypertension (DASH) diet, rich in fruits, vegetables, whole grains, and low-fat dairy, can reduce systolic BP by 8–14 mmHg. Limit sodium to 1,500 mg/day for maximum benefit.</li>
+        <li><strong>Exercise:</strong> 150 minutes of moderate aerobic exercise per week (brisk walking, cycling, swimming) can lower systolic BP by 4–9 mmHg. Resistance training provides additional benefit.</li>
+        <li><strong>Weight Loss:</strong> Every 1 kg (2.2 lbs) of weight lost reduces systolic BP by approximately 1 mmHg. Even 5% weight loss can meaningfully improve BP in overweight individuals.</li>
+        <li><strong>Limit Alcohol:</strong> Reduce alcohol to no more than 1 drink/day for women and 2 drinks/day for men. Heavy drinking raises BP and reduces the effectiveness of antihypertensive medications.</li>
+        <li><strong>Quit Smoking:</strong> Each cigarette temporarily raises BP. Quitting smoking is one of the single most impactful things you can do for cardiovascular health overall.</li>
+        <li><strong>Manage Stress:</strong> Chronic stress elevates cortisol and adrenaline, keeping BP elevated. Mindfulness meditation, deep breathing, yoga, and adequate sleep (7–9 hours) all have documented BP-lowering effects.</li>
+        <li><strong>Potassium-Rich Foods:</strong> Potassium counteracts sodium's effect on blood pressure. Bananas, sweet potatoes, spinach, beans, and avocado are excellent sources.</li>
+      </ul>
+    </div>
+
+    
+    <!-- How to Use -->
+    <div class="content-section">
+      <h2>How to Use This Blood Pressure Checker</h2>
+      <p>Getting an accurate reading from this tool takes under 30 seconds. Follow these steps for the best results:</p>
+      <ul>
+        <li><strong>Step 1 — Sit quietly for 5 minutes</strong> before measuring. Avoid caffeine, exercise, and smoking for at least 30 minutes prior.</li>
+        <li><strong>Step 2 — Enter your systolic number</strong> (the top, higher number on your monitor) in the first field.</li>
+        <li><strong>Step 3 — Enter your diastolic number</strong> (the bottom, lower number) in the second field.</li>
+        <li><strong>Step 4 — Optionally enter your pulse rate</strong> in beats per minute (bpm) for a more complete picture.</li>
+        <li><strong>Step 5 — Click "Check Blood Pressure"</strong> to instantly see your AHA 2017 category with a color-coded result and health guidance.</li>
+      </ul>
+      <p>For the most reliable monitoring, take readings at the same time each day — ideally in the morning before medications — and record the average of 2–3 consecutive measurements taken 1 minute apart.</p>
+    </div>
+
+    <!-- The Formula / AHA Guidelines -->
+    <div class="content-section">
+      <h2>Blood Pressure Categories — AHA 2017 Guidelines</h2>
+      <p>This checker uses the American Heart Association (AHA) 2017 revised guidelines, which lowered the definition of hypertension from 140/90 to 130/80 mmHg to enable earlier treatment and prevention of cardiovascular events:</p>
+      <div class="formula-box">
+        <strong>Normal:</strong> Systolic &lt;120 AND Diastolic &lt;80 mmHg<br><br>
+        <strong>Elevated:</strong> Systolic 120–129 AND Diastolic &lt;80 mmHg<br><br>
+        <strong>Stage 1 Hypertension:</strong> Systolic 130–139 OR Diastolic 80–89 mmHg<br><br>
+        <strong>Stage 2 Hypertension:</strong> Systolic ≥140 OR Diastolic ≥90 mmHg<br><br>
+        <strong>Hypertensive Crisis:</strong> Systolic &gt;180 AND/OR Diastolic &gt;120 mmHg — Seek emergency care
+      </div>
+      <p>Pulse pressure (systolic minus diastolic) is also calculated. A normal pulse pressure is 40–60 mmHg. A wide pulse pressure above 60 mmHg may indicate arterial stiffness and increased cardiovascular risk, especially in older adults.</p>
+    </div>
+
+    <!-- Understanding Results -->
+    <div class="content-section">
+      <h2>Understanding Your Blood Pressure Results</h2>
+      <p><strong>Normal (&lt;120/80 mmHg):</strong> Your blood pressure is in the healthy range. Continue healthy lifestyle habits — regular exercise, balanced nutrition, and stress management — to maintain this level.</p>
+      <p><strong>Elevated (120–129/&lt;80 mmHg):</strong> Your blood pressure is above normal but not yet hypertension. Lifestyle changes now can prevent progression. Reduce sodium intake, increase physical activity, and schedule a follow-up with your doctor.</p>
+      <p><strong>Stage 1 Hypertension (130–139/80–89 mmHg):</strong> Your doctor will likely recommend lifestyle changes and may consider medication, especially if you have other cardiovascular risk factors like diabetes or high cholesterol. Do not ignore this range.</p>
+      <p><strong>Stage 2 Hypertension (≥140/≥90 mmHg):</strong> This range requires prompt medical attention. A combination of lifestyle modification and blood pressure medication is typically recommended. Uncontrolled Stage 2 hypertension significantly raises the risk of heart attack, stroke, and kidney failure.</p>
+      <p><strong>Hypertensive Crisis (&gt;180/&gt;120 mmHg):</strong> This is a medical emergency. Call 911 or go to the nearest emergency room immediately, especially if you are experiencing chest pain, shortness of breath, back pain, numbness, changes in vision, or difficulty speaking.</p>
+    </div>
+
+    <!-- Health Tips Sidebar-style content -->
+    <div class="content-section">
+      <h2>Evidence-Based Ways to Lower Blood Pressure</h2>
+      <p>Clinical research has identified several lifestyle interventions that can meaningfully reduce blood pressure without medication — or enhance medication effectiveness when used together:</p>
+      <ul>
+        <li><strong>DASH Diet:</strong> The Dietary Approaches to Stop Hypertension (DASH) diet, rich in fruits, vegetables, whole grains, and low-fat dairy, can reduce systolic BP by 8–14 mmHg. Limit sodium to 1,500 mg/day for maximum benefit.</li>
+        <li><strong>Exercise:</strong> 150 minutes of moderate aerobic exercise per week (brisk walking, cycling, swimming) can lower systolic BP by 4–9 mmHg. Resistance training provides additional benefit.</li>
+        <li><strong>Weight Loss:</strong> Every 1 kg (2.2 lbs) of weight lost reduces systolic BP by approximately 1 mmHg. Even 5% weight loss can meaningfully improve BP in overweight individuals.</li>
+        <li><strong>Limit Alcohol:</strong> Reduce alcohol to no more than 1 drink/day for women and 2 drinks/day for men. Heavy drinking raises BP and reduces the effectiveness of antihypertensive medications.</li>
+        <li><strong>Quit Smoking:</strong> Each cigarette temporarily raises BP. Quitting smoking is one of the single most impactful things you can do for cardiovascular health overall.</li>
+        <li><strong>Manage Stress:</strong> Chronic stress elevates cortisol and adrenaline, keeping BP elevated. Mindfulness meditation, deep breathing, yoga, and adequate sleep (7–9 hours) all have documented BP-lowering effects.</li>
+        <li><strong>Potassium-Rich Foods:</strong> Potassium counteracts sodium's effect on blood pressure. Bananas, sweet potatoes, spinach, beans, and avocado are excellent sources.</li>
+      </ul>
+    </div>
+
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item"><h3>What is a normal blood pressure?</h3><p>According to AHA 2017 guidelines, normal blood pressure is less than 120/80 mmHg. Elevated BP is 120–129 systolic with less than 80 diastolic. Stage 1 hypertension is 130–139/80–89 mmHg, and Stage 2 is 140/90 or higher.</p></div>
+      <div class="faq-item"><h3>When should I check my blood pressure?</h3><p>Check at the same time each day, ideally in the morning after 5 minutes of rest, before taking medications. Avoid caffeine, exercise, and smoking for 30 minutes before measuring. Take 2–3 readings and record the average.</p></div>
+      <div class="faq-item"><h3>What causes high blood pressure?</h3><p>Most hypertension is "essential" (no single identifiable cause). Risk factors include age, genetics, obesity, high sodium diet, physical inactivity, smoking, excessive alcohol, stress, and chronic conditions like diabetes and kidney disease.</p></div>
+      <div class="faq-item"><h3>Can blood pressure be lowered without medication?</h3><p>Yes — for Stage 1 hypertension, the DASH diet (rich in fruits, vegetables, whole grains, low-fat dairy), reducing sodium to under 1,500 mg/day, regular aerobic exercise, weight loss, and limiting alcohol can lower systolic BP by 4–11 mmHg.</p></div>
+    </div>
+    <div class="content-section">
+      <h2>Related Calculators</h2>
+      <div class="related-tools-grid">
+        <a href="/pages/heart-rate-calculator.html" class="related-tool-card">💓 Heart Rate Zones</a>
+        <a href="/pages/blood-sugar-calculator.html" class="related-tool-card">💉 Blood Sugar</a>
+        <a href="/pages/bmi-calculator.html" class="related-tool-card">📊 BMI Calculator</a>
+        <a href="/pages/gfr-calculator.html" class="related-tool-card">🫘 GFR Calculator</a>
+      </div>
+    </div>
+  </main>
+  <aside class="calc-sidebar">
+    <div class="sidebar-widget"><h3>Quick Links</h3>
+      <a href="/pages/heart-rate-calculator.html" class="sidebar-link">Heart Rate Zones</a>
+      <a href="/pages/blood-sugar-calculator.html" class="sidebar-link">Blood Sugar</a>
+      <a href="/pages/gfr-calculator.html" class="sidebar-link">GFR Calculator</a>
+      <a href="/pages/bmi-calculator.html" class="sidebar-link">BMI Calculator</a>
+    </div>
+  
+    <div class="sidebar-widget">
+      <div class="sidebar-widget-header"><h3>❤️ BP Quick Facts</h3></div>
+      <div class="sidebar-widget-body">
+        <div class="sidebar-tip"><strong>Silent killer</strong> High blood pressure rarely causes symptoms. Nearly half of US adults with hypertension don't know they have it — regular monitoring is essential.</div>
+        <div class="sidebar-tip"><strong>White coat effect</strong> Some people have higher readings at the doctor's office due to anxiety. Home monitoring over several days gives a more accurate picture.</div>
+        <div class="sidebar-tip"><strong>Morning readings matter</strong> BP is typically highest in the morning hours (6–10 AM), which is why most heart attacks occur during this time. Morning readings help identify this pattern.</div>
+      </div>
+    </div>
+
+  
+    <div class="sidebar-widget">
+      <div class="sidebar-widget-header"><h3>❤️ BP Quick Facts</h3></div>
+      <div class="sidebar-widget-body">
+        <div class="sidebar-tip"><strong>Silent killer</strong> High blood pressure rarely causes symptoms. Nearly half of US adults with hypertension don't know they have it — regular monitoring is essential.</div>
+        <div class="sidebar-tip"><strong>White coat effect</strong> Some people have higher readings at the doctor's office due to anxiety. Home monitoring over several days gives a more accurate picture.</div>
+        <div class="sidebar-tip"><strong>Morning readings matter</strong> BP is typically highest in the morning hours (6–10 AM), which is why most heart attacks occur during this time. Morning readings help identify this pattern.</div>
+      </div>
+    </div>
+
+  </aside>
+</div>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-grid">
+    <div class="footer-brand"><div class="site-logo"><div class="logo-icon"><svg viewBox="0 0 24 24" fill="white"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg></div><span class="logo-text">Medical<span>ToolKit</span></span></div><p>Free, accurate medical and health calculators trusted by millions worldwide.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/pages/bmi-calculator.html">BMI Calculator</a><a href="/pages/due-date-calculator.html">Due Date</a><a href="/pages/blood-sugar-calculator.html">Blood Sugar</a><a href="/pages/calorie-calculator.html">Calories</a><a href="/pages/blood-pressure-checker.html">Blood Pressure</a><a href="/pages/sleep-calculator.html">Sleep Calculator</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/pages/a1c-converter.html">A1C Converter</a><a href="/pages/gfr-calculator.html">GFR Calculator</a><a href="/pages/body-fat-calculator.html">Body Fat %</a><a href="/pages/ideal-weight-calculator.html">Ideal Weight</a><a href="/pages/heart-rate-calculator.html">Heart Rate</a><a href="/pages/tdee-calculator.html">TDEE Calculator</a><a href="/pages/anxiety-test.html">Anxiety Test</a></div>
+    <div class="footer-col"><h4>Company</h4><a href="/pages/about.html">About Us</a><a href="/pages/editorial-policy.html">Editorial Policy</a><a href="/pages/contact.html">Contact</a><a href="/pages/privacy-policy.html">Privacy Policy</a><a href="/pages/disclaimer.html">Medical Disclaimer</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 MedicalToolKit. All rights reserved. <strong>Not medical advice.</strong></p><div class="footer-legal-links"><a href="/pages/privacy-policy.html">Privacy</a><a href="/pages/disclaimer.html">Disclaimer</a><a href="/pages/contact.html">Contact</a></div></div>
+</footer>
+<button class="back-to-top" aria-label="Back to top">&#8593;</button>
+<div class="cookie-consent" id="cookieBanner" role="dialog"><p>We use cookies. <a href="/pages/privacy-policy.html">Privacy Policy</a></p><div class="cookie-btns"><button class="btn-accept-cookies" id="acceptCookies">Accept</button><button class="btn-reject-cookies" id="rejectCookies">Decline</button></div></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="/dist/js/main.min.js?v=20260620nodark" defer></script>
+<script src="/js/calculators/blood-pressure.js" defer></script>
+  <script src="/dist/js/animations.min.js?v=20260620nodark" defer></script>
+
+  <script src="/dist/js/analytics.min.js?v=20260620nodark" defer></script>
+  <script src="/dist/js/pwa.min.js?v=20260620nodark" defer></script>
+  <script src="/dist/js/calc-history.min.js?v=20260620nodark" defer></script>
+</body></html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+/* Critical CSS — above fold render */
+:root{--primary:#2563EB;--primary-light:#EFF6FF;--primary-dark:#1D4ED8;--secondary:#10B981;--text:#1E293B;--text-light:#475569;--text-muted:#94A3B8;--bg:#F8FAFC;--border:#E2E8F0;--shadow:0 1px 3px rgba(0,0,0,.1),0 1px 2px rgba(0,0,0,.06);--shadow-lg:0 10px 15px rgba(0,0,0,.1);--shadow-xl:0 20px 25px rgba(0,0,0,.1);--radius:12px;--radius-sm:8px;--radius-lg:16px;--transition:all .2s ease}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;overflow-x:hidden}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;overflow-x:hidden}
+.site-header{position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid var(--border);box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.header-inner{max-width:1200px;margin:0 auto;padding:0 20px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.site-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-icon{width:40px;height:40px;background:var(--primary);border-radius:10px;display:flex;align-items:center;justify-content:center}
+.logo-icon svg{width:22px;height:22px;fill:white}
+.logo-text{font-weight:700;font-size:1.1rem;color:var(--text)}
+.logo-text span{color:var(--primary)}
+.main-nav{display:flex;align-items:center;gap:4px}
+.main-nav a{padding:6px 12px;border-radius:8px;font-size:.875rem;font-weight:500;color:var(--text-light);text-decoration:none}
+.hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer;width:36px;height:36px;background:none;border:none}
+.bar{width:22px;height:2.5px;background:var(--text);border-radius:3px}
+.hero{background:linear-gradient(135deg,#1E3A5F 0%,#2563EB 50%,#0EA5E9 100%);color:white;padding:72px 20px 60px;text-align:center;position:relative;overflow:hidden}
+.hero h1{font-size:clamp(2rem,5vw,3rem);font-weight:800;line-height:1.15;margin-bottom:16px;letter-spacing:-.5px}
+.hero p{font-size:1.1rem;opacity:.88;max-width:580px;margin:0 auto 28px}
+.stats-bar{background:#fff;border-bottom:1px solid var(--border)}
+.stats-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:center;flex-wrap:wrap}
+.stat-item{display:flex;flex-direction:column;align-items:center;padding:16px 32px;border-right:1px solid var(--border);flex:1;min-width:120px;text-align:center}
+.stat-item:last-child{border-right:none}
+.stat-number{font-size:2rem;font-weight:800;color:var(--primary);display:block;line-height:1.2;white-space:nowrap}
+.stat-label{font-size:0.8rem;color:var(--text-light);white-space:nowrap;margin-top:2px}
+@media(max-width:640px){.stat-item{padding:14px 16px;flex:0 0 50%;min-width:50%;border-right:none;border-bottom:1px solid var(--border)}.stat-item:nth-child(odd){border-right:1px solid var(--border)}.stat-item:nth-last-child(-n+2){border-bottom:none}.stat-number{font-size:1.5rem}}
+.reading-progress{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--primary),#10B981,#0EA5E9);z-index:99999;transition:width .15s linear}
+</style>
+  <script src="https://quge5.com/88/tag.min.js" data-zone="245868" async data-cfasync="false"></script>
+  <meta charset="UTF-8">
+  <!-- DNS Prefetch — Performance -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link rel="dns-prefetch" href="//quge5.com">
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <link rel="dns-prefetch" href="//www.google-analytics.com"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>TDEE Calculator | MedicalToolKit</title>
+  <meta name="description" content="Calculate your Total Daily Energy Expenditure (TDEE) and get goal-based calorie targets for weight loss, maintenance, and muscle gain with macro breakdowns.">
+  <link rel="canonical" href="https://medicaltoolkit.pages.dev/pages/tdee-calculator.html">
+  <meta property="og:title" content="TDEE Calculator — Total Daily Energy Expenditure | MedicalToolKit"><meta property="og:url" content="https://medicaltoolkit.pages.dev/pages/tdee-calculator.html"><meta property="og:type" content="website"><meta property="og:site_name" content="MedicalToolKit">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#2563EB">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap&subset=latin" rel="stylesheet">
+  <link rel="preload" href="/dist/css/style.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/style.min.css?v=20260620nodark"></noscript><link rel="preload" href="/dist/css/responsive.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/responsive.min.css?v=20260620nodark"></noscript><link rel="stylesheet" href="/dist/css/calculator.min.css?v=20260620nodark">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"TDEE Calculator","url":"https://medicaltoolkit.pages.dev/pages/tdee-calculator.html","applicationCategory":"HealthApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JWW19HEZBJ');
+  </script>
+  <meta property="og:image" content="https://medicaltoolkit.pages.dev/images/og-tdee.png">
+  <meta name="twitter:image" content="https://medicaltoolkit.pages.dev/images/og-tdee.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is TDEE?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Total Daily Energy Expenditure (TDEE) is the total number of calories your body burns in a day, including your Basal Metabolic Rate (BMR) plus all physical activity. TDEE is the most important number for weight management \u2014 eating below it leads to weight loss, eating above it leads to weight gain, and eating at TDEE maintains weight."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How accurate is the TDEE calculator?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "TDEE calculators provide an estimate with a margin of error of approximately 10\u201315%. Accuracy depends on how honestly you assess your activity level. Most people underestimate their sedentary time and overestimate their activity. Track your weight for 2\u20133 weeks while eating at the calculated TDEE and adjust by 100\u2013200 calories based on actual results."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What activity level should I choose for TDEE?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Choose Sedentary if you have a desk job and exercise little. Choose Lightly Active for 1\u20133 days of light exercise per week. Choose Moderately Active for 3\u20135 days of moderate exercise. Choose Very Active for 6\u20137 days of hard exercise. Choose Extremely Active only if you have a physically demanding job AND exercise intensely daily."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://medicaltoolkit.pages.dev/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "TDEE Calculator",
+      "item": "https://medicaltoolkit.pages.dev/pages/tdee-calculator.html"
+    }
+  ]
+}
+</script>
+  <link rel="stylesheet" href="/dist/css/calc-history.min.css?v=20260620nodark">
+  <link rel="preload" href="/dist/css/animations.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/animations.min.css?v=20260620nodark"></noscript>
+  <link rel="preload" href="/dist/css/blog.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/blog.min.css?v=20260620nodark"></noscript>
+  <!-- ============================================
+       SEARCH CONSOLE & WEBMASTER VERIFICATION
+       Replace placeholder values with your actual codes
+       ============================================ -->
+  <!-- Google Search Console: Go to search.google.com/search-console → Add Property → HTML tag -->
+  <meta name="google-site-verification" content="y63XSBvlNcknj46yVKMn0uE14aKKOBfjwLLO6EZrLBk">
+  <!-- Bing Webmaster: Go to bing.com/webmasters → Add Site → HTML Meta Tag -->
+  <meta name="msvalidate.01" content="AB9070CF57664870ADB2D23906FE30C4">
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JWW19HEZBJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JWW19HEZBJ', {anonymize_ip: true});
+  </script>
+</head>
+<body>
+<header class="site-header" role="banner">
+  <div class="header-inner">
+    <a href="/" class="site-logo" aria-label="MedicalToolKit Home">
+      <div class="logo-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg></div>
+      <span class="logo-text">Medical<span>ToolKit</span></span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="/pages/bmi-calculator.html">Fitness</a><a href="/pages/due-date-calculator.html">Pregnancy</a>
+      <a href="/pages/blood-sugar-calculator.html">Diabetes</a><a href="/pages/blood-pressure-checker.html">Heart</a>
+      <a href="/pages/gfr-calculator.html">Kidney</a><a href="/pages/anxiety-test.html">Mental Health</a><a href="/pages/about.html">About</a>
+      <a href="/blog/">Blog</a>
+    </nav>
+    <div class="header-search search-wrapper"><input type="search" class="header-search-input search-input" placeholder="Search calculators..." aria-label="Search calculators"></div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav">
+    <div class="mobile-search"><input type="search" class="search-input" placeholder="Search calculators..."></div>
+    <a href="/">Home</a><a href="/pages/bmi-calculator.html">BMI Calculator</a><a href="/pages/calorie-calculator.html">Calorie Calculator</a>
+    <a href="/pages/blood-pressure-checker.html">Blood Pressure</a><a href="/pages/blood-sugar-calculator.html">Blood Sugar</a>
+    <a href="/pages/gfr-calculator.html">GFR Calculator</a><a href="/pages/anxiety-test.html">Anxiety Test</a><a href="/pages/about.html">About</a>
+  </nav>
+</header>
+<div class="breadcrumb-bar"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="breadcrumb-sep">›</span><span>TDEE Calculator</span></nav></div>
+<section class="page-hero" aria-labelledby="pageHeroHeading">
+  <div style="max-width:700px;margin:0 auto;">
+    <h1 id="pageHeroHeading">TDEE Calculator — Total Daily Energy Expenditure</h1>
+    <p>Calculate your exact TDEE using the Mifflin-St Jeor formula adjusted for your activity level. Get calorie targets for every goal — weight loss, maintenance, and muscle gain — with macro breakdowns.</p>
+  </div>
+</section>
+<div class="calc-page-layout">
+  <main class="calc-main" id="mainContent">
+    <div class="calc-intro"><h2>What is TDEE and Why Is It the Most Important Calorie Number?</h2><p>Total Daily Energy Expenditure (TDEE) is the total number of calories your body burns each day, accounting for everything from breathing (your basal metabolic rate) to exercise, digestion (the thermic effect of food), and non-exercise activity thermogenesis (NEAT — fidgeting, walking, standing). TDEE is the single most important calorie number for body composition goals: eating at TDEE maintains weight, eating below it loses fat, eating above it gains muscle (and fat). Unlike BMR, TDEE gives you a real-world calorie target that reflects your lifestyle. This calculator uses the Mifflin-St Jeor BMR equation — validated as the most accurate for diverse populations — multiplied by an activity factor derived from your weekly exercise habits.</p></div>
+<div class="calc-widget"><div class="calc-widget-header"><span class="calc-widget-icon">⚡</span><h2>TDEE Calculator</h2></div><div class="calc-widget-body">
+    <div class="unit-toggle" role="group"><button class="unit-btn active" id="unitMetric" aria-pressed="true">Metric</button><button class="unit-btn" id="unitImperial" aria-pressed="false">Imperial</button></div>
+    <div class="calc-form">
+      <div id="metricInputs">
+        <div class="form-group"><label class="form-label" for="weightKg">Weight</label><div class="input-group"><input type="number" id="weightKg" class="calc-input" placeholder="e.g. 75" min="20" max="500" step="0.1"><span class="input-suffix">kg</span></div></div>
+        <div class="form-group"><label class="form-label" for="heightCm">Height</label><div class="input-group"><input type="number" id="heightCm" class="calc-input" placeholder="e.g. 175" min="100" max="280"><span class="input-suffix">cm</span></div></div>
+      </div>
+      <div id="imperialInputs" style="display:none">
+        <div class="form-group"><label class="form-label" for="weightLbs">Weight</label><div class="input-group"><input type="number" id="weightLbs" class="calc-input" placeholder="e.g. 165" min="44" max="1100"><span class="input-suffix">lbs</span></div></div>
+        <div class="form-group"><label class="form-label">Height</label><div class="input-group-multi"><div class="input-group"><input type="number" id="heightFt" class="calc-input" placeholder="5" min="0" max="8"><span class="input-suffix">ft</span></div><div class="input-group"><input type="number" id="heightIn" class="calc-input" placeholder="9" min="0" max="11"><span class="input-suffix">in</span></div></div></div>
+      </div>
+      <div class="form-group"><label class="form-label" for="tdeeAge">Age</label><div class="input-group"><input type="number" id="tdeeAge" class="calc-input" placeholder="e.g. 30" min="15" max="100"><span class="input-suffix">years</span></div></div>
+      <div class="form-group"><label class="form-label" for="tdeeGender">Biological Sex</label><select id="tdeeGender" class="calc-select"><option value="male">Male</option><option value="female">Female</option></select></div>
+      <div class="form-group"><label class="form-label" for="tdeeActivity">Activity Level</label>
+        <select id="tdeeActivity" class="calc-select">
+          <option value="sedentary">Sedentary (desk job, no exercise)</option>
+          <option value="light">Lightly Active (1–3 days/week)</option>
+          <option value="moderate">Moderately Active (3–5 days/week)</option>
+          <option value="very">Very Active (6–7 days/week)</option>
+          <option value="extra">Extra Active (physical job + training)</option>
+        </select>
+      </div>
+      <p class="input-error-msg" id="tdeeError" role="alert"></p>
+      <button class="calc-btn" id="calcTdee" type="button">Calculate TDEE</button>
+      <button class="calc-btn-secondary" id="resetTdee" type="button">Reset</button>
+    </div></div></div>
+<div class="calc-result-box" id="tdeeResult" role="region" aria-live="polite">
+    <div class="result-header"><div class="result-icon">⚡</div><div><div class="result-title">Your TDEE</div><div class="result-value" id="tdeeMaintain">—</div><span class="result-category green">Maintenance Calories</span></div></div>
+    <div class="result-grid-2">
+      <div class="result-mini-card"><div class="label">BMR (at rest)</div><div class="value" id="tdeeBmr">—</div></div>
+      <div class="result-mini-card"><div class="label">Mild Weight Loss (−500 cal)</div><div class="value" id="tdeeLose">—</div></div>
+      <div class="result-mini-card"><div class="label">Aggressive Loss (−1000 cal)</div><div class="value" id="tdeeLoseFast">—</div></div>
+      <div class="result-mini-card"><div class="label">Muscle Gain (+300 cal)</div><div class="value" id="tdeeGain">—</div></div>
+    </div>
+    <div style="margin-top:14px;font-size:0.85rem;color:var(--text-light);">
+      <div id="macrosMaintain">Maintenance macros: —</div>
+      <div id="macrosLose">Weight loss macros: —</div>
+      <div id="macrosGain">Muscle gain macros: —</div>
+    </div><div class="share-result-section"><div class="share-result-label">Share your result:</div><div class="share-result-btns"><button class="share-btn share-whatsapp" id="shareWhatsapp" type="button">WhatsApp</button><button class="share-btn share-twitter" id="shareTwitter" type="button">Twitter</button><button class="share-btn copy-result" id="copyResult" type="button">Copy</button></div></div></div>
+
+    <!-- How to Use -->
+    <div class="content-section">
+      <h2>How to Use the TDEE Calculator</h2>
+      <ul>
+        <li><strong>Step 1 — Enter your age, sex, height, and weight:</strong> These are used to calculate your Basal Metabolic Rate (BMR) using the Mifflin-St Jeor equation.</li>
+        <li><strong>Step 2 — Select your activity level:</strong> Choose the option that most accurately reflects your typical weekly activity. Most people underestimate their sedentary time — be honest for an accurate result.</li>
+        <li><strong>Step 3 — Click Calculate</strong> to see your BMR, TDEE, and calorie recommendations for weight loss, maintenance, and weight gain.</li>
+      </ul>
+      <p>Use your TDEE as your calorie baseline. Eat at TDEE to maintain weight. Create a 300–500 calorie deficit to lose weight at 0.5–1 lb per week. Add 250–500 calories to gain weight (primarily muscle with proper training).</p>
+    </div>
+
+    <!-- Formula -->
+    <div class="content-section">
+      <h2>How TDEE Is Calculated — The Mifflin-St Jeor Equation</h2>
+      <p>This calculator uses the Mifflin-St Jeor equation (1990), which is considered the most accurate BMR formula for most adults according to the Academy of Nutrition and Dietetics:</p>
+      <div class="formula-box">
+        <strong>BMR (Men):</strong> (10 × weight in kg) + (6.25 × height in cm) − (5 × age) + 5<br><br>
+        <strong>BMR (Women):</strong> (10 × weight in kg) + (6.25 × height in cm) − (5 × age) − 161<br><br>
+        <strong>TDEE = BMR × Activity Multiplier:</strong><br>
+        Sedentary (desk job, little exercise): × 1.2<br>
+        Lightly Active (light exercise 1–3 days/week): × 1.375<br>
+        Moderately Active (moderate exercise 3–5 days/week): × 1.55<br>
+        Very Active (hard exercise 6–7 days/week): × 1.725<br>
+        Extremely Active (physical job + intense exercise daily): × 1.9
+      </div>
+      <p>The Mifflin-St Jeor equation typically estimates BMR within 10% of measured values for most individuals. People with significantly above or below average muscle mass (competitive athletes, elderly individuals with sarcopenia) may find their actual needs differ from the estimate.</p>
+    </div>
+
+    <!-- Understanding Results -->
+    <div class="content-section">
+      <h2>Using Your TDEE for Weight Management</h2>
+      <p>Your TDEE is the single most important number for achieving any body composition goal:</p>
+      <ul>
+        <li><strong>Weight Loss — Eat 300–500 calories below TDEE:</strong> This creates a deficit of 0.5–1 lb of fat loss per week without excessive muscle loss. Aggressive deficits above 750 calories/day significantly increase muscle catabolism, slow metabolism, and are difficult to sustain.</li>
+        <li><strong>Weight Maintenance — Eat at TDEE:</strong> Consuming calories equal to your TDEE stabilizes weight. Adjust TDEE periodically as your weight changes (because a lighter body burns fewer calories at rest).</li>
+        <li><strong>Lean Muscle Gain ("Lean Bulk") — Eat 200–300 calories above TDEE:</strong> A modest surplus combined with progressive resistance training maximizes muscle growth while minimizing fat gain. Larger surpluses result in proportionally more fat gain.</li>
+        <li><strong>Body Recomposition — Eat at or slightly below TDEE:</strong> With high protein intake (0.8–1g/lb bodyweight) and consistent resistance training, it is possible to simultaneously lose fat and gain muscle, especially in beginners and those returning from a training break.</li>
+      </ul>
+    </div>
+
+    <!-- Tips -->
+    <div class="content-section">
+      <h2>Maximizing Metabolic Rate — Evidence-Based Strategies</h2>
+      <ul>
+        <li><strong>Build Muscle:</strong> Each pound of muscle burns approximately 6–7 calories/day at rest vs. 2 calories/day for fat. Over years of training, substantial metabolic increases are possible.</li>
+        <li><strong>Non-Exercise Activity Thermogenesis (NEAT):</strong> Casual movement throughout the day (fidgeting, standing, walking, taking stairs) can burn 200–1,000 extra calories/day. Deliberately increasing daily steps from 5,000 to 10,000 creates a meaningful caloric difference.</li>
+        <li><strong>Avoid Severe Calorie Restriction:</strong> Eating below 1,200 calories/day (women) or 1,500 calories/day (men) triggers adaptive thermogenesis — your body reduces TDEE by reducing non-essential metabolic activity, making further weight loss progressively harder.</li>
+        <li><strong>Diet Breaks:</strong> If dieting for 8–12+ weeks, incorporating a 1–2 week "maintenance break" has been shown to reduce adaptive thermogenesis and improve long-term weight loss outcomes.</li>
+        <li><strong>High-Protein Diet:</strong> Protein has a thermic effect of 20–30% (meaning you burn 20–30% of protein calories just digesting it), compared to 5–10% for carbohydrates and 0–3% for fat. High protein diets modestly increase TDEE.</li>
+      </ul>
+    </div>
+
+    <div class="content-section"><h2>Frequently Asked Questions</h2>
+    <div class="faq-item"><h3>What is the difference between BMR and TDEE?</h3><p>BMR (Basal Metabolic Rate) is the calories burned at complete rest — just to keep you alive. TDEE (Total Daily Energy Expenditure) is BMR multiplied by your activity level and adds calories burned through all daily movement, exercise, and digestion. TDEE is always higher than BMR.</p></div>
+    <div class="faq-item"><h3>How do I choose the right activity level?</h3><p>Be honest and realistic. "Sedentary" means a desk job with little walking. "Light" means 1–3 gym sessions per week. "Moderate" means 4–5 sessions or an active job. "Very active" is daily intense training. "Extra active" is professional athletes or those with very physically demanding jobs plus training.</p></div>
+    <div class="faq-item"><h3>Why am I not losing weight at a 500-calorie deficit?</h3><p>Possible reasons: underestimated calorie intake (food labels can be inaccurate by up to 20%), overestimated activity level, metabolic adaptation (body adjusts after sustained deficits), insufficient protein causing muscle loss, poor sleep affecting hormones, or water retention masking fat loss. Recalculate after 4–6 weeks and adjust based on actual results.</p></div></div>
+
+    <div class="content-section"><h2>Related Calculators</h2>
+      <div class="related-tools-grid"><a href="/pages/calorie-calculator.html" class="related-tool-card">🔥 Calorie Calculator</a><a href="/pages/bmi-calculator.html" class="related-tool-card">📊 BMI Calculator</a><a href="/pages/body-fat-calculator.html" class="related-tool-card">📐 Body Fat %</a><a href="/pages/ideal-weight-calculator.html" class="related-tool-card">⚖️ Ideal Weight</a></div>
+    </div>
+  </main>
+  <aside class="calc-sidebar">
+    <div class="sidebar-widget"><h3>Quick Links</h3><a href="/pages/calorie-calculator.html" class="sidebar-link">Calorie Calculator</a><a href="/pages/bmi-calculator.html" class="sidebar-link">BMI Calculator</a><a href="/pages/body-fat-calculator.html" class="sidebar-link">Body Fat %</a></div>
+  
+    <div class="sidebar-widget">
+      <div class="sidebar-widget-header"><h3>🔥 Metabolism Tips</h3></div>
+      <div class="sidebar-widget-body">
+        <div class="sidebar-tip"><strong>Recalculate after weight change</strong> For every 10 lbs you lose, your TDEE drops by approximately 50–70 calories. Recalculate monthly to keep your targets accurate.</div>
+        <div class="sidebar-tip"><strong>Weekend eating matters</strong> Many people undereat on weekdays and overeat on weekends, canceling their weekly deficit. Consistent daily intake outperforms extreme variation.</div>
+        <div class="sidebar-tip"><strong>Cardio vs. weights for fat loss</strong> Cardio burns more calories during the session; weight training burns more calories after (excess post-exercise oxygen consumption). Both are valuable — combine them.</div>
+      </div>
+    </div>
+
+  
+    <div class="sidebar-widget">
+      <div class="sidebar-widget-header"><h3>🔥 Metabolism Tips</h3></div>
+      <div class="sidebar-widget-body">
+        <div class="sidebar-tip"><strong>Recalculate after weight change</strong> For every 10 lbs you lose, your TDEE drops by approximately 50–70 calories. Recalculate monthly to keep your targets accurate.</div>
+        <div class="sidebar-tip"><strong>Weekend eating matters</strong> Many people undereat on weekdays and overeat on weekends, canceling their weekly deficit. Consistent daily intake outperforms extreme variation.</div>
+        <div class="sidebar-tip"><strong>Cardio vs. weights for fat loss</strong> Cardio burns more calories during the session; weight training burns more calories after (excess post-exercise oxygen consumption). Both are valuable — combine them.</div>
+      </div>
+    </div>
+
+  </aside>
+</div>
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-grid">
+    <div class="footer-brand"><div class="site-logo"><div class="logo-icon"><svg viewBox="0 0 24 24" fill="white"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg></div><span class="logo-text">Medical<span>ToolKit</span></span></div><p>Free, accurate medical and health calculators trusted by millions worldwide.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/pages/bmi-calculator.html">BMI Calculator</a><a href="/pages/due-date-calculator.html">Due Date</a><a href="/pages/blood-sugar-calculator.html">Blood Sugar</a><a href="/pages/calorie-calculator.html">Calories</a><a href="/pages/blood-pressure-checker.html">Blood Pressure</a><a href="/pages/sleep-calculator.html">Sleep Calculator</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/pages/a1c-converter.html">A1C Converter</a><a href="/pages/gfr-calculator.html">GFR Calculator</a><a href="/pages/body-fat-calculator.html">Body Fat %</a><a href="/pages/ideal-weight-calculator.html">Ideal Weight</a><a href="/pages/heart-rate-calculator.html">Heart Rate</a><a href="/pages/tdee-calculator.html">TDEE Calculator</a><a href="/pages/anxiety-test.html">Anxiety Test</a></div>
+    <div class="footer-col"><h4>Company</h4><a href="/pages/about.html">About Us</a><a href="/pages/editorial-policy.html">Editorial Policy</a><a href="/pages/contact.html">Contact</a><a href="/pages/privacy-policy.html">Privacy Policy</a><a href="/pages/disclaimer.html">Medical Disclaimer</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 MedicalToolKit. All rights reserved. <strong>Not medical advice.</strong></p><div class="footer-legal-links"><a href="/pages/privacy-policy.html">Privacy</a><a href="/pages/disclaimer.html">Disclaimer</a><a href="/pages/contact.html">Contact</a></div></div>
+</footer>
+<button class="back-to-top" aria-label="Back to top">&#8593;</button>
+<div class="cookie-consent" id="cookieBanner" role="dialog"><p>We use cookies. <a href="/pages/privacy-policy.html">Privacy Policy</a></p><div class="cookie-btns"><button class="btn-accept-cookies" id="acceptCookies">Accept</button><button class="btn-reject-cookies" id="rejectCookies">Decline</button></div></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="/dist/js/main.min.js?v=20260620nodark" defer></script>
+<script src="/js/calculators/tdee.js" defer></script>
+  <script src="/dist/js/animations.min.js?v=20260620nodark" defer></script>
+
+  <script src="/dist/js/analytics.min.js?v=20260620nodark" defer></script>
+  <script src="/dist/js/pwa.min.js?v=20260620nodark" defer></script>
+  <script src="/dist/js/calc-history.min.js?v=20260620nodark" defer></script>
+</body></html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+/* Critical CSS — above fold render */
+:root{--primary:#2563EB;--primary-light:#EFF6FF;--primary-dark:#1D4ED8;--secondary:#10B981;--text:#1E293B;--text-light:#475569;--text-muted:#94A3B8;--bg:#F8FAFC;--border:#E2E8F0;--shadow:0 1px 3px rgba(0,0,0,.1),0 1px 2px rgba(0,0,0,.06);--shadow-lg:0 10px 15px rgba(0,0,0,.1);--shadow-xl:0 20px 25px rgba(0,0,0,.1);--radius:12px;--radius-sm:8px;--radius-lg:16px;--transition:all .2s ease}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;overflow-x:hidden}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;overflow-x:hidden}
+.site-header{position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid var(--border);box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.header-inner{max-width:1200px;margin:0 auto;padding:0 20px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.site-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-icon{width:40px;height:40px;background:var(--primary);border-radius:10px;display:flex;align-items:center;justify-content:center}
+.logo-icon svg{width:22px;height:22px;fill:white}
+.logo-text{font-weight:700;font-size:1.1rem;color:var(--text)}
+.logo-text span{color:var(--primary)}
+.main-nav{display:flex;align-items:center;gap:4px}
+.main-nav a{padding:6px 12px;border-radius:8px;font-size:.875rem;font-weight:500;color:var(--text-light);text-decoration:none}
+.hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer;width:36px;height:36px;background:none;border:none}
+.bar{width:22px;height:2.5px;background:var(--text);border-radius:3px}
+.hero{background:linear-gradient(135deg,#1E3A5F 0%,#2563EB 50%,#0EA5E9 100%);color:white;padding:72px 20px 60px;text-align:center;position:relative;overflow:hidden}
+.hero h1{font-size:clamp(2rem,5vw,3rem);font-weight:800;line-height:1.15;margin-bottom:16px;letter-spacing:-.5px}
+.hero p{font-size:1.1rem;opacity:.88;max-width:580px;margin:0 auto 28px}
+.stats-bar{background:#fff;border-bottom:1px solid var(--border)}
+.stats-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:center;flex-wrap:wrap}
+.stat-item{display:flex;flex-direction:column;align-items:center;padding:16px 32px;border-right:1px solid var(--border);flex:1;min-width:120px;text-align:center}
+.stat-item:last-child{border-right:none}
+.stat-number{font-size:2rem;font-weight:800;color:var(--primary);display:block;line-height:1.2;white-space:nowrap}
+.stat-label{font-size:0.8rem;color:var(--text-light);white-space:nowrap;margin-top:2px}
+@media(max-width:640px){.stat-item{padding:14px 16px;flex:0 0 50%;min-width:50%;border-right:none;border-bottom:1px solid var(--border)}.stat-item:nth-child(odd){border-right:1px solid var(--border)}.stat-item:nth-last-child(-n+2){border-bottom:none}.stat-number{font-size:1.5rem}}
+.reading-progress{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--primary),#10B981,#0EA5E9);z-index:99999;transition:width .15s linear}
+</style>
+  <script src="https://quge5.com/88/tag.min.js" data-zone="245868" async data-cfasync="false"></script>
+  <meta charset="UTF-8">
+  <!-- DNS Prefetch — Performance -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link rel="dns-prefetch" href="//quge5.com">
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <link rel="dns-prefetch" href="//www.google-analytics.com"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>GFR Calculator — CKD-EPI Kidney Function | MedicalToolKit</title>
+  <meta name="description" content="Calculate your eGFR using the CKD-EPI 2021 race-free equation. Check kidney function stage and get personalised guidance for chronic kidney disease management.">
+  <link rel="canonical" href="https://medicaltoolkit.pages.dev/pages/gfr-calculator.html">
+  <meta property="og:title" content="GFR Calculator — CKD-EPI Kidney Function | MedicalToolKit"><meta property="og:url" content="https://medicaltoolkit.pages.dev/pages/gfr-calculator.html"><meta property="og:type" content="website"><meta property="og:site_name" content="MedicalToolKit">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#2563EB">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap&subset=latin" rel="stylesheet">
+  <link rel="preload" href="/dist/css/style.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/style.min.css?v=20260620nodark"></noscript><link rel="preload" href="/dist/css/responsive.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/responsive.min.css?v=20260620nodark"></noscript><link rel="stylesheet" href="/dist/css/calculator.min.css?v=20260620nodark">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"GFR Calculator","url":"https://medicaltoolkit.pages.dev/pages/gfr-calculator.html","applicationCategory":"HealthApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JWW19HEZBJ');
+  </script>
+  <meta property="og:image" content="https://medicaltoolkit.pages.dev/images/og-gfr.png">
+  <meta name="twitter:image" content="https://medicaltoolkit.pages.dev/images/og-gfr.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a normal GFR level?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A normal GFR is 60 mL/min/1.73m\u00b2 or higher. GFR above 90 is normal; 60\u201389 may indicate mildly reduced kidney function; 30\u201359 indicates moderate CKD; 15\u201329 indicates severe CKD; below 15 indicates kidney failure requiring dialysis or transplant."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What factors affect GFR?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "GFR is affected by age (naturally declines with age), sex, serum creatinine levels, and ethnicity. It is also influenced by hydration status, muscle mass, diet (especially protein intake), and underlying conditions like diabetes, hypertension, and chronic kidney disease."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I improve my GFR?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "While some GFR decline is irreversible, you can protect and potentially improve kidney function by controlling blood pressure (target below 130/80), managing blood sugar if diabetic, staying well-hydrated, avoiding NSAIDs and nephrotoxic medications, reducing dietary sodium and protein, quitting smoking, and maintaining a healthy weight."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://medicaltoolkit.pages.dev/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "GFR Calculator",
+      "item": "https://medicaltoolkit.pages.dev/pages/gfr-calculator.html"
+    }
+  ]
+}
+</script>
+  <link rel="stylesheet" href="/dist/css/calc-history.min.css?v=20260620nodark">
+  <link rel="preload" href="/dist/css/animations.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/animations.min.css?v=20260620nodark"></noscript>
+  <link rel="preload" href="/dist/css/blog.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/blog.min.css?v=20260620nodark"></noscript>
+  <!-- ============================================
+       SEARCH CONSOLE & WEBMASTER VERIFICATION
+       Replace placeholder values with your actual codes
+       ============================================ -->
+  <!-- Google Search Console: Go to search.google.com/search-console → Add Property → HTML tag -->
+  <meta name="google-site-verification" content="y63XSBvlNcknj46yVKMn0uE14aKKOBfjwLLO6EZrLBk">
+  <!-- Bing Webmaster: Go to bing.com/webmasters → Add Site → HTML Meta Tag -->
+  <meta name="msvalidate.01" content="AB9070CF57664870ADB2D23906FE30C4">
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JWW19HEZBJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JWW19HEZBJ', {anonymize_ip: true});
+  </script>
+</head>
+<body>
+<header class="site-header" role="banner">
+  <div class="header-inner">
+    <a href="/" class="site-logo" aria-label="MedicalToolKit Home">
+      <div class="logo-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg></div>
+      <span class="logo-text">Medical<span>ToolKit</span></span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="/pages/bmi-calculator.html">Fitness</a><a href="/pages/due-date-calculator.html">Pregnancy</a>
+      <a href="/pages/blood-sugar-calculator.html">Diabetes</a><a href="/pages/blood-pressure-checker.html">Heart</a>
+      <a href="/pages/gfr-calculator.html">Kidney</a><a href="/pages/anxiety-test.html">Mental Health</a><a href="/pages/about.html">About</a>
+      <a href="/blog/">Blog</a>
+    </nav>
+    <div class="header-search search-wrapper"><input type="search" class="header-search-input search-input" placeholder="Search calculators..." aria-label="Search calculators"></div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav">
+    <div class="mobile-search"><input type="search" class="search-input" placeholder="Search calculators..."></div>
+    <a href="/">Home</a><a href="/pages/bmi-calculator.html">BMI Calculator</a><a href="/pages/calorie-calculator.html">Calorie Calculator</a>
+    <a href="/pages/blood-pressure-checker.html">Blood Pressure</a><a href="/pages/blood-sugar-calculator.html">Blood Sugar</a>
+    <a href="/pages/gfr-calculator.html">GFR Calculator</a><a href="/pages/anxiety-test.html">Anxiety Test</a><a href="/pages/about.html">About</a>
+  </nav>
+</header>
+<div class="breadcrumb-bar"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="breadcrumb-sep">›</span><span>GFR Calculator</span></nav></div>
+<section class="page-hero" aria-labelledby="pageHeroHeading">
+  <div style="max-width:700px;margin:0 auto;">
+    <h1 id="pageHeroHeading">GFR Calculator — Kidney Function Test (CKD-EPI 2021)</h1>
+    <p>Calculate your estimated Glomerular Filtration Rate (eGFR) using the gold-standard CKD-EPI 2021 race-free equation. Check your CKD stage and get evidence-based guidance.</p>
+  </div>
+</section>
+<div class="calc-page-layout">
+  <main class="calc-main" id="mainContent">
+    <div class="calc-intro"><h2>What is eGFR and Why Does It Matter?</h2><p>The estimated Glomerular Filtration Rate (eGFR) is the best overall index of kidney function and is used to diagnose, stage, and monitor chronic kidney disease (CKD). GFR measures how much blood the kidneys filter per minute per 1.73 m² of body surface area. The CKD-EPI 2021 equation uses serum creatinine, age, and sex to estimate GFR without a race variable, making it the current standard recommended by the American Society of Nephrology and NKF. A declining eGFR over time is a key indicator of kidney disease progression and guides treatment decisions from lifestyle modification to dialysis planning.</p></div>
+<div class="calc-widget"><div class="calc-widget-header"><span class="calc-widget-icon">🫘</span><h2>GFR Calculator (CKD-EPI 2021)</h2></div><div class="calc-widget-body"><div class="calc-form">
+    <div class="form-group"><label class="form-label" for="creatinine">Serum Creatinine</label><div class="input-group"><input type="number" id="creatinine" class="calc-input" placeholder="e.g. 1.0" min="0.1" max="30" step="0.01"><span class="input-suffix">mg/dL</span></div></div>
+    <div class="form-group"><label class="form-label" for="ageGfr">Age</label><div class="input-group"><input type="number" id="ageGfr" class="calc-input" placeholder="e.g. 45" min="18" max="120"><span class="input-suffix">years</span></div></div>
+    <div class="form-group"><label class="form-label" for="genderGfr">Biological Sex</label><select id="genderGfr" class="calc-select"><option value="male">Male</option><option value="female">Female</option></select></div>
+    <p class="input-error-msg" id="gfrError" role="alert"></p>
+    <button class="calc-btn" id="calcGfr" type="button">Calculate GFR</button>
+    <button class="calc-btn-secondary" id="resetGfr" type="button">Reset</button>
+  </div></div></div>
+<div class="calc-result-box" id="gfrResult" role="region" aria-live="polite">
+    <div class="result-header"><div class="result-icon" id="gfrResultIcon">🫘</div><div><div class="result-title">eGFR Result</div><div class="result-value" id="gfrValue">—</div><span class="result-category" id="gfrCategory"></span></div></div>
+    <div class="result-mini-card" style="margin-top:12px;"><div class="label">CKD Stage</div><div class="value" id="gfrStage">—</div></div>
+    <div class="result-description" id="gfrDescription"></div>
+    <div id="gfrRangeRows" style="margin-top:16px;"></div><div class="share-result-section"><div class="share-result-label">Share your result:</div><div class="share-result-btns"><button class="share-btn share-whatsapp" id="shareWhatsapp" type="button">WhatsApp</button><button class="share-btn share-twitter" id="shareTwitter" type="button">Twitter</button><button class="share-btn copy-result" id="copyResult" type="button">Copy</button></div></div></div>
+
+    <!-- How to Use -->
+    <div class="content-section">
+      <h2>How to Use the GFR Calculator</h2>
+      <p>This calculator uses the CKD-EPI (Chronic Kidney Disease Epidemiology Collaboration) 2021 equation — the most current and accurate formula recommended by the National Kidney Foundation (NKF) and the American Society of Nephrology (ASN).</p>
+      <ul>
+        <li><strong>Step 1 — Enter your serum creatinine level:</strong> This is found on your blood test report. Enter the value and select your unit (mg/dL is standard in the USA; μmol/L is used in Canada, UK, and Australia).</li>
+        <li><strong>Step 2 — Enter your age</strong> in years. GFR naturally declines with age — the formula accounts for this.</li>
+        <li><strong>Step 3 — Select your sex:</strong> Muscle mass differences between sexes affect creatinine production, which affects the formula result.</li>
+        <li><strong>Step 4 — Click "Calculate eGFR"</strong> to instantly see your estimated GFR value and your CKD stage if applicable.</li>
+      </ul>
+      <p>Always have your results interpreted by a healthcare professional alongside other kidney function tests such as urine albumin-to-creatinine ratio (UACR), blood urea nitrogen (BUN), and a comprehensive metabolic panel (CMP).</p>
+    </div>
+
+    <!-- Formula -->
+    <div class="content-section">
+      <h2>The CKD-EPI Formula — How eGFR is Calculated</h2>
+      <p>The CKD-EPI 2021 equation estimates kidney filtration capacity using serum creatinine, age, and sex. The 2021 revision removed the race variable (previously used in older equations) after research showed it was not biologically justified and was contributing to healthcare inequity.</p>
+      <div class="formula-box">
+        <strong>CKD-EPI 2021 (Race-Free) Formula:</strong><br><br>
+        eGFR = 142 × min(Scr/κ, 1)^α × max(Scr/κ, 1)^(−1.200) × 0.9938^Age<br><br>
+        × 1.012 [if female]<br><br>
+        Where: κ = 0.7 (female) or 0.9 (male)<br>
+        α = −0.241 (female) or −0.302 (male)<br>
+        Scr = serum creatinine in mg/dL
+      </div>
+      <p>The result is expressed in mL/min/1.73m², representing the volume of blood filtered by the kidneys per minute, normalized to standard body surface area.</p>
+    </div>
+
+    <!-- Understanding Results -->
+    <div class="content-section">
+      <h2>GFR Results and CKD Staging</h2>
+      <p>The National Kidney Foundation defines five stages of Chronic Kidney Disease (CKD) based on eGFR:</p>
+      <ul>
+        <li><strong>Stage G1 — eGFR ≥90:</strong> Normal or high kidney function. If eGFR is ≥90 with markers of kidney damage (protein in urine), this is Stage G1 CKD.</li>
+        <li><strong>Stage G2 — eGFR 60–89:</strong> Mildly reduced function. Often no symptoms. Monitor annually with urine tests.</li>
+        <li><strong>Stage G3a — eGFR 45–59:</strong> Mildly to moderately reduced. Begin dietary adjustments (limit phosphorus, potassium if elevated). See a nephrologist.</li>
+        <li><strong>Stage G3b — eGFR 30–44:</strong> Moderately to severely reduced. Medication management of complications (anemia, bone disease) begins.</li>
+        <li><strong>Stage G4 — eGFR 15–29:</strong> Severely reduced. Begin planning for kidney replacement therapy (dialysis or transplant).</li>
+        <li><strong>Stage G5 — eGFR &lt;15:</strong> Kidney failure. Dialysis or kidney transplant is required to sustain life.</li>
+      </ul>
+      <p>A single eGFR value is not sufficient to diagnose CKD. Diagnosis requires two abnormal readings at least 3 months apart, as eGFR can fluctuate based on hydration, diet, medications, and acute illness.</p>
+    </div>
+
+    <!-- Health Tips -->
+    <div class="content-section">
+      <h2>How to Protect Your Kidney Function</h2>
+      <ul>
+        <li><strong>Control Blood Pressure:</strong> Target below 130/80 mmHg. Hypertension is the second leading cause of kidney failure after diabetes. ACE inhibitors or ARBs are often prescribed to protect kidneys specifically.</li>
+        <li><strong>Manage Blood Sugar:</strong> Diabetic nephropathy accounts for 44% of new kidney failure cases in the USA. Keeping HbA1c below 7% dramatically slows kidney disease progression.</li>
+        <li><strong>Stay Hydrated:</strong> Drink 6–8 glasses of water daily (unless fluid-restricted by your doctor). Chronic mild dehydration concentrates toxins in the kidneys.</li>
+        <li><strong>Avoid NSAIDs:</strong> Ibuprofen (Advil, Motrin) and naproxen (Aleve) reduce blood flow to the kidneys. Regular use accelerates kidney decline in those with CKD.</li>
+        <li><strong>Limit Sodium &amp; Protein:</strong> High sodium raises BP and stresses kidneys. High-protein diets increase metabolic waste (urea) that kidneys must filter. Consult a renal dietitian for CKD-specific diet guidance.</li>
+        <li><strong>Don't Smoke:</strong> Smoking accelerates kidney disease progression and is an independent risk factor for developing CKD.</li>
+        <li><strong>Get Annual Kidney Tests:</strong> If you have diabetes, hypertension, a family history of kidney disease, or are over 60, ask your doctor for annual eGFR and urine albumin testing.</li>
+      </ul>
+    </div>
+
+    <div class="content-section"><h2>Frequently Asked Questions</h2>
+    <div class="faq-item"><h3>What is a normal eGFR?</h3><p>An eGFR of 60 or higher is generally considered normal. eGFR above 90 is Stage G1 (Normal or High). Between 60–89 is G2 (Mildly Decreased). Below 60 for 3 months or more indicates chronic kidney disease.</p></div>
+    <div class="faq-item"><h3>Can eGFR be improved?</h3><p>Yes, especially in early stages. Controlling blood pressure (target below 130/80), managing blood sugar in diabetics, reducing protein intake if advised, stopping NSAIDs, avoiding nephrotoxic medications, and quitting smoking can slow or sometimes partially reverse CKD progression.</p></div>
+    <div class="faq-item"><h3>Why does the CKD-EPI 2021 equation not include race?</h3><p>The 2021 update removed the race coefficient from the original 2009 equation after research showed it led to underestimation of CKD in Black patients and could delay diagnosis and treatment. The race-free version performs comparably across diverse populations.</p></div></div>
+
+    <div class="content-section"><h2>Related Calculators</h2>
+      <div class="related-tools-grid"><a href="/pages/blood-pressure-checker.html" class="related-tool-card">❤️ Blood Pressure</a><a href="/pages/blood-sugar-calculator.html" class="related-tool-card">💉 Blood Sugar</a><a href="/pages/a1c-converter.html" class="related-tool-card">🩺 A1C Converter</a><a href="/pages/bmi-calculator.html" class="related-tool-card">📊 BMI Calculator</a></div>
+    </div>
+  </main>
+  <aside class="calc-sidebar">
+    <div class="sidebar-widget"><h3>Quick Links</h3><a href="/pages/blood-pressure-checker.html" class="sidebar-link">Blood Pressure</a><a href="/pages/blood-sugar-calculator.html" class="sidebar-link">Blood Sugar</a><a href="/pages/a1c-converter.html" class="sidebar-link">A1C Converter</a></div>
+  
+    <div class="sidebar-widget">
+      <div class="sidebar-widget-header"><h3>🫘 Kidney Health Facts</h3></div>
+      <div class="sidebar-widget-body">
+        <div class="sidebar-tip"><strong>37 million Americans</strong> have CKD — and 90% don't know it. Early detection through eGFR testing can dramatically slow progression.</div>
+        <div class="sidebar-tip"><strong>Kidneys filter 200 liters</strong> of blood per day, removing waste and excess fluid. A healthy GFR of 90+ means your kidneys are working at full capacity.</div>
+        <div class="sidebar-tip"><strong>Creatinine levels vary</strong> by muscle mass and diet. Bodybuilders and high meat consumers may have higher creatinine without impaired kidney function.</div>
+      </div>
+    </div>
+
+  
+    <div class="sidebar-widget">
+      <div class="sidebar-widget-header"><h3>🫘 Kidney Health Facts</h3></div>
+      <div class="sidebar-widget-body">
+        <div class="sidebar-tip"><strong>37 million Americans</strong> have CKD — and 90% don't know it. Early detection through eGFR testing can dramatically slow progression.</div>
+        <div class="sidebar-tip"><strong>Kidneys filter 200 liters</strong> of blood per day, removing waste and excess fluid. A healthy GFR of 90+ means your kidneys are working at full capacity.</div>
+        <div class="sidebar-tip"><strong>Creatinine levels vary</strong> by muscle mass and diet. Bodybuilders and high meat consumers may have higher creatinine without impaired kidney function.</div>
+      </div>
+    </div>
+
+  </aside>
+</div>
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-grid">
+    <div class="footer-brand"><div class="site-logo"><div class="logo-icon"><svg viewBox="0 0 24 24" fill="white"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg></div><span class="logo-text">Medical<span>ToolKit</span></span></div><p>Free, accurate medical and health calculators trusted by millions worldwide.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/pages/bmi-calculator.html">BMI Calculator</a><a href="/pages/due-date-calculator.html">Due Date</a><a href="/pages/blood-sugar-calculator.html">Blood Sugar</a><a href="/pages/calorie-calculator.html">Calories</a><a href="/pages/blood-pressure-checker.html">Blood Pressure</a><a href="/pages/sleep-calculator.html">Sleep Calculator</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/pages/a1c-converter.html">A1C Converter</a><a href="/pages/gfr-calculator.html">GFR Calculator</a><a href="/pages/body-fat-calculator.html">Body Fat %</a><a href="/pages/ideal-weight-calculator.html">Ideal Weight</a><a href="/pages/heart-rate-calculator.html">Heart Rate</a><a href="/pages/tdee-calculator.html">TDEE Calculator</a><a href="/pages/anxiety-test.html">Anxiety Test</a></div>
+    <div class="footer-col"><h4>Company</h4><a href="/pages/about.html">About Us</a><a href="/pages/editorial-policy.html">Editorial Policy</a><a href="/pages/contact.html">Contact</a><a href="/pages/privacy-policy.html">Privacy Policy</a><a href="/pages/disclaimer.html">Medical Disclaimer</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 MedicalToolKit. All rights reserved. <strong>Not medical advice.</strong></p><div class="footer-legal-links"><a href="/pages/privacy-policy.html">Privacy</a><a href="/pages/disclaimer.html">Disclaimer</a><a href="/pages/contact.html">Contact</a></div></div>
+</footer>
+<button class="back-to-top" aria-label="Back to top">&#8593;</button>
+<div class="cookie-consent" id="cookieBanner" role="dialog"><p>We use cookies. <a href="/pages/privacy-policy.html">Privacy Policy</a></p><div class="cookie-btns"><button class="btn-accept-cookies" id="acceptCookies">Accept</button><button class="btn-reject-cookies" id="rejectCookies">Decline</button></div></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="/dist/js/main.min.js?v=20260620nodark" defer></script>
+<script src="/js/calculators/gfr.js" defer></script>
+  <script src="/dist/js/animations.min.js?v=20260620nodark" defer></script>
+
+  <script src="/dist/js/analytics.min.js?v=20260620nodark" defer></script>
+  <script src="/dist/js/pwa.min.js?v=20260620nodark" defer></script>
+  <script src="/dist/js/calc-history.min.js?v=20260620nodark" defer></script>
+</body></html>

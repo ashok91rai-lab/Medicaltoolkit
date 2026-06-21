@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+/* Critical CSS — above fold render */
+:root{--primary:#2563EB;--primary-light:#EFF6FF;--primary-dark:#1D4ED8;--secondary:#10B981;--text:#1E293B;--text-light:#475569;--text-muted:#94A3B8;--bg:#F8FAFC;--border:#E2E8F0;--shadow:0 1px 3px rgba(0,0,0,.1),0 1px 2px rgba(0,0,0,.06);--shadow-lg:0 10px 15px rgba(0,0,0,.1);--shadow-xl:0 20px 25px rgba(0,0,0,.1);--radius:12px;--radius-sm:8px;--radius-lg:16px;--transition:all .2s ease}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;overflow-x:hidden}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;overflow-x:hidden}
+.site-header{position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid var(--border);box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.header-inner{max-width:1200px;margin:0 auto;padding:0 20px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.site-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-icon{width:40px;height:40px;background:var(--primary);border-radius:10px;display:flex;align-items:center;justify-content:center}
+.logo-icon svg{width:22px;height:22px;fill:white}
+.logo-text{font-weight:700;font-size:1.1rem;color:var(--text)}
+.logo-text span{color:var(--primary)}
+.main-nav{display:flex;align-items:center;gap:4px}
+.main-nav a{padding:6px 12px;border-radius:8px;font-size:.875rem;font-weight:500;color:var(--text-light);text-decoration:none}
+.hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer;width:36px;height:36px;background:none;border:none}
+.bar{width:22px;height:2.5px;background:var(--text);border-radius:3px}
+.hero{background:linear-gradient(135deg,#1E3A5F 0%,#2563EB 50%,#0EA5E9 100%);color:white;padding:72px 20px 60px;text-align:center;position:relative;overflow:hidden}
+.hero h1{font-size:clamp(2rem,5vw,3rem);font-weight:800;line-height:1.15;margin-bottom:16px;letter-spacing:-.5px}
+.hero p{font-size:1.1rem;opacity:.88;max-width:580px;margin:0 auto 28px}
+.stats-bar{background:#fff;border-bottom:1px solid var(--border)}
+.stats-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:center;flex-wrap:wrap}
+.stat-item{display:flex;flex-direction:column;align-items:center;padding:16px 32px;border-right:1px solid var(--border);flex:1;min-width:120px;text-align:center}
+.stat-item:last-child{border-right:none}
+.stat-number{font-size:2rem;font-weight:800;color:var(--primary);display:block;line-height:1.2;white-space:nowrap}
+.stat-label{font-size:0.8rem;color:var(--text-light);white-space:nowrap;margin-top:2px}
+@media(max-width:640px){.stat-item{padding:14px 16px;flex:0 0 50%;min-width:50%;border-right:none;border-bottom:1px solid var(--border)}.stat-item:nth-child(odd){border-right:1px solid var(--border)}.stat-item:nth-last-child(-n+2){border-bottom:none}.stat-number{font-size:1.5rem}}
+.reading-progress{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--primary),#10B981,#0EA5E9);z-index:99999;transition:width .15s linear}
+</style>
+  <script src="https://quge5.com/88/tag.min.js" data-zone="245868" async data-cfasync="false"></script>
+  <meta charset="UTF-8">
+  <!-- DNS Prefetch — Performance -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link rel="dns-prefetch" href="//quge5.com">
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <link rel="dns-prefetch" href="//www.google-analytics.com"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>Free Anxiety Test Online | MedicalToolKit</title>
+  <meta name="description" content="Take the validated GAD-7 anxiety screening test. 7 questions in 2 minutes. Get your score with evidence-based interpretation and mental health guidance.">
+  <link rel="canonical" href="https://medicaltoolkit.pages.dev/pages/anxiety-test.html">
+  <meta property="og:title" content="Anxiety Test (GAD-7) — Free Online Screening | MedicalToolKit"><meta property="og:url" content="https://medicaltoolkit.pages.dev/pages/anxiety-test.html"><meta property="og:type" content="website"><meta property="og:site_name" content="MedicalToolKit">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#2563EB">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap&subset=latin" rel="stylesheet">
+  <link rel="preload" href="/dist/css/style.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/style.min.css?v=20260620nodark"></noscript><link rel="preload" href="/dist/css/responsive.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/responsive.min.css?v=20260620nodark"></noscript><link rel="stylesheet" href="/dist/css/calculator.min.css?v=20260620nodark">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Anxiety Test","url":"https://medicaltoolkit.pages.dev/pages/anxiety-test.html","applicationCategory":"HealthApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JWW19HEZBJ');
+  </script>
+  <meta property="og:image" content="https://medicaltoolkit.pages.dev/images/og-anxiety.png">
+  <meta name="twitter:image" content="https://medicaltoolkit.pages.dev/images/og-anxiety.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is this anxiety test clinically validated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This anxiety test is based on the GAD-7 (Generalized Anxiety Disorder 7-item scale), which is a clinically validated and widely used screening tool developed by Drs. Spitzer, Kroenke, and Williams. It is used by healthcare professionals worldwide to screen for generalized anxiety disorder and measure symptom severity."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What do my anxiety test results mean?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "GAD-7 scores of 0\u20134 indicate minimal anxiety, 5\u20139 indicate mild anxiety, 10\u201314 indicate moderate anxiety, and 15\u201321 indicate severe anxiety. Scores of 10 or above suggest it may be worth speaking with a healthcare professional. This test is a screening tool, not a diagnosis \u2014 only a qualified clinician can diagnose an anxiety disorder."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can anxiety be treated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, anxiety disorders are highly treatable. Effective treatments include Cognitive Behavioral Therapy (CBT), which is the gold standard, medication (such as SSRIs or SNRIs), mindfulness and relaxation techniques, regular physical exercise, limiting caffeine and alcohol, and improving sleep habits. Many people experience significant improvement with proper treatment."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://medicaltoolkit.pages.dev/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Anxiety Test",
+      "item": "https://medicaltoolkit.pages.dev/pages/anxiety-test.html"
+    }
+  ]
+}
+</script>
+  <link rel="stylesheet" href="/dist/css/calc-history.min.css?v=20260620nodark">
+  <link rel="preload" href="/dist/css/animations.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/animations.min.css?v=20260620nodark"></noscript>
+  <link rel="preload" href="/dist/css/blog.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/blog.min.css?v=20260620nodark"></noscript>
+  <!-- ============================================
+       SEARCH CONSOLE & WEBMASTER VERIFICATION
+       Replace placeholder values with your actual codes
+       ============================================ -->
+  <!-- Google Search Console: Go to search.google.com/search-console → Add Property → HTML tag -->
+  <meta name="google-site-verification" content="y63XSBvlNcknj46yVKMn0uE14aKKOBfjwLLO6EZrLBk">
+  <!-- Bing Webmaster: Go to bing.com/webmasters → Add Site → HTML Meta Tag -->
+  <meta name="msvalidate.01" content="AB9070CF57664870ADB2D23906FE30C4">
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JWW19HEZBJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JWW19HEZBJ', {anonymize_ip: true});
+  </script>
+</head>
+<body>
+<header class="site-header" role="banner">
+  <div class="header-inner">
+    <a href="/" class="site-logo" aria-label="MedicalToolKit Home">
+      <div class="logo-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg></div>
+      <span class="logo-text">Medical<span>ToolKit</span></span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="/pages/bmi-calculator.html">Fitness</a><a href="/pages/due-date-calculator.html">Pregnancy</a>
+      <a href="/pages/blood-sugar-calculator.html">Diabetes</a><a href="/pages/blood-pressure-checker.html">Heart</a>
+      <a href="/pages/gfr-calculator.html">Kidney</a><a href="/pages/anxiety-test.html">Mental Health</a><a href="/pages/about.html">About</a>
+      <a href="/blog/">Blog</a>
+    </nav>
+    <div class="header-search search-wrapper"><input type="search" class="header-search-input search-input" placeholder="Search calculators..." aria-label="Search calculators"></div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav">
+    <div class="mobile-search"><input type="search" class="search-input" placeholder="Search calculators..."></div>
+    <a href="/">Home</a><a href="/pages/bmi-calculator.html">BMI Calculator</a><a href="/pages/calorie-calculator.html">Calorie Calculator</a>
+    <a href="/pages/blood-pressure-checker.html">Blood Pressure</a><a href="/pages/blood-sugar-calculator.html">Blood Sugar</a>
+    <a href="/pages/gfr-calculator.html">GFR Calculator</a><a href="/pages/anxiety-test.html">Anxiety Test</a><a href="/pages/about.html">About</a>
+  </nav>
+</header>
+<div class="breadcrumb-bar"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="breadcrumb-sep">›</span><span>Anxiety Test (GAD-7)</span></nav></div>
+<section class="page-hero" aria-labelledby="pageHeroHeading">
+  <div style="max-width:700px;margin:0 auto;">
+    <h1 id="pageHeroHeading">Anxiety Test — GAD-7 Screening Tool</h1>
+    <p>Take the clinically validated GAD-7 (Generalised Anxiety Disorder 7-item) screening questionnaire. 7 questions, 2 minutes. Get your anxiety score with evidence-based interpretation and next steps.</p>
+  </div>
+</section>
+<div class="calc-page-layout">
+  <main class="calc-main" id="mainContent">
+    <div class="calc-intro"><h2>About the GAD-7 Anxiety Screening Test</h2><p>The Generalised Anxiety Disorder 7-item (GAD-7) questionnaire is a validated clinical screening tool developed by Spitzer et al. (2006) and published in the Archives of Internal Medicine. It is widely used in primary care and mental health settings worldwide to screen for generalised anxiety disorder and monitor treatment progress. The GAD-7 asks about 7 symptoms experienced over the past 2 weeks, rated from 0 (not at all) to 3 (nearly every day). Scores of 5, 10, and 15 represent thresholds for mild, moderate, and severe anxiety respectively. It has a sensitivity of 89% and specificity of 82% for GAD diagnosis. This tool is a screening aid, not a diagnostic test — a qualified mental health professional is needed for diagnosis.</p></div>
+<div class="calc-widget"><div class="calc-widget-header"><span class="calc-widget-icon">🧠</span><h2>Anxiety Screening Test (GAD-7)</h2></div><div class="calc-widget-body">
+    <p style="font-size:0.9rem;color:var(--text-light);margin-bottom:16px;">Over the last <strong>2 weeks</strong>, how often have you been bothered by the following problems?</p>
+    <div id="gadForm"></div>
+    <p class="input-error-msg" id="gadError" role="alert"></p>
+    <button class="calc-btn" id="submitGad" type="button" style="margin-top:20px;">Get My Anxiety Score</button>
+    <button class="calc-btn-secondary" id="resetGad" type="button">Retake Test</button>
+  </div></div>
+<div class="calc-result-box" id="gadResult" role="region" aria-live="polite">
+    <div class="result-header"><div class="result-icon">🧠</div><div><div class="result-title">GAD-7 Score</div><div class="result-value" id="gadScore">—</div><span class="result-category" id="gadCategory"></span></div></div>
+    <div style="background:var(--surface);border-radius:8px;overflow:hidden;height:14px;margin:14px 0;"><div id="gadSeverityBar" style="height:100%;width:0;transition:width 0.6s ease;border-radius:8px;"></div></div>
+    <div class="result-description" id="gadDescription"></div>
+    <div id="gadBreakdown" style="margin-top:16px;"></div>
+    <div style="margin-top:16px;padding:12px;background:#FEF3C7;border-radius:8px;font-size:0.85rem;color:#92400E;"><strong>Important:</strong> This is a screening tool, not a diagnosis. If you are experiencing distressing symptoms, please speak with a healthcare provider or mental health professional. In crisis? Call or text 988 (US Suicide &amp; Crisis Lifeline).</div><div class="share-result-section"><div class="share-result-label">Share your result:</div><div class="share-result-btns"><button class="share-btn share-whatsapp" id="shareWhatsapp" type="button">WhatsApp</button><button class="share-btn share-twitter" id="shareTwitter" type="button">Twitter</button><button class="share-btn copy-result" id="copyResult" type="button">Copy</button></div></div></div>
+
+    <!-- What Is -->
+    <div class="content-section">
+      <h2>What Is the GAD-7 Anxiety Test?</h2>
+      <p>This free online anxiety test is based on the <strong>GAD-7 (Generalized Anxiety Disorder 7-item scale)</strong> — a clinically validated and widely used screening instrument developed by Dr. Robert Spitzer and colleagues and published in the Archives of Internal Medicine in 2006. The GAD-7 has been extensively validated in large primary care populations and is routinely used by physicians, psychologists, and mental health professionals worldwide as a first-line screening tool for generalized anxiety disorder (GAD). It measures the frequency of seven core anxiety symptoms over the past two weeks using a 0–3 severity scale, producing a total score from 0 to 21. The test takes approximately 1–2 minutes to complete. It is important to understand that this test is a <strong>screening tool, not a diagnostic instrument</strong> — only a qualified mental health professional can diagnose an anxiety disorder.</p>
+    </div>
+
+    <!-- How to Use -->
+    <div class="content-section">
+      <h2>How to Take the Anxiety Test</h2>
+      <ul>
+        <li><strong>Step 1 — Find a quiet moment:</strong> Answer honestly based on how you have been feeling over the past two weeks. Avoid answering based on a single particularly good or bad day.</li>
+        <li><strong>Step 2 — Rate each of the 7 questions</strong> on a scale from 0 ("Not at all") to 3 ("Nearly every day"). There are no right or wrong answers.</li>
+        <li><strong>Step 3 — Click Submit</strong> to receive your total GAD-7 score, severity classification, and personalized guidance.</li>
+      </ul>
+      <p>Be as honest as possible. This tool is completely private — results are not stored or shared. The value of this test comes from your honest self-reflection, not from any desired score.</p>
+    </div>
+
+    <!-- Understanding Results -->
+    <div class="content-section">
+      <h2>Understanding Your Anxiety Score</h2>
+      <p>GAD-7 scores are interpreted using four clinical severity ranges:</p>
+      <ul>
+        <li><strong>Score 0–4 — Minimal Anxiety:</strong> Little to no clinically significant anxiety symptoms. Focus on maintaining healthy stress management habits including regular exercise, adequate sleep, and social connection.</li>
+        <li><strong>Score 5–9 — Mild Anxiety:</strong> Mild symptoms present. Self-help strategies such as mindfulness, breathing exercises, physical activity, and sleep hygiene are often sufficient at this level. Monitor your symptoms and consider discussing them with your primary care provider at your next appointment.</li>
+        <li><strong>Score 10–14 — Moderate Anxiety:</strong> This score range suggests a moderate level of anxiety that may be significantly affecting daily functioning. Speaking with a mental health professional (therapist, counselor, or psychiatrist) is strongly recommended. Cognitive Behavioral Therapy (CBT) has the strongest evidence base for treating GAD at this level.</li>
+        <li><strong>Score 15–21 — Severe Anxiety:</strong> Severe anxiety symptoms that are likely causing significant distress and impairment in daily life, work, or relationships. Please reach out to a mental health professional as soon as possible. If you are in crisis or experiencing thoughts of self-harm, call or text 988 (Suicide and Crisis Lifeline) immediately.</li>
+      </ul>
+    </div>
+
+    <!-- Anxiety Types and Evidence-Based Treatments -->
+    <div class="content-section">
+      <h2>Anxiety Disorders — Types and Evidence-Based Treatments</h2>
+      <p>Anxiety is the most common mental health condition in the United States, affecting approximately 40 million adults (18% of the population) annually. There are several distinct anxiety disorders:</p>
+      <ul>
+        <li><strong>Generalized Anxiety Disorder (GAD):</strong> Persistent, excessive worry about multiple life areas. Treated with CBT, SSRIs (sertraline, escitalopram), SNRIs (venlafaxine), and buspirone.</li>
+        <li><strong>Panic Disorder:</strong> Recurrent unexpected panic attacks with fear of future attacks. CBT with panic-focused techniques, combined with SSRIs, has the highest success rates.</li>
+        <li><strong>Social Anxiety Disorder:</strong> Intense fear of social situations and judgment. CBT and SSRIs are first-line; exposure therapy (gradual, controlled exposure to feared situations) is highly effective.</li>
+        <li><strong>Health Anxiety (Hypochondria):</strong> Excessive worry about having or developing a serious illness. CBT with interoceptive exposure is the most effective treatment approach.</li>
+      </ul>
+      <p>Evidence-based self-help strategies include diaphragmatic breathing (activates the parasympathetic nervous system), progressive muscle relaxation, regular aerobic exercise (shown to reduce anxiety symptoms as effectively as low-dose medication in some studies), limiting caffeine and alcohol, and maintaining consistent sleep schedules. These are complementary to professional treatment, not replacements.</p>
+    </div>
+
+    <div class="content-section"><h2>Frequently Asked Questions</h2>
+    <div class="faq-item"><h3>What does my GAD-7 score mean?</h3><p>Scores 0–4: Minimal anxiety. 5–9: Mild anxiety. 10–14: Moderate anxiety (clinical evaluation recommended). 15–21: Severe anxiety (immediate clinical evaluation recommended). Scores of 10 or higher have a sensitivity of 89% for detecting GAD in primary care settings.</p></div>
+    <div class="faq-item"><h3>Is this test a substitute for professional diagnosis?</h3><p>No. The GAD-7 is a validated screening tool, not a diagnostic instrument. A score above 10 suggests a probable anxiety disorder but must be evaluated by a qualified mental health professional or physician. Many other conditions can cause anxiety symptoms and need to be ruled out.</p></div>
+    <div class="faq-item"><h3>What are the most effective treatments for anxiety?</h3><p>Cognitive-Behavioural Therapy (CBT) has the strongest evidence base for generalised anxiety disorder, with response rates of 60–80%. SSRIs (e.g., sertraline, escitalopram) and SNRIs (e.g., venlafaxine) are first-line medications. Mindfulness-based interventions, regular exercise, and sleep hygiene are effective adjunct strategies.</p></div>
+    <div class="faq-item"><h3>How is GAD different from normal worry?</h3><p>GAD involves excessive, uncontrollable worry about multiple areas of life (work, health, finances, relationships) that is disproportionate to actual circumstances, persists for at least 6 months, and causes significant distress or functional impairment. Normal worry is proportionate, time-limited, and does not significantly interfere with daily life.</p></div></div>
+
+    <div class="content-section"><h2>Related Calculators</h2>
+      <div class="related-tools-grid"><a href="/pages/bmi-calculator.html" class="related-tool-card">📊 BMI Calculator</a><a href="/pages/sleep-calculator.html" class="related-tool-card">😴 Sleep Calculator</a><a href="/pages/blood-pressure-checker.html" class="related-tool-card">❤️ Blood Pressure</a><a href="/pages/calorie-calculator.html" class="related-tool-card">🔥 Calorie Calculator</a></div>
+    </div>
+  </main>
+  <aside class="calc-sidebar">
+    <div class="sidebar-widget"><h3>Quick Links</h3><a href="/pages/sleep-calculator.html" class="sidebar-link">Sleep Calculator</a><a href="/pages/blood-pressure-checker.html" class="sidebar-link">Blood Pressure</a><a href="/pages/bmi-calculator.html" class="sidebar-link">BMI Calculator</a></div>
+  
+    <div class="sidebar-widget">
+      <div class="sidebar-widget-header"><h3>🧠 Mental Health Resources</h3></div>
+      <div class="sidebar-widget-body">
+        <div class="sidebar-tip"><strong>Crisis support available 24/7</strong> Call or text <strong>988</strong> (Suicide &amp; Crisis Lifeline) anytime. You can also text HOME to 741741 for the Crisis Text Line.</div>
+        <div class="sidebar-tip"><strong>Anxiety is highly treatable</strong> Over 80% of people with anxiety disorders improve significantly with appropriate treatment. Seeking help is a sign of strength, not weakness.</div>
+        <div class="sidebar-tip"><strong>The 5-4-3-2-1 technique</strong> Grounding exercise for acute anxiety: name 5 things you see, 4 you feel, 3 you hear, 2 you smell, 1 you taste. Engages the senses to interrupt the anxiety spiral.</div>
+      </div>
+    </div>
+
+  
+    <div class="sidebar-widget">
+      <div class="sidebar-widget-header"><h3>🧠 Mental Health Resources</h3></div>
+      <div class="sidebar-widget-body">
+        <div class="sidebar-tip"><strong>Crisis support available 24/7</strong> Call or text <strong>988</strong> (Suicide &amp; Crisis Lifeline) anytime. You can also text HOME to 741741 for the Crisis Text Line.</div>
+        <div class="sidebar-tip"><strong>Anxiety is highly treatable</strong> Over 80% of people with anxiety disorders improve significantly with appropriate treatment. Seeking help is a sign of strength, not weakness.</div>
+        <div class="sidebar-tip"><strong>The 5-4-3-2-1 technique</strong> Grounding exercise for acute anxiety: name 5 things you see, 4 you feel, 3 you hear, 2 you smell, 1 you taste. Engages the senses to interrupt the anxiety spiral.</div>
+      </div>
+    </div>
+
+  </aside>
+</div>
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-grid">
+    <div class="footer-brand"><div class="site-logo"><div class="logo-icon"><svg viewBox="0 0 24 24" fill="white"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg></div><span class="logo-text">Medical<span>ToolKit</span></span></div><p>Free, accurate medical and health calculators trusted by millions worldwide.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/pages/bmi-calculator.html">BMI Calculator</a><a href="/pages/due-date-calculator.html">Due Date</a><a href="/pages/blood-sugar-calculator.html">Blood Sugar</a><a href="/pages/calorie-calculator.html">Calories</a><a href="/pages/blood-pressure-checker.html">Blood Pressure</a><a href="/pages/sleep-calculator.html">Sleep Calculator</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/pages/a1c-converter.html">A1C Converter</a><a href="/pages/gfr-calculator.html">GFR Calculator</a><a href="/pages/body-fat-calculator.html">Body Fat %</a><a href="/pages/ideal-weight-calculator.html">Ideal Weight</a><a href="/pages/heart-rate-calculator.html">Heart Rate</a><a href="/pages/tdee-calculator.html">TDEE Calculator</a><a href="/pages/anxiety-test.html">Anxiety Test</a></div>
+    <div class="footer-col"><h4>Company</h4><a href="/pages/about.html">About Us</a><a href="/pages/editorial-policy.html">Editorial Policy</a><a href="/pages/contact.html">Contact</a><a href="/pages/privacy-policy.html">Privacy Policy</a><a href="/pages/disclaimer.html">Medical Disclaimer</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 MedicalToolKit. All rights reserved. <strong>Not medical advice.</strong></p><div class="footer-legal-links"><a href="/pages/privacy-policy.html">Privacy</a><a href="/pages/disclaimer.html">Disclaimer</a><a href="/pages/contact.html">Contact</a></div></div>
+</footer>
+<button class="back-to-top" aria-label="Back to top">&#8593;</button>
+<div class="cookie-consent" id="cookieBanner" role="dialog"><p>We use cookies. <a href="/pages/privacy-policy.html">Privacy Policy</a></p><div class="cookie-btns"><button class="btn-accept-cookies" id="acceptCookies">Accept</button><button class="btn-reject-cookies" id="rejectCookies">Decline</button></div></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="/dist/js/main.min.js?v=20260620nodark" defer></script>
+<script src="/js/calculators/anxiety-test.js" defer></script>
+  <script src="/dist/js/animations.min.js?v=20260620nodark" defer></script>
+
+  <script src="/dist/js/analytics.min.js?v=20260620nodark" defer></script>
+  <script src="/dist/js/pwa.min.js?v=20260620nodark" defer></script>
+  <script src="/dist/js/calc-history.min.js?v=20260620nodark" defer></script>
+</body></html>

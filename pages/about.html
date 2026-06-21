@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+/* Critical CSS — above fold render */
+:root{--primary:#2563EB;--primary-light:#EFF6FF;--primary-dark:#1D4ED8;--secondary:#10B981;--text:#1E293B;--text-light:#475569;--text-muted:#94A3B8;--bg:#F8FAFC;--border:#E2E8F0;--shadow:0 1px 3px rgba(0,0,0,.1),0 1px 2px rgba(0,0,0,.06);--shadow-lg:0 10px 15px rgba(0,0,0,.1);--shadow-xl:0 20px 25px rgba(0,0,0,.1);--radius:12px;--radius-sm:8px;--radius-lg:16px;--transition:all .2s ease}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;overflow-x:hidden}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;overflow-x:hidden}
+.site-header{position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid var(--border);box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.header-inner{max-width:1200px;margin:0 auto;padding:0 20px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.site-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-icon{width:40px;height:40px;background:var(--primary);border-radius:10px;display:flex;align-items:center;justify-content:center}
+.logo-icon svg{width:22px;height:22px;fill:white}
+.logo-text{font-weight:700;font-size:1.1rem;color:var(--text)}
+.logo-text span{color:var(--primary)}
+.main-nav{display:flex;align-items:center;gap:4px}
+.main-nav a{padding:6px 12px;border-radius:8px;font-size:.875rem;font-weight:500;color:var(--text-light);text-decoration:none}
+.hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer;width:36px;height:36px;background:none;border:none}
+.bar{width:22px;height:2.5px;background:var(--text);border-radius:3px}
+.hero{background:linear-gradient(135deg,#1E3A5F 0%,#2563EB 50%,#0EA5E9 100%);color:white;padding:72px 20px 60px;text-align:center;position:relative;overflow:hidden}
+.hero h1{font-size:clamp(2rem,5vw,3rem);font-weight:800;line-height:1.15;margin-bottom:16px;letter-spacing:-.5px}
+.hero p{font-size:1.1rem;opacity:.88;max-width:580px;margin:0 auto 28px}
+.stats-bar{background:#fff;border-bottom:1px solid var(--border)}
+.stats-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:center;flex-wrap:wrap}
+.stat-item{display:flex;flex-direction:column;align-items:center;padding:16px 32px;border-right:1px solid var(--border);flex:1;min-width:120px;text-align:center}
+.stat-item:last-child{border-right:none}
+.stat-number{font-size:2rem;font-weight:800;color:var(--primary);display:block;line-height:1.2;white-space:nowrap}
+.stat-label{font-size:0.8rem;color:var(--text-light);white-space:nowrap;margin-top:2px}
+@media(max-width:640px){.stat-item{padding:14px 16px;flex:0 0 50%;min-width:50%;border-right:none;border-bottom:1px solid var(--border)}.stat-item:nth-child(odd){border-right:1px solid var(--border)}.stat-item:nth-last-child(-n+2){border-bottom:none}.stat-number{font-size:1.5rem}}
+.reading-progress{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--primary),#10B981,#0EA5E9);z-index:99999;transition:width .15s linear}
+</style>
+  <script src="https://quge5.com/88/tag.min.js" data-zone="245868" async data-cfasync="false"></script>
+  <meta charset="UTF-8">
+  <!-- DNS Prefetch — Performance -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link rel="dns-prefetch" href="//quge5.com">
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <link rel="dns-prefetch" href="//www.google-analytics.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>About MedicalToolKit — Free Health Calculators</title>
+  <meta name="description" content="Learn about MedicalToolKit. We provide free, accurate medical and health calculators using medical-grade formulas trusted by millions.">
+  <link rel="canonical" href="https://medicaltoolkit.pages.dev/pages/about.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap&subset=latin" rel="stylesheet">
+  <link rel="preload" href="/dist/css/style.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/style.min.css?v=20260620nodark"></noscript>
+  <link rel="preload" href="/dist/css/responsive.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/responsive.min.css?v=20260620nodark"></noscript>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JWW19HEZBJ');
+  </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "About",
+  "url": "https://medicaltoolkit.pages.dev/pages/about.html",
+  "description": "About MedicalToolKit",
+  "publisher": {
+    "@type": "Organization",
+    "name": "MedicalToolKit",
+    "url": "https://medicaltoolkit.pages.dev/"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://medicaltoolkit.pages.dev/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "About",
+      "item": "https://medicaltoolkit.pages.dev/pages/about.html"
+    }
+  ]
+}
+</script>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About MedicalToolKit | Free Health Calculators">
+  <meta name="twitter:description" content="Learn about MedicalToolKit, our mission to provide free, accurate medical calculators for everyone. No signup required.">
+  <meta name="twitter:image" content="https://medicaltoolkit.pages.dev/images/og-home.png">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://medicaltoolkit.pages.dev/images/og-home.png">
+  <meta property="og:url" content="https://medicaltoolkit.pages.dev/pages/about.html">
+  <link rel="preload" href="/dist/css/animations.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/animations.min.css?v=20260620nodark"></noscript>
+  <link rel="preload" href="/dist/css/blog.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/blog.min.css?v=20260620nodark"></noscript>
+  <!-- ============================================
+       SEARCH CONSOLE & WEBMASTER VERIFICATION
+       Replace placeholder values with your actual codes
+       ============================================ -->
+  <!-- Google Search Console: Go to search.google.com/search-console → Add Property → HTML tag -->
+  <meta name="google-site-verification" content="y63XSBvlNcknj46yVKMn0uE14aKKOBfjwLLO6EZrLBk">
+  <!-- Bing Webmaster: Go to bing.com/webmasters → Add Site → HTML Meta Tag -->
+  <meta name="msvalidate.01" content="AB9070CF57664870ADB2D23906FE30C4">
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JWW19HEZBJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JWW19HEZBJ', {anonymize_ip: true});
+  </script>
+</head>
+<body>
+
+<header class="site-header"><div class="header-inner"><a href="/" class="site-logo"><div class="logo-icon"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z" fill="white"/></svg></div><span class="logo-text">Medical<span>ToolKit</span></span></a><nav class="main-nav"><a href="/pages/bmi-calculator.html">Fitness</a><a href="/pages/due-date-calculator.html">Pregnancy</a><a href="/pages/blood-sugar-calculator.html">Diabetes</a><a href="/pages/blood-pressure-checker.html">Heart</a><a href="/pages/about.html">About</a></nav><button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button></div><nav class="mobile-nav" id="mobileNav"><a href="/">Home</a><a href="/pages/about.html">About Us</a><a href="/pages/editorial-policy.html">Editorial Policy</a><a href="/pages/contact.html">Contact</a></nav></header>
+
+
+<section class="page-hero"><h1>About MedicalToolKit</h1><p>Empowering millions with free, accurate medical calculators and health tools.</p></section>
+
+<!-- TRUST BADGES STRIP -->
+<div style="background:#fff;border-bottom:1px solid var(--border);">
+  <div style="max-width:900px;margin:0 auto;padding:24px 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:28px;">
+    <div style="display:flex;align-items:center;gap:8px;font-size:0.85rem;color:var(--text-light);font-weight:600;"><span style="font-size:1.3rem;">✅</span> Medically Reviewed Content</div>
+    <div style="display:flex;align-items:center;gap:8px;font-size:0.85rem;color:var(--text-light);font-weight:600;"><span style="font-size:1.3rem;">🔬</span> Evidence-Based Formulas</div>
+    <div style="display:flex;align-items:center;gap:8px;font-size:0.85rem;color:var(--text-light);font-weight:600;"><span style="font-size:1.3rem;">🔒</span> Privacy-First — No Data Stored</div>
+    <div style="display:flex;align-items:center;gap:8px;font-size:0.85rem;color:var(--text-light);font-weight:600;"><span style="font-size:1.3rem;">🆓</span> 100% Free Forever</div>
+  </div>
+</div>
+
+<div style="max-width:900px;margin:0 auto;padding:60px 20px;">
+
+  <section style="background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:32px;margin-bottom:32px;box-shadow:var(--shadow);">
+    <h2 style="font-size:1.5rem;font-weight:700;margin-bottom:16px;color:var(--text);">Our Mission</h2>
+    <p style="color:var(--text-light);line-height:1.8;margin-bottom:16px;">MedicalToolKit exists to make healthcare information accessible to everyone. We believe that understanding your health metrics should be simple, free, and available to anyone with internet access. Our mission is to provide accurate, easy-to-use calculators and health tools that help people make informed decisions about their wellness.</p>
+  </section>
+
+  <!-- WHO WE ARE / TEAM SECTION -->
+  <section style="background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:32px;margin-bottom:32px;box-shadow:var(--shadow);">
+    <h2 style="font-size:1.5rem;font-weight:700;margin-bottom:16px;color:var(--text);">Who We Are</h2>
+    <p style="color:var(--text-light);line-height:1.8;margin-bottom:20px;">MedicalToolKit is built and maintained by a dedicated editorial team focused on health technology and evidence-based content. Every calculator formula and every article passes through our structured review process before publishing — see our full <a href="/pages/editorial-policy.html" style="color:var(--primary);font-weight:600;">Editorial Policy</a> for details on how we source and verify medical information.</p>
+
+    <div style="display:flex;gap:16px;align-items:flex-start;background:var(--bg);border-radius:var(--radius-sm);padding:20px;">
+      <div style="width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,var(--primary),#0EA5E9);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;">👨‍⚕️</div>
+      <div>
+        <h3 style="font-size:0.95rem;font-weight:700;color:var(--text);margin-bottom:3px;">MedicalToolKit Editorial Team</h3>
+        <div style="font-size:0.78rem;color:var(--primary);font-weight:600;margin-bottom:8px;">✅ Medically Reviewed Content</div>
+        <p style="font-size:0.85rem;color:var(--text-muted);line-height:1.6;margin:0;">Our content is researched and reviewed against current clinical guidelines from organizations including the WHO, CDC, ADA, AHA, and ACOG. Every article cites its sources, and every calculator formula is validated against published reference values before going live. We update content when major guidelines change.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:32px;margin-bottom:32px;box-shadow:var(--shadow);">
+    <h2 style="font-size:1.5rem;font-weight:700;margin-bottom:16px;color:var(--text);">Our Promise</h2>
+    <ul style="color:var(--text-light);line-height:1.8;">
+      <li style="margin-bottom:12px;"><strong style="color:var(--text);">Medical-Grade Accuracy:</strong> All our calculators use clinically validated formulas from reputable medical sources and organizations like the ADA, CDC, and WHO.</li>
+      <li style="margin-bottom:12px;"><strong style="color:var(--text);">100% Free:</strong> Every calculator is completely free to use with no registration, ads blocking functionality, or hidden charges.</li>
+      <li style="margin-bottom:12px;"><strong style="color:var(--text);">Privacy First:</strong> We don't collect, sell, or share your personal health data. All calculations happen in your browser.</li>
+      <li style="margin-bottom:12px;"><strong style="color:var(--text);">Mobile Optimized:</strong> Works seamlessly on phones, tablets, and desktop devices with a beautiful, responsive interface.</li>
+      <li><strong style="color:var(--text);">Regular Updates:</strong> We continuously improve our tools and add new calculators based on user feedback and latest medical research.</li>
+    </ul>
+  </section>
+
+  <section style="background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:32px;margin-bottom:32px;box-shadow:var(--shadow);">
+    <h2 style="font-size:1.5rem;font-weight:700;margin-bottom:16px;color:var(--text);">Our Tools</h2>
+    <p style="color:var(--text-light);line-height:1.8;margin-bottom:16px;">We currently offer 15 comprehensive health calculators covering multiple health areas:</p>
+    <ul style="color:var(--text-light);line-height:1.8;">
+      <li style="margin-bottom:8px;"><strong style="color:var(--text);">Fitness:</strong> BMI, Calorie, Body Fat, Ideal Weight, TDEE, Heart Rate calculators</li>
+      <li style="margin-bottom:8px;"><strong style="color:var(--text);">Pregnancy:</strong> Due Date, Pregnancy Week, Ovulation calculators</li>
+      <li style="margin-bottom:8px;"><strong style="color:var(--text);">Diabetes:</strong> Blood Sugar, A1C Converter</li>
+      <li style="margin-bottom:8px;"><strong style="color:var(--text);">Heart & Blood:</strong> Blood Pressure, GFR calculators</li>
+      <li><strong style="color:var(--text);">Wellness:</strong> Sleep Calculator, Anxiety Test (GAD-7)</li>
+    </ul>
+  </section>
+
+  <!-- HOW WE REVIEW CONTENT -->
+  <section style="background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:32px;margin-bottom:32px;box-shadow:var(--shadow);">
+    <h2 style="font-size:1.5rem;font-weight:700;margin-bottom:16px;color:var(--text);">How We Review Our Content</h2>
+    <p style="color:var(--text-light);line-height:1.8;margin-bottom:16px;">Every calculator and article goes through a 5-step process: research from authoritative sources, formula validation against published reference values, careful writing, medical review against current guidelines, and ongoing updates as standards change.</p>
+    <a href="/pages/editorial-policy.html" style="display:inline-flex;align-items:center;gap:6px;color:var(--primary);font-weight:700;text-decoration:none;font-size:0.9rem;">Read Our Full Editorial Policy →</a>
+  </section>
+
+  <section style="background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:32px;box-shadow:var(--shadow);">
+    <h2 style="font-size:1.5rem;font-weight:700;margin-bottom:16px;color:var(--text);">Contact Us</h2>
+    <p style="color:var(--text-light);line-height:1.8;">Have questions, suggestions, or feedback? We'd love to hear from you! <a href="/pages/contact.html" style="color:var(--primary);font-weight:600;">Send us a message →</a></p>
+  </section>
+</div>
+
+<footer class="site-footer"><div class="footer-grid"><div class="footer-brand"><div class="site-logo"><div class="logo-icon"><svg viewBox="0 0 24 24" fill="white"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg></div><span class="logo-text">Medical<span>ToolKit</span></span></div><p>Free, accurate medical and health calculators trusted by millions worldwide.</p></div><div class="footer-col"><h4>Tools</h4><a href="/pages/bmi-calculator.html">BMI Calculator</a><a href="/pages/calorie-calculator.html">Calorie Calculator</a><a href="/pages/blood-sugar-calculator.html">Blood Sugar</a><a href="/pages/sleep-calculator.html">Sleep Calculator</a></div><div class="footer-col"><h4>Company</h4><a href="/pages/about.html">About</a><a href="/pages/contact.html">Contact</a><a href="/pages/privacy-policy.html">Privacy</a><a href="/pages/disclaimer.html">Disclaimer</a></div></div><div class="footer-bottom"><p>&copy; 2026 MedicalToolKit. All rights reserved. <strong>Not medical advice.</strong></p></div></footer>
+
+<button class="back-to-top" aria-label="Back to top">↑</button>
+<div class="cookie-consent" id="cookieBanner"><p>We use cookies to improve your experience. By clicking "Accept", you agree to our <a href="/pages/privacy-policy.html">Privacy Policy</a>.</p><div class="cookie-btns"><button class="btn-accept-cookies" id="acceptCookies">Accept</button><button class="btn-reject-cookies" id="rejectCookies">Decline</button></div></div>
+
+<script src="/dist/js/main.min.js?v=20260620nodark" defer></script>
+  <script src="/dist/js/animations.min.js?v=20260620nodark" defer></script>
+
+  <script src="/dist/js/analytics.min.js?v=20260620nodark" defer></script>
+  <script src="/dist/js/pwa.min.js?v=20260620nodark" defer></script>
+</body>
+</html>

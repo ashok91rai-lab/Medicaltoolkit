@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+/* Critical CSS — above fold render */
+:root{--primary:#2563EB;--primary-light:#EFF6FF;--primary-dark:#1D4ED8;--secondary:#10B981;--text:#1E293B;--text-light:#475569;--text-muted:#94A3B8;--bg:#F8FAFC;--border:#E2E8F0;--shadow:0 1px 3px rgba(0,0,0,.1),0 1px 2px rgba(0,0,0,.06);--shadow-lg:0 10px 15px rgba(0,0,0,.1);--shadow-xl:0 20px 25px rgba(0,0,0,.1);--radius:12px;--radius-sm:8px;--radius-lg:16px;--transition:all .2s ease}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;overflow-x:hidden}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;overflow-x:hidden}
+.site-header{position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid var(--border);box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.header-inner{max-width:1200px;margin:0 auto;padding:0 20px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.site-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-icon{width:40px;height:40px;background:var(--primary);border-radius:10px;display:flex;align-items:center;justify-content:center}
+.logo-icon svg{width:22px;height:22px;fill:white}
+.logo-text{font-weight:700;font-size:1.1rem;color:var(--text)}
+.logo-text span{color:var(--primary)}
+.main-nav{display:flex;align-items:center;gap:4px}
+.main-nav a{padding:6px 12px;border-radius:8px;font-size:.875rem;font-weight:500;color:var(--text-light);text-decoration:none}
+.hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer;width:36px;height:36px;background:none;border:none}
+.bar{width:22px;height:2.5px;background:var(--text);border-radius:3px}
+.hero{background:linear-gradient(135deg,#1E3A5F 0%,#2563EB 50%,#0EA5E9 100%);color:white;padding:72px 20px 60px;text-align:center;position:relative;overflow:hidden}
+.hero h1{font-size:clamp(2rem,5vw,3rem);font-weight:800;line-height:1.15;margin-bottom:16px;letter-spacing:-.5px}
+.hero p{font-size:1.1rem;opacity:.88;max-width:580px;margin:0 auto 28px}
+.stats-bar{background:#fff;border-bottom:1px solid var(--border)}
+.stats-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:center;flex-wrap:wrap}
+.stat-item{display:flex;flex-direction:column;align-items:center;padding:16px 32px;border-right:1px solid var(--border);flex:1;min-width:120px;text-align:center}
+.stat-item:last-child{border-right:none}
+.stat-number{font-size:2rem;font-weight:800;color:var(--primary);display:block;line-height:1.2;white-space:nowrap}
+.stat-label{font-size:0.8rem;color:var(--text-light);white-space:nowrap;margin-top:2px}
+@media(max-width:640px){.stat-item{padding:14px 16px;flex:0 0 50%;min-width:50%;border-right:none;border-bottom:1px solid var(--border)}.stat-item:nth-child(odd){border-right:1px solid var(--border)}.stat-item:nth-last-child(-n+2){border-bottom:none}.stat-number{font-size:1.5rem}}
+.reading-progress{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--primary),#10B981,#0EA5E9);z-index:99999;transition:width .15s linear}
+</style>
+  <script src="https://quge5.com/88/tag.min.js" data-zone="245868" async data-cfasync="false"></script>
+  <meta charset="UTF-8">
+  <!-- DNS Prefetch — Performance -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link rel="dns-prefetch" href="//quge5.com">
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <link rel="dns-prefetch" href="//www.google-analytics.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>Due Date Calculator | MedicalToolKit</title>
+  <meta name="description" content="Calculate your baby's due date instantly. Enter your last menstrual period (LMP) or conception date to find your due date, pregnancy week, and trimester.">
+  <meta name="keywords" content="due date calculator, pregnancy due date, LMP calculator, conception date calculator, pregnancy week calculator">
+  <meta name="author" content="MedicalToolKit">
+  <link rel="canonical" href="https://medicaltoolkit.pages.dev/pages/due-date-calculator.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Due Date Calculator — Free Pregnancy Due Date Tool | MedicalToolKit">
+  <meta property="og:description" content="Calculate your baby's due date instantly. Enter your LMP or conception date to find your due date, pregnancy week, and trimester.">
+  <meta property="og:url" content="https://medicaltoolkit.pages.dev/pages/due-date-calculator.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="MedicalToolKit">
+  <meta property="og:image" content="https://medicaltoolkit.pages.dev/images/og-due-date.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Due Date Calculator — Free Pregnancy Due Date Tool | MedicalToolKit">
+  <meta name="twitter:description" content="Calculate your baby's due date instantly. Free online pregnancy calculator.">
+  <meta name="twitter:image" content="https://medicaltoolkit.pages.dev/images/og-due-date.png">
+
+  <!-- PWA -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#2563EB">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap&subset=latin" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="preload" href="/dist/css/style.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/style.min.css?v=20260620nodark"></noscript>
+  <link rel="preload" href="/dist/css/responsive.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/responsive.min.css?v=20260620nodark"></noscript>
+  <link rel="stylesheet" href="/dist/css/calculator.min.css?v=20260620nodark">
+
+  <!-- Monetag Push Notification -->
+  <script>
+  (function(d,z,s){
+    s=d.createElement('script');
+    s.async=true;
+    d.head.appendChild(s);
+  })(document);
+  </script>
+
+  <!-- JSON-LD: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Due Date Calculator",
+    "url": "https://medicaltoolkit.pages.dev/pages/due-date-calculator.html",
+    "description": "Free online due date calculator. Enter LMP or conception date to find your baby's due date, pregnancy week, and trimester.",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "MedicalToolKit",
+      "url": "https://medicaltoolkit.pages.dev/"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How is the due date calculated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The most common method for calculating a due date is Naegele's Rule, which adds 280 days (40 weeks) to the first day of your last menstrual period (LMP). This assumes a standard 28-day menstrual cycle and ovulation on day 14. If your cycle length differs from 28 days, the calculator adjusts accordingly. When using a conception date, 266 days (38 weeks) are added, as fertilization typically occurs about 14 days after the LMP. These calculations provide an estimated due date; only about 5% of babies are born on their exact due date."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is Naegele's Rule?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Naegele's Rule is the standard medical formula for estimating a pregnancy due date, developed by German obstetrician Franz Karl Naegele in the 19th century. The rule adds one year to the year of the LMP, subtracts three months, and adds seven days. This is equivalent to adding 280 days (40 weeks) to the first day of the LMP. The rule assumes a regular 28-day menstrual cycle with ovulation on day 14. For cycles longer or shorter than 28 days, the estimated due date is adjusted by adding or subtracting the difference from 28 days. For example, a 30-day cycle shifts the due date two days later."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How accurate is the due date calculator?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Due date calculators based on LMP or conception date provide a good estimate, but only about 4–5% of babies are born on their exact calculated due date. Most births occur within two weeks before or after the estimated due date. The most accurate method of dating a pregnancy is an early ultrasound (before 14 weeks), which measures the baby's size to estimate gestational age. Factors that can affect accuracy include irregular menstrual cycles, uncertainty about the exact LMP date, and natural variation in individual pregnancies. Use this calculator as a planning guide and confirm your due date with your obstetrician or midwife."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are the three trimesters of pregnancy?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A full-term pregnancy is divided into three trimesters. The first trimester spans weeks 1 through 13 and is a critical period for fetal organ development. During this time, many women experience morning sickness, fatigue, and breast tenderness. The second trimester covers weeks 14 through 27, often described as the most comfortable period. The baby's movements become noticeable (quickening), and most anatomical development is visible via ultrasound. The third trimester runs from week 28 to birth (week 40+). The baby gains most of its weight during this period, and the mother may experience back pain, frequent urination, and Braxton Hicks contractions as the body prepares for labor."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "When should I see a doctor after a positive pregnancy test?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You should schedule your first prenatal appointment as soon as you receive a positive pregnancy test result. Most healthcare providers recommend the first visit between weeks 6 and 8 of pregnancy. This early appointment typically includes confirmation of the pregnancy, blood tests, your medical history review, and discussion of prenatal vitamins (especially folic acid). An early dating ultrasound may also be arranged at this stage. If you experience any warning signs such as heavy bleeding, severe abdominal pain, dizziness, or fever, seek medical attention immediately regardless of how far along you are."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://medicaltoolkit.pages.dev/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Due Date Calculator",
+        "item": "https://medicaltoolkit.pages.dev/pages/due-date-calculator.html"
+      }
+    ]
+  }
+  </script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JWW19HEZBJ');
+  </script>
+  <link rel="stylesheet" href="/dist/css/calc-history.min.css?v=20260620nodark">
+  <link rel="preload" href="/dist/css/animations.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/animations.min.css?v=20260620nodark"></noscript>
+  <link rel="preload" href="/dist/css/blog.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/blog.min.css?v=20260620nodark"></noscript>
+  <!-- ============================================
+       SEARCH CONSOLE & WEBMASTER VERIFICATION
+       Replace placeholder values with your actual codes
+       ============================================ -->
+  <!-- Google Search Console: Go to search.google.com/search-console → Add Property → HTML tag -->
+  <meta name="google-site-verification" content="y63XSBvlNcknj46yVKMn0uE14aKKOBfjwLLO6EZrLBk">
+  <!-- Bing Webmaster: Go to bing.com/webmasters → Add Site → HTML Meta Tag -->
+  <meta name="msvalidate.01" content="AB9070CF57664870ADB2D23906FE30C4">
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JWW19HEZBJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JWW19HEZBJ', {anonymize_ip: true});
+  </script>
+</head>
+<body>
+
+<!-- Monetag Popunder -->
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" role="banner">
+  <div class="header-inner">
+    <a href="/" class="site-logo" aria-label="MedicalToolKit Home">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/>
+        </svg>
+      </div>
+      <span class="logo-text">Medical<span>ToolKit</span></span>
+    </a>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="/pages/bmi-calculator.html">Fitness</a>
+      <a href="/pages/due-date-calculator.html" class="active">Pregnancy</a>
+      <a href="/pages/blood-sugar-calculator.html">Diabetes</a>
+      <a href="/pages/blood-pressure-checker.html">Heart</a>
+      <a href="/pages/gfr-calculator.html">Kidney</a>
+      <a href="/pages/anxiety-test.html">Mental Health</a>
+      <a href="/pages/about.html">About</a>
+      <a href="/blog/">Blog</a>
+    </nav>
+
+    <div class="header-search search-wrapper">
+      <input type="search" class="header-search-input search-input" placeholder="Search calculators..." aria-label="Search calculators">
+    </div>
+
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+  </div>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <div class="mobile-search">
+      <input type="search" class="search-input" placeholder="Search calculators...">
+    </div>
+    <a href="/">Home</a>
+    <a href="/pages/bmi-calculator.html">BMI Calculator</a>
+    <a href="/pages/due-date-calculator.html">Due Date Calculator</a>
+    <a href="/pages/blood-sugar-calculator.html">Blood Sugar</a>
+    <a href="/pages/calorie-calculator.html">Calorie Calculator</a>
+    <a href="/pages/blood-pressure-checker.html">Blood Pressure</a>
+    <a href="/pages/sleep-calculator.html">Sleep Calculator</a>
+    <a href="/pages/heart-rate-calculator.html">Heart Rate</a>
+    <a href="/pages/gfr-calculator.html">GFR Calculator</a>
+    <a href="/pages/anxiety-test.html">Anxiety Test</a>
+    <a href="/pages/about.html">About</a>
+    <a href="/pages/contact.html">Contact</a>
+  </nav>
+</header>
+
+<!-- Top Banner Ad -->
+
+
+<!-- Breadcrumb -->
+<div class="breadcrumb-bar">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a>
+    <span class="breadcrumb-sep" aria-hidden="true">›</span>
+    <span>Due Date Calculator</span>
+  </nav>
+</div>
+
+<!-- Page Hero -->
+<section class="page-hero" aria-labelledby="pageHeroHeading">
+  <div style="max-width:700px;margin:0 auto;">
+    <h1 id="pageHeroHeading">Due Date Calculator — Free Online Tool</h1>
+    <p>Find your baby's estimated due date using your last menstrual period or conception date. See your pregnancy week, trimester, and key milestones instantly.</p>
+  </div>
+</section>
+
+<!-- ============ MAIN LAYOUT ============ -->
+<div class="calc-page-layout">
+
+  <!-- MAIN CONTENT -->
+  <main class="calc-main" id="mainContent">
+
+    <!-- Intro -->
+    <div class="calc-intro">
+      <h2>Understanding Pregnancy Due Dates and How They Are Calculated</h2>
+      <p>Congratulations on your pregnancy! One of the first questions every expectant parent has is: "When is my baby due?" The estimated due date (EDD) is typically calculated using Naegele's Rule, a method developed in the 19th century that remains the medical standard today. The rule adds 280 days — exactly 40 weeks — to the first day of your last menstrual period (LMP). This works because, although a baby is only conceived about two weeks after the LMP, pregnancy is traditionally counted from the LMP date. A standard pregnancy lasts 40 weeks from the LMP, or 38 weeks from conception. During these 40 weeks, your pregnancy is divided into three trimesters. The first trimester (weeks 1–13) involves rapid embryonic development including the formation of the brain, spine, heart, and other vital organs. The second trimester (weeks 14–27) is often the most comfortable, as nausea fades and the baby's movements become noticeable. The third trimester (weeks 28–40) is when the baby gains most of its weight and prepares for birth. Remember that only about 4–5% of babies arrive exactly on their due date — it is an estimate, not a deadline. Always confirm your due date with your healthcare provider through an early ultrasound, which provides the most accurate dating.</p>
+    </div>
+
+    <!-- Calculator Widget -->
+    <div class="calc-widget">
+      <div class="calc-widget-header">
+        <span class="calc-widget-icon" aria-hidden="true">🤰</span>
+        <h2>Due Date Calculator</h2>
+      </div>
+      <div class="calc-widget-body">
+
+        <!-- Tab Toggle -->
+        <div class="unit-toggle" role="tablist" aria-label="Calculation method">
+          <button class="unit-btn active" id="tabLmp" role="tab" aria-selected="true" aria-controls="panelLmp">Last Menstrual Period</button>
+          <button class="unit-btn" id="tabConception" role="tab" aria-selected="false" aria-controls="panelConception">Conception Date</button>
+        </div>
+
+        <div class="calc-form">
+
+          <!-- LMP Panel -->
+          <div id="panelLmp" role="tabpanel" aria-labelledby="tabLmp">
+            <div class="form-group">
+              <label class="form-label" for="lmpDate">First day of last menstrual period</label>
+              <input type="date" id="lmpDate" class="calc-input" aria-describedby="lmpHint">
+              <small id="lmpHint" style="font-size:0.8rem;color:var(--text-light);margin-top:4px;">Enter the first day of your most recent period</small>
+            </div>
+            <div class="form-group" style="margin-top:16px;">
+              <label class="form-label" for="cycleLength">Average cycle length</label>
+              <select id="cycleLength" class="calc-select" aria-label="Menstrual cycle length in days">
+                <option value="21">21 days</option>
+                <option value="22">22 days</option>
+                <option value="23">23 days</option>
+                <option value="24">24 days</option>
+                <option value="25">25 days</option>
+                <option value="26">26 days</option>
+                <option value="27">27 days</option>
+                <option value="28" selected>28 days (average)</option>
+                <option value="29">29 days</option>
+                <option value="30">30 days</option>
+                <option value="31">31 days</option>
+                <option value="32">32 days</option>
+                <option value="33">33 days</option>
+                <option value="34">34 days</option>
+                <option value="35">35 days</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Conception Panel (hidden by default) -->
+          <div id="panelConception" role="tabpanel" aria-labelledby="tabConception" style="display:none;">
+            <div class="form-group">
+              <label class="form-label" for="conceptionDate">Conception date</label>
+              <input type="date" id="conceptionDate" class="calc-input" aria-describedby="conceptionHint">
+              <small id="conceptionHint" style="font-size:0.8rem;color:var(--text-light);margin-top:4px;">Enter the estimated date of conception</small>
+            </div>
+          </div>
+
+          <!-- Error -->
+          <p class="input-error-msg" id="dueDateError" role="alert"></p>
+
+          <!-- Buttons -->
+          <button class="calc-btn" id="calcDueDate" type="button">Calculate Due Date</button>
+          <button class="calc-btn-secondary" id="resetDueDate" type="button">Reset</button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Result Box -->
+    <div class="calc-result-box result-info" id="dueDateResult" role="region" aria-live="polite" aria-label="Due date result">
+      <div class="result-header">
+        <div class="result-icon" aria-hidden="true">👶</div>
+        <div>
+          <div class="result-title">Estimated Due Date</div>
+          <div class="result-value" id="dueDateValue" style="font-size:1.5rem;">—</div>
+          <span class="result-category blue" id="trimesterBadge"></span>
+        </div>
+      </div>
+
+      <div class="result-grid-2">
+        <div class="result-mini-card">
+          <div class="label">Pregnancy Week</div>
+          <div class="value" id="pregnancyWeek">—</div>
+        </div>
+        <div class="result-mini-card">
+          <div class="label">Days Remaining</div>
+          <div class="value" id="daysRemaining">—</div>
+        </div>
+        <div class="result-mini-card">
+          <div class="label">Trimester</div>
+          <div class="value" id="trimesterValue">—</div>
+        </div>
+        <div class="result-mini-card">
+          <div class="label">Baby Size</div>
+          <div class="value" id="babySize" style="font-size:0.9rem;">—</div>
+        </div>
+      </div>
+
+      <div class="result-description" id="dueDateDescription"></div>
+
+      <!-- Share -->
+      <div class="share-result-section">
+        <div class="share-result-label">Share your result:</div>
+        <div class="share-result-btns">
+          <button class="share-btn share-whatsapp" id="shareWhatsapp" type="button">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </button>
+          <button class="share-btn share-twitter" id="shareTwitter" type="button">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.842L1.254 2.25H8.08l4.26 5.632 5.904-5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            Twitter
+          </button>
+          <button class="share-btn copy-result" id="copyResult" type="button">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            Copy
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- How to Use -->
+    <div class="content-section">
+      <h2>How to Use This Calculator</h2>
+      <p>Our due date calculator offers two methods for estimating your baby's arrival date. Here is how to use each one:</p>
+      <ul>
+        <li><strong>Last Menstrual Period (LMP) method:</strong> This is the most commonly used method. Select the "Last Menstrual Period" tab, enter the first day of your most recent period using the date picker, and select your average menstrual cycle length from the dropdown (default is 28 days). The calculator adjusts the due date based on cycle length differences from 28 days.</li>
+        <li><strong>Conception Date method:</strong> If you know the approximate date of conception (for example, from fertility tracking or IVF embryo transfer), click the "Conception Date" tab and enter that date. The calculator adds 266 days to estimate your due date.</li>
+        <li><strong>Click "Calculate Due Date":</strong> Your results will appear instantly, showing your estimated due date, current pregnancy week, trimester, days remaining, and your baby's approximate size for the current week.</li>
+      </ul>
+      <p>For the most accurate due date confirmation, schedule an early pregnancy ultrasound with your healthcare provider between weeks 7 and 13.</p>
+    </div>
+
+    <!-- Formula -->
+    <div class="content-section">
+      <h2>How It Works — The Formula</h2>
+      <p>This calculator uses two established methods for estimating a pregnancy due date:</p>
+      <div class="formula-box">
+        <strong>Method 1 — LMP (Naegele's Rule):</strong><br>
+        Due Date = LMP + 280 days + (Cycle Length − 28) days<br><br>
+        Standard 28-day cycle: LMP + 280 days<br>
+        30-day cycle: LMP + 282 days<br>
+        25-day cycle: LMP + 277 days<br><br>
+        <strong>Method 2 — Conception Date:</strong><br>
+        Due Date = Conception Date + 266 days (38 weeks)
+      </div>
+      <p>The difference between the two methods reflects the assumption that ovulation (and therefore conception) occurs approximately 14 days after the LMP in a standard 28-day cycle. Weeks of pregnancy are counted from the LMP date, so a "28-week pregnancy" means 28 weeks have elapsed since the LMP, with the baby being approximately 26 weeks old from conception.</p>
+      <p>Trimesters are defined as:</p>
+      <ul>
+        <li><strong>First Trimester:</strong> Weeks 1–13</li>
+        <li><strong>Second Trimester:</strong> Weeks 14–27</li>
+        <li><strong>Third Trimester:</strong> Weeks 28–40+</li>
+      </ul>
+    </div>
+
+    <!-- Understanding Results -->
+    <div class="content-section">
+      <h2>Understanding Your Results</h2>
+      <p><strong>Estimated Due Date:</strong> The date your baby is expected to be born. Only about 5% of babies arrive on this exact day, but 80% are born within two weeks of it. Your doctor may refer to this as your "EDD" (Estimated Delivery Date).</p>
+      <p><strong>Pregnancy Week:</strong> How many completed weeks of pregnancy you are currently in, counted from the LMP. Your week + day (e.g., "8 weeks 3 days") tells healthcare providers exactly where you are in your pregnancy.</p>
+      <p><strong>Trimester:</strong> Which of the three pregnancy phases you are currently in. Each trimester brings different developmental milestones and symptoms.</p>
+      <p><strong>Days Remaining:</strong> The approximate number of days until your estimated due date. Use this as a countdown guide, but remember births commonly occur anywhere from 37 to 42 weeks.</p>
+      <p><strong>Baby Size:</strong> A fun comparison of your baby's approximate size to a familiar fruit or object at your current gestational week. These are based on average fetal measurements from obstetric charts.</p>
+      <p>Important milestones to watch for include the first heartbeat (around week 6), the nuchal translucency scan (weeks 11–13), the anomaly scan (weeks 18–21), and Group B strep testing (weeks 35–37).</p>
+    </div>
+
+    <!-- FAQ -->
+    <div class="faq-section" itemscope itemtype="https://schema.org/FAQPage">
+      <div class="faq-header">
+        <h2>Frequently Asked Questions</h2>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <button class="faq-question" aria-expanded="false">
+          <span itemprop="name">How is the due date calculated?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <p itemprop="text">The most common method for calculating a due date is Naegele's Rule, which adds 280 days (40 weeks) to the first day of your last menstrual period (LMP). This assumes a standard 28-day menstrual cycle and ovulation on day 14. If your cycle length differs from 28 days, the calculator adjusts accordingly. When using a conception date, 266 days (38 weeks) are added, as fertilization typically occurs about 14 days after the LMP. These calculations provide an estimated due date; only about 5% of babies are born on their exact due date.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <button class="faq-question" aria-expanded="false">
+          <span itemprop="name">What is Naegele's Rule?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <p itemprop="text">Naegele's Rule is the standard medical formula for estimating a pregnancy due date, developed by German obstetrician Franz Karl Naegele in the 19th century. The rule adds one year to the year of the LMP, subtracts three months, and adds seven days — equivalent to adding 280 days (40 weeks) to the LMP. The rule assumes a regular 28-day menstrual cycle with ovulation on day 14. For cycles longer or shorter than 28 days, the estimated due date is adjusted by adding or subtracting the difference from 28 days. For example, a 30-day cycle shifts the due date two days later.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <button class="faq-question" aria-expanded="false">
+          <span itemprop="name">How accurate is the due date calculator?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <p itemprop="text">Due date calculators based on LMP or conception date provide a good estimate, but only about 4–5% of babies are born on their exact calculated due date. Most births occur within two weeks before or after the estimated due date. The most accurate method of dating a pregnancy is an early ultrasound (before 14 weeks), which measures the baby's size to estimate gestational age. Factors that can affect accuracy include irregular menstrual cycles, uncertainty about the exact LMP date, and natural variation in individual pregnancies.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <button class="faq-question" aria-expanded="false">
+          <span itemprop="name">What are the three trimesters of pregnancy?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <p itemprop="text">A full-term pregnancy is divided into three trimesters. The first trimester spans weeks 1 through 13 and is a critical period for fetal organ development — during this time, many women experience morning sickness, fatigue, and breast tenderness. The second trimester covers weeks 14 through 27, often described as the most comfortable period when the baby's movements become noticeable. The third trimester runs from week 28 to birth — the baby gains most of its weight during this period, and the mother may experience back pain and Braxton Hicks contractions as the body prepares for labor.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <button class="faq-question" aria-expanded="false">
+          <span itemprop="name">When should I see a doctor after a positive pregnancy test?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <p itemprop="text">You should schedule your first prenatal appointment as soon as you receive a positive pregnancy test result. Most healthcare providers recommend the first visit between weeks 6 and 8 of pregnancy. This early appointment typically includes confirmation of the pregnancy, blood tests, your medical history review, and discussion of prenatal vitamins (especially folic acid). An early dating ultrasound may also be arranged at this stage. If you experience any warning signs such as heavy bleeding, severe abdominal pain, dizziness, or fever, seek medical attention immediately.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Related Tools -->
+    <div class="content-section">
+      <h2>Related Health Tools</h2>
+      <div class="related-tools">
+        <a href="/pages/pregnancy-week-calculator.html" class="related-tool-card">
+          <div class="related-tool-icon" aria-hidden="true">📅</div>
+          <div class="related-tool-info">
+            <h4>Pregnancy Week Calculator</h4>
+            <p>Track weekly milestones</p>
+          </div>
+        </a>
+        <a href="/pages/ovulation-calculator.html" class="related-tool-card">
+          <div class="related-tool-icon" aria-hidden="true">🌸</div>
+          <div class="related-tool-info">
+            <h4>Ovulation Calculator</h4>
+            <p>Find your fertile window</p>
+          </div>
+        </a>
+        <a href="/pages/bmi-calculator.html" class="related-tool-card">
+          <div class="related-tool-icon" aria-hidden="true">⚖️</div>
+          <div class="related-tool-info">
+            <h4>BMI Calculator</h4>
+            <p>Check your Body Mass Index</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Medical Disclaimer -->
+    <div class="medical-disclaimer" role="note">
+      <span class="disc-icon" aria-hidden="true">⚠️</span>
+      <p><strong>Medical Disclaimer:</strong> This due date calculator is for informational purposes only and provides an estimate based on standard obstetric formulas. It is not a substitute for professional medical advice, diagnosis, or treatment. Due dates provided by this calculator are estimates only — always confirm your due date with a qualified healthcare provider or obstetrician through clinical examination and ultrasound. If you have any concerns about your pregnancy, contact your doctor or midwife immediately.</p>
+    </div>
+
+  </main>
+
+  <!-- SIDEBAR -->
+  <aside class="calc-sidebar" aria-label="Sidebar">
+
+    <!-- Quick Tips Widget -->
+    <div class="sidebar-widget">
+      <div class="sidebar-widget-header">
+        <h3>💡 Pregnancy Tips</h3>
+      </div>
+      <div class="sidebar-widget-body">
+        <div class="sidebar-tip">
+          <strong>Start prenatal vitamins early</strong>
+          Folic acid (400–800 mcg/day) is critical in the first 12 weeks to prevent neural tube defects. Start as soon as you know you are pregnant, or even before.
+        </div>
+        <div class="sidebar-tip">
+          <strong>Confirm with ultrasound</strong>
+          An early ultrasound between weeks 7–13 gives the most accurate due date. The calculator gives a reliable estimate but ultrasound measurement is the gold standard.
+        </div>
+        <div class="sidebar-tip">
+          <strong>Track your symptoms</strong>
+          Keep a simple journal of symptoms each week. This information is valuable at prenatal appointments and helps you notice any changes that may need medical attention.
+        </div>
+      </div>
+    </div>
+
+    <!-- Direct Link Ad -->
+    <div style="text-align:center;padding:8px 0;">
+      <a href="DIRECT_LINK_PLACEHOLDER_URL" class="direct-link-btn" target="_blank" rel="noopener sponsored">
+        Pregnancy Resources &amp; Support &rarr;
+      </a>
+    </div>
+  </aside>
+
+</div><!-- /.calc-page-layout -->
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="site-logo">
+        <div class="logo-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
+        </div>
+        <span class="logo-text">Medical<span>ToolKit</span></span>
+      </div>
+      <p>Free, accurate medical and health calculators trusted by millions worldwide. Built with medical-grade formulas for your wellness journey.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Calculators</h4>
+      <a href="/pages/bmi-calculator.html">BMI Calculator</a>
+      <a href="/pages/due-date-calculator.html">Due Date</a>
+      <a href="/pages/blood-sugar-calculator.html">Blood Sugar</a>
+      <a href="/pages/calorie-calculator.html">Calories</a>
+      <a href="/pages/blood-pressure-checker.html">Blood Pressure</a>
+      <a href="/pages/sleep-calculator.html">Sleep Calculator</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>More Tools</h4>
+      <a href="/pages/a1c-converter.html">A1C Converter</a>
+      <a href="/pages/gfr-calculator.html">GFR Calculator</a>
+      <a href="/pages/body-fat-calculator.html">Body Fat %</a>
+      <a href="/pages/ideal-weight-calculator.html">Ideal Weight</a>
+      <a href="/pages/heart-rate-calculator.html">Heart Rate</a>
+      <a href="/pages/tdee-calculator.html">TDEE Calculator</a>
+      <a href="/pages/anxiety-test.html">Anxiety Test</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Blog</h4>
+      <a href="/blog/">All Health Articles</a>
+      <a href="/blog/blood-sugar-levels-chart.html">Blood Sugar Chart</a>
+      <a href="/blog/normal-blood-pressure-by-age.html">Blood Pressure by Age</a>
+      <a href="/blog/healthy-weight-for-height-chart.html">Weight Chart</a>
+      <a href="/blog/how-much-sleep-do-you-need.html">Sleep Guide</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="/pages/about.html">About Us</a><a href="/pages/editorial-policy.html">Editorial Policy</a>
+      <a href="/pages/contact.html">Contact</a>
+      <a href="/pages/privacy-policy.html">Privacy Policy</a>
+      <a href="/pages/disclaimer.html">Medical Disclaimer</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 MedicalToolKit. All rights reserved. <strong>Not medical advice.</strong></p>
+    <div class="footer-legal-links">
+      <a href="/pages/privacy-policy.html">Privacy</a>
+      <a href="/pages/disclaimer.html">Disclaimer</a>
+      <a href="/pages/contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to Top -->
+<button class="back-to-top" aria-label="Back to top">&#8593;</button>
+
+<!-- Cookie Consent -->
+<div class="cookie-consent" id="cookieBanner" role="dialog" aria-label="Cookie consent">
+  <p>We use cookies to improve your experience and to show personalized ads. By clicking "Accept", you agree to our <a href="/pages/privacy-policy.html">Privacy Policy</a> and cookie use.</p>
+  <div class="cookie-btns">
+    <button class="btn-accept-cookies" id="acceptCookies">Accept</button>
+    <button class="btn-reject-cookies" id="rejectCookies">Decline</button>
+  </div>
+</div>
+
+
+<!-- Toast notification -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="/dist/js/main.min.js?v=20260620nodark" defer></script>
+<script src="/js/calculators/due-date.js" defer></script>
+  <script src="/dist/js/animations.min.js?v=20260620nodark" defer></script>
+
+  <script src="/dist/js/analytics.min.js?v=20260620nodark" defer></script>
+  <script src="/dist/js/pwa.min.js?v=20260620nodark" defer></script>
+  <script src="/dist/js/calc-history.min.js?v=20260620nodark" defer></script>
+</body>
+</html>

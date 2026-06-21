@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+/* Critical CSS — above fold render */
+:root{--primary:#2563EB;--primary-light:#EFF6FF;--primary-dark:#1D4ED8;--secondary:#10B981;--text:#1E293B;--text-light:#475569;--text-muted:#94A3B8;--bg:#F8FAFC;--border:#E2E8F0;--shadow:0 1px 3px rgba(0,0,0,.1),0 1px 2px rgba(0,0,0,.06);--shadow-lg:0 10px 15px rgba(0,0,0,.1);--shadow-xl:0 20px 25px rgba(0,0,0,.1);--radius:12px;--radius-sm:8px;--radius-lg:16px;--transition:all .2s ease}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;overflow-x:hidden}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;overflow-x:hidden}
+.site-header{position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid var(--border);box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.header-inner{max-width:1200px;margin:0 auto;padding:0 20px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.site-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-icon{width:40px;height:40px;background:var(--primary);border-radius:10px;display:flex;align-items:center;justify-content:center}
+.logo-icon svg{width:22px;height:22px;fill:white}
+.logo-text{font-weight:700;font-size:1.1rem;color:var(--text)}
+.logo-text span{color:var(--primary)}
+.main-nav{display:flex;align-items:center;gap:4px}
+.main-nav a{padding:6px 12px;border-radius:8px;font-size:.875rem;font-weight:500;color:var(--text-light);text-decoration:none}
+.hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer;width:36px;height:36px;background:none;border:none}
+.bar{width:22px;height:2.5px;background:var(--text);border-radius:3px}
+.hero{background:linear-gradient(135deg,#1E3A5F 0%,#2563EB 50%,#0EA5E9 100%);color:white;padding:72px 20px 60px;text-align:center;position:relative;overflow:hidden}
+.hero h1{font-size:clamp(2rem,5vw,3rem);font-weight:800;line-height:1.15;margin-bottom:16px;letter-spacing:-.5px}
+.hero p{font-size:1.1rem;opacity:.88;max-width:580px;margin:0 auto 28px}
+.stats-bar{background:#fff;border-bottom:1px solid var(--border)}
+.stats-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:center;flex-wrap:wrap}
+.stat-item{display:flex;flex-direction:column;align-items:center;padding:16px 32px;border-right:1px solid var(--border);flex:1;min-width:120px;text-align:center}
+.stat-item:last-child{border-right:none}
+.stat-number{font-size:2rem;font-weight:800;color:var(--primary);display:block;line-height:1.2;white-space:nowrap}
+.stat-label{font-size:0.8rem;color:var(--text-light);white-space:nowrap;margin-top:2px}
+@media(max-width:640px){.stat-item{padding:14px 16px;flex:0 0 50%;min-width:50%;border-right:none;border-bottom:1px solid var(--border)}.stat-item:nth-child(odd){border-right:1px solid var(--border)}.stat-item:nth-last-child(-n+2){border-bottom:none}.stat-number{font-size:1.5rem}}
+.reading-progress{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--primary),#10B981,#0EA5E9);z-index:99999;transition:width .15s linear}
+</style>
+  <script src="https://quge5.com/88/tag.min.js" data-zone="245868" async data-cfasync="false"></script>
+  <meta charset="UTF-8">
+  <!-- DNS Prefetch — Performance -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link rel="dns-prefetch" href="//quge5.com">
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <link rel="dns-prefetch" href="//www.google-analytics.com"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>Ideal Weight Calculator | MedicalToolKit</title>
+  <meta name="description" content="Calculate your ideal body weight using three validated formulas: Devine, Robinson, and Miller. Get your ideal weight range and average in kg or lbs.">
+  <link rel="canonical" href="https://medicaltoolkit.pages.dev/pages/ideal-weight-calculator.html">
+  <meta property="og:title" content="Ideal Weight Calculator — Devine, Robinson & Miller | MedicalToolKit"><meta property="og:url" content="https://medicaltoolkit.pages.dev/pages/ideal-weight-calculator.html"><meta property="og:type" content="website"><meta property="og:site_name" content="MedicalToolKit">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#2563EB">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap&subset=latin" rel="stylesheet">
+  <link rel="preload" href="/dist/css/style.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/style.min.css?v=20260620nodark"></noscript><link rel="preload" href="/dist/css/responsive.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/responsive.min.css?v=20260620nodark"></noscript><link rel="stylesheet" href="/dist/css/calculator.min.css?v=20260620nodark">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Ideal Weight Calculator","url":"https://medicaltoolkit.pages.dev/pages/ideal-weight-calculator.html","applicationCategory":"HealthApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JWW19HEZBJ');
+  </script>
+  <meta property="og:image" content="https://medicaltoolkit.pages.dev/images/og-ideal-weight.png">
+  <meta name="twitter:image" content="https://medicaltoolkit.pages.dev/images/og-ideal-weight.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is ideal weight calculated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ideal weight is calculated using several medical formulas including Devine, Robinson, Miller, and Hamwi formulas, each based on height and sex. Our calculator shows results from all major formulas so you can see the range. The Devine formula is most commonly used in clinical settings for medication dosing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is ideal weight the same as healthy weight?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ideal weight and healthy weight are related but different. Ideal weight refers to formula-based estimates, while healthy weight is typically defined as a BMI between 18.5 and 24.9. A person can be at an 'ideal' weight by formula but still carry excess body fat (skinny-fat), so body composition matters more than weight alone."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can ideal weight be different for the same height?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, ideal weight varies by frame size, muscle mass, age, and which formula is used. Two people of the same height may have different ideal weights based on their bone structure (small, medium, or large frame) and body composition. Use the result as a general guideline, not a strict target."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://medicaltoolkit.pages.dev/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Ideal Weight Calculator",
+      "item": "https://medicaltoolkit.pages.dev/pages/ideal-weight-calculator.html"
+    }
+  ]
+}
+</script>
+  <link rel="stylesheet" href="/dist/css/calc-history.min.css?v=20260620nodark">
+  <link rel="preload" href="/dist/css/animations.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/animations.min.css?v=20260620nodark"></noscript>
+  <link rel="preload" href="/dist/css/blog.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/blog.min.css?v=20260620nodark"></noscript>
+  <!-- ============================================
+       SEARCH CONSOLE & WEBMASTER VERIFICATION
+       Replace placeholder values with your actual codes
+       ============================================ -->
+  <!-- Google Search Console: Go to search.google.com/search-console → Add Property → HTML tag -->
+  <meta name="google-site-verification" content="y63XSBvlNcknj46yVKMn0uE14aKKOBfjwLLO6EZrLBk">
+  <!-- Bing Webmaster: Go to bing.com/webmasters → Add Site → HTML Meta Tag -->
+  <meta name="msvalidate.01" content="AB9070CF57664870ADB2D23906FE30C4">
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JWW19HEZBJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JWW19HEZBJ', {anonymize_ip: true});
+  </script>
+</head>
+<body>
+<header class="site-header" role="banner">
+  <div class="header-inner">
+    <a href="/" class="site-logo" aria-label="MedicalToolKit Home">
+      <div class="logo-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg></div>
+      <span class="logo-text">Medical<span>ToolKit</span></span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="/pages/bmi-calculator.html">Fitness</a><a href="/pages/due-date-calculator.html">Pregnancy</a>
+      <a href="/pages/blood-sugar-calculator.html">Diabetes</a><a href="/pages/blood-pressure-checker.html">Heart</a>
+      <a href="/pages/gfr-calculator.html">Kidney</a><a href="/pages/anxiety-test.html">Mental Health</a><a href="/pages/about.html">About</a>
+      <a href="/blog/">Blog</a>
+    </nav>
+    <div class="header-search search-wrapper"><input type="search" class="header-search-input search-input" placeholder="Search calculators..." aria-label="Search calculators"></div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav">
+    <div class="mobile-search"><input type="search" class="search-input" placeholder="Search calculators..."></div>
+    <a href="/">Home</a><a href="/pages/bmi-calculator.html">BMI Calculator</a><a href="/pages/calorie-calculator.html">Calorie Calculator</a>
+    <a href="/pages/blood-pressure-checker.html">Blood Pressure</a><a href="/pages/blood-sugar-calculator.html">Blood Sugar</a>
+    <a href="/pages/gfr-calculator.html">GFR Calculator</a><a href="/pages/anxiety-test.html">Anxiety Test</a><a href="/pages/about.html">About</a>
+  </nav>
+</header>
+<div class="breadcrumb-bar"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="breadcrumb-sep">›</span><span>Ideal Weight Calculator</span></nav></div>
+<section class="page-hero" aria-labelledby="pageHeroHeading">
+  <div style="max-width:700px;margin:0 auto;">
+    <h1 id="pageHeroHeading">Ideal Weight Calculator — Three Clinical Formulas</h1>
+    <p>Find your ideal body weight using the Devine, Robinson, and Miller formulas — three clinically validated methods. Get results in both kg and lbs with a comprehensive range estimate.</p>
+  </div>
+</section>
+<div class="calc-page-layout">
+  <main class="calc-main" id="mainContent">
+    <div class="calc-intro"><h2>What is Ideal Body Weight and How Is It Calculated?</h2><p>Ideal Body Weight (IBW) is a clinical estimate of a person's optimal weight based on height and sex, originally developed for drug dosing purposes rather than aesthetic goals. The three most widely used formulas are the Devine formula (1974), the Robinson formula (1983), and the Miller formula (1983). Each uses height in inches above 5 feet as the base variable. These formulas provide useful clinical benchmarks but have limitations: they don't account for muscle mass, age, ethnicity, or individual body composition. They work best as one data point alongside BMI, body fat percentage, and your doctor's assessment.</p></div>
+<div class="calc-widget"><div class="calc-widget-header"><span class="calc-widget-icon">⚖️</span><h2>Ideal Weight Calculator</h2></div><div class="calc-widget-body">
+    <div class="unit-toggle" role="group"><button class="unit-btn active" id="unitMetric" aria-pressed="true">Metric</button><button class="unit-btn" id="unitImperial" aria-pressed="false">Imperial</button></div>
+    <div class="calc-form">
+      <div id="metricInputs"><div class="form-group"><label class="form-label" for="heightCm">Height</label><div class="input-group"><input type="number" id="heightCm" class="calc-input" placeholder="e.g. 170" min="100" max="280"><span class="input-suffix">cm</span></div></div></div>
+      <div id="imperialInputs" style="display:none">
+        <div class="form-group"><label class="form-label">Height</label><div class="input-group-multi"><div class="input-group"><input type="number" id="heightFt" class="calc-input" placeholder="5" min="0" max="8"><span class="input-suffix">ft</span></div><div class="input-group"><input type="number" id="heightIn" class="calc-input" placeholder="7" min="0" max="11"><span class="input-suffix">in</span></div></div></div>
+      </div>
+      <div class="form-group"><label class="form-label" for="genderIw">Biological Sex</label><select id="genderIw" class="calc-select"><option value="male">Male</option><option value="female">Female</option></select></div>
+      <p class="input-error-msg" id="iwError" role="alert"></p>
+      <button class="calc-btn" id="calcIdealWeight" type="button">Calculate Ideal Weight</button>
+      <button class="calc-btn-secondary" id="resetIdealWeight" type="button">Reset</button>
+    </div></div></div>
+<div class="calc-result-box" id="iwResult" role="region" aria-live="polite">
+    <div class="result-header"><div class="result-icon">⚖️</div><div><div class="result-title">Ideal Weight Range</div><div class="result-value" id="iwAverage">—</div><span class="result-category green">Average across 3 formulas</span></div></div>
+    <div class="result-grid-2">
+      <div class="result-mini-card"><div class="label">Devine Formula</div><div class="value" id="iwDevine">—</div></div>
+      <div class="result-mini-card"><div class="label">Robinson Formula</div><div class="value" id="iwRobinson">—</div></div>
+      <div class="result-mini-card"><div class="label">Miller Formula</div><div class="value" id="iwMiller">—</div></div>
+      <div class="result-mini-card"><div class="label">Full Range</div><div class="value" id="iwRange">—</div></div>
+    </div>
+    <div class="result-description" id="iwDescription"></div><div class="share-result-section"><div class="share-result-label">Share your result:</div><div class="share-result-btns"><button class="share-btn share-whatsapp" id="shareWhatsapp" type="button">WhatsApp</button><button class="share-btn share-twitter" id="shareTwitter" type="button">Twitter</button><button class="share-btn copy-result" id="copyResult" type="button">Copy</button></div></div></div>
+
+    <!-- How to Use -->
+    <div class="content-section">
+      <h2>How to Use the Ideal Weight Calculator</h2>
+      <ul>
+        <li><strong>Step 1 — Select your sex:</strong> Ideal weight formulas produce different results for men and women due to differences in average bone density, muscle mass, and body composition.</li>
+        <li><strong>Step 2 — Choose your unit:</strong> Select metric (cm/kg) or imperial (feet, inches, pounds) depending on your preference.</li>
+        <li><strong>Step 3 — Enter your height</strong> accurately. Measure against a wall for the most precise result.</li>
+        <li><strong>Step 4 — Click Calculate</strong> to see your ideal weight ranges according to four major medical formulas, along with the healthy BMI range for your height.</li>
+      </ul>
+      <p>Because different formulas were developed for different clinical purposes, the calculator displays all four results so you can understand the range. Use these numbers as general targets, not rigid goals.</p>
+    </div>
+
+    <!-- Formula -->
+    <div class="content-section">
+      <h2>The Four Ideal Weight Formulas</h2>
+      <p>This calculator computes ideal body weight using four clinically established formulas:</p>
+      <div class="formula-box">
+        <strong>Devine Formula (1974):</strong><br>
+        Men: IBW = 50 kg + 2.3 kg × (height in inches − 60)<br>
+        Women: IBW = 45.5 kg + 2.3 kg × (height in inches − 60)<br><br>
+        <strong>Robinson Formula (1983):</strong><br>
+        Men: IBW = 52 kg + 1.9 kg × (height in inches − 60)<br>
+        Women: IBW = 49 kg + 1.7 kg × (height in inches − 60)<br><br>
+        <strong>Miller Formula (1983):</strong><br>
+        Men: IBW = 56.2 kg + 1.41 kg × (height in inches − 60)<br>
+        Women: IBW = 53.1 kg + 1.36 kg × (height in inches − 60)<br><br>
+        <strong>Hamwi Formula (1964):</strong><br>
+        Men: IBW = 48 kg + 2.7 kg × (height in inches − 60)<br>
+        Women: IBW = 45.4 kg + 2.27 kg × (height in inches − 60)
+      </div>
+      <p>The <strong>Devine formula</strong> is most widely used in clinical settings, particularly for calculating medication dosages based on ideal body weight. The <strong>healthy BMI range</strong> (18.5–24.9) provides an alternative view of healthy weight relative to height.</p>
+    </div>
+
+    <!-- Understanding Results -->
+    <div class="content-section">
+      <h2>Understanding Ideal Weight vs. Healthy Weight</h2>
+      <p>Ideal weight formulas provide a mathematical estimate based on height and sex alone. They do not account for age, muscle mass, bone density, ethnicity, or fitness level. Here is how to interpret the results practically:</p>
+      <ul>
+        <li><strong>If your weight is within any of the formula ranges:</strong> You are likely in a healthy weight zone. Focus on body composition (muscle-to-fat ratio) and fitness rather than the scale number.</li>
+        <li><strong>If your weight is above all formula ranges:</strong> Consider consulting a registered dietitian or physician to discuss a healthy, sustainable approach to weight management. Gradual loss of 0.5–1 kg/week is the evidence-based target.</li>
+        <li><strong>If your weight is below all formula ranges:</strong> Underweight status can indicate nutritional deficiencies or health conditions. Gaining weight through nutrient-dense foods and resistance training (to build lean mass) is recommended under medical guidance.</li>
+        <li><strong>Muscular individuals:</strong> Athletes and those with significant muscle mass may exceed ideal weight ranges while being perfectly healthy. In these cases, body fat percentage is a far more meaningful metric.</li>
+      </ul>
+    </div>
+
+    <div class="content-section"><h2>Frequently Asked Questions</h2>
+    <div class="faq-item"><h3>Which ideal weight formula is most accurate?</h3><p>No single formula is universally most accurate, as each was developed in different clinical contexts. The Devine formula is most commonly used in clinical drug dosing. Using the average of all three gives a more balanced estimate. BMI and body fat percentage provide additional context.</p></div>
+    <div class="faq-item"><h3>Do these formulas apply to everyone?</h3><p>These formulas are best suited to adults of average build. They may underestimate ideal weight for athletes with high muscle mass, and do not account for age (muscle mass typically decreases with age). They are reference tools, not diagnostic criteria.</p></div>
+    <div class="faq-item"><h3>Should I aim to reach my ideal weight?</h3><p>Not necessarily. These are statistical averages, not personalised targets. A more meaningful goal is achieving a healthy body fat percentage and BMI. Small amounts of weight loss (5–10%) in overweight individuals produce significant health benefits regardless of reaching an "ideal" weight.</p></div></div>
+
+    <div class="content-section"><h2>Related Calculators</h2>
+      <div class="related-tools-grid"><a href="/pages/bmi-calculator.html" class="related-tool-card">📊 BMI Calculator</a><a href="/pages/body-fat-calculator.html" class="related-tool-card">📐 Body Fat %</a><a href="/pages/calorie-calculator.html" class="related-tool-card">🔥 Calorie Calculator</a><a href="/pages/tdee-calculator.html" class="related-tool-card">⚡ TDEE Calculator</a></div>
+    </div>
+  </main>
+  <aside class="calc-sidebar">
+    <div class="sidebar-widget"><h3>Quick Links</h3><a href="/pages/bmi-calculator.html" class="sidebar-link">BMI Calculator</a><a href="/pages/body-fat-calculator.html" class="sidebar-link">Body Fat %</a><a href="/pages/calorie-calculator.html" class="sidebar-link">Calorie Calculator</a></div>
+  
+    <div class="sidebar-widget">
+      <div class="sidebar-widget-header"><h3>🎯 Weight Management Tips</h3></div>
+      <div class="sidebar-widget-body">
+        <div class="sidebar-tip"><strong>Focus on body composition</strong> Two people at the same "ideal weight" can have vastly different health profiles. A lean 160 lb person with 15% body fat is healthier than a 160 lb person with 35% body fat.</div>
+        <div class="sidebar-tip"><strong>Weight set-point theory</strong> Your body defends a weight range it considers normal. Sustainable weight change requires long-term lifestyle changes, not short-term diets.</div>
+        <div class="sidebar-tip"><strong>Bone density matters</strong> Larger-framed people or those with higher bone density may healthily weigh more than formula estimates suggest. Ideal weight formulas do not account for frame size.</div>
+      </div>
+    </div>
+
+  
+    <div class="sidebar-widget">
+      <div class="sidebar-widget-header"><h3>🎯 Weight Management Tips</h3></div>
+      <div class="sidebar-widget-body">
+        <div class="sidebar-tip"><strong>Focus on body composition</strong> Two people at the same "ideal weight" can have vastly different health profiles. A lean 160 lb person with 15% body fat is healthier than a 160 lb person with 35% body fat.</div>
+        <div class="sidebar-tip"><strong>Weight set-point theory</strong> Your body defends a weight range it considers normal. Sustainable weight change requires long-term lifestyle changes, not short-term diets.</div>
+        <div class="sidebar-tip"><strong>Bone density matters</strong> Larger-framed people or those with higher bone density may healthily weigh more than formula estimates suggest. Ideal weight formulas do not account for frame size.</div>
+      </div>
+    </div>
+
+  </aside>
+</div>
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-grid">
+    <div class="footer-brand"><div class="site-logo"><div class="logo-icon"><svg viewBox="0 0 24 24" fill="white"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg></div><span class="logo-text">Medical<span>ToolKit</span></span></div><p>Free, accurate medical and health calculators trusted by millions worldwide.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/pages/bmi-calculator.html">BMI Calculator</a><a href="/pages/due-date-calculator.html">Due Date</a><a href="/pages/blood-sugar-calculator.html">Blood Sugar</a><a href="/pages/calorie-calculator.html">Calories</a><a href="/pages/blood-pressure-checker.html">Blood Pressure</a><a href="/pages/sleep-calculator.html">Sleep Calculator</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/pages/a1c-converter.html">A1C Converter</a><a href="/pages/gfr-calculator.html">GFR Calculator</a><a href="/pages/body-fat-calculator.html">Body Fat %</a><a href="/pages/ideal-weight-calculator.html">Ideal Weight</a><a href="/pages/heart-rate-calculator.html">Heart Rate</a><a href="/pages/tdee-calculator.html">TDEE Calculator</a><a href="/pages/anxiety-test.html">Anxiety Test</a></div>
+    <div class="footer-col"><h4>Company</h4><a href="/pages/about.html">About Us</a><a href="/pages/editorial-policy.html">Editorial Policy</a><a href="/pages/contact.html">Contact</a><a href="/pages/privacy-policy.html">Privacy Policy</a><a href="/pages/disclaimer.html">Medical Disclaimer</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 MedicalToolKit. All rights reserved. <strong>Not medical advice.</strong></p><div class="footer-legal-links"><a href="/pages/privacy-policy.html">Privacy</a><a href="/pages/disclaimer.html">Disclaimer</a><a href="/pages/contact.html">Contact</a></div></div>
+</footer>
+<button class="back-to-top" aria-label="Back to top">&#8593;</button>
+<div class="cookie-consent" id="cookieBanner" role="dialog"><p>We use cookies. <a href="/pages/privacy-policy.html">Privacy Policy</a></p><div class="cookie-btns"><button class="btn-accept-cookies" id="acceptCookies">Accept</button><button class="btn-reject-cookies" id="rejectCookies">Decline</button></div></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="/dist/js/main.min.js?v=20260620nodark" defer></script>
+<script src="/js/calculators/ideal-weight.js" defer></script>
+  <script src="/dist/js/animations.min.js?v=20260620nodark" defer></script>
+
+  <script src="/dist/js/analytics.min.js?v=20260620nodark" defer></script>
+  <script src="/dist/js/pwa.min.js?v=20260620nodark" defer></script>
+  <script src="/dist/js/calc-history.min.js?v=20260620nodark" defer></script>
+</body></html>

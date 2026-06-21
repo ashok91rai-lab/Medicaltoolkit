@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+/* Critical CSS — above fold render */
+:root{--primary:#2563EB;--primary-light:#EFF6FF;--primary-dark:#1D4ED8;--secondary:#10B981;--text:#1E293B;--text-light:#475569;--text-muted:#94A3B8;--bg:#F8FAFC;--border:#E2E8F0;--shadow:0 1px 3px rgba(0,0,0,.1),0 1px 2px rgba(0,0,0,.06);--shadow-lg:0 10px 15px rgba(0,0,0,.1);--shadow-xl:0 20px 25px rgba(0,0,0,.1);--radius:12px;--radius-sm:8px;--radius-lg:16px;--transition:all .2s ease}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;overflow-x:hidden}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;overflow-x:hidden}
+.site-header{position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid var(--border);box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.header-inner{max-width:1200px;margin:0 auto;padding:0 20px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.site-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-icon{width:40px;height:40px;background:var(--primary);border-radius:10px;display:flex;align-items:center;justify-content:center}
+.logo-icon svg{width:22px;height:22px;fill:white}
+.logo-text{font-weight:700;font-size:1.1rem;color:var(--text)}
+.logo-text span{color:var(--primary)}
+.main-nav{display:flex;align-items:center;gap:4px}
+.main-nav a{padding:6px 12px;border-radius:8px;font-size:.875rem;font-weight:500;color:var(--text-light);text-decoration:none}
+.hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer;width:36px;height:36px;background:none;border:none}
+.bar{width:22px;height:2.5px;background:var(--text);border-radius:3px}
+.hero{background:linear-gradient(135deg,#1E3A5F 0%,#2563EB 50%,#0EA5E9 100%);color:white;padding:72px 20px 60px;text-align:center;position:relative;overflow:hidden}
+.hero h1{font-size:clamp(2rem,5vw,3rem);font-weight:800;line-height:1.15;margin-bottom:16px;letter-spacing:-.5px}
+.hero p{font-size:1.1rem;opacity:.88;max-width:580px;margin:0 auto 28px}
+.stats-bar{background:#fff;border-bottom:1px solid var(--border)}
+.stats-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:center;flex-wrap:wrap}
+.stat-item{display:flex;flex-direction:column;align-items:center;padding:16px 32px;border-right:1px solid var(--border);flex:1;min-width:120px;text-align:center}
+.stat-item:last-child{border-right:none}
+.stat-number{font-size:2rem;font-weight:800;color:var(--primary);display:block;line-height:1.2;white-space:nowrap}
+.stat-label{font-size:0.8rem;color:var(--text-light);white-space:nowrap;margin-top:2px}
+@media(max-width:640px){.stat-item{padding:14px 16px;flex:0 0 50%;min-width:50%;border-right:none;border-bottom:1px solid var(--border)}.stat-item:nth-child(odd){border-right:1px solid var(--border)}.stat-item:nth-last-child(-n+2){border-bottom:none}.stat-number{font-size:1.5rem}}
+.reading-progress{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--primary),#10B981,#0EA5E9);z-index:99999;transition:width .15s linear}
+</style>
+  <script src="https://quge5.com/88/tag.min.js" data-zone="245868" async data-cfasync="false"></script>
+  <meta charset="UTF-8">
+  <!-- DNS Prefetch — Performance -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link rel="dns-prefetch" href="//quge5.com">
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <link rel="dns-prefetch" href="//www.google-analytics.com"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>Body Fat Calculator — US Navy Method | MedicalToolKit</title>
+  <meta name="description" content="Calculate your body fat percentage free using the U.S. Navy method. Get accurate results for men and women based on height, weight, and measurements.">
+  <link rel="canonical" href="https://medicaltoolkit.pages.dev/pages/body-fat-calculator.html">
+  <meta property="og:title" content="Body Fat Calculator — US Navy Method | MedicalToolKit"><meta property="og:url" content="https://medicaltoolkit.pages.dev/pages/body-fat-calculator.html"><meta property="og:type" content="website"><meta property="og:site_name" content="MedicalToolKit">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#2563EB">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap&subset=latin" rel="stylesheet">
+  <link rel="preload" href="/dist/css/style.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/style.min.css?v=20260620nodark"></noscript><link rel="preload" href="/dist/css/responsive.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/responsive.min.css?v=20260620nodark"></noscript><link rel="stylesheet" href="/dist/css/calculator.min.css?v=20260620nodark">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Body Fat Calculator","url":"https://medicaltoolkit.pages.dev/pages/body-fat-calculator.html","applicationCategory":"HealthApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JWW19HEZBJ');
+  </script>
+  <meta property="og:image" content="https://medicaltoolkit.pages.dev/images/og-body-fat.png">
+  <meta name="twitter:image" content="https://medicaltoolkit.pages.dev/images/og-body-fat.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a healthy body fat percentage?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Healthy body fat percentages vary by sex and age. For adult women, 21\u201333% is considered healthy; for adult men, 8\u201319% is considered healthy. Athletes may have lower percentages. Values above these ranges indicate excess body fat which can increase health risks."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is body fat percentage more accurate than BMI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Body fat percentage is generally more informative than BMI because it directly measures fat mass vs lean mass. BMI can misclassify muscular individuals as overweight. However, body fat calculators still use indirect methods and may have a margin of error of 3\u20135%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I reduce body fat?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Body fat can be reduced through a combination of caloric deficit (eating 300\u2013500 fewer calories than you burn), resistance training to preserve muscle mass, cardiovascular exercise, adequate protein intake (0.7\u20131g per pound of body weight), quality sleep, and stress management."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://medicaltoolkit.pages.dev/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Body Fat Calculator",
+      "item": "https://medicaltoolkit.pages.dev/pages/body-fat-calculator.html"
+    }
+  ]
+}
+</script>
+  <link rel="stylesheet" href="/dist/css/calc-history.min.css?v=20260620nodark">
+  <link rel="preload" href="/dist/css/animations.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/animations.min.css?v=20260620nodark"></noscript>
+  <link rel="preload" href="/dist/css/blog.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/blog.min.css?v=20260620nodark"></noscript>
+  <!-- ============================================
+       SEARCH CONSOLE & WEBMASTER VERIFICATION
+       Replace placeholder values with your actual codes
+       ============================================ -->
+  <!-- Google Search Console: Go to search.google.com/search-console → Add Property → HTML tag -->
+  <meta name="google-site-verification" content="y63XSBvlNcknj46yVKMn0uE14aKKOBfjwLLO6EZrLBk">
+  <!-- Bing Webmaster: Go to bing.com/webmasters → Add Site → HTML Meta Tag -->
+  <meta name="msvalidate.01" content="AB9070CF57664870ADB2D23906FE30C4">
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JWW19HEZBJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JWW19HEZBJ', {anonymize_ip: true});
+  </script>
+</head>
+<body>
+<header class="site-header" role="banner">
+  <div class="header-inner">
+    <a href="/" class="site-logo" aria-label="MedicalToolKit Home">
+      <div class="logo-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg></div>
+      <span class="logo-text">Medical<span>ToolKit</span></span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="/pages/bmi-calculator.html">Fitness</a><a href="/pages/due-date-calculator.html">Pregnancy</a>
+      <a href="/pages/blood-sugar-calculator.html">Diabetes</a><a href="/pages/blood-pressure-checker.html">Heart</a>
+      <a href="/pages/gfr-calculator.html">Kidney</a><a href="/pages/anxiety-test.html">Mental Health</a><a href="/pages/about.html">About</a>
+      <a href="/blog/">Blog</a>
+    </nav>
+    <div class="header-search search-wrapper"><input type="search" class="header-search-input search-input" placeholder="Search calculators..." aria-label="Search calculators"></div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav">
+    <div class="mobile-search"><input type="search" class="search-input" placeholder="Search calculators..."></div>
+    <a href="/">Home</a><a href="/pages/bmi-calculator.html">BMI Calculator</a><a href="/pages/calorie-calculator.html">Calorie Calculator</a>
+    <a href="/pages/blood-pressure-checker.html">Blood Pressure</a><a href="/pages/blood-sugar-calculator.html">Blood Sugar</a>
+    <a href="/pages/gfr-calculator.html">GFR Calculator</a><a href="/pages/anxiety-test.html">Anxiety Test</a><a href="/pages/about.html">About</a>
+  </nav>
+</header>
+<div class="breadcrumb-bar"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="breadcrumb-sep">›</span><span>Body Fat Calculator</span></nav></div>
+<section class="page-hero" aria-labelledby="pageHeroHeading">
+  <div style="max-width:700px;margin:0 auto;">
+    <h1 id="pageHeroHeading">Body Fat Calculator — US Navy Method</h1>
+    <p>Estimate your body fat percentage using the clinically validated US Navy method. Enter your measurements to get your body fat %, ACE category, and actionable health guidance.</p>
+  </div>
+</section>
+<div class="calc-page-layout">
+  <main class="calc-main" id="mainContent">
+    <div class="calc-intro"><h2>Why Body Fat Percentage Matters More Than Weight Alone</h2><p>Body weight alone doesn't tell the full story of your health. Two people of the same height and weight can have very different health profiles depending on their ratio of muscle to fat. Body fat percentage is a far more informative metric because it distinguishes between lean mass (muscle, bone, organs) and fat mass. The US Navy method is a simple, widely-used anthropometric formula that estimates body fat from waist, neck, and (for women) hip circumferences alongside height. While not as accurate as DEXA scans or hydrostatic weighing, it provides a reliable estimate that can be tracked over time to monitor fitness progress and health risk.</p></div>
+<div class="calc-widget"><div class="calc-widget-header"><span class="calc-widget-icon">📐</span><h2>Body Fat Calculator</h2></div><div class="calc-widget-body">
+    <div class="unit-toggle" role="group"><button class="unit-btn active" id="unitMetric" aria-pressed="true">Metric</button><button class="unit-btn" id="unitImperial" aria-pressed="false">Imperial</button></div>
+    <div class="calc-form">
+      <div class="form-group"><label class="form-label" for="genderBf">Biological Sex</label><select id="genderBf" class="calc-select"><option value="male">Male</option><option value="female">Female</option></select></div>
+      <div class="form-group"><label class="form-label" for="ageBf">Age</label><div class="input-group"><input type="number" id="ageBf" class="calc-input" placeholder="e.g. 30" min="10" max="100"><span class="input-suffix">years</span></div></div>
+      <div id="metricInputs">
+        <div class="form-group"><label class="form-label" for="heightCm">Height</label><div class="input-group"><input type="number" id="heightCm" class="calc-input" placeholder="e.g. 175" min="100" max="280"><span class="input-suffix">cm</span></div></div>
+        <div class="form-group"><label class="form-label" for="waistCm">Waist (at navel)</label><div class="input-group"><input type="number" id="waistCm" class="calc-input" placeholder="e.g. 85" min="40" max="200"><span class="input-suffix">cm</span></div></div>
+        <div class="form-group"><label class="form-label" for="neckCm">Neck</label><div class="input-group"><input type="number" id="neckCm" class="calc-input" placeholder="e.g. 38" min="20" max="80"><span class="input-suffix">cm</span></div></div>
+        <div class="form-group" id="hipCmGroup" style="display:none"><label class="form-label" for="hipCm">Hip (widest point)</label><div class="input-group"><input type="number" id="hipCm" class="calc-input" placeholder="e.g. 95" min="50" max="200"><span class="input-suffix">cm</span></div></div>
+      </div>
+      <div id="imperialInputs" style="display:none">
+        <div class="form-group"><label class="form-label" for="heightInTotal">Height (total inches)</label><div class="input-group"><input type="number" id="heightInTotal" class="calc-input" placeholder="e.g. 69" min="40" max="110"><span class="input-suffix">in</span></div></div>
+        <div class="form-group"><label class="form-label" for="waistIn">Waist</label><div class="input-group"><input type="number" id="waistIn" class="calc-input" placeholder="e.g. 34" min="15" max="80"><span class="input-suffix">in</span></div></div>
+        <div class="form-group"><label class="form-label" for="neckIn">Neck</label><div class="input-group"><input type="number" id="neckIn" class="calc-input" placeholder="e.g. 15" min="8" max="32"><span class="input-suffix">in</span></div></div>
+        <div class="form-group" id="hipInGroup" style="display:none"><label class="form-label" for="hipIn">Hip</label><div class="input-group"><input type="number" id="hipIn" class="calc-input" placeholder="e.g. 38" min="20" max="80"><span class="input-suffix">in</span></div></div>
+      </div>
+      <p class="input-error-msg" id="bfError" role="alert"></p>
+      <button class="calc-btn" id="calcBodyFat" type="button">Calculate Body Fat</button>
+      <button class="calc-btn-secondary" id="resetBodyFat" type="button">Reset</button>
+    </div></div></div>
+<div class="calc-result-box" id="bfResult" role="region" aria-live="polite">
+    <div class="result-header"><div class="result-icon" id="bfResultIcon">📐</div><div><div class="result-title">Body Fat Percentage</div><div class="result-value" id="bfValue">—</div><span class="result-category" id="bfCategory"></span></div></div>
+    <div class="result-description" id="bfDescription"></div>
+    <div id="bfRangeRows" style="margin-top:16px;"></div><div class="share-result-section"><div class="share-result-label">Share your result:</div><div class="share-result-btns"><button class="share-btn share-whatsapp" id="shareWhatsapp" type="button">WhatsApp</button><button class="share-btn share-twitter" id="shareTwitter" type="button">Twitter</button><button class="share-btn copy-result" id="copyResult" type="button">Copy</button></div></div></div>
+
+    <!-- How to Use -->
+    <div class="content-section">
+      <h2>How to Use the Body Fat Calculator</h2>
+      <p>This calculator uses the <strong>U.S. Navy Circumference Method</strong> — a validated technique used by the United States military for fitness assessments. It requires measurements of specific body circumferences alongside height and weight.</p>
+      <ul>
+        <li><strong>Step 1 — Select your sex:</strong> The measurement sites differ for men and women because fat distribution patterns differ physiologically.</li>
+        <li><strong>Step 2 — Enter your height</strong> (in cm or inches).</li>
+        <li><strong>Step 3 — Measure your waist:</strong> For men, measure at the navel. For women, measure at the narrowest point. Use a soft tape measure and breathe normally — do not suck in.</li>
+        <li><strong>Step 4 — Men only — measure your neck:</strong> Measure at the narrowest point, just below the larynx (Adam's apple), angling slightly downward at the front.</li>
+        <li><strong>Step 5 — Women only — measure your hips:</strong> Measure at the widest point across the buttocks.</li>
+        <li><strong>Step 6 — Click Calculate</strong> to see your estimated body fat percentage, lean mass, fat mass, and fitness category.</li>
+      </ul>
+      <p>For best accuracy, take measurements in the morning before eating, and take 3 measurements at each site and average them. This method has an accuracy of approximately ±3–4%.</p>
+    </div>
+
+    <!-- Formula -->
+    <div class="content-section">
+      <h2>The U.S. Navy Body Fat Formula</h2>
+      <p>The U.S. Navy method uses logarithmic calculations based on circumference measurements to estimate body fat percentage:</p>
+      <div class="formula-box">
+        <strong>For Men:</strong><br>
+        BF% = 86.010 × log₁₀(waist − neck) − 70.041 × log₁₀(height) + 36.76<br><br>
+        <strong>For Women:</strong><br>
+        BF% = 163.205 × log₁₀(waist + hip − neck) − 97.684 × log₁₀(height) − 78.387<br><br>
+        All measurements in centimeters or inches (consistent units required)
+      </div>
+      <p>Lean body mass = Total body weight × (1 − BF% / 100). Fat mass = Total body weight × (BF% / 100).</p>
+    </div>
+
+    <!-- Understanding Results -->
+    <div class="content-section">
+      <h2>Body Fat Percentage Categories</h2>
+      <p>Body fat percentage classifications are based on guidelines from the American Council on Exercise (ACE) and the World Health Organization (WHO):</p>
+      <ul>
+        <li><strong>Essential Fat — Men: 2–5%, Women: 10–13%:</strong> Minimum fat required for physiological functioning, including hormone production and organ protection. Below these levels is medically dangerous.</li>
+        <li><strong>Athletes — Men: 6–13%, Women: 14–20%:</strong> Typical range for competitive athletes and highly trained individuals. Associated with excellent cardiovascular fitness.</li>
+        <li><strong>Fitness — Men: 14–17%, Women: 21–24%:</strong> Lean and fit individuals. Associated with good health and athletic performance.</li>
+        <li><strong>Acceptable — Men: 18–24%, Women: 25–31%:</strong> Healthy range for most adults. Slightly higher health risk than the fitness category but generally acceptable.</li>
+        <li><strong>Obese — Men: 25%+, Women: 32%+:</strong> Excess body fat associated with increased risk of metabolic syndrome, type 2 diabetes, cardiovascular disease, and joint problems.</li>
+      </ul>
+    </div>
+
+    <!-- Tips -->
+    <div class="content-section">
+      <h2>Practical Tips to Reduce Body Fat</h2>
+      <ul>
+        <li><strong>Calorie Deficit:</strong> A deficit of 500 calories/day leads to approximately 1 lb (0.45 kg) of fat loss per week. Do not exceed a 1,000 calorie/day deficit, as this increases muscle loss.</li>
+        <li><strong>Prioritize Protein:</strong> Aim for 0.7–1.0 g of protein per pound of body weight. High protein intake preserves lean muscle mass during fat loss and increases satiety.</li>
+        <li><strong>Resistance Training:</strong> Lifting weights 3–4 times per week builds and preserves lean mass, which raises your resting metabolic rate. More muscle = more calories burned at rest.</li>
+        <li><strong>Progressive Cardio:</strong> HIIT (High-Intensity Interval Training) burns significantly more calories in less time than steady-state cardio and continues to elevate metabolism for hours afterward.</li>
+        <li><strong>Sleep 7–9 Hours:</strong> Sleep deprivation elevates cortisol (a fat-storing hormone), increases hunger hormones (ghrelin), and reduces the fat-burning hormone leptin. Poor sleep is one of the most underestimated obstacles to fat loss.</li>
+      </ul>
+    </div>
+
+    <div class="content-section"><h2>Frequently Asked Questions</h2>
+    <div class="faq-item"><h3>What is a healthy body fat percentage?</h3><p>For men: 6–17% is the athletic to fitness range; 18–24% is average. For women: 14–24% is athletic to fitness range; 25–31% is average. Above 25% (men) or 32% (women) is considered obese by ACE guidelines.</p></div>
+    <div class="faq-item"><h3>How accurate is the US Navy method?</h3><p>The US Navy method is accurate to within about 3–4% compared to DEXA scans. It's reliable for tracking changes over time. For precision (e.g., clinical or competitive use), DEXA or hydrostatic weighing is recommended.</p></div>
+    <div class="faq-item"><h3>Where should I measure my waist for this calculator?</h3><p>For men: measure at the navel level. For women: measure at the narrowest point of the torso (natural waist). Take measurements relaxed, not sucking in, at the end of a normal exhale.</p></div></div>
+
+    <div class="content-section"><h2>Related Calculators</h2>
+      <div class="related-tools-grid"><a href="/pages/bmi-calculator.html" class="related-tool-card">📊 BMI Calculator</a><a href="/pages/ideal-weight-calculator.html" class="related-tool-card">⚖️ Ideal Weight</a><a href="/pages/calorie-calculator.html" class="related-tool-card">🔥 Calorie Calculator</a><a href="/pages/tdee-calculator.html" class="related-tool-card">⚡ TDEE Calculator</a></div>
+    </div>
+  </main>
+  <aside class="calc-sidebar">
+    <div class="sidebar-widget"><h3>Quick Links</h3><a href="/pages/bmi-calculator.html" class="sidebar-link">BMI Calculator</a><a href="/pages/ideal-weight-calculator.html" class="sidebar-link">Ideal Weight</a><a href="/pages/calorie-calculator.html" class="sidebar-link">Calorie Calculator</a></div>
+  
+    <div class="sidebar-widget">
+      <div class="sidebar-widget-header"><h3>💪 Body Composition Tips</h3></div>
+      <div class="sidebar-widget-body">
+        <div class="sidebar-tip"><strong>Scale weight vs body fat</strong> You can lose fat and gain muscle simultaneously, making the scale stay the same while your body composition dramatically improves. Measure body fat, not just weight.</div>
+        <div class="sidebar-tip"><strong>Visceral fat matters most</strong> Fat stored around abdominal organs (visceral fat) is more metabolically harmful than subcutaneous fat. A waist circumference over 40 inches (men) or 35 inches (women) signals elevated risk.</div>
+        <div class="sidebar-tip"><strong>Retest every 4–6 weeks</strong> Body fat changes slowly. Measure every 4–6 weeks for meaningful comparisons. Daily fluctuations from hydration can be 1–2%.</div>
+      </div>
+    </div>
+
+  
+    <div class="sidebar-widget">
+      <div class="sidebar-widget-header"><h3>💪 Body Composition Tips</h3></div>
+      <div class="sidebar-widget-body">
+        <div class="sidebar-tip"><strong>Scale weight vs body fat</strong> You can lose fat and gain muscle simultaneously, making the scale stay the same while your body composition dramatically improves. Measure body fat, not just weight.</div>
+        <div class="sidebar-tip"><strong>Visceral fat matters most</strong> Fat stored around abdominal organs (visceral fat) is more metabolically harmful than subcutaneous fat. A waist circumference over 40 inches (men) or 35 inches (women) signals elevated risk.</div>
+        <div class="sidebar-tip"><strong>Retest every 4–6 weeks</strong> Body fat changes slowly. Measure every 4–6 weeks for meaningful comparisons. Daily fluctuations from hydration can be 1–2%.</div>
+      </div>
+    </div>
+
+  </aside>
+</div>
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-grid">
+    <div class="footer-brand"><div class="site-logo"><div class="logo-icon"><svg viewBox="0 0 24 24" fill="white"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg></div><span class="logo-text">Medical<span>ToolKit</span></span></div><p>Free, accurate medical and health calculators trusted by millions worldwide.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/pages/bmi-calculator.html">BMI Calculator</a><a href="/pages/due-date-calculator.html">Due Date</a><a href="/pages/blood-sugar-calculator.html">Blood Sugar</a><a href="/pages/calorie-calculator.html">Calories</a><a href="/pages/blood-pressure-checker.html">Blood Pressure</a><a href="/pages/sleep-calculator.html">Sleep Calculator</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/pages/a1c-converter.html">A1C Converter</a><a href="/pages/gfr-calculator.html">GFR Calculator</a><a href="/pages/body-fat-calculator.html">Body Fat %</a><a href="/pages/ideal-weight-calculator.html">Ideal Weight</a><a href="/pages/heart-rate-calculator.html">Heart Rate</a><a href="/pages/tdee-calculator.html">TDEE Calculator</a><a href="/pages/anxiety-test.html">Anxiety Test</a></div>
+    <div class="footer-col"><h4>Company</h4><a href="/pages/about.html">About Us</a><a href="/pages/editorial-policy.html">Editorial Policy</a><a href="/pages/contact.html">Contact</a><a href="/pages/privacy-policy.html">Privacy Policy</a><a href="/pages/disclaimer.html">Medical Disclaimer</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 MedicalToolKit. All rights reserved. <strong>Not medical advice.</strong></p><div class="footer-legal-links"><a href="/pages/privacy-policy.html">Privacy</a><a href="/pages/disclaimer.html">Disclaimer</a><a href="/pages/contact.html">Contact</a></div></div>
+</footer>
+<button class="back-to-top" aria-label="Back to top">&#8593;</button>
+<div class="cookie-consent" id="cookieBanner" role="dialog"><p>We use cookies. <a href="/pages/privacy-policy.html">Privacy Policy</a></p><div class="cookie-btns"><button class="btn-accept-cookies" id="acceptCookies">Accept</button><button class="btn-reject-cookies" id="rejectCookies">Decline</button></div></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="/dist/js/main.min.js?v=20260620nodark" defer></script>
+<script src="/js/calculators/body-fat.js" defer></script>
+  <script src="/dist/js/animations.min.js?v=20260620nodark" defer></script>
+
+  <script src="/dist/js/analytics.min.js?v=20260620nodark" defer></script>
+  <script src="/dist/js/pwa.min.js?v=20260620nodark" defer></script>
+  <script src="/dist/js/calc-history.min.js?v=20260620nodark" defer></script>
+</body></html>

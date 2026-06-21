@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+/* Critical CSS — above fold render */
+:root{--primary:#2563EB;--primary-light:#EFF6FF;--primary-dark:#1D4ED8;--secondary:#10B981;--text:#1E293B;--text-light:#475569;--text-muted:#94A3B8;--bg:#F8FAFC;--border:#E2E8F0;--shadow:0 1px 3px rgba(0,0,0,.1),0 1px 2px rgba(0,0,0,.06);--shadow-lg:0 10px 15px rgba(0,0,0,.1);--shadow-xl:0 20px 25px rgba(0,0,0,.1);--radius:12px;--radius-sm:8px;--radius-lg:16px;--transition:all .2s ease}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;overflow-x:hidden}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;overflow-x:hidden}
+.site-header{position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid var(--border);box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.header-inner{max-width:1200px;margin:0 auto;padding:0 20px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.site-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-icon{width:40px;height:40px;background:var(--primary);border-radius:10px;display:flex;align-items:center;justify-content:center}
+.logo-icon svg{width:22px;height:22px;fill:white}
+.logo-text{font-weight:700;font-size:1.1rem;color:var(--text)}
+.logo-text span{color:var(--primary)}
+.main-nav{display:flex;align-items:center;gap:4px}
+.main-nav a{padding:6px 12px;border-radius:8px;font-size:.875rem;font-weight:500;color:var(--text-light);text-decoration:none}
+.hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer;width:36px;height:36px;background:none;border:none}
+.bar{width:22px;height:2.5px;background:var(--text);border-radius:3px}
+.hero{background:linear-gradient(135deg,#1E3A5F 0%,#2563EB 50%,#0EA5E9 100%);color:white;padding:72px 20px 60px;text-align:center;position:relative;overflow:hidden}
+.hero h1{font-size:clamp(2rem,5vw,3rem);font-weight:800;line-height:1.15;margin-bottom:16px;letter-spacing:-.5px}
+.hero p{font-size:1.1rem;opacity:.88;max-width:580px;margin:0 auto 28px}
+.stats-bar{background:#fff;border-bottom:1px solid var(--border)}
+.stats-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:center;flex-wrap:wrap}
+.stat-item{display:flex;flex-direction:column;align-items:center;padding:16px 32px;border-right:1px solid var(--border);flex:1;min-width:120px;text-align:center}
+.stat-item:last-child{border-right:none}
+.stat-number{font-size:2rem;font-weight:800;color:var(--primary);display:block;line-height:1.2;white-space:nowrap}
+.stat-label{font-size:0.8rem;color:var(--text-light);white-space:nowrap;margin-top:2px}
+@media(max-width:640px){.stat-item{padding:14px 16px;flex:0 0 50%;min-width:50%;border-right:none;border-bottom:1px solid var(--border)}.stat-item:nth-child(odd){border-right:1px solid var(--border)}.stat-item:nth-last-child(-n+2){border-bottom:none}.stat-number{font-size:1.5rem}}
+.reading-progress{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--primary),#10B981,#0EA5E9);z-index:99999;transition:width .15s linear}
+</style>
+  <script src="https://quge5.com/88/tag.min.js" data-zone="245868" async data-cfasync="false"></script>
+  <meta charset="UTF-8">
+  <!-- DNS Prefetch — Performance -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link rel="dns-prefetch" href="//quge5.com">
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <link rel="dns-prefetch" href="//www.google-analytics.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>Sleep Calculator | MedicalToolKit</title>
+  <meta name="description" content="Use our free sleep calculator to find the best wake-up times or bedtimes based on 90-minute sleep cycles. Wake up feeling refreshed every morning.">
+  <meta name="keywords" content="sleep calculator, best time to wake up, sleep cycle calculator, bedtime calculator, REM sleep calculator, optimal sleep time">
+  <meta name="author" content="MedicalToolKit">
+  <link rel="canonical" href="https://medicaltoolkit.pages.dev/pages/sleep-calculator.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Sleep Calculator — Find the Best Time to Wake Up | MedicalToolKit">
+  <meta property="og:description" content="Find your optimal bedtime or wake-up time based on 90-minute sleep cycles. Wake up refreshed, not groggy.">
+  <meta property="og:url" content="https://medicaltoolkit.pages.dev/pages/sleep-calculator.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="MedicalToolKit">
+  <meta property="og:image" content="https://medicaltoolkit.pages.dev/images/og-sleep.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sleep Calculator — Find the Best Time to Wake Up | MedicalToolKit">
+  <meta name="twitter:description" content="Find your optimal bedtime or wake-up time based on 90-minute sleep cycles.">
+  <meta name="twitter:image" content="https://medicaltoolkit.pages.dev/images/og-sleep.png">
+
+  <!-- PWA -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#2563EB">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap&subset=latin" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="preload" href="/dist/css/style.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/style.min.css?v=20260620nodark"></noscript>
+  <link rel="preload" href="/dist/css/responsive.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/responsive.min.css?v=20260620nodark"></noscript>
+  <link rel="stylesheet" href="/dist/css/calculator.min.css?v=20260620nodark">
+
+  <!-- Monetag Push Notification -->
+  <script>
+  (function(d,z,s){
+    s=d.createElement('script');
+    s.async=true;
+    d.head.appendChild(s);
+  })(document);
+  </script>
+
+  <!-- JSON-LD: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Sleep Calculator",
+    "url": "https://medicaltoolkit.pages.dev/pages/sleep-calculator.html",
+    "description": "Free sleep calculator that finds optimal bedtimes and wake times based on 90-minute sleep cycles.",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "MedicalToolKit",
+      "url": "https://medicaltoolkit.pages.dev/"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a sleep cycle?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A sleep cycle is a repeating pattern of sleep stages that your brain cycles through each night. Each complete cycle lasts approximately 90 minutes and consists of four stages: three stages of non-REM sleep (light sleep, light sleep, and deep/slow-wave sleep) followed by one stage of REM (Rapid Eye Movement) sleep. During REM sleep, the brain is highly active, dreams occur, and memory consolidation takes place. Deep sleep in stages 3 restores the body physically — this is when growth hormone is released, muscles repair, and the immune system strengthens. Waking up at the end of a complete cycle means you wake naturally from lighter sleep, feeling refreshed rather than groggy."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why do I feel worse after 8 hours of sleep than after 7?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "This is a common experience called sleep inertia, and it is usually caused by waking up in the middle of a deep sleep stage (stage 3 non-REM). If you wake mid-cycle rather than at the end of a natural 90-minute cycle, your brain needs extra time to transition to wakefulness, leaving you feeling groggy and disoriented for 15–60 minutes. This can happen even after a full 8 hours if those hours do not align with complete 90-minute cycles. For example, 7.5 hours (5 complete cycles) often feels better than 8 hours (which cuts into the 6th cycle at the 30-minute mark). This calculator helps you find times that align with complete cycle endings."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much sleep do adults need per night?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The American Academy of Sleep Medicine and the CDC recommend that adults aged 18–60 get at least 7 hours of sleep per night. Adults aged 61–64 should aim for 7–9 hours, and those 65 and older need 7–8 hours. Teenagers (13–18) need 8–10 hours, while school-age children (6–12) need 9–12 hours. Chronic sleep deprivation — defined as regularly getting less than 7 hours — is linked to increased risk of obesity, heart disease, type 2 diabetes, poor immune function, depression, and impaired cognitive performance. There is also evidence that regularly sleeping more than 9 hours is associated with health risks, suggesting that quality and timing matter as much as total duration."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is REM sleep and why is it important?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "REM (Rapid Eye Movement) sleep is the stage of sleep associated with vivid dreaming, active brain activity, and emotional processing. It typically occurs in longer periods toward the end of the night, which is why cutting sleep short disproportionately reduces REM sleep. REM is critical for memory consolidation — particularly procedural and emotional memories — creativity, problem-solving, and mood regulation. Research shows that REM sleep helps the brain process emotional experiences, which is why poor sleep is closely linked to anxiety and depression. Adults spend about 20–25% of total sleep time in REM, while newborns spend approximately 50%."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are tips for falling asleep faster?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Several evidence-based strategies can help you fall asleep more quickly. Maintain a consistent sleep schedule by going to bed and waking at the same time every day, including weekends. Keep your bedroom cool (around 65–68°F / 18–20°C), dark, and quiet. Avoid screens (phones, tablets, computers) for at least 30–60 minutes before bed, as blue light suppresses melatonin production. Avoid caffeine after 2 pm and large meals within 2–3 hours of bedtime. Use relaxation techniques such as deep breathing, progressive muscle relaxation, or meditation. Regular exercise improves sleep quality, but avoid vigorous exercise within 2 hours of bedtime. Limit alcohol, which impairs sleep quality and suppresses REM sleep even if it helps you fall asleep initially."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://medicaltoolkit.pages.dev/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Sleep Calculator",
+        "item": "https://medicaltoolkit.pages.dev/pages/sleep-calculator.html"
+      }
+    ]
+  }
+  </script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JWW19HEZBJ');
+  </script>
+  <link rel="stylesheet" href="/dist/css/calc-history.min.css?v=20260620nodark">
+  <link rel="preload" href="/dist/css/animations.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/animations.min.css?v=20260620nodark"></noscript>
+  <link rel="preload" href="/dist/css/blog.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/blog.min.css?v=20260620nodark"></noscript>
+  <!-- ============================================
+       SEARCH CONSOLE & WEBMASTER VERIFICATION
+       Replace placeholder values with your actual codes
+       ============================================ -->
+  <!-- Google Search Console: Go to search.google.com/search-console → Add Property → HTML tag -->
+  <meta name="google-site-verification" content="y63XSBvlNcknj46yVKMn0uE14aKKOBfjwLLO6EZrLBk">
+  <!-- Bing Webmaster: Go to bing.com/webmasters → Add Site → HTML Meta Tag -->
+  <meta name="msvalidate.01" content="AB9070CF57664870ADB2D23906FE30C4">
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JWW19HEZBJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JWW19HEZBJ', {anonymize_ip: true});
+  </script>
+</head>
+<body>
+
+<!-- Monetag Popunder -->
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" role="banner">
+  <div class="header-inner">
+    <a href="/" class="site-logo" aria-label="MedicalToolKit Home">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/>
+        </svg>
+      </div>
+      <span class="logo-text">Medical<span>ToolKit</span></span>
+    </a>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="/pages/bmi-calculator.html">Fitness</a>
+      <a href="/pages/due-date-calculator.html">Pregnancy</a>
+      <a href="/pages/blood-sugar-calculator.html">Diabetes</a>
+      <a href="/pages/blood-pressure-checker.html">Heart</a>
+      <a href="/pages/gfr-calculator.html">Kidney</a>
+      <a href="/pages/anxiety-test.html">Mental Health</a>
+      <a href="/pages/about.html">About</a>
+      <a href="/blog/">Blog</a>
+    </nav>
+
+    <div class="header-search search-wrapper">
+      <input type="search" class="header-search-input search-input" placeholder="Search calculators..." aria-label="Search calculators">
+    </div>
+
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+  </div>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <div class="mobile-search">
+      <input type="search" class="search-input" placeholder="Search calculators...">
+    </div>
+    <a href="/">Home</a>
+    <a href="/pages/bmi-calculator.html">BMI Calculator</a>
+    <a href="/pages/due-date-calculator.html">Due Date Calculator</a>
+    <a href="/pages/blood-sugar-calculator.html">Blood Sugar</a>
+    <a href="/pages/calorie-calculator.html">Calorie Calculator</a>
+    <a href="/pages/blood-pressure-checker.html">Blood Pressure</a>
+    <a href="/pages/sleep-calculator.html">Sleep Calculator</a>
+    <a href="/pages/heart-rate-calculator.html">Heart Rate</a>
+    <a href="/pages/gfr-calculator.html">GFR Calculator</a>
+    <a href="/pages/anxiety-test.html">Anxiety Test</a>
+    <a href="/pages/about.html">About</a>
+    <a href="/pages/contact.html">Contact</a>
+  </nav>
+</header>
+
+<!-- Top Banner Ad -->
+
+
+<!-- Breadcrumb -->
+<div class="breadcrumb-bar">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a>
+    <span class="breadcrumb-sep" aria-hidden="true">›</span>
+    <span>Sleep Calculator</span>
+  </nav>
+</div>
+
+<!-- Page Hero -->
+<section class="page-hero" aria-labelledby="pageHeroHeading">
+  <div style="max-width:700px;margin:0 auto;">
+    <h1 id="pageHeroHeading">Sleep Calculator — Free Online Tool</h1>
+    <p>Find the best times to sleep or wake up based on 90-minute sleep cycles. Wake up refreshed and energised every day.</p>
+  </div>
+</section>
+
+<!-- ============ MAIN LAYOUT ============ -->
+<div class="calc-page-layout">
+
+  <!-- MAIN CONTENT -->
+  <main class="calc-main" id="mainContent">
+
+    <!-- Intro -->
+    <div class="calc-intro">
+      <h2>Sleep Cycles — Why 90 Minutes Is the Magic Number</h2>
+      <p>Most people know that adults need 7–9 hours of sleep per night, but the quality and timing of when you wake up matters just as much as the total duration. During a full night of sleep, your brain cycles through a repeating pattern of sleep stages roughly every 90 minutes. Each complete sleep cycle includes stages of light sleep, deep restorative slow-wave sleep, and REM (Rapid Eye Movement) sleep — the stage associated with vivid dreaming, memory consolidation, and emotional regulation. The key to waking up feeling refreshed lies not in maximising total sleep time, but in waking at the natural end of a complete cycle, when your sleep is lightest. If an alarm jolts you awake from the middle of a deep sleep stage, you experience what scientists call sleep inertia — a groggy, disoriented feeling that can last 30–60 minutes. By aligning your wake time or bedtime with complete 90-minute cycles, this calculator helps you pinpoint the optimal sleep windows. The calculator also factors in the average time it takes most people to fall asleep — approximately 14 minutes — so the recommended times are realistic targets rather than the moment your head hits the pillow. Use the results as a guide to build a consistent, restorative sleep schedule that leaves you feeling alert and focused every morning.</p>
+    </div>
+
+    <!-- Calculator Widget -->
+    <div class="calc-widget">
+      <div class="calc-widget-header">
+        <span class="calc-widget-icon" aria-hidden="true">😴</span>
+        <h2>Sleep Calculator</h2>
+      </div>
+      <div class="calc-widget-body">
+
+        <!-- Mode Toggle -->
+        <div class="unit-toggle" role="group" aria-label="Calculation mode">
+          <button class="unit-btn active" id="modeWakeUp" aria-pressed="true">I want to wake up at...</button>
+          <button class="unit-btn" id="modeBedTime" aria-pressed="false">I want to sleep at...</button>
+        </div>
+
+        <div class="calc-form">
+
+          <!-- Wake Up Mode -->
+          <div id="wakeUpPanel">
+            <div class="form-group">
+              <label class="form-label" for="wakeTime">I want to wake up at:</label>
+              <input type="time" id="wakeTime" class="calc-input" value="07:00" aria-label="Desired wake-up time">
+            </div>
+            <p style="font-size:0.875rem;color:var(--text-light);margin-top:-8px;">We will calculate the best times to fall asleep to wake up at this time feeling refreshed.</p>
+          </div>
+
+          <!-- Bed Time Mode (hidden by default) -->
+          <div id="bedTimePanel" style="display:none;">
+            <div class="form-group">
+              <label class="form-label" for="sleepTime">I want to go to sleep at:</label>
+              <input type="time" id="sleepTime" class="calc-input" value="22:30" aria-label="Desired sleep time">
+            </div>
+            <p style="font-size:0.875rem;color:var(--text-light);margin-top:-8px;">We will calculate the best times to wake up after falling asleep at this time.</p>
+          </div>
+
+          <!-- Error -->
+          <p class="input-error-msg" id="sleepError" role="alert"></p>
+
+          <!-- Buttons -->
+          <button class="calc-btn" id="calcSleep" type="button">Calculate Sleep Times</button>
+          <button class="calc-btn-secondary" id="sleepNow" type="button" style="margin-top:8px;">
+            😴 Sleep Right Now (calculate from current time)
+          </button>
+          <button class="calc-btn-secondary" id="resetSleep" type="button">Reset</button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Result Box -->
+    <div class="calc-result-box result-info" id="sleepResult" role="region" aria-live="polite" aria-label="Sleep times result">
+      <div class="result-header">
+        <div class="result-icon" aria-hidden="true">🌙</div>
+        <div>
+          <div class="result-title" id="sleepResultTitle">Recommended Sleep Times</div>
+          <div class="result-value" style="font-size:1.25rem;" id="sleepResultSubtitle">Based on 90-min sleep cycles</div>
+        </div>
+      </div>
+
+      <div class="sleep-times-list" id="sleepTimesList" aria-label="Recommended times"></div>
+
+      <div class="result-description" id="sleepDescription"></div>
+
+      <!-- Share -->
+      <div class="share-result-section">
+        <div class="share-result-label">Share:</div>
+        <div class="share-result-btns">
+          <button class="share-btn share-whatsapp" id="shareWhatsapp" type="button">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </button>
+          <button class="share-btn copy-result" id="copyResult" type="button">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            Copy
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- How to Use -->
+    <div class="content-section">
+      <h2>How to Use This Calculator</h2>
+      <p>The sleep calculator offers two modes and a quick "sleep now" option:</p>
+      <ul>
+        <li><strong>Wake-up mode:</strong> Select "I want to wake up at..." and enter your desired wake time. The calculator works backwards to show you the best times to fall asleep — targeting the end of 2, 3, 4, 5, or 6 complete 90-minute sleep cycles. Set your alarm for your chosen time and aim to be in bed 14 minutes earlier (the average time to fall asleep).</li>
+        <li><strong>Bedtime mode:</strong> Select "I want to sleep at..." and enter the time you plan to go to bed. The calculator works forwards to show you the optimal times to wake up, again based on 2–6 complete cycles.</li>
+        <li><strong>Sleep now:</strong> Click the "Sleep Right Now" button for instant results based on the current time. The calculator automatically adds 14 minutes for sleep onset and calculates the best wake-up times from now.</li>
+      </ul>
+      <p>For most adults, 5–6 sleep cycles (7.5–9 hours) is the ideal target. Look for the times marked "Best" — these represent 5 or 6 complete cycles and fall within the recommended 7–9 hours of sleep for adults.</p>
+    </div>
+
+    <!-- Formula -->
+    <div class="content-section">
+      <h2>How It Works — The Formula</h2>
+      <p>The calculator is based on two scientifically established constants:</p>
+      <div class="formula-box">
+        <strong>Sleep cycle duration:</strong> 90 minutes per complete cycle<br><br>
+        <strong>Sleep onset latency:</strong> 14 minutes (average time to fall asleep)<br><br>
+        <strong>Wake-up mode formula:</strong><br>
+        Bedtime = Wake Time − (90 min × N cycles) − 14 min<br><br>
+        Example (wake at 7:00 AM, 5 cycles):<br>
+        7:00 AM − (90 × 5) + 14 min = 7:00 AM − 7h 44min = 11:16 PM<br><br>
+        <strong>Bedtime mode formula:</strong><br>
+        Wake Time = Sleep Time + 14 min + (90 min × N cycles)<br><br>
+        Example (sleep at 10:30 PM, 5 cycles):<br>
+        10:30 PM + 14 min + 450 min = 6:14 AM
+      </div>
+      <p>Five result times are calculated for N = 2, 3, 4, 5, and 6 cycles, giving sleep durations of 3 hours, 4.5 hours, 6 hours, 7.5 hours, and 9 hours respectively (excluding fall-asleep time). The quality labels reflect sleep science recommendations: 6 and 5 cycles (7.5–9 hours) are marked "Best", 4 and 3 cycles "Good", and 2 cycles "OK" (short but still cycle-aligned, suitable for naps or when time is limited).</p>
+    </div>
+
+    <!-- Understanding Results -->
+    <div class="content-section">
+      <h2>Understanding Your Results</h2>
+      <p><strong>Number of cycles:</strong> Each row shows how many complete 90-minute sleep cycles you will complete. More cycles generally means more restorative sleep, with diminishing returns beyond 6 cycles for most adults.</p>
+      <p><strong>Quality labels explained:</strong></p>
+      <ul>
+        <li><strong>Best (6 cycles — 9 hours):</strong> Ideal for recovery days, illness, growing teenagers, and anyone who has accumulated sleep debt. Maximises both deep sleep (important in early cycles) and REM sleep (which dominates later cycles).</li>
+        <li><strong>Best (5 cycles — 7.5 hours):</strong> The sweet spot for most healthy adults. Provides sufficient deep sleep and REM sleep for optimal cognitive function, mood, and physical recovery.</li>
+        <li><strong>Good (4 cycles — 6 hours):</strong> Acceptable for occasional nights but not ideal as a regular pattern. Reduces REM sleep, which occurs mainly in the latter cycles.</li>
+        <li><strong>Good (3 cycles — 4.5 hours):</strong> Very short for a full night's sleep but better than waking mid-cycle. Suitable for short nap planning or emergency situations.</li>
+        <li><strong>OK (2 cycles — 3 hours):</strong> A power-nap duration. Not recommended for regular nighttime sleep but can reduce sleep pressure if a full sleep is impossible.</li>
+      </ul>
+      <p>The 14-minute fall-asleep buffer is an average. If you know you take longer (e.g., 30 minutes), adjust your target bedtime accordingly.</p>
+    </div>
+
+    <!-- FAQ -->
+    <div class="faq-section" itemscope itemtype="https://schema.org/FAQPage">
+      <div class="faq-header">
+        <h2>Frequently Asked Questions</h2>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <button class="faq-question" aria-expanded="false">
+          <span itemprop="name">What is a sleep cycle?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <p itemprop="text">A sleep cycle is a repeating pattern of sleep stages that your brain cycles through each night. Each complete cycle lasts approximately 90 minutes and consists of four stages: three stages of non-REM sleep (light sleep, light sleep, and deep slow-wave sleep) followed by one stage of REM sleep. During REM sleep, the brain is highly active, dreams occur, and memory consolidation takes place. Deep sleep restores the body physically — this is when growth hormone is released and muscles repair. Waking up at the end of a complete cycle means you wake from lighter sleep, feeling refreshed rather than groggy.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <button class="faq-question" aria-expanded="false">
+          <span itemprop="name">Why do I feel worse after 8 hours than after 7?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <p itemprop="text">This is caused by sleep inertia — waking up in the middle of a deep sleep stage. If you wake mid-cycle rather than at the end of a natural 90-minute cycle, your brain needs extra time to transition to wakefulness, leaving you feeling groggy for 15–60 minutes. For example, 7.5 hours (5 complete cycles) often feels better than 8 hours (which cuts into the 6th cycle at the 30-minute mark, during deep sleep). This calculator helps you find times that align with complete cycle endings so you wake from light sleep naturally.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <button class="faq-question" aria-expanded="false">
+          <span itemprop="name">How much sleep do adults need per night?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <p itemprop="text">The American Academy of Sleep Medicine and the CDC recommend that adults aged 18–60 get at least 7 hours of sleep per night. Adults aged 61–64 should aim for 7–9 hours, and those 65 and older need 7–8 hours. Teenagers need 8–10 hours, and school-age children need 9–12 hours. Chronic sleep deprivation — regularly getting less than 7 hours — is linked to increased risk of obesity, heart disease, diabetes, poor immune function, depression, and impaired cognitive performance. Quality and timing matter as much as total duration.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <button class="faq-question" aria-expanded="false">
+          <span itemprop="name">What is REM sleep and why is it important?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <p itemprop="text">REM (Rapid Eye Movement) sleep is the stage associated with vivid dreaming, active brain activity, and emotional processing. It occurs in longer periods toward the end of the night, which is why cutting sleep short disproportionately reduces REM. REM is critical for memory consolidation — particularly procedural and emotional memories — creativity, problem-solving, and mood regulation. Research shows REM sleep helps the brain process emotional experiences, which is why poor sleep is closely linked to anxiety and depression. Adults spend about 20–25% of total sleep time in REM.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <button class="faq-question" aria-expanded="false">
+          <span itemprop="name">What are tips for falling asleep faster?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <p itemprop="text">Evidence-based strategies to fall asleep faster include: maintaining a consistent sleep schedule every day including weekends; keeping your bedroom cool (18–20°C / 65–68°F), dark, and quiet; avoiding screens 30–60 minutes before bed as blue light suppresses melatonin; avoiding caffeine after 2 pm and large meals within 2–3 hours of bedtime; using relaxation techniques such as deep breathing, progressive muscle relaxation, or meditation; exercising regularly (but not within 2 hours of bedtime); and limiting alcohol, which impairs sleep quality and suppresses REM sleep even if it helps you fall asleep initially.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Related Tools -->
+    <div class="content-section">
+      <h2>Related Health Tools</h2>
+      <div class="related-tools">
+        <a href="/pages/calorie-calculator.html" class="related-tool-card">
+          <div class="related-tool-icon" aria-hidden="true">🥗</div>
+          <div class="related-tool-info">
+            <h4>Calorie Calculator</h4>
+            <p>Calculate your daily energy needs</p>
+          </div>
+        </a>
+        <a href="/pages/anxiety-test.html" class="related-tool-card">
+          <div class="related-tool-icon" aria-hidden="true">🧠</div>
+          <div class="related-tool-info">
+            <h4>Anxiety Test (GAD-7)</h4>
+            <p>Mental health screening tool</p>
+          </div>
+        </a>
+        <a href="/pages/bmi-calculator.html" class="related-tool-card">
+          <div class="related-tool-icon" aria-hidden="true">⚖️</div>
+          <div class="related-tool-info">
+            <h4>BMI Calculator</h4>
+            <p>Check your Body Mass Index</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Medical Disclaimer -->
+    <div class="medical-disclaimer" role="note">
+      <span class="disc-icon" aria-hidden="true">⚠️</span>
+      <p><strong>Medical Disclaimer:</strong> This sleep calculator is for informational and educational purposes only. The recommended times are estimates based on average sleep cycle duration and fall-asleep latency, which vary between individuals. This tool is not a substitute for professional medical advice. If you experience persistent sleep difficulties, excessive daytime sleepiness, or suspect a sleep disorder such as sleep apnea or insomnia, consult a qualified healthcare provider or sleep specialist.</p>
+    </div>
+
+  </main>
+
+  <!-- SIDEBAR -->
+  <aside class="calc-sidebar" aria-label="Sidebar">
+
+    <!-- Quick Tips Widget -->
+    <div class="sidebar-widget">
+      <div class="sidebar-widget-header">
+        <h3>💡 Sleep Tips</h3>
+      </div>
+      <div class="sidebar-widget-body">
+        <div class="sidebar-tip">
+          <strong>Keep a consistent schedule</strong>
+          Going to bed and waking at the same time every day — including weekends — is the single most powerful thing you can do to improve sleep quality. Your circadian rhythm thrives on regularity.
+        </div>
+        <div class="sidebar-tip">
+          <strong>Cool room = better sleep</strong>
+          Your body temperature drops slightly during sleep. A bedroom temperature of 18–20°C (65–68°F) is optimal. If you feel cold, wear socks — warming the feet triggers sleep onset faster.
+        </div>
+        <div class="sidebar-tip">
+          <strong>Avoid the snooze button</strong>
+          Hitting snooze starts a new sleep cycle that you then interrupt 9 minutes later — making grogginess worse. Set your alarm for when you genuinely need to get up, not 30 minutes earlier.
+        </div>
+      </div>
+    </div>
+
+    <!-- Direct Link Ad -->
+    <div style="text-align:center;padding:8px 0;">
+      <a href="DIRECT_LINK_PLACEHOLDER_URL" class="direct-link-btn" target="_blank" rel="noopener sponsored">
+        Better Sleep Starts Here &rarr;
+      </a>
+    </div>
+  </aside>
+
+</div><!-- /.calc-page-layout -->
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="site-logo">
+        <div class="logo-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
+        </div>
+        <span class="logo-text">Medical<span>ToolKit</span></span>
+      </div>
+      <p>Free, accurate medical and health calculators trusted by millions worldwide. Built with medical-grade formulas for your wellness journey.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Calculators</h4>
+      <a href="/pages/bmi-calculator.html">BMI Calculator</a>
+      <a href="/pages/due-date-calculator.html">Due Date</a>
+      <a href="/pages/blood-sugar-calculator.html">Blood Sugar</a>
+      <a href="/pages/calorie-calculator.html">Calories</a>
+      <a href="/pages/blood-pressure-checker.html">Blood Pressure</a>
+      <a href="/pages/sleep-calculator.html">Sleep Calculator</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>More Tools</h4>
+      <a href="/pages/a1c-converter.html">A1C Converter</a>
+      <a href="/pages/gfr-calculator.html">GFR Calculator</a>
+      <a href="/pages/body-fat-calculator.html">Body Fat %</a>
+      <a href="/pages/ideal-weight-calculator.html">Ideal Weight</a>
+      <a href="/pages/heart-rate-calculator.html">Heart Rate</a>
+      <a href="/pages/tdee-calculator.html">TDEE Calculator</a>
+      <a href="/pages/anxiety-test.html">Anxiety Test</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Blog</h4>
+      <a href="/blog/">All Health Articles</a>
+      <a href="/blog/blood-sugar-levels-chart.html">Blood Sugar Chart</a>
+      <a href="/blog/normal-blood-pressure-by-age.html">Blood Pressure by Age</a>
+      <a href="/blog/healthy-weight-for-height-chart.html">Weight Chart</a>
+      <a href="/blog/how-much-sleep-do-you-need.html">Sleep Guide</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="/pages/about.html">About Us</a><a href="/pages/editorial-policy.html">Editorial Policy</a>
+      <a href="/pages/contact.html">Contact</a>
+      <a href="/pages/privacy-policy.html">Privacy Policy</a>
+      <a href="/pages/disclaimer.html">Medical Disclaimer</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 MedicalToolKit. All rights reserved. <strong>Not medical advice.</strong></p>
+    <div class="footer-legal-links">
+      <a href="/pages/privacy-policy.html">Privacy</a>
+      <a href="/pages/disclaimer.html">Disclaimer</a>
+      <a href="/pages/contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to Top -->
+<button class="back-to-top" aria-label="Back to top">&#8593;</button>
+
+<!-- Cookie Consent -->
+<div class="cookie-consent" id="cookieBanner" role="dialog" aria-label="Cookie consent">
+  <p>We use cookies to improve your experience and to show personalized ads. By clicking "Accept", you agree to our <a href="/pages/privacy-policy.html">Privacy Policy</a> and cookie use.</p>
+  <div class="cookie-btns">
+    <button class="btn-accept-cookies" id="acceptCookies">Accept</button>
+    <button class="btn-reject-cookies" id="rejectCookies">Decline</button>
+  </div>
+</div>
+
+
+<!-- Toast notification -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="/dist/js/main.min.js?v=20260620nodark" defer></script>
+<script src="/js/calculators/sleep.js" defer></script>
+  <script src="/dist/js/animations.min.js?v=20260620nodark" defer></script>
+
+  <script src="/dist/js/analytics.min.js?v=20260620nodark" defer></script>
+  <script src="/dist/js/pwa.min.js?v=20260620nodark" defer></script>
+  <script src="/dist/js/calc-history.min.js?v=20260620nodark" defer></script>
+</body>
+</html>

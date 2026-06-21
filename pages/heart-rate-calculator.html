@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+/* Critical CSS — above fold render */
+:root{--primary:#2563EB;--primary-light:#EFF6FF;--primary-dark:#1D4ED8;--secondary:#10B981;--text:#1E293B;--text-light:#475569;--text-muted:#94A3B8;--bg:#F8FAFC;--border:#E2E8F0;--shadow:0 1px 3px rgba(0,0,0,.1),0 1px 2px rgba(0,0,0,.06);--shadow-lg:0 10px 15px rgba(0,0,0,.1);--shadow-xl:0 20px 25px rgba(0,0,0,.1);--radius:12px;--radius-sm:8px;--radius-lg:16px;--transition:all .2s ease}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;overflow-x:hidden}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;overflow-x:hidden}
+.site-header{position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid var(--border);box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.header-inner{max-width:1200px;margin:0 auto;padding:0 20px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.site-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-icon{width:40px;height:40px;background:var(--primary);border-radius:10px;display:flex;align-items:center;justify-content:center}
+.logo-icon svg{width:22px;height:22px;fill:white}
+.logo-text{font-weight:700;font-size:1.1rem;color:var(--text)}
+.logo-text span{color:var(--primary)}
+.main-nav{display:flex;align-items:center;gap:4px}
+.main-nav a{padding:6px 12px;border-radius:8px;font-size:.875rem;font-weight:500;color:var(--text-light);text-decoration:none}
+.hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer;width:36px;height:36px;background:none;border:none}
+.bar{width:22px;height:2.5px;background:var(--text);border-radius:3px}
+.hero{background:linear-gradient(135deg,#1E3A5F 0%,#2563EB 50%,#0EA5E9 100%);color:white;padding:72px 20px 60px;text-align:center;position:relative;overflow:hidden}
+.hero h1{font-size:clamp(2rem,5vw,3rem);font-weight:800;line-height:1.15;margin-bottom:16px;letter-spacing:-.5px}
+.hero p{font-size:1.1rem;opacity:.88;max-width:580px;margin:0 auto 28px}
+.stats-bar{background:#fff;border-bottom:1px solid var(--border)}
+.stats-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:center;flex-wrap:wrap}
+.stat-item{display:flex;flex-direction:column;align-items:center;padding:16px 32px;border-right:1px solid var(--border);flex:1;min-width:120px;text-align:center}
+.stat-item:last-child{border-right:none}
+.stat-number{font-size:2rem;font-weight:800;color:var(--primary);display:block;line-height:1.2;white-space:nowrap}
+.stat-label{font-size:0.8rem;color:var(--text-light);white-space:nowrap;margin-top:2px}
+@media(max-width:640px){.stat-item{padding:14px 16px;flex:0 0 50%;min-width:50%;border-right:none;border-bottom:1px solid var(--border)}.stat-item:nth-child(odd){border-right:1px solid var(--border)}.stat-item:nth-last-child(-n+2){border-bottom:none}.stat-number{font-size:1.5rem}}
+.reading-progress{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--primary),#10B981,#0EA5E9);z-index:99999;transition:width .15s linear}
+</style>
+  <script src="https://quge5.com/88/tag.min.js" data-zone="245868" async data-cfasync="false"></script>
+  <meta charset="UTF-8">
+  <!-- DNS Prefetch — Performance -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link rel="dns-prefetch" href="//quge5.com">
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <link rel="dns-prefetch" href="//www.google-analytics.com"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>Heart Rate Calculator — Training Zones | MedicalToolKit</title>
+  <meta name="description" content="Calculate your maximum heart rate and 5 training zones. Find your fat-burning zone, aerobic zone, and more for optimised workouts.">
+  <link rel="canonical" href="https://medicaltoolkit.pages.dev/pages/heart-rate-calculator.html">
+  <meta property="og:title" content="Heart Rate Calculator — Training Zones | MedicalToolKit"><meta property="og:url" content="https://medicaltoolkit.pages.dev/pages/heart-rate-calculator.html"><meta property="og:type" content="website"><meta property="og:site_name" content="MedicalToolKit">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#2563EB">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap&subset=latin" rel="stylesheet">
+  <link rel="preload" href="/dist/css/style.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/style.min.css?v=20260620nodark"></noscript><link rel="preload" href="/dist/css/responsive.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/responsive.min.css?v=20260620nodark"></noscript><link rel="stylesheet" href="/dist/css/calculator.min.css?v=20260620nodark">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Heart Rate Calculator","url":"https://medicaltoolkit.pages.dev/pages/heart-rate-calculator.html","applicationCategory":"HealthApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JWW19HEZBJ');
+  </script>
+  <meta property="og:image" content="https://medicaltoolkit.pages.dev/images/og-heart-rate.png">
+  <meta name="twitter:image" content="https://medicaltoolkit.pages.dev/images/og-heart-rate.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a normal resting heart rate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A normal resting heart rate for adults is between 60 and 100 beats per minute (bpm). Athletes and physically fit individuals may have a resting heart rate of 40\u201360 bpm, which is normal and indicates an efficient cardiovascular system. Consistently above 100 bpm (tachycardia) or below 60 bpm (bradycardia) should be evaluated by a doctor."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I calculate my maximum heart rate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The most commonly used formula is: Maximum Heart Rate = 220 minus your age in years. For example, a 30-year-old would have an estimated maximum heart rate of 190 bpm. This is a general estimate; individual maximum heart rates can vary by 10\u201320 bpm above or below this estimate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What heart rate zone burns the most fat?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The fat-burning zone is typically 60\u201370% of your maximum heart rate. At this intensity, a higher proportion of calories comes from fat compared to carbohydrates. However, higher intensity zones (70\u201385% MHR) burn more total calories, which can lead to greater overall fat loss over time."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://medicaltoolkit.pages.dev/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Heart Rate Calculator",
+      "item": "https://medicaltoolkit.pages.dev/pages/heart-rate-calculator.html"
+    }
+  ]
+}
+</script>
+  <link rel="stylesheet" href="/dist/css/calc-history.min.css?v=20260620nodark">
+  <link rel="preload" href="/dist/css/animations.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/animations.min.css?v=20260620nodark"></noscript>
+  <link rel="preload" href="/dist/css/blog.min.css?v=20260620nodark" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/dist/css/blog.min.css?v=20260620nodark"></noscript>
+  <!-- ============================================
+       SEARCH CONSOLE & WEBMASTER VERIFICATION
+       Replace placeholder values with your actual codes
+       ============================================ -->
+  <!-- Google Search Console: Go to search.google.com/search-console → Add Property → HTML tag -->
+  <meta name="google-site-verification" content="y63XSBvlNcknj46yVKMn0uE14aKKOBfjwLLO6EZrLBk">
+  <!-- Bing Webmaster: Go to bing.com/webmasters → Add Site → HTML Meta Tag -->
+  <meta name="msvalidate.01" content="AB9070CF57664870ADB2D23906FE30C4">
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JWW19HEZBJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JWW19HEZBJ', {anonymize_ip: true});
+  </script>
+</head>
+<body>
+<header class="site-header" role="banner">
+  <div class="header-inner">
+    <a href="/" class="site-logo" aria-label="MedicalToolKit Home">
+      <div class="logo-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg></div>
+      <span class="logo-text">Medical<span>ToolKit</span></span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="/pages/bmi-calculator.html">Fitness</a><a href="/pages/due-date-calculator.html">Pregnancy</a>
+      <a href="/pages/blood-sugar-calculator.html">Diabetes</a><a href="/pages/blood-pressure-checker.html">Heart</a>
+      <a href="/pages/gfr-calculator.html">Kidney</a><a href="/pages/anxiety-test.html">Mental Health</a><a href="/pages/about.html">About</a>
+      <a href="/blog/">Blog</a>
+    </nav>
+    <div class="header-search search-wrapper"><input type="search" class="header-search-input search-input" placeholder="Search calculators..." aria-label="Search calculators"></div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav">
+    <div class="mobile-search"><input type="search" class="search-input" placeholder="Search calculators..."></div>
+    <a href="/">Home</a><a href="/pages/bmi-calculator.html">BMI Calculator</a><a href="/pages/calorie-calculator.html">Calorie Calculator</a>
+    <a href="/pages/blood-pressure-checker.html">Blood Pressure</a><a href="/pages/blood-sugar-calculator.html">Blood Sugar</a>
+    <a href="/pages/gfr-calculator.html">GFR Calculator</a><a href="/pages/anxiety-test.html">Anxiety Test</a><a href="/pages/about.html">About</a>
+  </nav>
+</header>
+<div class="breadcrumb-bar"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="breadcrumb-sep">›</span><span>Heart Rate Calculator</span></nav></div>
+<section class="page-hero" aria-labelledby="pageHeroHeading">
+  <div style="max-width:700px;margin:0 auto;">
+    <h1 id="pageHeroHeading">Heart Rate Calculator — Max HR & Training Zones</h1>
+    <p>Calculate your maximum heart rate and personalised training zones based on your age. Includes optional Karvonen heart rate reserve method for more precise zone calculations.</p>
+  </div>
+</section>
+<div class="calc-page-layout">
+  <main class="calc-main" id="mainContent">
+    <div class="calc-intro"><h2>Understanding Heart Rate Training Zones</h2><p>Training within specific heart rate zones allows you to target different physiological adaptations during exercise. The classic five-zone model divides exercise intensity based on percentage of maximum heart rate (Max HR). Your Max HR is estimated using the widely-used formula: 220 − age. Zone 1 (50–60%) is gentle recovery work. Zone 2 (60–70%) is the fat-burning aerobic base zone. Zone 3 (70–80%) develops cardiovascular fitness. Zone 4 (80–90%) pushes your lactate threshold. Zone 5 (90–100%) is maximum sprint effort. Training across all zones creates a well-rounded fitness programme. The optional Karvonen method refines zones using your resting heart rate for even more personalised targets.</p></div>
+<div class="calc-widget"><div class="calc-widget-header"><span class="calc-widget-icon">💓</span><h2>Heart Rate Calculator</h2></div><div class="calc-widget-body"><div class="calc-form">
+    <div class="form-group"><label class="form-label" for="ageHr">Age</label><div class="input-group"><input type="number" id="ageHr" class="calc-input" placeholder="e.g. 30" min="10" max="100"><span class="input-suffix">years</span></div></div>
+    <div class="form-group"><label class="form-label" for="restingHr">Resting Heart Rate <span style="font-weight:400;font-size:0.85em;">(optional — for Karvonen zones)</span></label><div class="input-group"><input type="number" id="restingHr" class="calc-input" placeholder="e.g. 60" min="30" max="120"><span class="input-suffix">bpm</span></div></div>
+    <p class="input-error-msg" id="hrError" role="alert"></p>
+    <button class="calc-btn" id="calcHeartRate" type="button">Calculate Heart Rate Zones</button>
+    <button class="calc-btn-secondary" id="resetHeartRate" type="button">Reset</button>
+  </div></div></div>
+<div class="calc-result-box" id="hrResult" role="region" aria-live="polite">
+    <div class="result-header"><div class="result-icon">💓</div><div><div class="result-title">Heart Rate Zones</div><div class="result-value" id="hrMax">—</div><span class="result-category green">Max Heart Rate</span></div></div>
+    <div class="result-grid-2"><div class="result-mini-card"><div class="label">Max HR (220 − age)</div><div class="value" id="hrMax">—</div></div><div class="result-mini-card"><div class="label">Resting HR</div><div class="value" id="hrResting">—</div></div></div>
+    <div id="hrZones" style="margin-top:16px;"></div><div class="share-result-section"><div class="share-result-label">Share your result:</div><div class="share-result-btns"><button class="share-btn share-whatsapp" id="shareWhatsapp" type="button">WhatsApp</button><button class="share-btn share-twitter" id="shareTwitter" type="button">Twitter</button><button class="share-btn copy-result" id="copyResult" type="button">Copy</button></div></div></div>
+
+    <!-- How to Use -->
+    <div class="content-section">
+      <h2>How to Use the Heart Rate Calculator</h2>
+      <ul>
+        <li><strong>Step 1 — Enter your age</strong> in years. The maximum heart rate formula is age-based.</li>
+        <li><strong>Step 2 — Optionally enter your resting heart rate</strong> (RHR) in beats per minute. Measure RHR by counting your pulse for 60 seconds first thing in the morning before getting out of bed. This enables the more accurate Karvonen (Heart Rate Reserve) method for zone calculations.</li>
+        <li><strong>Step 3 — Click Calculate</strong> to see your maximum heart rate, heart rate reserve, and all five training zones with their bpm ranges and primary fitness benefits.</li>
+      </ul>
+      <p>Use a heart rate monitor, fitness band, or smartwatch during exercise to stay within your target zones. Accurate zone training is far more effective than exercising at a random intensity.</p>
+    </div>
+
+    <!-- Formula -->
+    <div class="content-section">
+      <h2>Heart Rate Formulas Explained</h2>
+      <div class="formula-box">
+        <strong>Maximum Heart Rate (MHR):</strong><br>
+        Tanaka Formula (2001): MHR = 208 − (0.7 × Age) [most accurate for adults]<br>
+        Classic Formula: MHR = 220 − Age [widely used, ±10–20 bpm variation]<br><br>
+        <strong>Karvonen Method (Target HR with RHR):</strong><br>
+        Target HR = ((MHR − RHR) × Intensity%) + RHR<br><br>
+        Example: Age 35, RHR 60 → MHR = 183.5 bpm<br>
+        Zone 2 (60–70%): ((183.5 − 60) × 0.65) + 60 = 140 bpm
+      </div>
+      <p>The Karvonen method is preferred by exercise physiologists because it personalizes zones based on your individual cardiovascular fitness (reflected by RHR). A lower RHR means a higher Heart Rate Reserve, which shifts zones upward.</p>
+    </div>
+
+    <!-- Understanding Results -->
+    <div class="content-section">
+      <h2>The 5 Heart Rate Training Zones</h2>
+      <p>Heart rate zones define the intensity of cardiovascular exercise and determine what physiological adaptations occur:</p>
+      <ul>
+        <li><strong>Zone 1 — Very Light (50–60% MHR):</strong> Active recovery. Promotes blood flow, reduces soreness, enhances fat metabolism. Ideal for warm-up, cool-down, and recovery days.</li>
+        <li><strong>Zone 2 — Light (60–70% MHR):</strong> The "fat burning zone." Primarily uses fat as fuel. Builds aerobic base, improves mitochondrial density, and is sustainable for long durations. Critical for endurance athletes.</li>
+        <li><strong>Zone 3 — Moderate (70–80% MHR):</strong> Aerobic conditioning. Improves cardiovascular efficiency, increases VO2max, and builds stamina. A good default for general fitness.</li>
+        <li><strong>Zone 4 — Hard (80–90% MHR):</strong> Anaerobic threshold training. Increases lactate threshold — the point at which exercise becomes uncomfortable. Dramatically improves speed and performance.</li>
+        <li><strong>Zone 5 — Maximum (90–100% MHR):</strong> Maximum effort sprints. Builds peak power and speed. Only sustainable for short intervals (10–60 seconds). Not appropriate for beginners or those with cardiovascular conditions.</li>
+      </ul>
+    </div>
+
+    <!-- Tips -->
+    <div class="content-section">
+      <h2>Heart Health: What Your Resting Heart Rate Reveals</h2>
+      <p>Your resting heart rate (RHR) is one of the most powerful and easy-to-measure indicators of cardiovascular health:</p>
+      <ul>
+        <li><strong>60–100 bpm:</strong> Normal adult range. Higher end may indicate stress, deconditioning, or health issues worth discussing with a doctor.</li>
+        <li><strong>40–60 bpm:</strong> Athletic range. Trained endurance athletes commonly have RHRs in this range, indicating highly efficient cardiac output.</li>
+        <li><strong>Above 100 bpm (tachycardia):</strong> Can indicate dehydration, anemia, thyroid issues, heart arrhythmia, or anxiety. Seek medical evaluation if consistently elevated.</li>
+        <li><strong>Below 40 bpm:</strong> May be normal in elite athletes but can also indicate bradycardia requiring cardiac evaluation in non-athletes.</li>
+        <li><strong>Trend matters:</strong> A rising RHR over weeks may signal overtraining, illness, or increased stress. Track your RHR daily using a fitness tracker to identify these patterns early.</li>
+      </ul>
+    </div>
+
+    <div class="content-section"><h2>Frequently Asked Questions</h2>
+    <div class="faq-item"><h3>How accurate is the 220 − age formula?</h3><p>The 220 − age formula is a population average with a standard deviation of about ±10–12 bpm. It works well for most people but can overestimate max HR in older adults and underestimate it in very fit individuals. An actual max HR test (supervised exercise test) provides a more accurate measurement.</p></div>
+    <div class="faq-item"><h3>What is the best zone for fat burning?</h3><p>Zone 2 (60–70% of max HR) is traditionally called the "fat burning zone" because fat is the primary fuel source at this intensity. However, higher intensity zones burn more total calories per minute, which may be more effective for overall fat loss. Zone 2 training also builds the aerobic base needed for all other training.</p></div>
+    <div class="faq-item"><h3>What is the Karvonen method?</h3><p>The Karvonen heart rate reserve (HRR) method uses your resting HR to personalise training zones: Target HR = Resting HR + (HRR × intensity%). Where HRR = Max HR − Resting HR. This produces slightly higher zone targets than the standard % of Max HR method.</p></div></div>
+
+    <div class="content-section"><h2>Related Calculators</h2>
+      <div class="related-tools-grid"><a href="/pages/blood-pressure-checker.html" class="related-tool-card">❤️ Blood Pressure</a><a href="/pages/calorie-calculator.html" class="related-tool-card">🔥 Calorie Calculator</a><a href="/pages/tdee-calculator.html" class="related-tool-card">⚡ TDEE Calculator</a><a href="/pages/bmi-calculator.html" class="related-tool-card">📊 BMI Calculator</a></div>
+    </div>
+  </main>
+  <aside class="calc-sidebar">
+    <div class="sidebar-widget"><h3>Quick Links</h3><a href="/pages/blood-pressure-checker.html" class="sidebar-link">Blood Pressure</a><a href="/pages/calorie-calculator.html" class="sidebar-link">Calorie Calculator</a><a href="/pages/bmi-calculator.html" class="sidebar-link">BMI Calculator</a></div>
+  
+    <div class="sidebar-widget">
+      <div class="sidebar-widget-header"><h3>💓 Heart Rate Tips</h3></div>
+      <div class="sidebar-widget-body">
+        <div class="sidebar-tip"><strong>Zone 2 is underrated</strong> Most recreational exercisers train too hard. 80% of your training should be in Zone 2 (conversational pace) for maximum long-term fitness gains.</div>
+        <div class="sidebar-tip"><strong>HRV is even better</strong> Heart Rate Variability (HRV) — the variation between beats — is a more sensitive measure of recovery and fitness than RHR alone. Many smartwatches now track HRV.</div>
+        <div class="sidebar-tip"><strong>Medication note</strong> Beta-blockers and other heart medications directly lower heart rate. If you take these, standard MHR formulas will not apply — consult your cardiologist for exercise guidance.</div>
+      </div>
+    </div>
+
+  
+    <div class="sidebar-widget">
+      <div class="sidebar-widget-header"><h3>💓 Heart Rate Tips</h3></div>
+      <div class="sidebar-widget-body">
+        <div class="sidebar-tip"><strong>Zone 2 is underrated</strong> Most recreational exercisers train too hard. 80% of your training should be in Zone 2 (conversational pace) for maximum long-term fitness gains.</div>
+        <div class="sidebar-tip"><strong>HRV is even better</strong> Heart Rate Variability (HRV) — the variation between beats — is a more sensitive measure of recovery and fitness than RHR alone. Many smartwatches now track HRV.</div>
+        <div class="sidebar-tip"><strong>Medication note</strong> Beta-blockers and other heart medications directly lower heart rate. If you take these, standard MHR formulas will not apply — consult your cardiologist for exercise guidance.</div>
+      </div>
+    </div>
+
+  </aside>
+</div>
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-grid">
+    <div class="footer-brand"><div class="site-logo"><div class="logo-icon"><svg viewBox="0 0 24 24" fill="white"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg></div><span class="logo-text">Medical<span>ToolKit</span></span></div><p>Free, accurate medical and health calculators trusted by millions worldwide.</p></div>
+    <div class="footer-col"><h4>Calculators</h4><a href="/pages/bmi-calculator.html">BMI Calculator</a><a href="/pages/due-date-calculator.html">Due Date</a><a href="/pages/blood-sugar-calculator.html">Blood Sugar</a><a href="/pages/calorie-calculator.html">Calories</a><a href="/pages/blood-pressure-checker.html">Blood Pressure</a><a href="/pages/sleep-calculator.html">Sleep Calculator</a></div>
+    <div class="footer-col"><h4>More Tools</h4><a href="/pages/a1c-converter.html">A1C Converter</a><a href="/pages/gfr-calculator.html">GFR Calculator</a><a href="/pages/body-fat-calculator.html">Body Fat %</a><a href="/pages/ideal-weight-calculator.html">Ideal Weight</a><a href="/pages/heart-rate-calculator.html">Heart Rate</a><a href="/pages/tdee-calculator.html">TDEE Calculator</a><a href="/pages/anxiety-test.html">Anxiety Test</a></div>
+    <div class="footer-col"><h4>Company</h4><a href="/pages/about.html">About Us</a><a href="/pages/editorial-policy.html">Editorial Policy</a><a href="/pages/contact.html">Contact</a><a href="/pages/privacy-policy.html">Privacy Policy</a><a href="/pages/disclaimer.html">Medical Disclaimer</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 MedicalToolKit. All rights reserved. <strong>Not medical advice.</strong></p><div class="footer-legal-links"><a href="/pages/privacy-policy.html">Privacy</a><a href="/pages/disclaimer.html">Disclaimer</a><a href="/pages/contact.html">Contact</a></div></div>
+</footer>
+<button class="back-to-top" aria-label="Back to top">&#8593;</button>
+<div class="cookie-consent" id="cookieBanner" role="dialog"><p>We use cookies. <a href="/pages/privacy-policy.html">Privacy Policy</a></p><div class="cookie-btns"><button class="btn-accept-cookies" id="acceptCookies">Accept</button><button class="btn-reject-cookies" id="rejectCookies">Decline</button></div></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="/dist/js/main.min.js?v=20260620nodark" defer></script>
+<script src="/js/calculators/heart-rate.js" defer></script>
+  <script src="/dist/js/animations.min.js?v=20260620nodark" defer></script>
+
+  <script src="/dist/js/analytics.min.js?v=20260620nodark" defer></script>
+  <script src="/dist/js/pwa.min.js?v=20260620nodark" defer></script>
+  <script src="/dist/js/calc-history.min.js?v=20260620nodark" defer></script>
+</body></html>
